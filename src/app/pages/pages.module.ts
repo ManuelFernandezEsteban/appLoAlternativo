@@ -4,6 +4,8 @@ import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { NotPageFoundComponent } from './not-page-found/not-page-found.component';
+import { ComponentsModule } from './components/components.module';
+
 
 
 
@@ -12,10 +14,12 @@ import { NotPageFoundComponent } from './not-page-found/not-page-found.component
     PrincipalComponent,
     LoginComponent,
     RegistroComponent,
-    NotPageFoundComponent
+    NotPageFoundComponent,
+    
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsModule
   ],
   exports:[
     PrincipalComponent,
