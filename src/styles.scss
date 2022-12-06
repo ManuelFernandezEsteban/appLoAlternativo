@@ -2,37 +2,37 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Quicksand&family=Roboto&family=Teko&display=swap');
 
- 
-*{
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-$fontOptionMenu:Teko;
-$fontTitle:Cedarville Cursive;
-$fontCaption:QuickSand;
-$colorPrimary:#727144;
-$colorSecondary:#7bacd5;
+$fontOptionMenu: Teko;
+$fontTitle: Cedarville Cursive;
+$fontCaption: QuickSand;
+$colorPrimary: #727144;
+$colorSecondary: #7bacd5;
 
 
-app-root{
+app-root {
     width: 100vw;
-    min-height: 100vh; 
+    min-height: 100vh;
     padding: 0;
     margin: 0;
-     
+
 }
 
 
 
 /*pagina principal*/
 
-.container{
-     
+.container {
+
     display: flex;
-    flex-direction: column; 
-    justify-content: center;  
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }
@@ -40,58 +40,72 @@ app-root{
 
 /*header*/
 
-nav{
-   ul{
-    display: flex;
-    gap: 10px;
-    list-style: none;
-   } 
-   li{
-    display: inline-block;
-   } 
-   a{
-    display: block;
-    padding: 6px 12px;
-    text-decoration: none;
-    font-family: $fontOptionMenu;
-    font-size: 24px;
-    color: $colorPrimary;
-    font-weight: bold;
-    letter-spacing: 2px;
-   }
+nav {
+    ul {
+        display: flex;
+        gap: 10px;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+        font-family: $fontOptionMenu;
+        font-size: 24px;
+        color: $colorPrimary;
+        font-weight: 400;
+        letter-spacing: 2px;
+    }
+
+    a:hover {
+        font-style: italic;
+    }
 }
-.active{
+
+.active {
     border-bottom: 4px solid $colorPrimary;
 }
-app-header{
+
+app-header {
     width: 100%;
 }
-header{
+
+header {
     display: flex;
     justify-content: space-between;
     padding: 20px 20px 0px 20px;
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, $colorSecondary 0%, rgba(255,255,255,1) 50%);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, $colorSecondary 0%, rgba(255, 255, 255, 1) 50%);
     width: 100%;
-    .container-logo{
-        img{
+
+    .container-logo {
+        img {
             width: 400px;
             height: 400px;
         }
     }
-    .container-nav-content{
+
+    .container-nav-content {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         color: $colorPrimary;
-        h1{
+
+        h1 {
             font-size: 96px;
             font-family: $fontTitle;
             font-weight: 400;
             line-height: 144px;
-            
+
         }
-        h2{
+
+        h2 {
             font-size: 32px;
             font-family: $fontOptionMenu;
             font-weight: 400;
@@ -104,15 +118,16 @@ header{
 /*fin header*/
 
 /* boton plantillas*/
-app-boton-plantillas{
+app-boton-plantillas {
     width: 120px;
     height: 120px;
     position: fixed;
     top: 400px;
     left: 50px;
 }
-.boton-plantilla{
-    display: flex;    
+
+.boton-plantilla {
+    display: flex;
     align-items: center;
     text-align: center;
     border-radius: 120px;
@@ -124,21 +139,22 @@ app-boton-plantillas{
     font-family: $fontCaption;
     font-size: 14px;
     line-height: 18px;
-    cursor: pointer;    
-    box-shadow: 8px 8px 31px -9px rgba(0,0,0,0.75);
+    cursor: pointer;
+    box-shadow: 8px 8px 31px -9px rgba(0, 0, 0, 0.75);
 }
 
 
 /* fin boton plantillas*/
 
 /* banner publicidad lo alternativo*/
-app-banner-publicidad{
+app-banner-publicidad {
     width: 100%;
     padding: 20px;
 }
-.publicidad{
+
+.publicidad {
     width: 100%;
-    height: 600px;    
+    height: 600px;
     border: 2px solid $colorPrimary;
     border-radius: 4px;
     display: flex;
@@ -147,3 +163,57 @@ app-banner-publicidad{
 }
 
 /* fin banner publicidad*/
+
+/*directorio especialidades*/
+
+.container-title {
+    width: 250px;
+    height: 70px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background-color: $colorSecondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container-title>a {
+    color: white;
+    font-family: $fontOptionMenu;
+    font-size: 32px;
+    line-height: 36;
+    letter-spacing: 4.8px;
+    text-decoration: none;
+}
+
+.container-especialidad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-image {
+    width: 250px;
+    height: 250px;
+
+    img {
+        width: 250px;
+        height: 250px;
+        object-fit: contain;
+    }
+}
+
+
+.grid-directorio{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 60px;
+    place-items: center;
+}
+
+
+
+/*fin directorio especialidades*/
