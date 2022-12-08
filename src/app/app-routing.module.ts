@@ -1,17 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PrincipalComponent } from './pages/principal/principal.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegistroComponent } from './pages/registro/registro.component';
-import { NotPageFoundComponent } from './pages/not-page-found/not-page-found.component';
+import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
+
+
 
 const routes: Routes = [
+  
+  {
+    path:'auth',
+    loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)
+  },
+  {
+    path:'',
+    loadChildren:()=>import('./home/home.module').then(m=>m.HomeModule)
+  },
+  {
+    path:'**',redirectTo:'404'
+  },
+  {
+    path:'404',component:ErrorPageComponent
+  }
 
-  {path:'principal', component:PrincipalComponent },
-  {path:'login', component:LoginComponent },
-  {path:'register', component:RegistroComponent },
-  {path:'' ,redirectTo:'/principal',pathMatch:'full'},
-  {path:'**',component:NotPageFoundComponent}
+
 
 ];
 

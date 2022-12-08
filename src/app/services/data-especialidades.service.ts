@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Especialidad, Especilidades } from '../interfaces/especiliadad';
+import { Especialidad, Especilidades } from '../interfaces/especialiadad';
 
 @Injectable({
   providedIn: 'root'

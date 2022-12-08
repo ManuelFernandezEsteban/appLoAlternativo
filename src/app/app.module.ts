@@ -4,16 +4,18 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PagesModule } from './pages/pages.module';
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    PagesModule,
+    AppRoutingModule,   
     HttpClientModule
   ],
   providers: [],

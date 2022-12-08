@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Especialidad } from '../../interfaces/especiliadad';
-import { DataEspecialidadesService } from '../../services/data-especialidades.service';
+import { Especialidad } from '../../interfaces/especialiadad';
+
 
 @Component({
   selector: 'app-principal',
@@ -9,16 +9,12 @@ import { DataEspecialidadesService } from '../../services/data-especialidades.se
 })
 export class PrincipalComponent implements OnInit {
 
-  especialidades:Especialidad[]=[]
   
-  constructor(private dataEspecialidadesService:DataEspecialidadesService) { }
+  
+  constructor() { }
 
   ngOnInit(): void {
-    this.dataEspecialidadesService.getEspecialidades().subscribe(res=>{
-      console.log(res.especialidades);
-      this.especialidades=res.especialidades;
-      
-    })
+    
   }
 
 }
