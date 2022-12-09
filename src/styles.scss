@@ -115,20 +115,14 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100vw;
-    min-height: 100vh;
+  
+    
 }
 
-
-
-
-app-root {
-    width: 100vw;
-    min-height: 100vh;
-    padding: 0;
-    margin: 0;
-
+.sr-only{
+    display: none;
 }
+
 
 
 
@@ -139,8 +133,10 @@ app-root {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     width: 100%;
+    position: relative;
+    min-height: 100vh;
 }
 
 
@@ -180,8 +176,17 @@ app-header {
     width: 100%;
 }
 
+.sticky{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 102px ;
+}
+
+
 header {
     display: flex;
+
     justify-content: space-between;
     padding: 20px 20px 0px 20px;
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 50%);
@@ -206,7 +211,7 @@ header {
 /*fin header*/
 
 /* boton plantillas*/
-app-boton-plantillas {
+app-boton-plantilla {
     width: 120px;
     height: 120px;
     position: fixed;
@@ -234,17 +239,19 @@ app-boton-plantillas {
 /* banner publicidad lo alternativo*/
 app-banner-publicidad {
     width: 100%;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .publicidad {
-    width: 100%;
+    
     height: 600px;
     border: 2px solid $accentColor;
     border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 /* fin banner publicidad*/
@@ -253,20 +260,29 @@ app-banner-publicidad {
 
 .container-title {
     width: 250px;
-    height: 70px;
+    height: 40px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     background-color: $primaryColor;
     display: flex;
     justify-content: center;
     align-items: center;
-
+   
 }
 
 .container-title>a {
     color: $lightColor;
-
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     text-decoration: none;
+    text-align: center;    
+}
+
+.container-title>a:hover{
+    background-color: $primaryColorHover;
 }
 
 .container-especialidad {
@@ -274,6 +290,7 @@ app-banner-publicidad {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 2.5px 2.5px 6px 0px rgba(0,0,0,0.75);
 }
 
 .container-image {
@@ -304,7 +321,7 @@ app-boton-especialistas {
     width: 360px;
     height: 360px;
     align-self: center;
-    margin-top: 150px;
+    margin-top: 30px;
     margin-bottom: 30px;
 
 }
@@ -319,12 +336,16 @@ app-boton-especialistas {
     background: radial-gradient(circle, rgba(123,172,213,1) 6%, rgba(255,255,255,1) 47%, rgba(2,0,36,1) 83%);    color: #5495C0;
     text-decoration: none;
     box-shadow: 10px 10px 24px 0px rgba(0,0,0,0.75);
+    margin-top: 50px;
 }
 
 
 /*fin boton-especialistas*/
 
 /*footer*/
+app-footer{
+    width: 100%;
+}
 
     footer{        
         display: flex;
@@ -333,8 +354,10 @@ app-boton-especialistas {
         width: 100%;
         background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 50%);
         padding: 20px;
-        padding-top: 300px;
-        padding-bottom: 100px;        
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin-top: 50px;
+        
     }
     .box{
         display: flex;

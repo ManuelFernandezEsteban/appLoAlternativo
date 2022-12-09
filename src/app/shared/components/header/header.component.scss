@@ -1,0 +1,21 @@
+.fixed{
+    position: fixed;
+    top: 0;
+    transition: 0.2s linear;
+    border-bottom: 1px solid #7BACD5;
+}
+
+.nofixed{
+    position: static;
+    transition: 0.2s linear;
+    top:-50px;
+}
+
+.pequena {
+    width: 100px;
+    height: 100px;
+    img{
+        width: 100px;
+        height: 100px;
+    }
+}

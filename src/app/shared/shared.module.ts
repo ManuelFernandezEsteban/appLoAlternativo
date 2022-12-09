@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
@@ -8,6 +10,7 @@ import { BannerPublicidadComponent } from './components/banner-publicidad/banner
 import { BotonEspecialistasComponent } from './components/boton-especialistas/boton-especialistas.component';
 import { DirectorioComponent } from './components/directorio/directorio.component';
 import { EspecialidadComponent } from './components/especialidad/especialidad.component';
+
 
 
 
@@ -23,7 +26,8 @@ import { EspecialidadComponent } from './components/especialidad/especialidad.co
     EspecialidadComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports:[
     HeaderComponent,

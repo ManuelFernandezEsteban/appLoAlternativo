@@ -1,35 +1,35 @@
-<header>
+<header (scroll)="onScroll()" [ngClass]="headerFixed?'fixed':'nofixed'">
 
-    <div class="container-logo">
-        <img src="./../../../../assets/images/logo/logo.svg" alt="logo lo alternativo">
+    <div class="container-logo " [ngClass]="headerFixed?'pequena':''">
+        <img class="img-logo" [ngClass]="headerFixed?'pequena':''" src="./../../../../assets/images/logo/logo.svg" alt="logo lo alternativo">
     </div>
     <div class="container-nav-content">
         <nav>
             <ul>
                 <li>
-                    <a  class="option-menu active" href="#">Home</a>
+                    <a  class="option-menu" [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a>
                 </li>
                 <li>
-                    <a class="option-menu" href="#">Nosotros</a>
+                    <a class="option-menu" [routerLink]="['/nosotros']" [routerLinkActive]="['active']">Nosotros</a>
                 </li>
                 <li>
-                    <a class="option-menu" href="#">Especialistas</a>
+                    <a class="option-menu" [routerLink]="['/especialistas']" [routerLinkActive]="['active']">Especialistas</a>
                 </li>
                 <li>
-                    <a class="option-menu" href="#">Donde estamos</a>
+                    <a class="option-menu" [routerLink]="['/donde']" [routerLinkActive]="['active']">Donde estamos</a>
                 </li>
                 <li>
-                    <a class="option-menu" href="#">Contacto</a>
+                    <a class="option-menu" [routerLink]="['/contacto']" [routerLinkActive]="['active']">Contacto</a>
                 </li>
                 <li>
-                    <a class="option-menu" href="#">Zona terapeutas</a>
+                    <a class="option-menu" [routerLink]="['/auth']" [routerLinkActive]="['active']">Zona terapeutas</a>
                 </li>
             </ul>
 
         </nav>
-        <div class="container-content">
-            <h1 class="title-xxl-accent">LöAlternativo</h1>
-            <h2 class="sub-title-xxl">Comunidad de terapeutas y eventos</h2>
+        <div class="container-content"[ngClass]="headerFixed?'sr-only':''">
+            <h1 class="title-xxl-accent" >LöAlternativo</h1>
+            <h2 class="sub-title-xxl" >Comunidad de terapeutas y eventos</h2>
         </div>
     </div>
 
