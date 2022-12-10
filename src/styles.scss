@@ -53,9 +53,11 @@ $accentColorHover: #9D8B3D;
     font-weight: 400;
     padding-left: 20px;
 }
-.color-accent{
+
+.color-accent {
     color: $accentColor;
 }
+
 .sub-title-xxl {
     font-family: $fontOptions;
     font-size: $fsOptionEncabezado;
@@ -63,6 +65,7 @@ $accentColorHover: #9D8B3D;
     letter-spacing: 4.8px;
     font-weight: 400;
 }
+
 .sub-title-xl {
     font-family: $fontOptions;
     font-size: $fsOptionMenu;
@@ -78,12 +81,14 @@ $accentColorHover: #9D8B3D;
     letter-spacing: 3.6px;
     font-weight: 400;
 }
-.encabezado{
+
+.encabezado {
     font-family: $fontPrimary;
     font-weight: 700;
     font-size: $fsEncabezado;
     line-height: 28px;
 }
+
 .texto-regular {
     font-family: $fontSecondary;
     font-size: $fsRegular;
@@ -107,28 +112,31 @@ $accentColorHover: #9D8B3D;
     font-weight: bold;
 }
 
-.gap-20{
+.gap-20 {
     gap: 20px;
 }
 
-.boton{
+.boton {
     background-color: transparent;
     border: none;
     width: 85px;
     height: 35px;
     border-radius: 4px;
     text-align: center;
+    cursor: pointer;
 }
-.btn-info{
+
+.btn-info {
     border: 2px solid $primaryColor;
 }
 
-.btn-info-solid{
+.btn-info-solid {
     background-color: $primaryColor;
     color: var(--lightColor);
     font-weight: bold;
 }
-.btn-login{
+
+.btn-login {
     border: 2px solid $accentColor;
     color: $accentColor;
     font-family: $fontOptions;
@@ -137,16 +145,16 @@ $accentColorHover: #9D8B3D;
     height: 60px;
 }
 
-.btn-submit-form{
+.btn-submit-form {
     background-color: $submitColor;
     color: $lightColor;
     font-family: $fontOptions;
     font-size: $fsOptionMenu;
     width: 110px;
-    height: 40px;    
+    height: 40px;
 }
 
-.btn-borrar{
+.btn-borrar {
     border: 2px solid $redColor;
     color: $redColor;
     font-family: $fontOptions;
@@ -155,7 +163,7 @@ $accentColorHover: #9D8B3D;
     height: 40px;
 }
 
-.btn-small{
+.btn-small {
     border: 2px solid $darkColor;
     color: $darkColor;
     font-family: $fontPrimary;
@@ -164,39 +172,94 @@ $accentColorHover: #9D8B3D;
     height: 22px;
 }
 
-input{
+input[type='text'] {
     border: none;
     border-bottom: 2px solid $accentColor;
     width: 90%;
     padding: 10px;
     font-family: $fontPrimary;
     font-size: $fsRegular;
+    outline: none;
 }
 
-
-input:active{
-    border: none;
+input [type='email'] {
+    outline: none;
 }
 
+/*check box*/
+input[type='checkbox'] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: $accentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid $accentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em $accentColor;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.form-control {
+    display: flex;
+
+    align-items: center;
+    gap: 10px;
+}
+
+input:active {
+    outline: none;
+    font-family: $fontPrimary;
+    color: #727144;
+}
+
+/*fin check box*/
+
+/* text area*/
+textarea {
+    border: 2px solid $accentColor;
+    border-radius: 4px;
+    outline: none;
+    font-family: $fontPrimary;
+    font-size: $fsRegular;
+}
+
+/*fin text area */
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  
-    
+
+
 }
 
-.sr-only{
+.sr-only {
     display: none;
 }
-
-
 
 
 /*pagina principal*/
@@ -230,7 +293,7 @@ nav {
     a {
         display: block;
         padding: 6px 12px;
-        text-decoration: none;        
+        text-decoration: none;
         color: $accentColor;
     }
 
@@ -269,7 +332,7 @@ header {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: $accentColor;       
+        color: $accentColor;
     }
 }
 
@@ -293,7 +356,7 @@ app-boton-plantilla {
     height: 120px;
     background-color: $accentColor;
     color: white;
-    text-decoration: none;   
+    text-decoration: none;
     cursor: pointer;
     box-shadow: 8px 8px 31px -9px rgba(0, 0, 0, 0.75);
 }
@@ -309,14 +372,14 @@ app-banner-publicidad {
 }
 
 .publicidad {
-    
+
     height: 600px;
     border: 2px solid $accentColor;
     border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 /* fin banner publicidad*/
@@ -332,7 +395,7 @@ app-banner-publicidad {
     display: flex;
     justify-content: center;
     align-items: center;
-   
+
 }
 
 .container-title>a {
@@ -343,10 +406,10 @@ app-banner-publicidad {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     text-decoration: none;
-    text-align: center;    
+    text-align: center;
 }
 
-.container-title>a:hover{
+.container-title>a:hover {
     background-color: $primaryColorHover;
 }
 
@@ -355,7 +418,7 @@ app-banner-publicidad {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 2.5px 2.5px 6px 0px rgba(0,0,0,0.75);
+    box-shadow: 2.5px 2.5px 6px 0px rgba(0, 0, 0, 0.75);
 }
 
 .container-image {
@@ -381,8 +444,8 @@ app-directorio {
     width: 100%;
     margin-top: 60px;
     align-content: center
-
 }
+
 /*fin directorio especialidades*/
 
 /* boton-especilistas*/
@@ -394,7 +457,8 @@ app-boton-especialistas {
     margin-bottom: 30px;
 
 }
-.boton-especialistas{
+
+.boton-especialistas {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -402,9 +466,10 @@ app-boton-especialistas {
     height: 360px;
     border-radius: 360px;
     border-color: 2px solid $primaryColor;
-    background: radial-gradient(circle, rgba(123,172,213,1) 6%, rgba(255,255,255,1) 47%, rgba(2,0,36,1) 83%);    color: #5495C0;
+    background: radial-gradient(circle, rgba(123, 172, 213, 1) 6%, rgba(255, 255, 255, 1) 47%, rgba(2, 0, 36, 1) 83%);
+    color: #5495C0;
     text-decoration: none;
-    box-shadow: 10px 10px 24px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 24px 0px rgba(0, 0, 0, 0.75);
     margin-top: 50px;
 }
 
@@ -412,80 +477,88 @@ app-boton-especialistas {
 /*fin boton-especialistas*/
 
 /*footer*/
-app-footer{
+app-footer {
     width: 100%;
 }
 
-    footer{        
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-        width: 100%;
-        background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 50%);
-        padding: 20px;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        margin-top: 50px;
-        
-    }
-    .box{
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;  
-        justify-content: space-around; 
-        width: 50%;     
-    }
-    .columna{
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 50%);
+    padding: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 50px;
+
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 50%;
+}
+
+
+.columna {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    ul {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        ul{
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            list-style-type: none;
-            li{
-                
-                a{
-                    text-decoration: none;
-                    color: $accentColor;
-                    display: flex;                    
-                    gap: 10px;
-                    span{
-                        
-                        svg{
-                            width: 24px;
-                            fill: $accentColor;
-                        }
+        gap: 5px;
+        list-style-type: none;
+
+        li {
+
+            a {
+                text-decoration: none;
+                color: $accentColor;
+                display: flex;
+                gap: 10px;
+
+                span {
+
+                    svg {
+                        width: 24px;
+                        fill: $accentColor;
                     }
                 }
-                a:hover{
-                    color: $accentColorHover;
-                }
+            }
+
+            a:hover {
+                color: $accentColorHover;
             }
         }
     }
+}
 
 
 /*fin footer*/
 
 /* página nosotros*/
 
-.box-nosotros{
+.box-nosotros {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
 }
 
-.row-nosotros{
+.row-nosotros {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 70px;
     width: 60%;
     gap: 100px;
-    img{
+
+    img {
         width: 250px;
         height: 250px;
         border-radius: 4px;
@@ -496,18 +569,19 @@ app-footer{
 
 /*página donde*/
 
-app-donde{
+app-donde {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    h3{
+
+    h3 {
         align-self: flex-start;
     }
 }
 
-.box-donde{
-    
+.box-donde {
+
     padding: 70px;
     border: 2px solid $accentColor;
     border-radius: 4px;
@@ -517,15 +591,18 @@ app-donde{
     gap: 70px;
     margin-top: 60px;
 
-   
+
 }
-.box-datos{
+
+.box-datos {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    .wrapper-img{
+
+    .wrapper-img {
         width: 30%;
-        img{
+
+        img {
             width: 300px;
             height: 300px;
             object-fit: cover;
@@ -533,7 +610,7 @@ app-donde{
     }
 }
 
-.data{
+.data {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -546,13 +623,22 @@ app-donde{
 
 /* página contacto*/
 
-app-contacto{
+app-contacto {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    h3{
+
+    h3 {
         align-self: flex-start;
+    }
+
+    .fila{
+        display: flex;
+        flex-direction: row;
+    }
+    .end{
+        align-self: flex-end;
     }
 }
 

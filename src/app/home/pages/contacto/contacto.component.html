@@ -5,41 +5,44 @@
 
     <form [formGroup]="formContacto" (ngSubmit)="OnSubmit()">
 
-        <div>
-            <div>
-                <label class="encabezado color-accent" for="name">Nombre:</label>
-                <div>
-                    <input type="text" name="name" id="" formControlName="name">
-                    <span></span>
+        <div class="fila gap-20">
+            <div class="columna gap-20">
+                <div class="columna">
+                    <label class="encabezado color-accent" for="name">Nombre:</label>
+                    <div>
+                        <input type="text" name="name" id="" formControlName="name" placeholder="Manuel">
+                        <span></span>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <label class="encabezado color-accent" for="email">Email:</label>
                 <div>
-                    <input type="text" name="email" id="" formControlName="email">
-                    <span></span>
+                    <label class="encabezado color-accent" for="email">Email:</label>
+                    <div>
+                        <input type="text" name="email" id="" formControlName="email" placeholder="tuemail@email.es">
+                        <span></span>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <label class="encabezado color-accent" for="privacidad">Acepto la política de privacidad:</label>
-                <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
-                <span></span>
+                <div>
+                    <label class="form-control encabezado color-accent" for="privacidad">Acepto la política de
+                        privacidad
+                        <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
+                    </label>
+                    <span></span>
 
+                </div>
             </div>
-        </div>
-        <div>
-            <label class="encabezado color-accent" for="mensaje">Mensaje</label>
-            <div>
-                <textarea name="mensaje" id="" cols="40" rows="8" formControlName="mensaje">
+            <div class="columna gap-20">
+                <label class="encabezado color-accent" for="mensaje">Mensaje</label>
+                <div>
+                    <textarea name="mensaje" id="" cols="40" rows="8" formControlName="mensaje"
+                        placeholder="Cuentanos que necesitas">
 
                 </textarea>
-                <span></span>
+                    <span></span>
+                </div>
+
+                <button class="boton btn-login end" type="submit">Enviar</button>
             </div>
-
-            <button class="boton btn-login" type="submit">Enviar</button>
         </div>
-
-
     </form>
 
 
