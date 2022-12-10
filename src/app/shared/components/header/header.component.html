@@ -5,24 +5,24 @@
     </div>
     <div class="container-nav-content">
         <nav>
-            <ul>
+            <ul [ngClass]="headerFixed?'fontSizePequena':''">
                 <li>
-                    <a  class="option-menu" [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a>
+                    <a  class="option-menu" (click)="scroll()" [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a>
                 </li>
                 <li>
-                    <a class="option-menu" [routerLink]="['/nosotros']" [routerLinkActive]="['active']">Nosotros</a>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['/nosotros']" [routerLinkActive]="['active']">Nosotros</a>
                 </li>
                 <li>
-                    <a class="option-menu" [routerLink]="['/especialistas']" [routerLinkActive]="['active']">Especialistas</a>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['/especialistas']" [routerLinkActive]="['active']">Especialistas</a>
                 </li>
                 <li>
-                    <a class="option-menu" [routerLink]="['/donde']" [routerLinkActive]="['active']">Donde estamos</a>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['/donde']" [routerLinkActive]="['active']">Donde estamos</a>
                 </li>
                 <li>
-                    <a class="option-menu" [routerLink]="['/contacto']" [routerLinkActive]="['active']">Contacto</a>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['/contacto']" [routerLinkActive]="['active']">Contacto</a>
                 </li>
                 <li>
-                    <a class="option-menu" [routerLink]="['/auth']" [routerLinkActive]="['active']">Zona terapeutas</a>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['/auth']" [routerLinkActive]="['active']">Zona terapeutas</a>
                 </li>
             </ul>
 

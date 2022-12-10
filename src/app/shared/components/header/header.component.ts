@@ -15,11 +15,18 @@ export class HeaderComponent implements OnInit {
   }
 
   @HostListener('window:scroll',['$event']) onScroll(){
-    if(window.scrollY>200){
+    let alturaPagina = document.querySelector('body')?.clientHeight || 0;
+    if((window.scrollY>10) && (alturaPagina>1600)){
       this.headerFixed=true;
+      
     }else{
       this.headerFixed=false
+      
     }
+  }
+
+  scroll(){
+    window.scrollTo(0,0);
   }
 
 }

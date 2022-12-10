@@ -27,7 +27,8 @@ import { EspecialidadComponent } from './components/especialidad/especialidad.co
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,   
+
   ],
   exports:[
     HeaderComponent,

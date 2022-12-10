@@ -3,6 +3,8 @@
     top: 0;
     transition: 0.2s linear;
     border-bottom: 1px solid #7BACD5;
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);
+    opacity: 0.8;
 }
 
 .nofixed{
@@ -10,12 +12,14 @@
     transition: 0.2s linear;
     top:-50px;
 }
-
+.fontSizePequena{
+    font-size: 1rem;
+}
 .pequena {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     img{
-        width: 100px;
-        height: 100px;
+        width: 60px;
+        height: 60px;
     }
 }

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { DondeComponent } from './pages/donde/donde.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
 
 const routes:Routes=[
   {
@@ -14,7 +15,12 @@ const routes:Routes=[
       {
         path:'nosotros',component:NosotrosComponent
       },
-
+      {
+        path:'donde',component:DondeComponent
+      },
+      {
+        path:'contacto',component:ContactoComponent
+      },
       {
         path:'**',redirectTo:'home'
       }

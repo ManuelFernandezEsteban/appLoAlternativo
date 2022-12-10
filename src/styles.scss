@@ -78,7 +78,12 @@ $accentColorHover: #9D8B3D;
     letter-spacing: 3.6px;
     font-weight: 400;
 }
-
+.encabezado{
+    font-family: $fontPrimary;
+    font-weight: 700;
+    font-size: $fsEncabezado;
+    line-height: 28px;
+}
 .texto-regular {
     font-family: $fontSecondary;
     font-size: $fsRegular;
@@ -105,6 +110,74 @@ $accentColorHover: #9D8B3D;
 .gap-20{
     gap: 20px;
 }
+
+.boton{
+    background-color: transparent;
+    border: none;
+    width: 85px;
+    height: 35px;
+    border-radius: 4px;
+    text-align: center;
+}
+.btn-info{
+    border: 2px solid $primaryColor;
+}
+
+.btn-info-solid{
+    background-color: $primaryColor;
+    color: var(--lightColor);
+    font-weight: bold;
+}
+.btn-login{
+    border: 2px solid $accentColor;
+    color: $accentColor;
+    font-family: $fontOptions;
+    font-size: $fsOptionMenu;
+    width: 150px;
+    height: 60px;
+}
+
+.btn-submit-form{
+    background-color: $submitColor;
+    color: $lightColor;
+    font-family: $fontOptions;
+    font-size: $fsOptionMenu;
+    width: 110px;
+    height: 40px;    
+}
+
+.btn-borrar{
+    border: 2px solid $redColor;
+    color: $redColor;
+    font-family: $fontOptions;
+    font-size: $fsOptionMenu;
+    width: 110px;
+    height: 40px;
+}
+
+.btn-small{
+    border: 2px solid $darkColor;
+    color: $darkColor;
+    font-family: $fontPrimary;
+    font-size: $fsCaption;
+    width: 130px;
+    height: 22px;
+}
+
+input{
+    border: none;
+    border-bottom: 2px solid $accentColor;
+    width: 90%;
+    padding: 10px;
+    font-family: $fontPrimary;
+    font-size: $fsRegular;
+}
+
+
+input:active{
+    border: none;
+}
+
 
 * {
     box-sizing: border-box;
@@ -133,7 +206,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     width: 100%;
     position: relative;
     min-height: 100vh;
@@ -176,17 +249,9 @@ app-header {
     width: 100%;
 }
 
-.sticky{
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 102px ;
-}
-
 
 header {
     display: flex;
-
     justify-content: space-between;
     padding: 20px 20px 0px 20px;
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 50%);
@@ -216,7 +281,7 @@ app-boton-plantilla {
     height: 120px;
     position: fixed;
     top: 400px;
-    left: 50px;
+    right: 50px;
 }
 
 .boton-plantilla {
@@ -304,14 +369,18 @@ app-banner-publicidad {
     }
 }
 
+app-directorio {
+    align-self: center;
+}
 
 .grid-directorio {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 250px 250px 250px;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 40px;
     width: 100%;
     margin-top: 60px;
+    align-content: center
 
 }
 /*fin directorio especialidades*/
@@ -399,3 +468,92 @@ app-footer{
 
 
 /*fin footer*/
+
+/* página nosotros*/
+
+.box-nosotros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.row-nosotros{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 70px;
+    width: 60%;
+    gap: 100px;
+    img{
+        width: 250px;
+        height: 250px;
+        border-radius: 4px;
+    }
+}
+
+/*fin página nosotros*/
+
+/*página donde*/
+
+app-donde{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h3{
+        align-self: flex-start;
+    }
+}
+
+.box-donde{
+    
+    padding: 70px;
+    border: 2px solid $accentColor;
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 60px;
+
+   
+}
+.box-datos{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .wrapper-img{
+        width: 30%;
+        img{
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+        }
+    }
+}
+
+.data{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+
+
+/*fin página donde*/
+
+/* página contacto*/
+
+app-contacto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h3{
+        align-self: flex-start;
+    }
+}
+
+/* fin página de contacto*/

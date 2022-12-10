@@ -1,0 +1,48 @@
+<app-header></app-header>
+<app-boton-plantilla></app-boton-plantilla>
+<h3 class="title-xl-primary color-accent">Contacto</h3>
+<div class="box-donde color-accent">
+
+    <form [formGroup]="formContacto" (ngSubmit)="OnSubmit()">
+
+        <div>
+            <div>
+                <label class="encabezado color-accent" for="name">Nombre:</label>
+                <div>
+                    <input type="text" name="name" id="" formControlName="name">
+                    <span></span>
+                </div>
+            </div>
+            <div>
+                <label class="encabezado color-accent" for="email">Email:</label>
+                <div>
+                    <input type="text" name="email" id="" formControlName="email">
+                    <span></span>
+                </div>
+            </div>
+            <div>
+                <label class="encabezado color-accent" for="privacidad">Acepto la política de privacidad:</label>
+                <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
+                <span></span>
+
+            </div>
+        </div>
+        <div>
+            <label class="encabezado color-accent" for="mensaje">Mensaje</label>
+            <div>
+                <textarea name="mensaje" id="" cols="40" rows="8" formControlName="mensaje">
+
+                </textarea>
+                <span></span>
+            </div>
+
+            <button class="boton btn-login" type="submit">Enviar</button>
+        </div>
+
+
+    </form>
+
+
+</div>
+
+<app-footer></app-footer>
