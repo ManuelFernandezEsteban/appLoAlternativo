@@ -14,7 +14,7 @@ export class ContactoComponent implements OnInit {
   formContacto = this.fb.group(
     {
       name:['',Validators.required],
-      email:['',Validators.email],
+      email:['',[Validators.required, Validators.email]],
       privacidad:[false,Validators.requiredTrue],
       mensaje:['',[Validators.required,Validators.minLength(10)]],
     }
@@ -25,13 +25,27 @@ export class ContactoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  OnSubmit(){
+  
+  public get name() : boolean {
+    return this.formContacto.get('name')?.invalid || false;
+  }
+  public get email() : boolean {
+    return this.formContacto.get('email')?.invalid || false;
+  }
+  public get privacidad() : boolean {
+    return this.formContacto.get('privacidad')?.invalid || false;
+  }
+  public get mensaje() : boolean {
+    return this.formContacto.get('mensaje')?.invalid || false;
+  }
+
+  onSubmit(){
 
     this.submitted=true;
     if (!this.formContacto.valid){
       return;
     }
-    //TODO mostrar mensajes de error
+   
     //TODO event emiter con formContacto
     console.log(this.formContacto.value,this.formContacto.valid);
     this.formContacto.reset();

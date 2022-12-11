@@ -1,1 +1,35 @@
-<p>login works!</p>
+<app-header-no-menu></app-header-no-menu>
+
+<h3 class="title-xl-primary color-accent">Contacto</h3>
+<div class="box-donde color-accent">
+
+    <form [formGroup]="formLogin" (ngSubmit)="onLogin()">
+
+        <div class="fila gap-20">
+            <div class="columna gap-20">
+                <div class="columna gap-10">
+                    <label class="encabezado color-accent" for="email">Email:</label>
+                    <div class="columna gap-10">
+                        <input type="text" name="email" id="" formControlName="email" placeholder="tuemail@email.es">
+                        <span *ngIf="email && submitted" class="caption color-red">No es un email válido</span>
+                    </div>
+                </div>
+                <div class="columna gap-10">
+                    <label class="encabezado color-accent" for="password">Password:</label>
+                    <div class="columna gap-10">
+                        <input type="password" name="password" id="" formControlName="password" placeholder="*******">
+                        <span *ngIf="password && submitted" class="caption color-red">¿Olvidaste la contraseña?</span>
+                        <span *ngIf="password && submitted" class="caption color-red">Introduzca su password</span>
+                    </div>
+                </div>                
+                
+            </div>
+            <div class="columna gap-20">
+                <button class="boton btn-login" type="submit">Login</button>
+            </div>
+        </div>
+    </form>
+
+
+</div>
+

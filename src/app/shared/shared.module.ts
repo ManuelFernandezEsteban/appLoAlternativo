@@ -10,6 +10,7 @@ import { BannerPublicidadComponent } from './components/banner-publicidad/banner
 import { BotonEspecialistasComponent } from './components/boton-especialistas/boton-especialistas.component';
 import { DirectorioComponent } from './components/directorio/directorio.component';
 import { EspecialidadComponent } from './components/especialidad/especialidad.component';
+import { HeaderNoMenuComponent } from './components/header-no-menu/header-no-menu.component';
 
 
 
@@ -23,7 +24,8 @@ import { EspecialidadComponent } from './components/especialidad/especialidad.co
     BannerPublicidadComponent,
     BotonEspecialistasComponent,
     DirectorioComponent,
-    EspecialidadComponent
+    EspecialidadComponent,
+    HeaderNoMenuComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { EspecialidadComponent } from './components/especialidad/especialidad.co
     BannerPublicidadComponent,
     BotonEspecialistasComponent,
     DirectorioComponent,
-    EspecialidadComponent
+    EspecialidadComponent,
+    HeaderNoMenuComponent
   ]
 })
 export class SharedModule { }

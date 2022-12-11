@@ -57,6 +57,9 @@ $accentColorHover: #9D8B3D;
 .color-accent {
     color: $accentColor;
 }
+.color-red{
+    color: $redColor;
+}
 
 .sub-title-xxl {
     font-family: $fontOptions;
@@ -115,7 +118,9 @@ $accentColorHover: #9D8B3D;
 .gap-20 {
     gap: 20px;
 }
-
+.gap-10 {
+    gap: 10px;
+}
 .boton {
     background-color: transparent;
     border: none;
@@ -239,6 +244,7 @@ textarea {
     outline: none;
     font-family: $fontPrimary;
     font-size: $fsRegular;
+    padding: 10px;
 }
 
 /*fin text area */
@@ -315,9 +321,9 @@ app-header {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 20px 20px 0px 20px;
-    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 50%);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 80%);
     width: 100%;
 
     .container-logo {
@@ -387,7 +393,7 @@ app-banner-publicidad {
 /*directorio especialidades*/
 
 .container-title {
-    width: 250px;
+    width: 360px;
     height: 40px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -422,28 +428,31 @@ app-banner-publicidad {
 }
 
 .container-image {
-    width: 250px;
-    height: 250px;
-
+   
+    width: 360px;
+    height: 360px;
     img {
-        width: 250px;
-        height: 250px;
-        object-fit: contain;
+        
+        width: 360px;
+        height: 360px;
+        object-fit: cover;
     }
 }
 
 app-directorio {
-    align-self: center;
+    width: 100%;
+    align-items: center;
 }
 
 .grid-directorio {
     display: grid;
-    grid-template-columns: 250px 250px 250px;
+    grid-template-columns: 360px 360px 360px;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: 40px;
+    gap: 60px;
     width: 100%;
     margin-top: 60px;
-    align-content: center
+    justify-content: space-around;
+    
 }
 
 /*fin directorio especialidades*/
@@ -467,7 +476,7 @@ app-boton-especialistas {
     border-radius: 360px;
     border-color: 2px solid $primaryColor;
     background: radial-gradient(circle, rgba(123, 172, 213, 1) 6%, rgba(255, 255, 255, 1) 47%, rgba(2, 0, 36, 1) 83%);
-    color: #5495C0;
+    color: $darkColor;
     text-decoration: none;
     box-shadow: 10px 10px 24px 0px rgba(0, 0, 0, 0.75);
     margin-top: 50px;
@@ -486,7 +495,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 50%);
+    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 80%);
     padding: 20px;
     padding-top: 50px;
     padding-bottom: 50px;
