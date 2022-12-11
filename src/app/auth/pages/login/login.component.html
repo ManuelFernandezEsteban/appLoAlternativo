@@ -1,11 +1,13 @@
 <app-header-no-menu></app-header-no-menu>
 
-<h3 class="title-xl-primary color-accent">Contacto</h3>
-<div class="box-donde color-accent">
 
-    <form [formGroup]="formLogin" (ngSubmit)="onLogin()">
+<div class="box-login color-accent">
 
-        <div class="fila gap-20">
+    <h3 class="title-l-primary center">Login</h3>
+
+    <form [formGroup]="formLogin" (ngSubmit)="onLogin()" >
+
+        <div class="columna gap-20">
             <div class="columna gap-20">
                 <div class="columna gap-10">
                     <label class="encabezado color-accent" for="email">Email:</label>
@@ -18,18 +20,22 @@
                     <label class="encabezado color-accent" for="password">Password:</label>
                     <div class="columna gap-10">
                         <input type="password" name="password" id="" formControlName="password" placeholder="*******">
-                        <span *ngIf="password && submitted" class="caption color-red">¿Olvidaste la contraseña?</span>
+                        <span class="caption color-accent">¿Olvidaste la contraseña?</span>
                         <span *ngIf="password && submitted" class="caption color-red">Introduzca su password</span>
                     </div>
-                </div>                
-                
+                </div>
+
             </div>
             <div class="columna gap-20">
-                <button class="boton btn-login" type="submit">Login</button>
+                <button class="boton btn-login center sub-title-xl" type="submit">Login</button>
             </div>
         </div>
     </form>
+    <div class="fila">
+        <a class="texto-regular color-accent">Términos y condiciones</a>
+        <a class="sub-title-xl color-accent" [routerLink]="['/']">Volver</a>
+        <a class="texto-regular color-accent" [routerLink]="['/auth/registro']">¿Aun no estás registrado?</a>
+    </div>
 
 
 </div>
-

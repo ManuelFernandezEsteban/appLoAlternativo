@@ -9,6 +9,7 @@ $fontPrimary: Quicksand;
 $fontOptions: Teko;
 $fsizeXXL: 6rem;
 $fsizeXL: 4rem;
+$fsizeL: 3rem;
 $fsOptionEncabezado: 2rem;
 $fsOptionMenu: 1.3rem;
 $fsPrimaryTextXL: 1.5rem;
@@ -53,11 +54,19 @@ $accentColorHover: #9D8B3D;
     font-weight: 400;
     padding-left: 20px;
 }
+.title-l-primary {
+    font-family: $fontPrimary;
+    font-size: $fsizeL;
+    line-height: 72px;
+    font-weight: 400;
+    padding-left: 20px;
+}
 
 .color-accent {
     color: $accentColor;
 }
-.color-red{
+
+.color-red {
     color: $redColor;
 }
 
@@ -118,9 +127,11 @@ $accentColorHover: #9D8B3D;
 .gap-20 {
     gap: 20px;
 }
+
 .gap-10 {
     gap: 10px;
 }
+
 .boton {
     background-color: transparent;
     border: none;
@@ -178,6 +189,16 @@ $accentColorHover: #9D8B3D;
 }
 
 input[type='text'] {
+    border: none;
+    border-bottom: 2px solid $accentColor;
+    width: 90%;
+    padding: 10px;
+    font-family: $fontPrimary;
+    font-size: $fsRegular;
+    outline: none;
+}
+
+input[type='password'] {
     border: none;
     border-bottom: 2px solid $accentColor;
     width: 90%;
@@ -298,7 +319,7 @@ nav {
 
     a {
         display: block;
-        padding: 6px 12px;
+        padding: 2px 2px;
         text-decoration: none;
         color: $accentColor;
     }
@@ -314,14 +335,15 @@ nav {
     border-bottom: 4px solid $accentColor;
 }
 
-app-header {
+app-header,
+app-header-no-menu {
     width: 100%;
 }
 
 
 header {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding: 20px 20px 0px 20px;
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 80%);
     width: 100%;
@@ -428,11 +450,12 @@ app-banner-publicidad {
 }
 
 .container-image {
-   
+
     width: 360px;
     height: 360px;
+
     img {
-        
+
         width: 360px;
         height: 360px;
         object-fit: cover;
@@ -452,7 +475,7 @@ app-directorio {
     width: 100%;
     margin-top: 60px;
     justify-content: space-around;
-    
+
 }
 
 /*fin directorio especialidades*/
@@ -516,6 +539,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    width: 100%;
 
     ul {
         display: flex;
@@ -642,13 +666,65 @@ app-contacto {
         align-self: flex-start;
     }
 
-    .fila{
-        display: flex;
-        flex-direction: row;
-    }
-    .end{
-        align-self: flex-end;
-    }
+
+
+}
+
+.fila {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.end {
+    align-self: flex-end;
+}
+
+.center {
+    align-self: center;
 }
 
 /* fin página de contacto*/
+
+/* página login*/
+app-login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-login {
+    width: 60%;
+    padding: 50px;
+    border: 2px solid $accentColor;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: center;
+    margin-bottom: 100px;
+
+    form {
+        width: 100%;
+    }
+    .fila{
+        justify-content: space-between;
+        margin-top: 40px;
+        align-items: center;
+        a{
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}
+
+app-registro{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*fin página login*/
