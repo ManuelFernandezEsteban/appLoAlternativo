@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder } from "@angular/forms";
+import { Validators, FormBuilder, AbstractControl, ValidationErrors } from "@angular/forms";
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -14,12 +14,12 @@ export class RegistroComponent implements OnInit {
       name: ['', Validators.required],
       apellidos: ['', Validators.required],
       telefono: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.required,Validators.minLength(8) ]],
       password2: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       especialidad: ['', Validators.required],
       privacidad: [false, Validators.requiredTrue],
-    }
+    },
   );
   public get password(): boolean {
     return this.formRegistro.get('password')?.invalid || false;
@@ -57,10 +57,31 @@ export class RegistroComponent implements OnInit {
     if (!this.formRegistro.valid) {
       return;
     }
+    if (!this.camposIguales()){
+      this.formRegistro.get('password2')?.setErrors({noIguales:true});
+      return;
+    }
 
     //TODO event emiter con formContacto
     console.log(this.formRegistro.value, this.formRegistro.valid);
     this.formRegistro.reset();
     this.submitted = false;
   }
+
+
+  camposIguales():boolean{
+    
+      const pass1 = this.formRegistro.get('password')?.value || '';
+      const pass2 = this.formRegistro.get('password2')?.value || '';
+      if (pass1!==pass2){
+       
+        return false;
+      }else{
+        
+      }
+        
+      return true;
+    
+  }
+
 }

@@ -1,109 +1,112 @@
 <app-header-no-menu></app-header-no-menu>
 
 
-<div class="box-login color-accent">
+<div class="box-registro color-accent">
     <h3 class="title-l-primary center">Registro</h3>
 
-    <form [formGroup]="formRegistro" (ngSubmit)="onRegister()" >
+    <form [formGroup]="formRegistro" (ngSubmit)="onRegister()">
 
         <div class="columna gap-20">
             <div class="columna gap-20">
                 <div class="fila">
                     <div class="columna gap-10">
-                    <label class="encabezado color-accent" for="name">Nombre:</label>
-                    <div class="columna gap-10">
-                        <input type="text" name="name" id="" formControlName="name" placeholder="Manuel">
-                        <span *ngIf="name && submitted" class="caption color-red">Introduzca un nombre</span>
+                        <label class="encabezado color-accent" for="name">Nombre:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="name" id="" formControlName="name" placeholder="Manuel">
+                            <span *ngIf="name && submitted" class="caption color-red">Introduzca un nombre</span>
+                        </div>
                     </div>
-                </div>
 
 
-                <div class="columna gap-10">
-                    <label class="encabezado color-accent" for="email">Email:</label>
                     <div class="columna gap-10">
-                        <input type="text" name="email" id="" formControlName="email" placeholder="tuemail@email.es">
-                        <span *ngIf="email && submitted" class="caption color-red">No es un email válido</span>
+                        <label class="encabezado color-accent" for="apellidos">Apellidos:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="apellidos" id="" formControlName="apellidos"
+                                placeholder="Fernández">
+                            <span *ngIf="apellidos && submitted" class="caption color-red">Introduzca sus
+                                apellidos</span>
+                        </div>
                     </div>
-                </div>
                 </div>
 
                 <div class="fila">
                     <div class="columna gap-10">
-                    <label class="encabezado color-accent" for="email">Email:</label>
-                    <div class="columna gap-10">
-                        <input type="text" name="email" id="" formControlName="email" placeholder="tuemail@email.es">
-                        <span *ngIf="email && submitted" class="caption color-red">No es un email válido</span>
+                        <label class="encabezado color-accent" for="email">Email(username):</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="email" id="" formControlName="email"
+                                placeholder="tuemail@email.es">
+                            <span *ngIf="email && submitted" class="caption color-red">No es un email válido</span>
+                        </div>
                     </div>
-                </div>
 
 
-                <div class="columna gap-10">
-                    <label class="encabezado color-accent" for="email">Email:</label>
                     <div class="columna gap-10">
-                        <input type="text" name="email" id="" formControlName="email" placeholder="tuemail@email.es">
-                        <span *ngIf="email && submitted" class="caption color-red">No es un email válido</span>
+                        <label class="encabezado color-accent" for="telefono">Teléfono:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="telefono" id="" formControlName="telefono" placeholder="612345678">
+                            <span *ngIf="telefono && submitted" class="caption color-red">No es un teléfono
+                                válido</span>
+                        </div>
                     </div>
-                </div>
                 </div>
 
                 <div class="fila">
                     <div class="columna gap-10">
-                    <label class="encabezado color-accent" for="email">Email:</label>
+                        <label class="encabezado color-accent" for="password">Password:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="password" id="" formControlName="password" placeholder="*******">
+                            <span *ngIf="password && submitted" class="caption color-red">El password es
+                                requerido y debe tener al menos 8 caracteres</span>
+                        </div>
+                    </div>
+
+
                     <div class="columna gap-10">
-                        <input type="text" name="email" id="" formControlName="email" placeholder="tuemail@email.es">
-                        <span *ngIf="email && submitted" class="caption color-red">No es un email válido</span>
+                        <label class="encabezado color-accent" for="password2">Repite password:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="password2" id="" formControlName="password2" placeholder="******">
+                            <span *ngIf="!camposIguales() && submitted" class="caption color-red">Los password deben ser
+                                iguales</span>
+                        </div>
                     </div>
                 </div>
 
-
-                <div class="columna gap-10">
-                    <label class="encabezado color-accent" for="email">Email:</label>
-                    <div class="columna gap-10">
-                        <input type="text" name="email" id="" formControlName="email" placeholder="tuemail@email.es">
-                        <span *ngIf="email && submitted" class="caption color-red">No es un email válido</span>
-                    </div>
-                </div>
-                </div>
-                
 
                 <div class="fila">
                     <div class="columna gap-10">
-                    <label class="encabezado color-accent" for="email">Email:</label>
+                        <label class="encabezado color-accent" for="especialidad">Especialidad:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="especialidad" id="" formControlName="especialidad"
+                                placeholder="Especialidad">
+                            <span *ngIf="especialidad && submitted" class="caption color-red">Indique una
+                                especialidad</span>
+                        </div>
+                    </div>
+
+
                     <div class="columna gap-10">
-                        <input type="text" name="email" id="" formControlName="email" placeholder="tuemail@email.es">
-                        <span *ngIf="email && submitted" class="caption color-red">No es un email válido</span>
+                        <label class="form-control encabezado color-accent" for="privacidad">Acepto la política de
+                            privacidad
+                            <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
+                        </label>
+                        <span *ngIf="privacidad && submitted" class="caption color-red">Debe aceptar la política de
+                            privacidad</span>
+
                     </div>
                 </div>
 
-
-                <div class="columna gap-10">
-                    <label class="encabezado color-accent" for="email">Email:</label>
-                    <div class="columna gap-10">
-                        <input type="text" name="email" id="" formControlName="email" placeholder="tuemail@email.es">
-                        <span *ngIf="email && submitted" class="caption color-red">No es un email válido</span>
-                    </div>
-                </div>
-                </div>
-
-                <div class="columna gap-10">
-                    <label class="encabezado color-accent" for="password">Password:</label>
-                    <div class="columna gap-10">
-                        <input type="password" name="password" id="" formControlName="password" placeholder="*******">
-                        <span class="caption color-accent">¿Olvidaste la contraseña?</span>
-                        <span *ngIf="password && submitted" class="caption color-red">Introduzca su password</span>
-                    </div>
-                </div>
 
             </div>
             <div class="columna gap-20">
-                <button class="boton btn-login center sub-title-xl" type="submit">Login</button>
+                <button class="boton btn-login center sub-title-xl" type="submit">Sign in</button>
             </div>
         </div>
     </form>
     <div class="fila">
         <a class="texto-regular color-accent">Términos y condiciones</a>
-        <a class="sub-title-xl color-accent" [routerLink]="['/']">Volver</a>
-        <a class="texto-regular color-accent" [routerLink]="['/auth/registro']">¿Aun no estás registrado?</a>
+        
+        <span class="texto-regular color-accent">¿Ya tienes cuenta?, pulsa <a class="texto-regular color-accent bold" [routerLink]="['/auth/login']">aquí </a>para entrar</span>
+        
     </div>
 
 

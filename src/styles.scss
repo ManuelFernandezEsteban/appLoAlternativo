@@ -719,12 +719,38 @@ app-login {
         }
     }
 }
-
+/*fin página login*/
+/* página registro*/
 app-registro{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.box-registro {
+    width: 80%;
+    padding: 50px;
+    border: 2px solid $accentColor;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: center;
+    margin-bottom: 100px;
 
-/*fin página login*/
+    form {
+        width: 100%;
+    }
+    .fila{
+        justify-content: space-between;
+        margin-top: 40px;
+        align-items: flex-start;
+        a{
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+    
+}
+/*fin página registro*/

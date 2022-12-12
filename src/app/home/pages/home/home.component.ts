@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataEspecialidadesService.getEspecialidades().subscribe(res=>{
-      console.log(res.especialidades);
+      
       this.especialidades=res.especialidades;
       
     })
