@@ -8,6 +8,8 @@ import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { SharedModule } from '../shared/shared.module';
 import { DondeComponent } from './pages/donde/donde.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { EventosComponent } from './pages/eventos/eventos.component';
+import { EventoComponent } from './components/evento/evento.component';
 
 
 
@@ -17,7 +19,9 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     HomeComponent,
     NosotrosComponent,
     DondeComponent,
-    ContactoComponent
+    ContactoComponent,
+    EventosComponent,
+    EventoComponent
   ],
   imports: [
     CommonModule,

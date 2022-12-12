@@ -4,6 +4,6 @@
         
         <div *ngFor="let especialidad of especialidades">
 
-                <app-especialidad [boxEspecialidad]="especialidad"></app-especialidad>
+                <app-especialidad (onEspecialidad)="selecionEspecialidad($event)" [boxEspecialidad]="especialidad"></app-especialidad>
         </div>
 </div>

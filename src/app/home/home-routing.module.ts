@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { DondeComponent } from './pages/donde/donde.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { EventosComponent } from './pages/eventos/eventos.component';
 
 const routes:Routes=[
   {
@@ -20,6 +21,9 @@ const routes:Routes=[
       },
       {
         path:'contacto',component:ContactoComponent
+      },
+      {
+        path:'eventos',component:EventosComponent
       },
       {
         path:'**',redirectTo:'home'

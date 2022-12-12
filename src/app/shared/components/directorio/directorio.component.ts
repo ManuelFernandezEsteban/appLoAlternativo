@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit ,Input, EventEmitter, Output} from '@angular/core';
 import { Especialidad } from 'src/app/interfaces/especialiadad';
 
 @Component({
@@ -9,10 +9,14 @@ import { Especialidad } from 'src/app/interfaces/especialiadad';
 export class DirectorioComponent implements OnInit {
   
   @Input() especialidades:Especialidad[]=[];
-
+  @Output() onSeleccionEspecialidad = new EventEmitter<Especialidad>();
   constructor() { }
 
   ngOnInit(): void {
   }
+  selecionEspecialidad(event:Especialidad){
+    
+    this.onSeleccionEspecialidad.emit(event);
 
+  }
 }
