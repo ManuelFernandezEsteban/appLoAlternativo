@@ -1,23 +1,27 @@
+<div #cajaEvento class="box-evento">
 
-
-
-<div class="box-evento">
     <div class="title">
-        <h4>{{evento.evento}}</h4>
-            <h5>{{evento.organizador}}</h5>
+        <h4 class="encabezado color-light">{{evento.evento}}</h4>
+        <h5 class="option-menu color-light">{{evento.organizador}}</h5>
 
     </div>
 
     <div class="box-content">
-        <button>Descargable</button>
+
         <div class="info-evento">
-        <span>{{evento.fecha}}</span>
-        <span>{{evento.precio}}</span>
-        <span>{{evento.localizacion}}</span>                
+            <button class="boton btn-info color-light">Descargable</button>
+            <span class="texto-regular bold color-light">{{evento.fecha}}</span>
+            <span class="texto-regular bold color-light">{{evento.precio | euros}}</span>
+            <div class="fila">
+                <button class="boton btn-info-solid color-light">más info</button>
+                <span class="texto-regular bold color-light">{{evento.localizacion | localizacion}}</span>
+                
+            </div>
+            
+        </div>
+        
     </div>
-    <button>más info</button>
-    </div>
-    
-    
+
+
 
 </div>

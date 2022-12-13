@@ -10,6 +10,8 @@ import { DondeComponent } from './pages/donde/donde.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { EventosComponent } from './pages/eventos/eventos.component';
 import { EventoComponent } from './components/evento/evento.component';
+import { EurosPipe } from './pipes/euros.pipe';
+import { LocalizacionPipe } from './pipes/localizacion.pipe';
 
 
 
@@ -21,7 +23,9 @@ import { EventoComponent } from './components/evento/evento.component';
     DondeComponent,
     ContactoComponent,
     EventosComponent,
-    EventoComponent
+    EventoComponent,
+    EurosPipe,
+    LocalizacionPipe
   ],
   imports: [
     CommonModule,

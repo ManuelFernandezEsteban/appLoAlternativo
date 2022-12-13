@@ -9,18 +9,18 @@
             "online":true,
             "organizador":"Pedro",
             "descripcion":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "imagen":"./../../../../assets/images/eventosesoterismo/imagen_1.jpg"
+            "imagen":"./../../../../assets/images/eventosEsoterismo/imagen_1.jpg"
         },
         {
             "id":2,
             "evento":"Evento segundo",
             "fecha":"25-12-2022",
             "precio":20,
-            "localizacion":"Málaga",
+            "localizacion":"Villanueva del Trabuco",
             "online":false,
             "organizador":"Jose",
             "descripcion":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "imagen":"./../../../../assets/images/eventosesoterismo/imagen_2.jpg"
+            "imagen":"./../../../../assets/images/eventosEsoterismo/imagen_2.jpg"
         },
         {
             "id":3,
@@ -31,7 +31,7 @@
             "online":true,
             "organizador":"María",
             "descripcion":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "imagen":"./../../../../assets/images/eventosesoterismo/imagen_3.jpg"
+            "imagen":"./../../../../assets/images/eventosEsoterismo/imagen_3.jpg"
         },
         {
             "id":4,
@@ -42,7 +42,7 @@
             "online":false,
             "organizador":"Luisa",
             "descripcion":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "imagen":"./../../../../assets/images/eventosesoterismo/imagen_4.jpg"
+            "imagen":"./../../../../assets/images/eventosEsoterismo/imagen_4.jpg"
         }
 
     ]

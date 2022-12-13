@@ -3,10 +3,13 @@
 
     <app-boton-plantilla></app-boton-plantilla>
     <h3 class="title-xl-primary color-accent">Eventos {{especialidad.nombre | lowercase}}</h3>
-    <ng-container *ngFor="let e of eventos">
-        <app-evento [evento]="e"></app-evento>
-    </ng-container>
-    
+    <div class="contenedor-eventos">
+        <ng-container *ngFor="let e of eventos">
+            <app-evento [evento]="e"></app-evento>
+        </ng-container>
+        
+        
+    </div>   
     
     
     <app-footer></app-footer>

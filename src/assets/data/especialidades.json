@@ -8,7 +8,7 @@
         },
         {
             "id":2,
-        "nombre":"Naturopatia",
+        "nombre":"Naturopatía",
         "imagen":"./../../../../assets/images/especialidades/naturopatia.svg"
         },
         {
@@ -28,7 +28,7 @@
         },
         {
             "id":6,
-        "nombre":"Artesania",
+        "nombre":"Artesanía",
         "imagen":"./../../../../assets/images/especialidades/artesania.svg"
         },
         {
