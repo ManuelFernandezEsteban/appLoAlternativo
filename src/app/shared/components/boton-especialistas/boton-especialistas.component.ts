@@ -11,5 +11,7 @@ export class BotonEspecialistasComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  onScroll(){
+    window.scrollTo(0,0);
+  }
 }

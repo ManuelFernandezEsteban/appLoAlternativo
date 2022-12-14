@@ -12,6 +12,10 @@ import { EventosComponent } from './pages/eventos/eventos.component';
 import { EventoComponent } from './components/evento/evento.component';
 import { EurosPipe } from './pipes/euros.pipe';
 import { LocalizacionPipe } from './pipes/localizacion.pipe';
+import { ModalEventoComponent } from './components/modal-evento/modal-evento.component';
+import { CursosComponent } from './pages/cursos/cursos.component';
+import { EspecialistasComponent } from './pages/especialistas/especialistas.component';
+import { BuscadorEspecialistaComponent } from './components/buscador-especialista/buscador-especialista.component';
 
 
 
@@ -25,7 +29,11 @@ import { LocalizacionPipe } from './pipes/localizacion.pipe';
     EventosComponent,
     EventoComponent,
     EurosPipe,
-    LocalizacionPipe
+    LocalizacionPipe,
+    ModalEventoComponent,
+    CursosComponent,
+    EspecialistasComponent,
+    BuscadorEspecialistaComponent
   ],
   imports: [
     CommonModule,

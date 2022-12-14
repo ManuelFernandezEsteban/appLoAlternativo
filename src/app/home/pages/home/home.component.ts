@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
 
   seleccionEspecialidad(event:Especialidad){
     //console.log(event);
+    window.scrollTo(0,0);
     this.router.navigate(['eventos'],{queryParams:event});
     
   }

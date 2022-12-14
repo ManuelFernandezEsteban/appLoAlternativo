@@ -286,8 +286,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-
+}
+app-root{
+    overflow: hidden;
 }
 
 .sr-only {
@@ -766,4 +767,5 @@ app-registro{
     
 }
 /*fin página registro*/
+
 

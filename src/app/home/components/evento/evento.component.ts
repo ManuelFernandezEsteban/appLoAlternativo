@@ -1,4 +1,4 @@
-import { Component, Input, OnInit,ViewChild,AfterViewInit,ElementRef, Renderer2 } from '@angular/core';
+import { Component, Input, OnInit,ViewChild,AfterViewInit,ElementRef, Renderer2, Output, EventEmitter } from '@angular/core';
 import { Evento } from '../../../interfaces/eventos';
 
 @Component({
@@ -10,6 +10,7 @@ export class EventoComponent implements OnInit {
 
   @ViewChild('cajaEvento') cajaEvento!:ElementRef;
 
+  @Output() onEvento = new EventEmitter<Evento>();
 
   @Input()
   evento!: Evento;
@@ -26,8 +27,13 @@ export class EventoComponent implements OnInit {
   }
 
  ngOnInit(): void {
-    console.log(this.evento)
+    
 
+  }
+
+  onMasInfo(){
+    
+    this.onEvento.emit(this.evento);
   }
 
 

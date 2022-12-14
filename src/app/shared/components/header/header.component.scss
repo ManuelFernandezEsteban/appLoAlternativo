@@ -1,7 +1,7 @@
 .fixed{
     position: fixed;
     top: 0;
-    transition: 0.2s linear;
+    transition: 0.3s linear;
     border-bottom: 1px solid #7BACD5;
     box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);
     background: #7BACD5;
@@ -10,8 +10,8 @@
 
 .nofixed{
     position: static;
-    transition: 0.2s linear;
-    top:-50px;
+    transition: 0.3s linear;
+    
 }
 .fontSizePequena{
     font-size: 1rem;

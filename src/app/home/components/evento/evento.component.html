@@ -13,7 +13,7 @@
             <span class="texto-regular bold color-light">{{evento.fecha}}</span>
             <span class="texto-regular bold color-light">{{evento.precio | euros}}</span>
             <div class="fila">
-                <button class="boton btn-info-solid color-light">más info</button>
+                <button class="boton btn-info-solid color-light" (click)="onMasInfo()">más info</button>
                 <span class="texto-regular bold color-light">{{evento.localizacion | localizacion}}</span>
                 
             </div>

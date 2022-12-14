@@ -5,6 +5,9 @@ import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { DondeComponent } from './pages/donde/donde.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { EventosComponent } from './pages/eventos/eventos.component';
+import { CursosComponent } from './pages/cursos/cursos.component';
+import { EspecialistasComponent } from './pages/especialistas/especialistas.component';
+import { BuscadorEspecialistaComponent } from './components/buscador-especialista/buscador-especialista.component';
 
 const routes:Routes=[
   {
@@ -15,6 +18,15 @@ const routes:Routes=[
       },  
       {
         path:'nosotros',component:NosotrosComponent
+      },
+      {
+        path:'cursos',component:CursosComponent
+      },
+      {
+        path:'especialistas',component:EspecialistasComponent
+      },
+      {
+        path:'buscador-especialista',component:BuscadorEspecialistaComponent
       },
       {
         path:'donde',component:DondeComponent
