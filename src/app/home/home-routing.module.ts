@@ -9,6 +9,7 @@ import { CursosComponent } from './pages/cursos/cursos.component';
 import { EspecialistasComponent } from './pages/especialistas/especialistas.component';
 import { BuscadorEspecialistaComponent } from './components/buscador-especialista/buscador-especialista.component';
 
+
 const routes:Routes=[
   {
     path:'',

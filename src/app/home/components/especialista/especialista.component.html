@@ -1,0 +1,27 @@
+<div #cajaEspecialista class="box-evento">
+
+    <div class="title">
+        <h4 class="encabezado color-light">{{especialista.nombre | uppercase}}</h4>
+        <h5 class="option-menu color-light">{{especialista.apellidos | uppercase}}</h5>
+
+    </div>
+
+    <div class="box-content">
+
+        <div class="info-evento">
+            
+            
+            <span class="texto-regular bold color-light">{{especialista.telefono}}</span>
+            <div class="fila">
+                <button class="boton btn-info color-light" (click)="onMasInfo()">más info</button>
+                <span class="texto-regular bold color-light">{{especialista.provincia | uppercase}}</span>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+
+
+
+</div>

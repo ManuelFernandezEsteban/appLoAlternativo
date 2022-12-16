@@ -1,0 +1,22 @@
+.box-filtro {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 20px;
+    border: 2px solid #525020;
+    margin-left: 20px;
+    border-radius: 4px;
+}
+
+.columna {
+    width: 100%;
+}
+
+.fila {
+    width: 100%;
+    align-items: center;
+
+    .fila:last-child {
+        width: 40%;
+    }
+}

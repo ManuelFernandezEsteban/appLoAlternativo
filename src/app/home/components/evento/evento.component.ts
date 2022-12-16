@@ -31,8 +31,7 @@ export class EventoComponent implements OnInit {
 
   }
 
-  onMasInfo(){
-    
+  onMasInfo(){    
     this.onEvento.emit(this.evento);
   }
 

@@ -12,5 +12,13 @@ export interface Evento{
     organizador:string;
     descripcion:string;
     imagen:string;
+    telefono:string;
+    email:string;
+    web:string;
+    twitter:string;
+    facebook:string;
+    instagram:string;
+    you_tube:string;
+    twich:string;
 }
 

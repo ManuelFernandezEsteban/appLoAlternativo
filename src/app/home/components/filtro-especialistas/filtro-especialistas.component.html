@@ -1,0 +1,20 @@
+<div class="box-filtro">
+    <div class="fila">
+        <div class="columna texto-regular color-accent gap-20">
+            <div class="columna">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="" [(ngModel)]="nombre">
+            </div>
+            <div class="columna">
+                <label for="Provincia">Provincia:</label>
+                <input type="text" name="provincia" id="" [(ngModel)]="provincia">
+            </div>
+        </div>
+        <div class="fila gap-20">
+            <button class="boton btn-info" (click)="onClickBuscar()">Buscar</button>
+            <button class="boton btn-info" (click)="reset()">Limpiar filtro</button>
+        </div>
+        
+    </div>
+    
+</div>
