@@ -33,7 +33,12 @@ span{
         fill: #525020; 
     }
 }
-
+.contenedor-video{
+    width: 100%;
+    video{
+        width: 100%;
+    }
+}
 .modal-especialista {
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, #7BACD5 0%, rgba(255, 255, 255, 1) 80%);
     width: 70%;

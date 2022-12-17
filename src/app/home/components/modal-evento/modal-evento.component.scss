@@ -36,12 +36,12 @@
             img {
                 aspect-ratio: 1;
                 border-radius: 4px;
-                object-fit: contain;
+                object-fit: cover;
             }
-
+            
             .fila {
                 align-items: center;
-                gap: 20px;
+               
                 span{
                     a{
                         color: #525020;
@@ -62,6 +62,7 @@
             }
 
             .fila+.social {
+                gap: 20px;
                 span {
                     svg {
                         width: 24px;
@@ -72,7 +73,7 @@
         }
 
         .columna:nth-child(2) {
-            padding: 20px;
+            padding-left: 20px;
             gap: 10px;
         }
     }
@@ -115,4 +116,8 @@
             
         }
     }
+}
+
+.primerafila{    
+    justify-content: space-between;
 }

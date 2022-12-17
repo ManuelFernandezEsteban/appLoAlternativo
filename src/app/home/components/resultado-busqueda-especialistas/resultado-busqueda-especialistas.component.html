@@ -1,6 +1,7 @@
 
 <button class="boton btn-info" (click)="toggleFiltros()">Filtros</button>
 
+
 <app-filtro-especialistas *ngIf="isVisible" [listaEspecialistas]="lista" (onBuscar)="resultado($event)" (onReset)="reset($event)">
 </app-filtro-especialistas>
 

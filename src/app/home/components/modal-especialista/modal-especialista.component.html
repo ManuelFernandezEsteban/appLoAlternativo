@@ -18,8 +18,8 @@
             <div class="columna gap-20">
                 <img src="{{especialista.imagen_terapeuta}}" alt="imagen especialista">
                 <div class="fila">
-                    <div class="columna">
-                        <video src="{{especialista.video}}" width="360px" autoplay loop preload="metada"></video>
+                    <div class="contenedor-video">
+                        <video id="" src="{{especialista.video}}"  autoplay loop preload="metada"></video>
                     </div>
                 </div>
             </div>
@@ -39,8 +39,8 @@
                     <app-info-modal [info]="infoMail"></app-info-modal>
 
                 </div>
-                <div class="fila gap-20">
-                    <app-info-modal [info]="infoWeb"></app-info-modal>
+                <div class="fila gap-20">                    
+                    <app-info-modal-enlace [info]="infoWeb"></app-info-modal-enlace>
                 </div>
                 <div class="fila social">
 

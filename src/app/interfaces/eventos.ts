@@ -7,7 +7,10 @@ export interface Evento{
     evento:string;
     fecha:string;
     precio:number;
-    localizacion:string;
+    direccion:string;
+    localidad:string;
+    provincia:string;
+    codigo_postal:string;
     online:boolean;
     organizador:string;
     descripcion:string;

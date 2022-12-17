@@ -14,6 +14,7 @@ import { ModalEspecialistaComponent } from './modal-especialista/modal-especiali
 import { InfoModalComponent } from './info-modal/info-modal.component';
 import { InfoDireccionModalComponent } from './info-direccion-modal/info-direccion-modal.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { InfoModalEnlaceComponent } from './info-modal-enlace/info-modal-enlace.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EspecialistaComponent,
     ModalEspecialistaComponent,
     InfoModalComponent,
-    InfoDireccionModalComponent
+    InfoDireccionModalComponent,
+    InfoModalEnlaceComponent
   ],
   imports: [
     CommonModule,FormsModule,SharedModule,FontAwesomeModule
@@ -41,6 +43,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EspecialistaComponent,
     ModalEspecialistaComponent,
     InfoModalComponent,
+    InfoModalEnlaceComponent,
     EurosPipe,
     LocalizacionPipe
   ]

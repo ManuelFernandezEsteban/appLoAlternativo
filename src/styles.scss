@@ -52,14 +52,14 @@ $accentColorHover: #9D8B3D;
     font-size: $fsizeXL;
     line-height: 96px;
     font-weight: 400;
-    padding-left: 20px;
+    
 }
 .title-l-primary {
     font-family: $fontPrimary;
     font-size: $fsizeL;
     line-height: 72px;
     font-weight: 400;
-    padding-left: 20px;
+   
 }
 
 .color-accent {
@@ -294,7 +294,9 @@ app-root{
 .sr-only {
     display: none;
 }
-
+.pad-20{
+    padding: 20px;
+}
 
 /*pagina principal*/
 
@@ -307,6 +309,7 @@ app-root{
     width: 100%;
     position: relative;
     min-height: 100vh;
+    
 }
 
 

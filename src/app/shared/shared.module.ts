@@ -11,6 +11,8 @@ import { BotonEspecialistasComponent } from './components/boton-especialistas/bo
 import { DirectorioComponent } from './components/directorio/directorio.component';
 import { EspecialidadComponent } from './components/especialidad/especialidad.component';
 import { HeaderNoMenuComponent } from './components/header-no-menu/header-no-menu.component';
+import { SwitchToggleComponent } from './components/switch-toggle/switch-toggle.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -25,12 +27,13 @@ import { HeaderNoMenuComponent } from './components/header-no-menu/header-no-men
     BotonEspecialistasComponent,
     DirectorioComponent,
     EspecialidadComponent,
-    HeaderNoMenuComponent
+    HeaderNoMenuComponent,
+    SwitchToggleComponent
   ],
   imports: [
     CommonModule,
     RouterModule,   
-
+    FormsModule
   ],
   exports:[
     HeaderComponent,
@@ -41,7 +44,8 @@ import { HeaderNoMenuComponent } from './components/header-no-menu/header-no-men
     BotonEspecialistasComponent,
     DirectorioComponent,
     EspecialidadComponent,
-    HeaderNoMenuComponent
+    HeaderNoMenuComponent,
+    SwitchToggleComponent
   ]
 })
 export class SharedModule { }

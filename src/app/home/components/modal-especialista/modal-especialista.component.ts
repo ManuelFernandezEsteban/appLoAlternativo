@@ -22,7 +22,7 @@ export class ModalEspecialistaComponent implements OnInit {
   constructor(private serviceModalEventoService:ServiceModalEventoService) { }
 
   ngOnInit(): void {
-    console.log(this.especialista)
+    
 
     this.direccion={
       title:'Ubicacion',
