@@ -34,15 +34,17 @@ span{
     }
 }
 .contenedor-video{
-    width: 100%;
+    width: 80%;
     video{
         width: 100%;
+        
     }
 }
 .modal-especialista {
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, #7BACD5 0%, rgba(255, 255, 255, 1) 80%);
     width: 70%;
-    height: auto;
+    max-height: 70%;   
+    overflow-y: auto;
     box-shadow: 5px 5px 6px #ccc;
     border-radius: 4px;
     display: flex;
@@ -64,6 +66,7 @@ span{
                 aspect-ratio: 1;
                 border-radius: 4px;
                 object-fit: cover;
+                
             }
 
             .fila {

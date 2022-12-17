@@ -13,6 +13,8 @@ import { EspecialidadComponent } from './components/especialidad/especialidad.co
 import { HeaderNoMenuComponent } from './components/header-no-menu/header-no-menu.component';
 import { SwitchToggleComponent } from './components/switch-toggle/switch-toggle.component';
 import { FormsModule } from '@angular/forms';
+import { EspecialidadRedondaComponent } from './components/especialidad-redonda/especialidad-redonda.component';
+import { DirectorioRedondoComponent } from './components/directorio-redondo/directorio-redondo.component';
 
 
 
@@ -28,7 +30,9 @@ import { FormsModule } from '@angular/forms';
     DirectorioComponent,
     EspecialidadComponent,
     HeaderNoMenuComponent,
-    SwitchToggleComponent
+    SwitchToggleComponent,
+    EspecialidadRedondaComponent,
+    DirectorioRedondoComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +49,8 @@ import { FormsModule } from '@angular/forms';
     DirectorioComponent,
     EspecialidadComponent,
     HeaderNoMenuComponent,
-    SwitchToggleComponent
+    SwitchToggleComponent,
+    DirectorioRedondoComponent
   ]
 })
 export class SharedModule { }

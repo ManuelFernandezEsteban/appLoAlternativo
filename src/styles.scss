@@ -383,6 +383,7 @@ app-boton-plantilla {
     position: fixed;
     top: 400px;
     right: 50px;
+    z-index: 999;
 }
 
 .boton-plantilla {
@@ -397,6 +398,7 @@ app-boton-plantilla {
     text-decoration: none;
     cursor: pointer;
     box-shadow: 8px 8px 31px -9px rgba(0, 0, 0, 0.75);
+    z-index: 999;
 }
 
 
@@ -463,6 +465,7 @@ app-banner-publicidad {
     align-items: center;
     justify-content: center;
     box-shadow: 2.5px 2.5px 6px 0px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
 }
 
 .container-image {
