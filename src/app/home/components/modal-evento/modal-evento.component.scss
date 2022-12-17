@@ -10,22 +10,7 @@
     position: relative;
 }
 
-.cerrar-modal{
-    position: absolute;
-    top:5%;
-    right: 5%;
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 3;
-    span{
-        svg{
-            fill: #fff;
-        }
-    }
-}
+
 
 .modal-evento {
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, #7BACD5 0%, rgba(255, 255, 255, 1) 80%);
@@ -111,4 +96,23 @@
 }
 .tooltip:hover .tooltiptext{
     visibility: visible;
+}
+
+.cerrar-modal{
+    position: absolute;
+    top:5%;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 3;
+    span{
+        
+        svg{
+            fill: #fff;
+            
+        }
+    }
 }

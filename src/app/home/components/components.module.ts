@@ -11,6 +11,9 @@ import { EurosPipe } from './pipes/euros.pipe';
 import { LocalizacionPipe } from './pipes/localizacion.pipe';
 import { EspecialistaComponent } from './especialista/especialista.component';
 import { ModalEspecialistaComponent } from './modal-especialista/modal-especialista.component';
+import { InfoModalComponent } from './info-modal/info-modal.component';
+import { InfoDireccionModalComponent } from './info-direccion-modal/info-direccion-modal.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -23,10 +26,12 @@ import { ModalEspecialistaComponent } from './modal-especialista/modal-especiali
     EurosPipe,
     LocalizacionPipe,
     EspecialistaComponent,
-    ModalEspecialistaComponent
+    ModalEspecialistaComponent,
+    InfoModalComponent,
+    InfoDireccionModalComponent
   ],
   imports: [
-    CommonModule,FormsModule,SharedModule
+    CommonModule,FormsModule,SharedModule,FontAwesomeModule
   ],exports:[
     BuscadorEspecialistaComponent,
     FiltroEspecialistasComponent,
@@ -35,6 +40,7 @@ import { ModalEspecialistaComponent } from './modal-especialista/modal-especiali
     ModalEventoComponent,
     EspecialistaComponent,
     ModalEspecialistaComponent,
+    InfoModalComponent,
     EurosPipe,
     LocalizacionPipe
   ]

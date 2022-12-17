@@ -14,3 +14,15 @@
 .boton{
     margin: 20px;
 }
+
+app-modal-especialista{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+    inset: 0;
+    position: fixed;   
+    
+}
