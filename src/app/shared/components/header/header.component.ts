@@ -7,6 +7,8 @@ import { Component, OnInit ,HostListener} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  isVisible:boolean=false;
+
   headerFixed:boolean=false;
 
   constructor() { }
@@ -26,7 +28,9 @@ export class HeaderComponent implements OnInit {
       
     }*/
   }
-
+  mostrarMenu(){
+    this.isVisible=!this.isVisible;
+  }
   scroll(){
     window.scrollTo(0,0);
   }
