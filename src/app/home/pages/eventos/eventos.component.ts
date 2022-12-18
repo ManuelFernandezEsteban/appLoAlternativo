@@ -1,10 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Especialidad } from '../../../interfaces/especialiadad';
+import { Especialidad, Especialidades } from '../../../interfaces/especialiadad';
 import { DataEventosService } from '../../../services/data-eventos.service';
 import { Evento, Eventos } from '../../../interfaces/eventos';
 import { ServiceModalEventoService } from '../../../services/service-modal-evento.service';
+import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 
 
 @Component({
@@ -14,17 +15,26 @@ import { ServiceModalEventoService } from '../../../services/service-modal-event
 })
 export class EventosComponent implements OnInit {
 
+  especialidades:Especialidad[]=[];
+
+
   especialidad!: Especialidad;
   eventos: Evento[]=[];
   eventoAMostrar!: Evento;
   mostrarModal:boolean=false;
 
-  constructor(private route:ActivatedRoute,private dataEventosService:DataEventosService,
+  constructor(private dataEspecialidadesService:DataEspecialidadesService,private route:ActivatedRoute,private dataEventosService:DataEventosService,
     public serviceModalEventoService:ServiceModalEventoService) { 
 
   }
 
   ngOnInit(): void {
+
+    this.dataEspecialidadesService.getEspecialidades<Especialidades>().subscribe(res=>{
+      
+      this.especialidades=res.especialidades;
+      
+    })
 
     this.route.queryParams.subscribe(params=>{
       
