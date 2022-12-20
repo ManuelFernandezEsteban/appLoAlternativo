@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Especialidad } from 'src/app/interfaces/especialiadad';
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 import { Especialidades } from '../../../interfaces/especialiadad';
@@ -11,7 +11,7 @@ import { Especialidades } from '../../../interfaces/especialiadad';
 })
 export class EspecialistasComponent implements OnInit {
   especialidades: Especialidad[] = []
-  constructor(private dataEspecialidadesService: DataEspecialidadesService, private router: Router) { }
+  constructor(private dataEspecialidadesService: DataEspecialidadesService, private router: Router,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.dataEspecialidadesService.getEspecialidades<Especialidades>().subscribe(res => {

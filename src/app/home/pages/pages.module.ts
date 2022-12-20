@@ -11,6 +11,8 @@ import { EspecialistasComponent } from './especialistas/especialistas.component'
 import { EventosComponent } from './eventos/eventos.component';
 import { HomeComponent } from './home/home.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { EventosEspecialidadComponent } from './eventos-especialidad/eventos-especialidad.component';
+import { BuscadorEventosComponent } from './buscador-eventos/buscador-eventos.component';
 
 
 
@@ -24,6 +26,8 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
     EventosComponent,   
     CursosComponent,
     EspecialistasComponent,
+    EventosEspecialidadComponent,
+    BuscadorEventosComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +43,7 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
     EventosComponent,   
     CursosComponent,
     EspecialistasComponent,
+    EventosEspecialidadComponent
   ]
 })
 export class PagesModule { }

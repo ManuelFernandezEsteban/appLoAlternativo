@@ -1,9 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Especialidad, Especialidades } from '../../../interfaces/especialiadad';
-import { DataEventosService } from '../../../services/data-eventos.service';
-import { Evento, Eventos } from '../../../interfaces/eventos';
+
+
 import { ServiceModalEventoService } from '../../../services/service-modal-evento.service';
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 
@@ -15,43 +15,30 @@ import { DataEspecialidadesService } from 'src/app/services/data-especialidades.
 })
 export class EventosComponent implements OnInit {
 
-  especialidades:Especialidad[]=[];
+  especialidades: Especialidad[] = [];
 
-
-  especialidad!: Especialidad;
-  eventos: Evento[]=[];
-  eventoAMostrar!: Evento;
-  mostrarModal:boolean=false;
-
-  constructor(private dataEspecialidadesService:DataEspecialidadesService,private route:ActivatedRoute,private dataEventosService:DataEventosService,
-    public serviceModalEventoService:ServiceModalEventoService) { 
+  constructor(private dataEspecialidadesService: DataEspecialidadesService,  
+    public serviceModalEventoService: ServiceModalEventoService,private router:Router) {
 
   }
 
   ngOnInit(): void {
 
-    this.dataEspecialidadesService.getEspecialidades<Especialidades>().subscribe(res=>{
-      
-      this.especialidades=res.especialidades;
-      
-    })
+    this.dataEspecialidadesService.getEspecialidades<Especialidades>().subscribe(res => {
 
-    this.route.queryParams.subscribe(params=>{
-      
-      this.especialidad=params as Especialidad;
-    });
-    this.dataEventosService.getEventos<Eventos>().subscribe(res=>{
-      this.eventos=res.eventos;
-      
+      this.especialidades = res.especialidades;
+
     })
   }
 
-  eventoSeleccionado(event:Evento){
-    this.eventoAMostrar=event;
-    this.serviceModalEventoService.openDialog();
+  selecionEspecialidad(event: Especialidad) {
+    window.scrollTo(0,0);
+    this.router.navigate(['eventos-especialidad'],{queryParams:event});
   }
 
-  
- 
 
 }
+
+
+
+

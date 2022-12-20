@@ -8,6 +8,7 @@ import { EventosComponent } from './pages/eventos/eventos.component';
 import { CursosComponent } from './pages/cursos/cursos.component';
 import { EspecialistasComponent } from './pages/especialistas/especialistas.component';
 import { BuscadorEspecialistaComponent } from './components/buscador-especialista/buscador-especialista.component';
+import { EventosEspecialidadComponent } from './pages/eventos-especialidad/eventos-especialidad.component';
 
 
 const routes:Routes=[
@@ -28,6 +29,9 @@ const routes:Routes=[
       },
       {
         path:'buscador-especialista',component:BuscadorEspecialistaComponent
+      },
+      {
+        path:'eventos-especialidad',component:EventosEspecialidadComponent
       },
       {
         path:'donde',component:DondeComponent
