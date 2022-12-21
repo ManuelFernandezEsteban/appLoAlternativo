@@ -1,17 +1,23 @@
 .fixed{
     position: fixed;
     top: 0;
+    width: 100%;
     transition: 0.3s linear;
     border-bottom: 1px solid #7BACD5;
     box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);
     background: #7BACD5;
-    
+    z-index: 3;
 }
+
+.fixed + .content{
+    padding-top: 130px;
+}
+
 
 .nofixed{
     position: static;
-    transition: 0.3s linear;
-    
+    transition: 0.2s linear;
+   
 }
 .fontSizePequena{
     font-size: 1rem;
@@ -20,7 +26,7 @@
     width: 60px;
     height: 60px;
     img{
-        width: 60px;
-        height: 60px;
+        width: 100px;
+        height: 100px;
     }
 }

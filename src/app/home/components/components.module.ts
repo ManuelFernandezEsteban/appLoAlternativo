@@ -44,6 +44,7 @@ import { InfoModalEnlaceComponent } from './info-modal-enlace/info-modal-enlace.
     ModalEspecialistaComponent,
     InfoModalComponent,
     InfoModalEnlaceComponent,
+    InfoDireccionModalComponent,
     EurosPipe,
     LocalizacionPipe
   ]

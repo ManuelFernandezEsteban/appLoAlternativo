@@ -14,7 +14,7 @@
             <span class="title-l-primary color-accent">{{especialista.nombre|uppercase}}</span>
             <span class="encabezado color-accent">{{especialista.apellidos}}</span>
         </div>
-        <div class="fila ">
+        <div class="fila gap-20">
             <div class="columna gap-20">
                 <img src="{{especialista.imagen_terapeuta}}" alt="imagen especialista">
                 <div class="fila">
@@ -23,11 +23,11 @@
                     </div>
                 </div>
             </div>
-            <div class="columna">
-                <div class="fila">
+            <div class="columna gap-20">
+                <div class="fila gap-20">
                     <span class="encabezado color-accent">{{especialista.actividad}}</span>
                 </div>
-                <div class="fila">
+                <div class="fila gap-20">
                     <p class="texto-regular color-accent">{{especialista.descripcion_terapia}}</p>
                 </div>
 
@@ -42,7 +42,7 @@
                 <div class="fila gap-20">                    
                     <app-info-modal-enlace [info]="infoWeb"></app-info-modal-enlace>
                 </div>
-                <div class="fila social">
+                <div class="fila social gap-20">
 
                     <span class="tooltip">
                         <span class="tooltiptext caption color-accent bold">{{especialista.twitter}}</span>

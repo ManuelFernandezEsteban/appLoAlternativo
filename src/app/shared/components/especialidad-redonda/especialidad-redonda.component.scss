@@ -9,6 +9,12 @@
     position: relative;
 }
 
+.container-especialidad:hover .container-title>span {
+    
+    background-color: #568795;
+
+}
+
 .container-image {
 
     width: 360px;
@@ -45,8 +51,4 @@
     height: 100%;
     border-radius: 4px;   
     text-align: center;
-}
-
-.container-especialidad> .container-title>span:hover {
-    background-color: #568795;
 }

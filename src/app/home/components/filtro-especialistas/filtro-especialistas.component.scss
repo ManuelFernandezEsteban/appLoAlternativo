@@ -1,11 +1,12 @@
 .box-filtro {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: auto;
     padding: 20px;
     border: 2px solid #525020;
     margin-left: 20px;
     border-radius: 4px;
+    width: 30%;
 }
 
 .columna {
@@ -14,9 +15,13 @@
 
 .fila {
     width: 100%;
-    align-items: center;
+    align-items: center;   
+}
+.botonera{
+    width: 50%;
+}
 
-    .fila:last-child {
-        width: 40%;
-    }
+input{
+    padding: 5px;
+    
 }

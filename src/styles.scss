@@ -1,22 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Quicksand&family=Roboto&family=Teko&display=swap');
+@font-face {
+    font-family: 'buffaloregular';
+    src: url('./assets/fuente-buffalo/buffalo-regular-webfont.woff2') format('woff2'),
+         url('./assets/fuente-buffalo/buffalo-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
+}
 /*variables tipografia*/
 
 $fontSecondary: Roboto,
     monospace;
-$fontAccent: Cedarville Cursive;
+$fontAccent: buffaloregular;
 $fontPrimary: Quicksand;
 $fontOptions: Teko;
-$fsizeXXL: 6rem;
+$fsizeXXL: 9rem;
 $fsizeXL: 4rem;
-$fsizeL: 3rem;
-$fsOptionEncabezado: 2rem;
+$fsizeL: 2rem;
+$fsOptionEncabezado: 1.8rem;
 $fsOptionMenu: 1.3rem;
-$fsPrimaryTextXL: 1.5rem;
-$fsEncabezado: 1.4rem;
-$fsRegular: 1.1rem;
+$fsPrimaryTextXL: 1.2rem;
+$fsEncabezado: 1.2rem;
+$fsRegular: 1rem;
 $fsCaption: 0.9rem;
 $fsSmall: 0.7rem;
 
@@ -52,7 +59,7 @@ $breakpointMovil: 479px;
 .title-xxl-accent {
     font-family: $fontAccent;
     font-size: $fsizeXXL;
-    line-height: 144px;
+    line-height: 110px;
     font-weight: 400;
 
     @media (max-width:$breakpointMovil) {
@@ -225,7 +232,7 @@ $breakpointMovil: 479px;
 
 .btn-info {
     border: 2px solid $primaryColor;
-    background: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20));
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.15));
 
 }
 
@@ -405,7 +412,11 @@ app-header,
 app-header-no-menu {
     width: 100%;
 }
-
+app-banner-publicidad{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 nav {
     ul {
@@ -436,15 +447,15 @@ nav {
 
 header {
     display: flex;
-    justify-content: center;
-    padding: 20px 20px 0px 20px;
+    justify-content: space-evenly;
+    padding-top: 40px;
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 80%);
     width: 100%;
 
     .container-logo {
         img {
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
 
         }
 
@@ -453,9 +464,29 @@ header {
     .container-nav-content {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: $accentColor;        
+        justify-content: space-evenly;
+        align-items: flex-start;
+        color: $accentColor;  
+        .fila{
+            align-items:center ;
+            justify-content: flex-start;
+            .container-content{
+                width: 100%;
+            }
+        }      
+    }
+
+    .fila .social {
+        width: 30%;        
+        gap: 20px;
+        align-self: flex-end;
+        justify-content: flex-end;
+        span {
+            svg {
+                width: 24px;
+                fill: #525020;
+            }
+        }
     }
 }
 
@@ -495,7 +526,7 @@ app-banner-publicidad {
     padding-left: 20px;
     padding-right: 20px;
 }
-
+/*
 .publicidad {
 
     height: 600px;
@@ -513,7 +544,7 @@ app-banner-publicidad {
         aspect-ratio: 1;
     }
 
-}
+}*/
 
 /* fin banner publicidad*/
 
@@ -539,10 +570,12 @@ app-banner-publicidad {
     border-top-right-radius: 4px;
     text-align: center;
 }
+.container-especialidad:hover .container-title>span {
+    
+    background-color: #568795;
 
-.container-title>span:hover {
-    background-color: $primaryColorHover;
 }
+
 
 .container-especialidad {
     display: flex;
@@ -752,6 +785,12 @@ app-donde {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    span:nth-child(2){
+        svg{
+            width: 24px;
+            fill: $accentColor;
+        }
+    }
 }
 
 

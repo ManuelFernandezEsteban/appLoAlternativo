@@ -10,7 +10,7 @@ import { Especialidades } from '../../../interfaces/especialiadad';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  especialidades:Especialidad[]=[]
+  especialidades:Especialidad[]=[];
 
   constructor(private dataEspecialidadesService:DataEspecialidadesService,private router:Router) { }
 
