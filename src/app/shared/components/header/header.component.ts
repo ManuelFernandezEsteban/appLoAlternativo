@@ -1,4 +1,4 @@
-import { Component, OnInit ,HostListener} from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +7,11 @@ import { Component, OnInit ,HostListener} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  isVisible:boolean=false;
 
-  headerFixed:boolean=false;
-  
+  isVisible: boolean = false;
+
+  headerFixed: boolean = false;
+
 
   constructor() { }
 
@@ -18,36 +19,31 @@ export class HeaderComponent implements OnInit {
 
   }
 /*
-  @HostListener('window:scroll',['$event']) onScroll(){
-    
-    const header = 324;
-    const body = document.querySelector('body')?.scrollHeight||0;
- 
- 
-    console.log(window.scrollY,body,header);
+  @HostListener('window:scroll', ['$event']) onScroll() {
 
-    if ( window.scrollY>124 && ((body-124)>(body-window.scrollY+324))){
-      this.headerFixed=true;
+    const header = document.querySelector('header')?.scrollHeight || 0;
+    const body = document.querySelector('body')?.scrollHeight || 0;
+    const scroll = window.scrollY;
+    //const quedaDePagina = (body-header)-;
+    console.log(window.scrollY, body, header);
+
+    if (body > 1360) {
+      if ((scroll > 0)) {
+        this.headerFixed = true;
+      } else {
+        this.headerFixed = false;
+      }
     }else{
-      this.headerFixed=false;
-    }
-/*
-    if (window.scrollY>window.scrollY-324-100 ){
-      
-    }else{
-      this.headerFixed=false;
-    }
-*/
-    
-/*
+      this.headerFixed = false;
+    } 
   }
+*/
 
-
-  mostrarMenu(){
-    this.isVisible=!this.isVisible;
-  }*/
-  scroll(){
-    window.scrollTo(0,0);
+  mostrarMenu() {
+    this.isVisible = !this.isVisible;
+  }
+  scroll() {
+    window.scrollTo(0, 0);
   }
 
 }

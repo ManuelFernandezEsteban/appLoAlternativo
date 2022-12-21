@@ -6,7 +6,7 @@
     border-bottom: 1px solid #7BACD5;
     box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);
     background: #7BACD5;
-    
+    z-index: 3;
 }
 
 .fixed + .content{
@@ -17,7 +17,7 @@
 .nofixed{
     position: static;
     transition: 0.2s linear;
-    
+   
 }
 .fontSizePequena{
     font-size: 1rem;
