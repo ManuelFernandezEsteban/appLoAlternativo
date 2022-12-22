@@ -391,11 +391,9 @@ app-root {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
+    justify-content: center;   
     width: 100%;
-    position: relative;
-    min-height: 100vh;
+
 
 }
 
@@ -441,7 +439,7 @@ nav {
     a:hover {
         font-style: italic;
         color: $accentColorHover;
-        border-bottom: 4px solid $accentColorHover;
+       
     }
 }
 

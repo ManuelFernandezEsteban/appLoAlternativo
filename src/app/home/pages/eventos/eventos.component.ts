@@ -33,7 +33,8 @@ export class EventosComponent implements OnInit {
 
   selecionEspecialidad(event: Especialidad) {
     window.scrollTo(0,0);
-    this.router.navigate(['eventos-especialidad'],{queryParams:event});
+    //this.router.navigateByUrl('/home/eventos/eventos-especialidad')
+    this.router.navigate(['home/home/eventos-especialidad'],{queryParams:event});
   }
 
 

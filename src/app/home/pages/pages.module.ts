@@ -12,7 +12,9 @@ import { EventosComponent } from './eventos/eventos.component';
 import { HomeComponent } from './home/home.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { EventosEspecialidadComponent } from './eventos-especialidad/eventos-especialidad.component';
-import { BuscadorEventosComponent } from './buscador-eventos/buscador-eventos.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RouterModule } from '@angular/router';
+
 
 
 
@@ -27,7 +29,8 @@ import { BuscadorEventosComponent } from './buscador-eventos/buscador-eventos.co
     CursosComponent,
     EspecialistasComponent,
     EventosEspecialidadComponent,
-    BuscadorEventosComponent,
+
+    DashboardComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +38,7 @@ import { BuscadorEventosComponent } from './buscador-eventos/buscador-eventos.co
     FormsModule,
     ComponentsModule,
     ReactiveFormsModule,
+    RouterModule
   ],exports:[
     HomeComponent,
     NosotrosComponent,
@@ -43,7 +47,8 @@ import { BuscadorEventosComponent } from './buscador-eventos/buscador-eventos.co
     EventosComponent,   
     CursosComponent,
     EspecialistasComponent,
-    EventosEspecialidadComponent
+    EventosEspecialidadComponent,
+    DashboardComponent
   ]
 })
 export class PagesModule { }

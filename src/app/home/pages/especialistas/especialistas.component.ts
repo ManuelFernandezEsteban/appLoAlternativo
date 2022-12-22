@@ -24,7 +24,7 @@ export class EspecialistasComponent implements OnInit {
   seleccionEspecialidad(event:Especialidad){
     //console.log(event);
     window.scrollTo(0,0);
-    this.router.navigate(['buscador-especialista'],{queryParams:event});
+    this.router.navigate(['home/home/buscador-especialista'],{queryParams:event});
     
   }
 }

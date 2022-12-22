@@ -1,16 +1,17 @@
-<div class="container">
-    <app-header></app-header>
-    <h3 class="title-xl-primary color-accent pad-20 center">Nuestros sponsors</h3>
-    <app-banner-publicidad></app-banner-publicidad>
-    <app-boton-plantilla></app-boton-plantilla>
 
 
+<app-header>
+
+</app-header>
+
+<main>
     
-    <!--
-    <app-directorio-redondo (onSeleccionEspecialidad)="seleccionEspecialidad($event)" [especialidades]="especialidades"></app-directorio-redondo>-
-    <app-boton-especialistas></app-boton-especialistas>-->
-    <app-footer></app-footer>
+    <router-outlet>
+        
+    </router-outlet>
+    <app-boton-plantilla>
+    </app-boton-plantilla>
+</main>
+<app-footer>
 
-
-
-</div>
+</app-footer>

@@ -9,44 +9,44 @@ import { CursosComponent } from './pages/cursos/cursos.component';
 import { EspecialistasComponent } from './pages/especialistas/especialistas.component';
 import { BuscadorEspecialistaComponent } from './components/buscador-especialista/buscador-especialista.component';
 import { EventosEspecialidadComponent } from './pages/eventos-especialidad/eventos-especialidad.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 const routes:Routes=[
-  {
-    path:'',
-    children:[   
+  { 
+    path:'', component:HomeComponent,children:[
       {
-        path:'home',component:HomeComponent
-      },  
+        path:'',component:DashboardComponent
+      },     
       {
-        path:'nosotros',component:NosotrosComponent
+        path:'home/nosotros',component:NosotrosComponent
       },
       {
-        path:'cursos',component:CursosComponent
+        path:'home/cursos',component:CursosComponent
       },
       {
-        path:'especialistas',component:EspecialistasComponent
+        path:'home/eventos',component:EventosComponent
       },
       {
-        path:'buscador-especialista',component:BuscadorEspecialistaComponent
+        path:'home/donde',component:DondeComponent
       },
       {
-        path:'eventos-especialidad',component:EventosEspecialidadComponent
+        path:'home/contacto',component:ContactoComponent
       },
       {
-        path:'donde',component:DondeComponent
+        path:'home/especialistas',component:EspecialistasComponent
+      },   
+      {
+        path:'home/buscador-especialista',component:BuscadorEspecialistaComponent
       },
       {
-        path:'contacto',component:ContactoComponent
-      },
-      {
-        path:'eventos',component:EventosComponent
-      },
-      {
-        path:'**',redirectTo:'home'
-      }
-    ]
-  }
+        path:'home/eventos-especialidad',component:EventosEspecialidadComponent
+      },   
+
+    ] 
+      
+  },
+  
 ]
 
 @NgModule({

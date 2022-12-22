@@ -9,9 +9,10 @@ import { PagesModule } from './pages/pages.module';
 
 
 
-@NgModule({
-  declarations: [
 
+@NgModule({
+  declarations: [ 
+   
   ],
   imports: [
     CommonModule,
