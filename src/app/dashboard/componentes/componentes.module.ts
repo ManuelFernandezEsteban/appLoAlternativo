@@ -16,6 +16,7 @@ import { FiltroEspecialistasComponent } from './filtro-especialistas/filtro-espe
 import { ModalEspecialistaComponent } from './modal-especialista/modal-especialista.component';
 import { FormsModule } from '@angular/forms';
 import { EspecialistaComponent } from './especialista/especialista.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 
@@ -40,7 +41,8 @@ import { EspecialistaComponent } from './especialista/especialista.component';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],exports:[
     BannerPublicidadComponent,
     DirectorioComponent,

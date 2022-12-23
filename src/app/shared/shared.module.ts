@@ -9,28 +9,30 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 
 import { HeaderNoMenuComponent } from './components/header-no-menu/header-no-menu.component';
 import { BotonPlantillaComponent } from './components/boton-plantilla/boton-plantilla.component';
+import { RedSocialComponent } from './components/red-social/red-social.component';
 
 
 @NgModule({
-  declarations: [    
+  declarations: [
     HeaderComponent,
     FooterComponent,
     ErrorPageComponent,
-
     HeaderNoMenuComponent,
-     BotonPlantillaComponent,
+    BotonPlantillaComponent,
+    RedSocialComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule,   
+    RouterModule,
     FormsModule
   ],
-  exports:[
+  exports: [
     HeaderComponent,
     FooterComponent,
     ErrorPageComponent,
     BotonPlantillaComponent,
     HeaderNoMenuComponent,
+    RedSocialComponent,
   ]
 })
 export class SharedModule { }

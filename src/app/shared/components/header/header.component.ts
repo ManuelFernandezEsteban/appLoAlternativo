@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { RedSocialIcon } from '../../../interfaces/redSocialIcon';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,21 @@ export class HeaderComponent implements OnInit {
   isVisible: boolean = false;
 
   headerFixed: boolean = false;
+  instagram:RedSocialIcon={
+    nombre:'',
+    enlace:'https://www.instagram.com/loalternativo_/',
+    icono:'../../../assets/images/icons-svg/instagram.svg'
+  }
+  facebook:RedSocialIcon={
+    nombre:'',
+    enlace:'https://www.facebook.com/100089059505165',
+    icono:'../../../assets/images/icons-svg/facebook.svg'
+  }
+  youtube:RedSocialIcon={
+    nombre:'',
+    enlace:'https://www.youtube.com/channel/UCMzJ0PPoQhcKkNZvnyBc3gA',
+    icono:'../../../assets/images/icons-svg/youtube.svg'
+  }
 
 
   constructor() { }
