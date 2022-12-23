@@ -1,0 +1,22 @@
+
+<button class="boton btn-info" (click)="toggleFiltros()">Filtros</button>
+
+
+<app-filtro-especialistas *ngIf="isVisible" [listaEspecialistas]="lista" (onBuscar)="resultado($event)" (onReset)="reset($event)">
+</app-filtro-especialistas>
+
+<div class="wrapper">
+    <div class="wrapper2">
+        <ng-container *ngFor="let especialista of lista">
+
+            <app-especialista [especialista]="especialista" (onEspecialista)="eventoSeleccionado($event)">
+
+            </app-especialista>
+
+        </ng-container>
+    </div>
+
+</div>
+<app-modal-especialista *ngIf="serviceModalEventoService.showDialog" [especialista]="especialistaAMostrar"></app-modal-especialista>
+
+

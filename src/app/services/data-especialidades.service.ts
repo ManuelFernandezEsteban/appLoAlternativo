@@ -8,12 +8,28 @@ import { Observable } from 'rxjs';
 })
 export class DataEspecialidadesService {
 
-  especialidades:Especialidad[]=[]
+  especialidades: Especialidad[] = []
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getEspecialidades<Especialidades>():Observable<Especialidades>{
+  getEspecialidades<Especialidades>(): Observable<Especialidades> {
     return this.http.get<Especialidades>('./../../assets/data/especialidades.json');
+  }
+
+  getNombreEspecialidad(id: number): string {
+    let nombreEspecialidad: string = '';   
+
+    if (this.especialidades.length != 0) {
+
+      this.especialidades.forEach(e => {
+        if (e.id === id) {
+          nombreEspecialidad = e.nombre;
+        }
+      });
+
+    }
+
+    return nombreEspecialidad;
   }
 
 }

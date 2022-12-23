@@ -26,16 +26,12 @@ export class HeaderComponent implements OnInit {
     const scroll = window.scrollY;
     //const quedaDePagina = (body-header)-;
     console.log(window.scrollY, body, header);
-
-    if (body > 1360) {
-      if ((scroll > 0)) {
-        this.headerFixed = true;
-      } else {
-        this.headerFixed = false;
-      }
-    }else{
+    if ((scroll > 0) && (body-header>window.innerHeight)) {
+      this.headerFixed = true;
+    } else {
       this.headerFixed = false;
-    } 
+    }
+
   }
 */
 

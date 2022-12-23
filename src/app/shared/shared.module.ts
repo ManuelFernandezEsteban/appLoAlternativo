@@ -1,22 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
-import { BotonPlantillaComponent } from './components/boton-plantilla/boton-plantilla.component';
-import { BannerPublicidadComponent } from './components/banner-publicidad/banner-publicidad.component';
-import { BotonEspecialistasComponent } from './components/boton-especialistas/boton-especialistas.component';
-import { DirectorioComponent } from './components/directorio/directorio.component';
-import { EspecialidadComponent } from './components/especialidad/especialidad.component';
+
 import { HeaderNoMenuComponent } from './components/header-no-menu/header-no-menu.component';
-import { SwitchToggleComponent } from './components/switch-toggle/switch-toggle.component';
-import { FormsModule } from '@angular/forms';
-import { EspecialidadRedondaComponent } from './components/especialidad-redonda/especialidad-redonda.component';
-import { DirectorioRedondoComponent } from './components/directorio-redondo/directorio-redondo.component';
-
-
+import { BotonPlantillaComponent } from './components/boton-plantilla/boton-plantilla.component';
 
 
 @NgModule({
@@ -24,15 +16,9 @@ import { DirectorioRedondoComponent } from './components/directorio-redondo/dire
     HeaderComponent,
     FooterComponent,
     ErrorPageComponent,
-    BotonPlantillaComponent,
-    BannerPublicidadComponent,
-    BotonEspecialistasComponent,
-    DirectorioComponent,
-    EspecialidadComponent,
+
     HeaderNoMenuComponent,
-    SwitchToggleComponent,
-    EspecialidadRedondaComponent,
-    DirectorioRedondoComponent
+     BotonPlantillaComponent,
   ],
   imports: [
     CommonModule,
@@ -44,13 +30,7 @@ import { DirectorioRedondoComponent } from './components/directorio-redondo/dire
     FooterComponent,
     ErrorPageComponent,
     BotonPlantillaComponent,
-    BannerPublicidadComponent,
-    BotonEspecialistasComponent,
-    DirectorioComponent,
-    EspecialidadComponent,
     HeaderNoMenuComponent,
-    SwitchToggleComponent,
-    DirectorioRedondoComponent
   ]
 })
 export class SharedModule { }
