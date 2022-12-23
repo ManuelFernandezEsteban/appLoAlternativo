@@ -23,6 +23,7 @@ export class EspecialistasComponent implements OnInit {
     this.dataEspecialidadesService.getEspecialidades<Especialidades>().subscribe(res => {
 
       this.especialidades = res.especialidades;
+      this.dataEspecialidadesService.especialidades=this.especialidades;
 
     })
   }
@@ -31,6 +32,6 @@ export class EspecialistasComponent implements OnInit {
     window.scrollTo(0,0);
     
     //this.router.navigateByUrl('/home/eventos/eventos-especialidad')
-    this.router.navigate(['home'],{queryParams:event});
+    this.router.navigate(['especialistas/especialistas-especialidad/',event.id]);
   }
 }

@@ -11,6 +11,11 @@ import { EurosPipe } from './pipes/euros.pipe';
 import { LocalizacionPipe } from "./pipes/localizacion.pipe";
 import { ModalEventoComponent } from './modal-evento/modal-evento.component';
 import { InfoModalEnlaceComponent } from './info-modal-enlace/info-modal-enlace.component';
+import { ResultadoBusquedaEspecialistasComponent } from './resultado-busqueda-especialistas/resultado-busqueda-especialistas.component';
+import { FiltroEspecialistasComponent } from './filtro-especialistas/filtro-especialistas.component';
+import { ModalEspecialistaComponent } from './modal-especialista/modal-especialista.component';
+import { FormsModule } from '@angular/forms';
+import { EspecialistaComponent } from './especialista/especialista.component';
 
 
 
@@ -25,10 +30,17 @@ import { InfoModalEnlaceComponent } from './info-modal-enlace/info-modal-enlace.
     InfoModalComponent,
     InfoDireccionModalComponent,
     EventoComponent,
-    EurosPipe,LocalizacionPipe, ModalEventoComponent, InfoModalEnlaceComponent
+    EurosPipe,LocalizacionPipe, 
+    ModalEventoComponent, 
+    InfoModalEnlaceComponent, 
+    ResultadoBusquedaEspecialistasComponent, 
+    FiltroEspecialistasComponent,
+    ModalEspecialistaComponent, 
+    EspecialistaComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],exports:[
     BannerPublicidadComponent,
     DirectorioComponent,
@@ -37,7 +49,12 @@ import { InfoModalEnlaceComponent } from './info-modal-enlace/info-modal-enlace.
     InfoModalComponent,
     InfoDireccionModalComponent,
     EventoComponent,
-    ModalEventoComponent, InfoModalEnlaceComponent
+    ModalEventoComponent, 
+    InfoModalEnlaceComponent,
+    ResultadoBusquedaEspecialistasComponent, 
+    FiltroEspecialistasComponent,
+    ModalEspecialistaComponent, 
+    EspecialistaComponent
   ]
 
   

@@ -23,6 +23,7 @@ export class EventosComponent implements OnInit {
     this.dataEspecialidadesService.getEspecialidades<Especialidades>().subscribe(res => {
 
       this.especialidades = res.especialidades;
+      this.dataEspecialidadesService.especialidades=this.especialidades;
 
     })
   }

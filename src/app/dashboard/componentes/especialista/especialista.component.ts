@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
-import { Especialista } from '../../../interfaces/especialistas';
+import { Especialista } from 'src/app/interfaces/especialistas';
 
 @Component({
   selector: 'app-especialista',
@@ -31,4 +31,5 @@ export class EspecialistaComponent implements OnInit {
   onMasInfo() {
     this.onEspecialista.emit(this.especialista);
   }
+
 }

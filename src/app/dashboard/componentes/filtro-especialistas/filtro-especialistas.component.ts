@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Especialista, Especialistas } from 'src/app/interfaces/especialistas';
-
+import { Especialista } from 'src/app/interfaces/especialistas';
 
 @Component({
   selector: 'app-filtro-especialistas',
@@ -8,6 +7,7 @@ import { Especialista, Especialistas } from 'src/app/interfaces/especialistas';
   styleUrls: ['./filtro-especialistas.component.scss']
 })
 export class FiltroEspecialistasComponent implements OnInit {
+
   @Input()
   listaEspecialistas: Especialista[]=[]; 
 
@@ -68,6 +68,5 @@ export class FiltroEspecialistasComponent implements OnInit {
     this.onBuscar.emit(seleccionados);
     
   }
+
 }
-
-

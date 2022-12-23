@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Especialidad } from 'src/app/interfaces/especialiadad';
+import { ActivatedRoute } from '@angular/router';
 import { Evento, Eventos } from 'src/app/interfaces/eventos';
 import { DataEventosService } from 'src/app/services/data-eventos.service';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
+import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 
 @Component({
   selector: 'app-eventos-especialidad',
@@ -12,19 +12,22 @@ import { ServiceModalEventoService } from 'src/app/services/service-modal-evento
 })
 export class EventosEspecialidadComponent implements OnInit {
 
-  especialidad!: Especialidad;
-
+  idEspecialidad!: number;
+  especialidad:string='';
   eventos: Evento[]=[];
   eventoAMostrar!: Evento;
   mostrarModal:boolean=false;
   
-  constructor(private route:ActivatedRoute,private router: Router,
+  constructor(private route:ActivatedRoute,    
     public serviceModalEventoService:ServiceModalEventoService,
+    private dataEspecialidadesService:DataEspecialidadesService,
     private dataEventosService:DataEventosService) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params=>{      
-      this.especialidad=params as Especialidad;
+    this.route.params.subscribe(params=>{      
+      this.idEspecialidad=parseInt(params['id']);
+      
+      this.especialidad = this.dataEspecialidadesService.getNombreEspecialidad(this.idEspecialidad);
     });
     this.dataEventosService.getEventos<Eventos>().subscribe(res=>{
       this.eventos=res.eventos;
