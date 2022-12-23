@@ -1,0 +1,26 @@
+.box-evento{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 240px;
+    height: 350px;
+    border-radius: 4px;
+    aspect-ratio: 1;
+    padding: 15px;
+    
+    .info-evento{
+        display: flex;
+        flex-direction: column;        
+        gap: 6px;
+        align-items: flex-end;
+    }
+    .fila{
+        justify-content: space-between;
+        align-items: flex-end;
+        span{
+            text-align: right;
+            width: 60%;
+        }
+    }
+    
+}
