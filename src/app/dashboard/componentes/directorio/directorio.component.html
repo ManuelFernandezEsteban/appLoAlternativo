@@ -1,0 +1,9 @@
+
+<div class="grid-directorio">
+        
+    <div *ngFor="let especialidad of especialidades">
+
+            <app-especialidad-cuadrada *ngIf="cuadrada" (onEspecialidad)="selecionEspecialidad($event)" [boxEspecialidad]="especialidad"></app-especialidad-cuadrada>
+            <app-especialidad-redonda *ngIf="!cuadrada" (onEspecialidad)="selecionEspecialidad($event)" [boxEspecialidad]="especialidad"></app-especialidad-redonda>
+    </div>
+</div>

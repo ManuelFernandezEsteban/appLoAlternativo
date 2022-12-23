@@ -57,38 +57,38 @@
         <nav>
             <ul [ngClass]="headerFixed?'fontSizePequena':''">
                 <li>
-                    <a class="option-menu" (click)="scroll()" [routerLink]="['/home']"
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['/home']" [routerLinkActive]="['active']"
                         >Inicio</a>
                 </li>
                 <li>
-                    <a class="option-menu" (click)="scroll()" [routerLink]="['home/eventos']"
-                        >Eventos</a>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['eventos']"
+                    [routerLinkActive]="['active']" >Eventos</a>
                 </li>
                 <li>
-                    <a class="option-menu" (click)="scroll()" [routerLink]="['home/cursos']"
-                        >Cursos</a>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['cursos']"
+                    [routerLinkActive]="['active']" >Cursos</a>
                 </li>
                 <li>
-                    <a class="option-menu" (click)="scroll()" [routerLink]="['home/especialistas']"
-                        >Especialistas</a>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['especialistas']"
+                    [routerLinkActive]="['active']"  >Especialistas</a>
                 </li>
                 <li>
-                    <a class="option-menu" (click)="scroll()" [routerLink]="['home/nosotros']"
-                        >Nosotros</a>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['nosotros']"
+                    [routerLinkActive]="['active']"  >Nosotros</a>
                 </li>
                 
                 
                 <li>
-                    <a class="option-menu" (click)="scroll()" [routerLink]="['home/donde']"
-                        >Donde estamos</a>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['donde']"
+                    [routerLinkActive]="['active']"  >Donde estamos</a>
                 </li>
                 <li>
-                    <a class="option-menu" (click)="scroll()" [routerLink]="['home/contacto']"
-                       >Contacto</a>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['contacto']"
+                    [routerLinkActive]="['active']"   >Contacto</a>
                 </li>
                 <li>
                     <a class="option-menu" (click)="scroll()" [routerLink]="['/auth']"
-                        >Zona terapeutas</a>
+                    [routerLinkActive]="['active']"   >Zona terapeutas</a>
                 </li>
             </ul>
 

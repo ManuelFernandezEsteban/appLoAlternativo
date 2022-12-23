@@ -524,25 +524,46 @@ app-banner-publicidad {
     padding-left: 20px;
     padding-right: 20px;
 }
-/*
-.publicidad {
 
-    height: 600px;
+.publicidad{
+    background-color: $accentColor;
     border: 2px solid $accentColor;
     border-radius: 4px;
-    background-image: url('./assets/images/banner/banner.svg');
-    background-position: center;
-    background-repeat: repeat;
-    background-size: cover;
-
-    img {
+    width: 80%;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 600px;
+    padding: 20px;
+    .columna{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4,1fr);
+        gap: 10px;
         width: 100%;
         height: 100%;
-        object-fit: contain;
-        aspect-ratio: 1;
     }
+    .columna:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .premium{
+            height: 100%;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+    }
+    .normal{
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 4px;
+    }
+    
+}
 
-}*/
+
 
 /* fin banner publicidad*/
 

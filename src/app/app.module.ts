@@ -19,7 +19,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,   
     HttpClientModule, 
-    FontAwesomeModule,SharedModule
+    FontAwesomeModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

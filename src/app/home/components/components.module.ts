@@ -7,8 +7,7 @@ import { ResultadoBusquedaEspecialistasComponent } from './resultado-busqueda-es
 import { EventoComponent } from './evento/evento.component';
 import { ModalEventoComponent } from './modal-evento/modal-evento.component';
 import { BuscadorEspecialistaComponent } from './buscador-especialista/buscador-especialista.component';
-import { EurosPipe } from './pipes/euros.pipe';
-import { LocalizacionPipe } from './pipes/localizacion.pipe';
+
 import { EspecialistaComponent } from './especialista/especialista.component';
 import { ModalEspecialistaComponent } from './modal-especialista/modal-especialista.component';
 import { InfoModalComponent } from './info-modal/info-modal.component';
@@ -24,8 +23,7 @@ import { InfoModalEnlaceComponent } from './info-modal-enlace/info-modal-enlace.
     ResultadoBusquedaEspecialistasComponent,
     EventoComponent, 
     ModalEventoComponent,
-    EurosPipe,
-    LocalizacionPipe,
+
     EspecialistaComponent,
     ModalEspecialistaComponent,
     InfoModalComponent,
@@ -45,8 +43,7 @@ import { InfoModalEnlaceComponent } from './info-modal-enlace/info-modal-enlace.
     InfoModalComponent,
     InfoModalEnlaceComponent,
     InfoDireccionModalComponent,
-    EurosPipe,
-    LocalizacionPipe
+
   ]
 })
 export class ComponentsModule { }

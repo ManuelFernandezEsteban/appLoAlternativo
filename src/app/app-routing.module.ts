@@ -10,20 +10,18 @@ const routes: Routes = [
     path:'auth',
     loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)
   },
+
   {
-    path:'',pathMatch:'full',redirectTo:'home'
+    path:'', 
+    loadChildren:()=>import('./dashboard/dashboard.module').then(m=>m.DashboardModule)
   },
+  
   {
-    path:'home', 
-    loadChildren:()=>import('./home/home.module').then(m=>m.HomeModule)
-  },
-  {
-    path:'**',redirectTo:'404'
+    path:'**',redirectTo:'404',pathMatch:'full'
   },
   {
     path:'404',component:ErrorPageComponent
   }
-
 
 
 ];

@@ -12,6 +12,6 @@ export class BotonPlantillaComponent implements OnInit {
   ngOnInit(): void {
   }
   onClickBotonPlantilla(){
-    console.log("plantilla")
+    
   }
 }
