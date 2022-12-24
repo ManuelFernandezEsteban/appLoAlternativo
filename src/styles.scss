@@ -1,14 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Quicksand&family=Roboto&family=Teko&display=swap');
+
 @font-face {
     font-family: 'buffaloregular';
     src: url('./assets/fuente-buffalo/buffalo-regular-webfont.woff2') format('woff2'),
-         url('./assets/fuente-buffalo/buffalo-regular-webfont.woff') format('woff');
+        url('./assets/fuente-buffalo/buffalo-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
+
 /*variables tipografia*/
 
 $fontSecondary: Roboto,
@@ -252,6 +254,18 @@ $breakpointMovil: 479px;
     height: 60px;
 }
 
+.btn_news{
+    border: 2px solid $accentColor;
+    border-radius: 4px;
+    color: $accentColor;
+    font-family: $fontOptions;
+    font-size: $fsOptionMenu;
+    width: 30px;
+    height: 30px;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .btn-submit-form {
     background-color: $submitColor;
     color: $lightColor;
@@ -279,6 +293,16 @@ $breakpointMovil: 479px;
     height: 22px;
 }
 
+input{
+    border: none;
+    border-bottom: 2px solid $accentColor;
+    width: 90%;
+    padding: 10px;
+    font-family: $fontPrimary;
+    font-size: $fsRegular;
+    outline: none;
+}
+
 input[type='text'] {
     border: none;
     border-bottom: 2px solid $accentColor;
@@ -300,6 +324,12 @@ input[type='password'] {
 }
 
 input [type='email'] {
+    border: none;
+    border-bottom: 2px solid $accentColor;
+    width: 90%;
+    padding: 10px;
+    font-family: $fontPrimary;
+    font-size: $fsRegular;   
     outline: none;
 }
 
@@ -336,7 +366,6 @@ input[type="checkbox"]:checked::before {
 
 .form-control {
     display: flex;
-
     align-items: center;
     gap: 10px;
 }
@@ -391,7 +420,7 @@ app-root {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;   
+    justify-content: center;
     width: 100%;
 
 
@@ -410,7 +439,8 @@ app-header,
 app-header-no-menu {
     width: 100%;
 }
-app-banner-publicidad{
+
+app-banner-publicidad {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -439,7 +469,7 @@ nav {
     a:hover {
         font-style: italic;
         color: $accentColorHover;
-       
+
     }
 }
 
@@ -464,21 +494,30 @@ header {
         flex-direction: column;
         justify-content: space-evenly;
         align-items: flex-start;
-        color: $accentColor;  
-        .fila{
-            align-items:center ;
+        color: $accentColor;
+
+        .fila {
+            align-items: center;
             justify-content: flex-start;
-            .container-content{
+
+            .container-content {
                 width: 100%;
             }
-        }      
+        }
     }
-
+    .columna-letter {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-end;
+        width: 40%;
+    }
     .fila .social {
-        width: 30%;        
+
         gap: 20px;
         align-self: flex-end;
         justify-content: flex-end;
+        width: 30%;
         span {
             svg {
                 width: 24px;
@@ -486,7 +525,10 @@ header {
             }
         }
     }
+
 }
+
+
 
 /*fin header*/
 
@@ -525,7 +567,7 @@ app-banner-publicidad {
     padding-right: 20px;
 }
 
-.publicidad{
+.publicidad {
     background-color: $accentColor;
     border: 2px solid $accentColor;
     border-radius: 4px;
@@ -535,32 +577,36 @@ app-banner-publicidad {
     grid-template-columns: 1fr 1fr 1fr;
     height: 600px;
     padding: 20px;
-    .columna{
+
+    .columna {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(4,1fr);
+        grid-template-rows: repeat(4, 1fr);
         gap: 10px;
         width: 100%;
         height: 100%;
     }
-    .columna:nth-child(2){
+
+    .columna:nth-child(2) {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        .premium{
+
+        .premium {
             height: 100%;
             width: 100%;
             background-color: #fff;
             border-radius: 4px;
         }
     }
-    .normal{
+
+    .normal {
         width: 100%;
         height: 100%;
         background-color: #fff;
         border-radius: 4px;
     }
-    
+
 }
 
 
@@ -589,8 +635,9 @@ app-banner-publicidad {
     border-top-right-radius: 4px;
     text-align: center;
 }
+
 .container-especialidad:hover .container-title>span {
-    
+
     background-color: #568795;
 
 }
@@ -643,14 +690,18 @@ app-footer {
 
 footer {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;    
     width: 100%;
     background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 80%);
     padding: 20px;
     padding-top: 50px;
     padding-bottom: 50px;
     margin-top: 50px;
+    gap: 50px;
+    .box:first-child{
+        align-items: center;
+        justify-content: space-around;
+    }
 
 }
 
@@ -658,17 +709,19 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-around;
-    width: 50%;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 30px;
 }
 
+#cursos-provisional{
+    height: 30vh;
+}
 
 .columna {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-
+    justify-content: flex-start;    
     ul {
         display: flex;
         flex-direction: column;
@@ -728,6 +781,8 @@ footer {
 
 /*fin página nosotros*/
 
+
+
 /*página donde*/
 
 app-donde {
@@ -762,7 +817,8 @@ app-donde {
     gap: 20px;
     width: 100%;
     height: 100%;
-    #mapa{
+
+    #mapa {
         min-width: 300px;
         min-height: 300px;
         width: 100%;
@@ -786,8 +842,9 @@ app-donde {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-    span:nth-child(2){
-        svg{
+
+    span:nth-child(2) {
+        svg {
             width: 24px;
             fill: $accentColor;
         }
@@ -890,7 +947,9 @@ app-registro {
     form {
         width: 100%;
     }
-
+    .columna{
+        width: 100%;
+    }
     .fila {
         justify-content: space-between;
         margin-top: 40px;
