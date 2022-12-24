@@ -29,6 +29,28 @@ $fsRegular: 1rem;
 $fsCaption: 0.9rem;
 $fsSmall: 0.7rem;
 
+$fsizeXXLLaptop: 5rem;
+$fsizeXLLaptop: 2.5rem;
+$fsizeLLaptop: 2rem;
+$fsOptionEncabezadoLaptop: 1.6rem;
+$fsOptionMenuLaptop: 1.2rem;
+$fsPrimaryTextXLLaptop: 1.1rem;
+$fsEncabezadoLaptop: 1rem;
+$fsRegularLaptop: 0.9rem;
+$fsCaptionLaptop: 0.8rem;
+$fsSmallLaptop: 0.65rem;
+
+$fsizeXXLTablet: 3rem;
+$fsizeXLTablet: 1.9rem;
+$fsizeLTablet: 1.7rem;
+$fsOptionEncabezadoTablet: 1.4rem;
+$fsOptionMenutablet: 1.1rem;
+$fsPrimaryTextXLTablet: 1rem;
+$fsEncabezadoTablet: 1rem;
+$fsRegularTablet: 0.8rem;
+$fsCaptionTablet: 0.7rem;
+$fsSmallTablet: 0.65rem;
+
 $fsizeXXLMovil: 3rem;
 $fsizeXLMovil: 2rem;
 $fsizeLMovil: 2rem;
@@ -51,9 +73,10 @@ $lightColor: #f0f0f0;
 $primaryColorHover: #568795;
 $accentColorHover: #9D8B3D;
 
-$breakpointDesktop: 1259px;
-$breakpointTablet: 767px;
-$breakpointMovil: 479px;
+$breakpointLaptop: 1280px;
+$breakpointTablet: 1080px;
+$breakpoint935: 935px;
+$breakpointMovil: 576px;
 
 
 /* clases tipografia*/
@@ -63,10 +86,14 @@ $breakpointMovil: 479px;
     font-size: $fsizeXXL;
     line-height: 110px;
     font-weight: 400;
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsizeXXLLaptop;
+        line-height: 80px;
+    }
 
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeXXLMovil;
-        line-height: 77px;
+        line-height: 60px;
     }
 }
 
@@ -75,6 +102,10 @@ $breakpointMovil: 479px;
     font-size: $fsizeXL;
     line-height: 96px;
     font-weight: 400;
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsizeXLLaptop;
+        line-height: 70px;
+    }
 
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeXLMovil;
@@ -88,6 +119,10 @@ $breakpointMovil: 479px;
     font-size: $fsizeXL;
     line-height: 96px;
     font-weight: 400;
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsizeXLLaptop;
+        line-height: 80px;
+    }
 
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeXLMovil;
@@ -100,7 +135,10 @@ $breakpointMovil: 479px;
     font-size: $fsizeL;
     line-height: 72px;
     font-weight: 400;
-
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsizeLLaptop;
+        line-height: 60px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeLMovil;
         line-height: 36px;
@@ -114,7 +152,10 @@ $breakpointMovil: 479px;
     line-height: 36px;
     letter-spacing: 4.8px;
     font-weight: 400;
-
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsOptionEncabezadoLaptop;
+        line-height: 36px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsOptionEncabezadoMovil;
         line-height: 18px;
@@ -128,7 +169,10 @@ $breakpointMovil: 479px;
     line-height: 36px;
     letter-spacing: 4.8px;
     font-weight: 400;
-
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsOptionMenuLaptop;
+        line-height: 20px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsOptionMenuMovil;
         line-height: 18px;
@@ -142,7 +186,10 @@ $breakpointMovil: 479px;
     line-height: 36px;
     letter-spacing: 3.6px;
     font-weight: 400;
-
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsOptionMenuLaptop;
+        line-height: 30px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsOptionMenuMovil;
         line-height: 18px;
@@ -155,7 +202,10 @@ $breakpointMovil: 479px;
     font-weight: 700;
     font-size: $fsEncabezado;
     line-height: 28px;
-
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsEncabezadoLaptop;
+        line-height: 20px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsEncabezadoMovil;
         line-height: 14px;
@@ -168,6 +218,10 @@ $breakpointMovil: 479px;
     font-size: $fsRegular;
     letter-spacing: 0.32px;
     line-height: 24px;
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsRegularLaptop;
+        line-height: 20px;
+    }
 
     @media (max-width:$breakpointMovil) {
         font-size: $fsRegularMovil;
@@ -180,7 +234,10 @@ $breakpointMovil: 479px;
     font-family: $fontPrimary;
     font-size: $fsCaption;
     line-height: 18px;
-
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsCaptionLaptop;
+        line-height: 15px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsCaptionMovil;
         line-height: 9px;
@@ -191,7 +248,10 @@ $breakpointMovil: 479px;
     font-family: $fontPrimary;
     font-size: $fsSmall;
     line-height: 16px;
-
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsSmallLaptop;
+        line-height: 14px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsSmallMovil;
         line-height: 8px;
@@ -484,9 +544,38 @@ header {
         img {
             width: 300px;
             height: 300px;
-
         }
-
+        @media (max-width:$breakpointLaptop) {
+            img {
+                width: 200px;
+                height: 200px;
+            }
+        } 
+        @media screen and (max-width:$breakpointTablet){
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+    .menu-icon {
+        display: none;
+        cursor: pointer;
+        flex-grow: 1;
+        margin-left: 20px;
+        @media screen and (max-width:$breakpointTablet){
+            display: block;
+        }
+    }
+      
+    .menu-icon span {
+        display: block;
+        border-radius: 15px;
+        width: 25px;
+        height: 5px;
+        background-color: $accentColor;
+        margin: 5px;
+        transition: all 0.4s ease;
     }
 
     .container-nav-content {
@@ -504,6 +593,11 @@ header {
                 width: 100%;
             }
         }
+        @media screen and (max-width:$breakpointTablet){
+            flex-direction: row;    
+            align-items: center;
+        }
+
     }
     .columna-letter {
         display: flex;
@@ -527,8 +621,66 @@ header {
     }
 
 }
+@media screen and (max-width:$breakpointTablet){
 
 
+    #header{
+        height: 170px;
+        padding-top: 20px;
+    }
+}
+
+    .nav-links {
+        @media screen and (max-width:$breakpointTablet){
+        position: absolute;
+        top: 170px; /* change to 8vh */
+        height: 60%; /* change to 92vh */
+        left: 0px;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items:center ;
+        background-color: $lightColor;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease-in;
+        width: 50%;
+        z-index: 5;
+        }
+    }
+    .liMostrado{
+        opacity: 1;
+        transform: translate(0px)
+    }
+    
+
+
+@keyframes navLinkAnime {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  .menu-icon.span-anime span:first-child {
+    transform: rotate(-135deg) translate(-20px, 6px);
+    margin-left: -18px;
+  }
+  
+  .menu-icon.span-anime span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-icon.span-anime span:last-child {
+    transform: rotate(135deg) translate(-19px, -5px);
+    margin-left: -17px;
+  }
+  
+  .nav-links.menu-active {
+    transform: translateX(0%);
+    opacity: 1;
+  }
 
 /*fin header*/
 
@@ -539,6 +691,11 @@ app-boton-plantilla {
     position: fixed;
     top: 400px;
     right: 50px;
+    @media (max-width:$breakpointLaptop) {
+        width: 90px;
+        height: 90px;
+        border-radius: 90px;
+    }
 
 }
 
@@ -554,6 +711,11 @@ app-boton-plantilla {
     text-decoration: none;
     cursor: pointer;
     box-shadow: 8px 8px 31px -9px rgba(0, 0, 0, 0.75);
+    @media (max-width:$breakpointLaptop) {
+        width: 90px;
+        height: 90px;
+        border-radius: 90px;
+    }
 
 }
 
@@ -577,6 +739,11 @@ app-banner-publicidad {
     grid-template-columns: 1fr 1fr 1fr;
     height: 600px;
     padding: 20px;
+    margin-top: 60px;
+    @media (max-width:$breakpointLaptop) {
+        gap: 14px;
+        padding: 14px;
+    }
 
     .columna {
         display: grid;
@@ -624,6 +791,10 @@ app-banner-publicidad {
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width:$breakpointLaptop) {
+        width: 280px;
+        height: 30px;
+    }
 
 }
 
@@ -656,12 +827,22 @@ app-banner-publicidad {
 
     width: 360px;
     height: 360px;
+    @media (max-width:$breakpointLaptop) {
+        width: 280px;
+        height: 280px;
+    }
+
 
     img {
 
         width: 360px;
         height: 360px;
         object-fit: cover;
+        @media (max-width:$breakpointLaptop) {
+            width: 280px;
+            height: 280px;
+        }
+
     }
 }
 
@@ -678,6 +859,19 @@ app-directorio {
     width: 100%;
     margin-top: 60px;
     justify-content: space-around;
+    @media (max-width:$breakpointLaptop) {        
+        grid-template-columns: 280px 280px 280px;
+        gap: 20px;
+    }
+    @media (max-width:$breakpoint935){
+        grid-template-columns: 280px 280px;
+    }
+    @media (max-width:600px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
 }
 
@@ -700,7 +894,10 @@ footer {
     gap: 50px;
     .box:first-child{
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-around;   
+        @media (max-width:$breakpoint935) {
+            display: none;
+        }
     }
 
 }
@@ -712,6 +909,23 @@ footer {
     justify-content: space-evenly;
     width: 100%;
     gap: 30px;
+    .container-content{
+        @media (max-width:$breakpoint935) {
+            h2{
+                display: none;
+            }
+        }
+    }
+    app-newsletter{
+        @media (max-width:$breakpoint935) {
+          display: none;
+        }
+    }
+    .columna:nth-child(1){
+        @media (max-width:$breakpoint935) {
+            display: none;
+          }
+    }
 }
 
 #cursos-provisional{

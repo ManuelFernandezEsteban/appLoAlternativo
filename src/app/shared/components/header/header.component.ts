@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { RedSocialIcon } from '../../../interfaces/redSocialIcon';
 
 @Component({
@@ -8,6 +8,9 @@ import { RedSocialIcon } from '../../../interfaces/redSocialIcon';
 })
 export class HeaderComponent implements OnInit {
 
+  @ViewChild('header') header!:ElementRef;
+  @ViewChild('menuIcon') menuIcon!:ElementRef;
+  @ViewChild('navLinks') navLinks!:ElementRef;
 
   isVisible: boolean = false;
 
@@ -34,6 +37,23 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+
+  menuIconClick(){
+
+    this.navLinks.nativeElement.classList.toggle("menu-active");
+
+    const navLinksInner = document.querySelectorAll(".nav-links li");
+    navLinksInner.forEach((li) => {      
+      li.classList.toggle('liMostrado');
+
+    });
+    
+    
+    
+    this.menuIcon.nativeElement.classList.toggle("span-anime");
+  }
+
 /*
   @HostListener('window:scroll', ['$event']) onScroll() {
 
@@ -55,6 +75,8 @@ export class HeaderComponent implements OnInit {
     this.isVisible = !this.isVisible;
   }
   scroll() {
+    this.navLinks.nativeElement.classList.toggle("menu-active");
+    this.menuIcon.nativeElement.classList.toggle("span-anime");
     window.scrollTo(0, 0);
   }
 
