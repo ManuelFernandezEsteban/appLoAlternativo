@@ -1,13 +1,33 @@
 
 
-header{
+#header-nomenu{
     width: 100%;
     justify-content: center;
     align-items: center;
+    @media (max-width:1080px){
+        justify-content: center;
+        .container-nav-content{
+            width: 60%;
+        }
+    }
     .container-logo{
         img{
             width: 300px;
             height: 300px;
+        }
+        @media (max-width:1080px){
+            img{
+                width: 200px;
+                height: 200px;
+            }   
+
+        }
+        @media (max-width:800px){
+            img{
+                width: 100px;
+                height: 100px;
+            }   
+
         }
     }
 }

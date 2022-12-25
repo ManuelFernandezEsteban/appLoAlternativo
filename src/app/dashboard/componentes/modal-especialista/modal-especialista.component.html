@@ -11,8 +11,12 @@
 
     <div class="modal-especialista">
         <div class="fila gap-20">
-            <span class="title-l-primary color-accent">{{especialista.nombre|uppercase}}</span>
-            <span class="encabezado color-accent">{{especialista.apellidos}}</span>
+            <div class="fila gap-20">
+                <span class="title-l-primary color-accent">{{especialista.nombre|uppercase}}</span>
+                <span class="encabezado color-accent">{{especialista.apellidos}}</span>
+            </div>
+            
+            <img class="avatar" src="{{especialista.imagen_terapeuta}}" alt="imagen especialista">
         </div>
         <div class="fila gap-20">
             <div class="columna gap-20">

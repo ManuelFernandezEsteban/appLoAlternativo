@@ -1,6 +1,6 @@
 <div class="container">
     <h3 class="title-xl-primary color-accent pad-20 center">Contacto</h3>
-    <div class="box-donde color-accent">
+    <div class="box-donde color-accent" id="contacto">
 
         <form [formGroup]="formContacto" (ngSubmit)="onSubmit()">
 
@@ -34,7 +34,8 @@
                 <div class="columna gap-20">
                     <label class="encabezado color-accent" for="mensaje">Mensaje</label>
                     <div class="columna gap-10">
-                        <textarea name="mensaje" id="" cols="40" rows="7" formControlName="mensaje"
+                        <textarea name="mensaje" id="" cols="40" rows="7" 
+                            formControlName="mensaje"
                             placeholder="Cuentanos que necesitas">
 
                         </textarea>
@@ -49,4 +50,5 @@
 
 
     </div>
+    
 </div>
