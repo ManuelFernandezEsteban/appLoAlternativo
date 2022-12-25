@@ -1,13 +1,17 @@
 .box-filtro {
     display: flex;
-    flex-direction: column;
-    width: auto;
+    flex-direction: column;    
     padding: 20px;
     border: 2px solid #525020;
     margin-left: 20px;
     border-radius: 4px;
     width: 30%;
+    @media (max-width:1080px){
+        width: 50%;
+        
+    }
 }
+
 
 .columna {
     width: 100%;
@@ -18,7 +22,9 @@
     align-items: center;   
 }
 .botonera{
-    width: 50%;
+    width: 30%;
+    align-self: flex-end;
+    gap: 24px;
 }
 
 input{

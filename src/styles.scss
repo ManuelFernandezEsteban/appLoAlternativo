@@ -76,6 +76,7 @@ $accentColorHover: #9D8B3D;
 $breakpointLaptop: 1280px;
 $breakpointTablet: 1080px;
 $breakpoint935: 935px;
+$breakpoint800:800px;
 $breakpointMovil: 576px;
 
 
@@ -89,6 +90,10 @@ $breakpointMovil: 576px;
     @media (max-width:$breakpointLaptop) {
         font-size: $fsizeXXLLaptop;
         line-height: 80px;
+    }
+    @media (max-width:$breakpoint935) {
+        font-size: $fsizeXXLTablet;
+        line-height: 70px;
     }
 
     @media (max-width:$breakpointMovil) {
@@ -106,7 +111,10 @@ $breakpointMovil: 576px;
         font-size: $fsizeXLLaptop;
         line-height: 70px;
     }
-
+    @media (max-width:$breakpointTablet) {
+        font-size: $fsizeXLTablet;
+        line-height: 60px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeXLMovil;
         line-height: 48px;
@@ -123,7 +131,10 @@ $breakpointMovil: 576px;
         font-size: $fsizeXLLaptop;
         line-height: 80px;
     }
-
+    @media (max-width:$breakpointTablet) {
+        font-size: $fsizeXLTablet;
+        line-height: 70px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeXLMovil;
         line-height: 48px;
@@ -138,6 +149,10 @@ $breakpointMovil: 576px;
     @media (max-width:$breakpointLaptop) {
         font-size: $fsizeLLaptop;
         line-height: 60px;
+    }
+    @media (max-width:$breakpointTablet) {
+        font-size: $fsizeLTablet;
+        line-height: 50px;
     }
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeLMovil;
@@ -156,6 +171,10 @@ $breakpointMovil: 576px;
         font-size: $fsOptionEncabezadoLaptop;
         line-height: 36px;
     }
+    @media (max-width:$breakpointTablet) {
+        font-size: $fsOptionEncabezadoTablet;
+        line-height: 28px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsOptionEncabezadoMovil;
         line-height: 18px;
@@ -171,6 +190,10 @@ $breakpointMovil: 576px;
     font-weight: 400;
     @media (max-width:$breakpointLaptop) {
         font-size: $fsOptionMenuLaptop;
+        line-height: 20px;
+    }
+    @media (max-width:$breakpointTablet) {
+        font-size: $fsOptionMenutablet;
         line-height: 20px;
     }
     @media (max-width:$breakpointMovil) {
@@ -190,6 +213,10 @@ $breakpointMovil: 576px;
         font-size: $fsOptionMenuLaptop;
         line-height: 30px;
     }
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsOptionMenutablet;
+        line-height: 24px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsOptionMenuMovil;
         line-height: 18px;
@@ -205,6 +232,10 @@ $breakpointMovil: 576px;
     @media (max-width:$breakpointLaptop) {
         font-size: $fsEncabezadoLaptop;
         line-height: 20px;
+    }
+    @media (max-width:$breakpointTablet) {
+        font-size: $fsEncabezadoTablet;
+        line-height: 18px;
     }
     @media (max-width:$breakpointMovil) {
         font-size: $fsEncabezadoMovil;
@@ -222,6 +253,10 @@ $breakpointMovil: 576px;
         font-size: $fsRegularLaptop;
         line-height: 20px;
     }
+    @media (max-width:$breakpointTablet) {
+        font-size: $fsRegularTablet;
+        line-height: 18px;
+    }
 
     @media (max-width:$breakpointMovil) {
         font-size: $fsRegularMovil;
@@ -238,6 +273,10 @@ $breakpointMovil: 576px;
         font-size: $fsCaptionLaptop;
         line-height: 15px;
     }
+    @media (max-width:$breakpointLaptop) {
+        font-size: $fsCaptionTablet;
+        line-height: 13px;
+    }
     @media (max-width:$breakpointMovil) {
         font-size: $fsCaptionMovil;
         line-height: 9px;
@@ -251,6 +290,10 @@ $breakpointMovil: 576px;
     @media (max-width:$breakpointLaptop) {
         font-size: $fsSmallLaptop;
         line-height: 14px;
+    }
+    @media (max-width:$breakpointTablet) {
+        font-size: $fsSmallTablet;
+        line-height: 12px;
     }
     @media (max-width:$breakpointMovil) {
         font-size: $fsSmallMovil;
@@ -285,8 +328,7 @@ $breakpointMovil: 576px;
 .boton {
     background-color: transparent;
     border: none;
-    width: 85px;
-    height: 35px;
+
     border-radius: 4px;
     text-align: center;
     cursor: pointer;
@@ -303,6 +345,10 @@ $breakpointMovil: 576px;
     font-weight: bold;
     width: 65px;
     height: 25px;
+    @media (max-width:$breakpointTablet){
+        width: 55px;
+        height: 25px;
+    }
 }
 
 .btn-login {
@@ -312,6 +358,10 @@ $breakpointMovil: 576px;
     font-size: $fsOptionMenu;
     width: 150px;
     height: 60px;
+    @media (max-width:$breakpointTablet){
+        width: 130px;
+        height: 60px;
+    }
 }
 
 .btn_news{
@@ -325,6 +375,10 @@ $breakpointMovil: 576px;
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width:$breakpointTablet){
+        width: 27px;
+        height: 27px;
+    }
 }
 .btn-submit-form {
     background-color: $submitColor;
@@ -588,14 +642,24 @@ header {
         .fila {
             align-items: center;
             justify-content: flex-start;
-
+            @media screen and (max-width:$breakpoint800){
+                align-self: stretch;
+            }
             .container-content {
                 width: 100%;
+                @media screen and (max-width:$breakpoint800){
+                    h2{
+                        display: none;
+                    }
+                }
             }
         }
         @media screen and (max-width:$breakpointTablet){
             flex-direction: row;    
             align-items: center;
+        }
+        @media screen and (max-width:$breakpointTablet){
+            width: 80%;
         }
 
     }
@@ -618,6 +682,10 @@ header {
                 fill: #525020;
             }
         }
+        @media screen and (max-width:$breakpoint800){
+            gap: 0;
+        }
+
     }
 
 }
@@ -696,6 +764,13 @@ app-boton-plantilla {
         height: 90px;
         border-radius: 90px;
     }
+    @media (max-width:$breakpoint800) {
+        width: 70px;
+        height: 70px;
+        border-radius: 70px;
+        top: 250px;
+        right: 30px;
+    }
 
 }
 
@@ -716,7 +791,12 @@ app-boton-plantilla {
         height: 90px;
         border-radius: 90px;
     }
+    @media (max-width:$breakpoint800) {
+        width: 70px;
+        height: 70px;
+        border-radius: 70px;
 
+    }
 }
 
 
@@ -743,6 +823,11 @@ app-banner-publicidad {
     @media (max-width:$breakpointLaptop) {
         gap: 14px;
         padding: 14px;
+    }
+    @media (max-width:$breakpoint935) {
+        gap: 10px;
+        padding: 10px;
+        width: 90%;
     }
 
     .columna {
@@ -1022,7 +1107,10 @@ app-donde {
     margin-top: 60px;
     width: 80%;
     align-self: center;
-
+    @media (max-width:935px){
+        width: 90%;
+        gap: 40px;
+    }
 }
 
 .box-datos {
@@ -1120,7 +1208,10 @@ app-login {
     justify-content: center;
     align-self: center;
     margin-bottom: 100px;
+    @media (max-width:$breakpoint935) {
+        width: 80%;
 
+    }
     form {
         width: 100%;
     }
@@ -1129,6 +1220,10 @@ app-login {
         justify-content: space-between;
         margin-top: 40px;
         align-items: center;
+        @media (max-width:$breakpoint935) {
+            
+
+        }      
 
         a {
             text-decoration: none;

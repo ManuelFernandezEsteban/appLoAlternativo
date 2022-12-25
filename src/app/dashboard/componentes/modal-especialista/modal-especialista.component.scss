@@ -50,7 +50,9 @@ span{
     display: flex;
     flex-direction: column;
     padding: 20px; 
-
+    @media (max-width:935px){
+        width: 80%;
+    }
     .fila:first-child {
         justify-content: flex-start;
         align-items: baseline;        
