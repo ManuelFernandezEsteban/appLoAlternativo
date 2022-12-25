@@ -13,6 +13,7 @@ export class RedSocialComponent implements OnInit {
     icono:'',
     enlace:''
   };
+  @Input()fontSize:string='';
 
   constructor() { }
 

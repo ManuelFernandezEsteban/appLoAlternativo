@@ -8,6 +8,8 @@ import { RedSocialIcon } from 'src/app/interfaces/redSocialIcon';
 })
 export class FooterComponent implements OnInit {
 
+  caption:string='caption';
+
   instagram:RedSocialIcon={
     nombre:'Instagram',
     enlace:'https://www.instagram.com/loalternativo_/',

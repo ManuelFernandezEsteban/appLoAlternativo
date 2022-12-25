@@ -10,9 +10,17 @@
                 <input type="text" name="provincia" id="" [(ngModel)]="provincia">
             </div>
         </div>
-        <div class="columna gap-10 botonera">
-            <button class="boton btn-info" (click)="onClickBuscar()">Buscar</button>
-            <button class="boton btn-info" (click)="reset()">Limpiar filtro</button>
+        <div class="fila botonera">
+            <button class="boton" (click)="onClickBuscar()">
+                <span>
+                    <img src="./../../../../assets/images/icons-svg/magnifying-glass-solid.svg" alt="buscar" width="20px">
+                </span>
+            </button>
+            <button class="boton" (click)="reset()">
+                <span>
+                    <img src="./../../../../assets/images/icons-svg/trash-solid.svg" alt="buscar" width="20px">
+                </span>
+            </button>
         </div>
         
     </div>

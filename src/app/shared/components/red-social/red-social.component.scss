@@ -1,12 +1,21 @@
-.icono{
-    width: 28px;
-    height: 28px;
+.icono {
+    width: 24px;
+    height: 24px;
+
+    @media (max-width:730px) {
+        width: 20px;
+        height: 20px;
+    }
 }
 
-a{
+a {
     text-decoration: none;
-    align-items:center;
-    span{
-        font-size: 1.2rem;
+    align-items: center;
+    span:nth-child(1){
+        @media (max-width:576px){
+            display: none;
+        }
+
     }
+
 }

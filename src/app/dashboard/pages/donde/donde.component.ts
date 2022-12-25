@@ -13,6 +13,7 @@ import { environment } from '../../../../environments/environment';
 })
 export class DondeComponent implements OnInit {
 
+  encabezado:string='encabezado'
 
   infoPhone:InfoModal={
     title:'Teléfono',

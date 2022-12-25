@@ -2,29 +2,32 @@
     <h3 class="title-xl-primary color-accent pad-20 center">Donde estamos</h3>
     <div class="box-donde color-accent">
 
-        <div class="box-datos">
-            <app-info-direccion-modal [infoDireccion]="infoDireccion"></app-info-direccion-modal>
+        <div class="fila">
+            <div class="box-datos">
+                <app-info-direccion-modal [infoDireccion]="infoDireccion"></app-info-direccion-modal>
 
-            <app-info-modal [info]="infoPhone"></app-info-modal>
-            <app-info-modal [info]="infoEmail"></app-info-modal>
+                <app-info-modal [info]="infoPhone"></app-info-modal>
+                <app-info-modal [info]="infoEmail"></app-info-modal>
 
-        </div>
-        <div class="box-datos">
-            <div class="columna gap-20">
-                <app-red-social [redSocial]="instagram"></app-red-social>
-                <app-red-social [redSocial]="facebook"></app-red-social>
-                <app-red-social [redSocial]="youtube"></app-red-social>
             </div>
+            <div class="box-datos">
+                <div class="column gap-20">
+                    <app-red-social [fontSize]="encabezado" [redSocial]="instagram"></app-red-social>
+                    <app-red-social [fontSize]="encabezado" [redSocial]="facebook"></app-red-social>
+                    <app-red-social [fontSize]="encabezado" [redSocial]="youtube"></app-red-social>
+                </div>
 
+            </div>
         </div>
+
+
         <div class="box-datos">
             <div id="mapa">
-                
+
             </div>
 
         </div>
 
     </div>
 </div>
-
-<!--37.19905456837209, -4.641528293780888-->
+<app-boton-plantilla></app-boton-plantilla>

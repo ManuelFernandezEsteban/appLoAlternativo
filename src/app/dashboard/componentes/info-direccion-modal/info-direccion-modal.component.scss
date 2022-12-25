@@ -1,3 +1,13 @@
 .fila{
     align-items: baseline;
+    span{
+        img{
+            width: 24px;
+            height: 24px;
+            @media (max-width:730px){
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
 }
