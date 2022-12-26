@@ -1,0 +1,43 @@
+<div class="columna gap-20 principal">
+
+    <div class="columna gap-10">
+        <div>
+            <span class="option-menu">Eventos</span>
+        </div>
+        <div class="columna">
+            <nav>
+                <ul>
+                    <li>
+                        <a [routerLink]="['mis-eventos']" [routerLinkActive]="['active']" class="texto-regular">Mis eventos</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['publicar']" [routerLinkActive]="['active']" class="texto-regular">Publicar evento</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['modificar']" [routerLinkActive]="['active']" class="texto-regular">Modificar evento</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['eliminar']" [routerLinkActive]="['active']" class="texto-regular">Eliminar evento</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+
+    <div class="columna gap-10">
+        <div>
+            <span class="option-menu">Datos</span>
+        </div>
+        <div class="columna">
+            <nav>
+                <ul>
+                    <li>
+                        <a [routerLink]="['datos']" [routerLinkActive]="['active']" class="texto-regular">Modificar datos</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</div>

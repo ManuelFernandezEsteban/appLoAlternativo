@@ -4,12 +4,16 @@ header {
     align-items: center;
     justify-content: center;
     padding: 20px 20px 0px 20px;
+
+
+
     @media screen and (max-width:1080px) {
         justify-content: space-around;
-        
+
     }
 
 }
+
 
 .menu-icon span {
     display: block;
@@ -47,12 +51,13 @@ header {
 
         @media screen and (max-width:800px) {
             width: 150px;
-            height: 150px;          
+            height: 150px;
 
         }
+
         @media screen and (max-width:576px) {
             width: 100px;
-            height: 100px;          
+            height: 100px;
 
         }
     }
@@ -91,51 +96,55 @@ header {
 }
 
 
+
+
+
+
+h2 {
+    @media screen and (max-width:576px) {
+        display: none;
+    }
+}
+
+#social-movil {
+    @media screen and (max-width:576px) {
+        display: flex;
+    }
+
+    @media screen and (min-width:576px) {
+        display: none;
+    }
+}
+
+#social {
+    @media screen and (max-width:576px) {
+        display: none;
+    }
+}
+
 .nav-links {
     display: flex;
     flex-direction: row;
     gap: 10px;
     list-style: none;
-}
 
-li {
-    display: inline-block;
-    cursor: pointer;
-}
+    li {
+        display: inline-block;
+        cursor: pointer;
 
-a {
-    display: block;
-    padding: 2px 2px;
-    text-decoration: none;
-    color: #525020;
-}
+        a {
+            display: block;
+            padding: 2px 2px;
+            text-decoration: none;
+            color: #525020;
+        }
 
-a:hover {
-    font-style: italic;
-    color: #9D8B3D;
+        a:hover {
+            font-style: italic;
+            color: #9D8B3D;
 
-}
-
-h2{
-    @media screen and (max-width:576px) {
-        display: none;
+        }
     }
-}
-#social-movil{
-    @media screen and (max-width:576px) {
-        display: flex;
-    }
-    @media screen and (min-width:576px) {
-        display: none;
-    }
-}
-#social{
-    @media screen and (max-width:576px) {
-        display: none;
-    }
-}
-
-.nav-links {
     @media screen and (max-width:1080px) {
         position: absolute;
         top: 260px;
@@ -151,11 +160,12 @@ h2{
         transition: transform 0.5s ease-in;
         width: 50%;
         z-index: 5;
-        
+
 
     }
+
     @media screen and (max-width:800px) {
-        
+
         top: 210px;
     }
 
