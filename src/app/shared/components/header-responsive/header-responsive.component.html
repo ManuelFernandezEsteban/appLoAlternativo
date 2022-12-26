@@ -1,0 +1,78 @@
+<header class="fila">
+    <div class="columna">
+        <div class="logo-header">
+            <img src="./../../../../assets/images/logo/logo.svg" alt="Lo Alternativo">
+        </div>
+        <div class="menu-icon" #menuIcon (click)="menuIconClick()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="columa jStart">
+
+        <div class="fila aCenter">
+            <h1 class="title-xxl-accent color-accent">
+                LöAlternativo
+            </h1>
+            <div class="fila jEnd gap-10" id="social">
+                <app-red-social [redSocial]="instagram"></app-red-social>
+                <app-red-social [redSocial]="facebook"></app-red-social>
+                <app-red-social [redSocial]="youtube"></app-red-social>
+            </div>
+
+        </div>
+        <div class="fila">
+            <h2 class="sub-title-xxl color-accent">
+                Comunidad de terapeutas, eventos y cursos
+            </h2>
+            <div class="fila jEnd gap-10" id="social-movil">
+                <app-red-social [redSocial]="instagram"></app-red-social>
+                <app-red-social [redSocial]="facebook"></app-red-social>
+                <app-red-social [redSocial]="youtube"></app-red-social>
+            </div>
+        </div>
+
+        <nav>
+            <ul #navLinks class="nav-links">
+                <li>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['/home']"
+                        [routerLinkActive]="['active']">Inicio</a>
+                </li>
+                <li>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['eventos']"
+                        [routerLinkActive]="['active']">Eventos</a>
+                </li>
+                <li>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['cursos']"
+                        [routerLinkActive]="['active']">Cursos</a>
+                </li>
+                <li>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['especialistas']"
+                        [routerLinkActive]="['active']">Especialistas</a>
+                </li>
+                <li>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['nosotros']"
+                        [routerLinkActive]="['active']">Nosotros</a>
+                </li>
+
+
+                <li>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['donde']"
+                        [routerLinkActive]="['active']">Donde estamos</a>
+                </li>
+                <li>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['contacto']"
+                        [routerLinkActive]="['active']">Contacto</a>
+                </li>
+                <li>
+                    <a class="option-menu" (click)="scroll()" [routerLink]="['/auth']"
+                        [routerLinkActive]="['active']">Zona terapeutas</a>
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+
+</header>

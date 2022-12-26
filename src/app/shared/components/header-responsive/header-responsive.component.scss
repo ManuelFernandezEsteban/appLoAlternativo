@@ -1,0 +1,204 @@
+header {
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, #7BACD5 0%, rgba(255, 255, 255, 1) 80%);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 0px 20px;
+    @media screen and (max-width:1080px) {
+        justify-content: space-around;
+        
+    }
+
+}
+
+.menu-icon span {
+    display: block;
+    border-radius: 15px;
+    width: 25px;
+    height: 5px;
+    background-color: #525020;
+    margin: 5px;
+    transition: all 0.4s ease;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-grow: 1;
+    margin-left: 20px;
+
+    @media screen and (max-width:1080px) {
+        display: block;
+    }
+}
+
+.logo-header {
+    img {
+        object-fit: cover;
+        width: 300px;
+        height: 300px;
+
+        @media (max-width:1280px) {
+
+            width: 200px;
+            height: 200px;
+
+        }
+
+        @media screen and (max-width:800px) {
+            width: 150px;
+            height: 150px;          
+
+        }
+        @media screen and (max-width:576px) {
+            width: 100px;
+            height: 100px;          
+
+        }
+    }
+}
+
+.aCenter {
+    align-items: center;
+}
+
+.jCenter {
+    justify-content: center;
+}
+
+.jEnd {
+    justify-content: flex-end;
+}
+
+.aStart {
+    align-items: flex-start;
+}
+
+.aEnd {
+    align-items: flex-end;
+}
+
+.jStart {
+    justify-content: flex-start;
+}
+
+.pad20 {
+    padding: 20px;
+}
+
+.gap60 {
+    gap: 60px;
+}
+
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+    cursor: pointer;
+}
+
+a {
+    display: block;
+    padding: 2px 2px;
+    text-decoration: none;
+    color: #525020;
+}
+
+a:hover {
+    font-style: italic;
+    color: #9D8B3D;
+
+}
+
+h2{
+    @media screen and (max-width:576px) {
+        display: none;
+    }
+}
+#social-movil{
+    @media screen and (max-width:576px) {
+        display: flex;
+    }
+    @media screen and (min-width:576px) {
+        display: none;
+    }
+}
+#social{
+    @media screen and (max-width:576px) {
+        display: none;
+    }
+}
+
+.nav-links {
+    @media screen and (max-width:1080px) {
+        position: absolute;
+        top: 260px;
+        /* change to 8vh */
+        height: 60%;
+        /* change to 92vh */
+        left: 0px;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f0f0f0;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease-in;
+        width: 50%;
+        z-index: 5;
+        
+
+    }
+    @media screen and (max-width:800px) {
+        
+        top: 210px;
+    }
+
+    @media screen and (max-width:576px) {
+        width: 80%;
+        top: 159px;
+    }
+}
+
+.liMostrado {
+    opacity: 1;
+    transform: translate(0px)
+}
+
+
+
+@keyframes navLinkAnime {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.menu-icon.span-anime span:first-child {
+    transform: rotate(-135deg) translate(-20px, 6px);
+    margin-left: -18px;
+}
+
+.menu-icon.span-anime span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.span-anime span:last-child {
+    transform: rotate(135deg) translate(-19px, -5px);
+    margin-left: -17px;
+}
+
+.nav-links.menu-active {
+    transform: translateX(0%);
+    opacity: 1;
+}

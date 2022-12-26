@@ -29,8 +29,8 @@ $fsRegular: 1rem;
 $fsCaption: 0.9rem;
 $fsSmall: 0.7rem;
 
-$fsizeXXLLaptop: 5rem;
-$fsizeXLLaptop: 2.5rem;
+$fsizeXXLLaptop: 6.5rem;
+$fsizeXLLaptop: 3rem;
 $fsizeLLaptop: 2rem;
 $fsOptionEncabezadoLaptop: 1.6rem;
 $fsOptionMenuLaptop: 1.2rem;
@@ -40,8 +40,8 @@ $fsRegularLaptop: 0.9rem;
 $fsCaptionLaptop: 0.8rem;
 $fsSmallLaptop: 0.65rem;
 
-$fsizeXXLTablet: 3rem;
-$fsizeXLTablet: 1.9rem;
+$fsizeXXLTablet: 5.8rem;
+$fsizeXLTablet: 2.3rem;
 $fsizeLTablet: 1.7rem;
 $fsOptionEncabezadoTablet: 1.4rem;
 $fsOptionMenutablet: 1.1rem;
@@ -51,8 +51,8 @@ $fsRegularTablet: 0.8rem;
 $fsCaptionTablet: 0.7rem;
 $fsSmallTablet: 0.65rem;
 
-$fsizeXXLMovil: 2.8rem;
-$fsizeXLMovil: 1.8rem;
+$fsizeXXLMovil: 4rem;
+$fsizeXLMovil: 2rem;
 $fsizeLMovil: 1.6rem;
 $fsOptionEncabezadoMovil: 1.3rem;
 $fsOptionMenuMovil: 1.1rem;
@@ -587,16 +587,11 @@ app-root {
 
 }
 
-
-/*header*/
-
-
-
 .active {
     border-bottom: 4px solid $accentColor;
 }
 
-app-header,
+app-header-responsive,
 app-header-no-menu {
     width: 100%;
 }
@@ -606,227 +601,6 @@ app-banner-publicidad {
     flex-direction: column;
     align-items: center;
 }
-
-nav {
-    ul {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        list-style: none;
-    }
-
-    li {
-        display: inline-block;
-        cursor: pointer;
-    }
-
-    a {
-        display: block;
-        padding: 2px 2px;
-        text-decoration: none;
-        color: $accentColor;
-    }
-
-    a:hover {
-        font-style: italic;
-        color: $accentColorHover;
-
-    }
-}
-
-header {
-    display: flex;
-    justify-content: space-evenly;
-    padding-top: 40px;
-    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 80%);
-    width: 100%;
-
-    .container-logo {
-        img {
-            width: 300px;
-            height: 300px;
-        }
-
-        @media (max-width:$breakpointLaptop) {
-            img {
-                width: 200px;
-                height: 200px;
-            }
-        }
-
-        @media screen and (max-width:$breakpointTablet) {
-            img {
-                width: 100px;
-                height: 100px;
-            }
-        }
-    }
-
-    .menu-icon {
-        display: none;
-        cursor: pointer;
-        flex-grow: 1;
-        margin-left: 20px;
-
-        @media screen and (max-width:$breakpointTablet) {
-            display: block;
-        }
-    }
-
-    .menu-icon span {
-        display: block;
-        border-radius: 15px;
-        width: 25px;
-        height: 5px;
-        background-color: $accentColor;
-        margin: 5px;
-        transition: all 0.4s ease;
-    }
-
-    .container-nav-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        color: $accentColor;
-
-
-        .fila {
-            align-items: center;
-            justify-content: flex-start;
-
-            @media screen and (max-width:$breakpoint800) {
-                align-self: stretch;
-            }
-
-            .container-content {
-                width: 100%;
-
-                @media screen and (max-width:$breakpoint800) {
-                    h1 {
-                        text-align: center;
-                    }
-
-                    h2 {
-                        display: none;
-                    }
-                }
-            }
-        }
-
-        @media screen and (max-width:$breakpointTablet) {
-            flex-direction: row;
-            align-items: center;
-        }
-
-
-
-    }
-
-    .columna-letter {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-end;
-        width: 40%;
-    }
-
-    .fila .social {
-
-        gap: 20px;
-        align-self: flex-end;
-        justify-content: flex-end;
-        width: 30%;
-
-        span {
-            svg {
-                width: 24px;
-                fill: #525020;
-            }
-        }
-
-        @media screen and (max-width:$breakpoint800) {
-            gap: 0;
-            justify-content: flex-start;
-        }
-        @media screen and (max-width:$breakpointMovil) {
-            display: none;
-        }
-    }
-
-}
-
-@media screen and (max-width:$breakpointTablet) {
-
-
-    #header {
-        height: 170px;
-        padding-top: 20px;
-    }
-}
-
-.nav-links {
-    @media screen and (max-width:$breakpointTablet) {
-        position: absolute;
-        top: 170px;
-        /* change to 8vh */
-        height: 60%;
-        /* change to 92vh */
-        left: 0px;
-        justify-content: space-evenly;
-        flex-direction: column;
-        align-items: center;
-        background-color: $lightColor;
-        transform: translateX(-100%);
-        transition: transform 0.5s ease-in;
-        width: 50%;
-        z-index: 5;
-        
-    }
-    @media screen and (max-width:$breakpointMovil) {
-        width: 80%;
-    }
-}
-
-.liMostrado {
-    opacity: 1;
-    transform: translate(0px)
-}
-
-
-
-@keyframes navLinkAnime {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-}
-
-.menu-icon.span-anime span:first-child {
-    transform: rotate(-135deg) translate(-20px, 6px);
-    margin-left: -18px;
-}
-
-.menu-icon.span-anime span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-icon.span-anime span:last-child {
-    transform: rotate(135deg) translate(-19px, -5px);
-    margin-left: -17px;
-}
-
-.nav-links.menu-active {
-    transform: translateX(0%);
-    opacity: 1;
-}
-
-/*fin header*/
 
 /* boton plantillas*/
 app-boton-plantilla {
@@ -890,9 +664,7 @@ app-banner-publicidad {
 }
 
 .publicidad {
-    background-color: $accentColor;
-    border: 2px solid $accentColor;
-    border-radius: 4px;
+    
     width: 80%;
     display: grid;
     gap: 20px;
@@ -914,7 +686,7 @@ app-banner-publicidad {
     }
     @media (max-width:$breakpoint800) {
         grid-template-columns: 1fr;
-        width: 70%;
+        width: 90%;
         gap: 5px;
         padding: 5px;
     }
@@ -939,6 +711,8 @@ app-banner-publicidad {
         gap: 10px;
 
         .premium {
+            border: 1px solid #525020;
+            border-radius: 4px;
             height: 200px;
             width: 100%;
             background-color: #fff;
@@ -957,6 +731,8 @@ app-banner-publicidad {
     }
 
     .normal {
+        border: 1px solid #525020;
+        border-radius: 4px;
         width: 100%;
         height: 150px;
         background-color: #fff;
@@ -1364,6 +1140,9 @@ app-login {
             text-decoration: none;
             cursor: pointer;
         }
+        a:last-child{
+            text-align: end;
+        }
     }
 }
 
@@ -1410,6 +1189,9 @@ app-registro {
         justify-content: space-between;
         margin-top: 40px;
         align-items: flex-start;
+        span{
+            align-self: flex-end;
+        }
 
         a {
             text-decoration: none;

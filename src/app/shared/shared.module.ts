@@ -11,6 +11,7 @@ import { HeaderNoMenuComponent } from './components/header-no-menu/header-no-men
 import { BotonPlantillaComponent } from './components/boton-plantilla/boton-plantilla.component';
 import { RedSocialComponent } from './components/red-social/red-social.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { HeaderResponsiveComponent } from './components/header-responsive/header-responsive.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
     BotonPlantillaComponent,
     RedSocialComponent,
     NewsletterComponent,
+    HeaderResponsiveComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +38,7 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
     BotonPlantillaComponent,
     HeaderNoMenuComponent,
     RedSocialComponent,
+    HeaderResponsiveComponent
   ]
 })
 export class SharedModule { }
