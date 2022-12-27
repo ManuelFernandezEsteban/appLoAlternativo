@@ -360,7 +360,6 @@ $breakpointMovilSmall: 420px;
 .boton {
     background-color: transparent;
     border: none;
-
     border-radius: 4px;
     text-align: center;
     cursor: pointer;
@@ -592,7 +591,8 @@ app-root {
 }
 
 app-header-responsive,
-app-header-no-menu {
+app-header-no-menu,
+app-publicar-evento {
     width: 100%;
 }
 

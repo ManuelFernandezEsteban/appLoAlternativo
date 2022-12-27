@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TablaEventosService } from '../../../services/tabla-eventos.service';
 
 @Component({
   selector: 'app-publicar-evento',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicarEventoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tablaEventosService:TablaEventosService) { }
 
   ngOnInit(): void {
   }
-
+  desactivarSelected() {
+    this.tablaEventosService.setIsSelectedOnFalse();
+    this.tablaEventosService.resetEventoSelected();
+  }
 }

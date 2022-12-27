@@ -6,8 +6,8 @@ import { Evento } from '../interfaces/eventos';
 })
 export class TablaEventosService {
 
-  private onEventosSelection:boolean=false;
-  private eventoSelected:Evento={
+  private onEventosSelection: boolean = false;
+  private eventoSelected: Evento = {
     id: 0,
     evento: '',
     fecha: '',
@@ -32,20 +32,48 @@ export class TablaEventosService {
 
   constructor() { }
 
-  eventoSeleccionado(){
-    this.onEventosSelection=true;
+  eventoSeleccionado() {
+    this.onEventosSelection = true;
   }
 
-  selection(evento:Evento){
-    this.eventoSelected=evento;
-    this.onEventosSelection=true;
+  selection(evento: Evento) {
+    this.eventoSelected = evento;
+    this.onEventosSelection = true;
   }
 
-  isSelected():boolean{
+  isSelected(): boolean {
     return this.onEventosSelection;
   }
-  getEventoSelected():Evento{
+  getEventoSelectedFalse(): Evento {
     return this.eventoSelected;
+  }
+
+  setIsSelectedOnFalse() {
+    this.onEventosSelection = false;
+  }
+  resetEventoSelected() {
+    this.eventoSelected = {
+      id: 0,
+      evento: '',
+      fecha: '',
+      precio: 0,
+      direccion: '',
+      localidad: '',
+      provincia: '',
+      codigo_postal: '',
+      online: false,
+      organizador: '',
+      descripcion: '',
+      imagen: '',
+      telefono: '',
+      email: '',
+      web: '',
+      twitter: '',
+      facebook: '',
+      instagram: '',
+      you_tube: '',
+      twich: ''
+    };
   }
 
 }

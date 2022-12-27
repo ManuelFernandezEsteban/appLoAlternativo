@@ -18,6 +18,7 @@ export class FilaEventosComponent implements OnInit {
   }
 
   onFila(){
+    
     this.onFilaSelection.emit(this.evento);
   }
 }

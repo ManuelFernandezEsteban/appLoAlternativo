@@ -8,11 +8,28 @@ import { TablaEventosService } from '../../../services/tabla-eventos.service';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input()idTerapeuta:number=0;
+  @Input() idTerapeuta: number = 0;
 
-  constructor(public tablaEventosService:TablaEventosService) { }
+  constructor(public tablaEventosService: TablaEventosService) { }
 
   ngOnInit(): void {
+  }
+
+
+  desactivarSelected() {
+    this.tablaEventosService.setIsSelectedOnFalse();
+    this.tablaEventosService.resetEventoSelected();
+  }
+
+  habilitar(): string {
+    let clase: string = '';
+
+    if (this.tablaEventosService.isSelected()) {
+      clase = '';
+    } else {
+      clase = 'disabled'
+    }
+    return clase;
   }
 
 }

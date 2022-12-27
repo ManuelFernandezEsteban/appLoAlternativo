@@ -1,0 +1,95 @@
+.wrapper-form{
+    width: 100%;
+    display: grid;
+    grid-template-columns: [col1]1fr [col2]1fr [col3]1fr[end];
+    grid-template-rows: auto;
+    gap: 20px;
+    place-items: center;
+    .columna{
+        width: 100%;
+    }
+
+}
+
+input{
+    border-color: black;
+    width: 100%;
+}
+
+input[type="checkbox"]{
+    width: 20%;
+    
+}
+.w-online{
+    align-self: flex-end;
+}
+.online{
+    display: flex;
+    align-items: center;
+}
+
+.box-formulario-evento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    width: 100%;
+ 
+}
+
+.email{
+    grid-column-start: col1;
+    grid-column-end: span col3;
+}
+.descripcion{
+    grid-column-start: col1;
+    grid-column-end: span col3;
+}
+
+.direccion{
+    grid-column-start: col1;
+    grid-column-end: span col3;
+}
+.evento{
+    grid-column-start: col1;
+    grid-column-end: span col3;
+}
+.web{
+    grid-column-start: col1;
+    grid-column-end: span col3;
+}
+.fecha{
+    grid-column-start: col3;
+}
+.precio{
+    grid-column-start: col3;
+}
+.pdf{
+    grid-column-start: col1;
+}
+
+.botones{
+    grid-column-start: col3;
+    place-content: end;
+}
+textarea{
+    border-color: black;
+    width: 100%;
+}
+
+.img-evento{    
+    border: 2px solid black;
+    border-radius: 4px;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 300px;
+    max-height: 300px;
+    img{
+        aspect-ratio: 1;
+        width: 100%;
+        min-height: 100%;
+        object-fit: contain;
+
+        
+    }
+}

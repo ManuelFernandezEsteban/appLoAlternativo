@@ -1,1 +1,115 @@
-<p>publicar-evento works!</p>
+
+<div class="box-formulario-evento">
+    
+    <form action="">
+        <h3 class="title-l-primary">Nuevo Evento</h3>
+        <div class="wrapper-form">
+            
+            <div class="columna gap-10 evento">
+                <label class="option-menu" for="evento">Evento:</label>
+                <div class="columna gap-10">
+                    <input type="text" name="evento" id="" placeholder="Evento">
+                    <span *ngIf="" class="caption color-red">Introduzca un nombre para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10 fecha">
+                <label class="option-menu" for="fecha">Fecha:</label>
+                <div class="columna gap-10">
+                    <input type="date" name="fecha" id="" placeholder="27-12-2022">
+                    <span *ngIf="" class="caption color-red">Introduzca una fecha para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10 email">
+                <label class="option-menu" for="email">Email:</label>
+                <div class="columna gap-10">
+                    <input type="email" name="email" id="" placeholder="email@evento.com">
+                    <span *ngIf="" class="caption color-red">Introduzca un email para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10 precio">
+                <label class="option-menu" for="precio">Precio:</label>
+                <div class="columna gap-10">
+                    <input type="number" name="precio" id="" placeholder="€">
+                    <span *ngIf="" class="caption color-red">Introduzca un precio para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10 web">
+                <label class="option-menu" for="web">Web:</label>
+                <div class="columna gap-10">
+                    <input type="url" name="web" id="" placeholder="www.evento.com">
+                    <span *ngIf="" class="caption color-red">Introduzca una url para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10">
+                <label class="option-menu" for="telefono">Teléfono:</label>
+                <div class="columna gap-10">
+                    <input type="tel" id="" placeholder="612345678">
+                    <span *ngIf="" class="caption color-red">Introduzca un teléfono para su evento</span>
+                </div>
+            </div>           
+   
+            <div class="columna gap-10 direccion">
+                <label class="option-menu" for="direccion">Dirección:</label>
+                <div class="columna gap-10">
+                    <input type="text" name="direccion" id="" placeholder="Calle del evento, 1">
+                    <span *ngIf="" class="caption color-red">Introduzca una dirección para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10">
+                <label class="option-menu" for="poblacion">Población:</label>
+                <div class="columna gap-10">
+                    <input type="text" name="poblacion" id="" placeholder="Alameda">
+                    <span *ngIf="" class="caption color-red">Introduzca una poblacin para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10">
+                <label class="option-menu" for="provincia">Provincia:</label>
+                <div class="columna gap-10">
+                    <input type="text" name="provincia" id="" placeholder="Málaga">
+                    <span *ngIf="" class="caption color-red">Introduzca una provincia para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10">
+                <label class="option-menu" for="cp">Código postal:</label>
+                <div class="columna gap-10">
+                    <input type="text" name="cp" id="" placeholder="29000">
+                    <span *ngIf="" class="caption color-red">Introduzca un códigp postal para su evento</span>
+                </div>
+            </div>
+            <div class="fila gap-10 w-online">
+                <label class="option-menu online" for="online">Online
+                    <input type="checkbox" name="privacidad" id="">
+                </label>  
+            </div>
+            <div class="columna gap-10 descripcion">
+                <label class="option-menu" for="mensaje">Breve descripción del evento:</label>
+                <div class="columna gap-10">
+                    <textarea name="mensaje" id=""  rows="7" placeholder="">
+
+                    </textarea>
+                    <span *ngIf="" class="caption color-red">
+                        Deje un mensaje de al menos diez caracteres
+                    </span>
+                </div>
+            </div>
+            <div class="img-evento">
+                <img src="./../../../../assets/images/Imagen_no_disponible.svg.png" alt="">
+            </div>
+            <div class="columna gap-10 pdf">
+                <label class="option-menu" for="file-pdf">Sube tu PDF del evento:</label>
+                <input type="file" name="file-pdf" id="">
+            </div>
+            <div class="columna gap-10">
+                <label class="option-menu" for="file-img">Sube tu imagen del evento:</label>
+                <input type="file" name="file-img" id="">
+            </div>
+            
+            <div class="fila gap-10 botones">
+                <button type="submit" class="boton btn-submit-form">Aceptar</button>
+                <button type="reset" class="boton btn-borrar">Borrar</button>
+            </div>
+            
+
+        </div>
+    </form>
+</div>

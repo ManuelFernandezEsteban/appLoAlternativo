@@ -8,16 +8,16 @@
             <nav>
                 <ul>
                     <li>
-                        <a [routerLink]="['mis-eventos']" [routerLinkActive]="['active']" class="texto-regular">Mis eventos</a>
+                        <a [routerLink]="['mis-eventos']" [routerLinkActive]="['active']" class="texto-regular" (click)="desactivarSelected()">Mis eventos</a>
                     </li>
                     <li>
-                        <a [routerLink]="['publicar']" [routerLinkActive]="['active']" class="texto-regular">Publicar evento</a>
+                        <a [routerLink]="['publicar']" [routerLinkActive]="['active']" class="texto-regular" (click)="desactivarSelected()">Publicar evento</a>
                     </li>
                     <li>
-                        <a [routerLink]="['modificar']" [routerLinkActive]="['active']" class="texto-regular">Modificar evento</a>
+                        <a [ngClass]="habilitar()" [routerLink]="['modificar']" [routerLinkActive]="['active']" class="texto-regular">Modificar evento</a>
                     </li>
                     <li>
-                        <a [routerLink]="['eliminar']" [routerLinkActive]="['active']" class="texto-regular">Eliminar evento</a>
+                        <a [ngClass]="habilitar()" [routerLink]="['eliminar']" [routerLinkActive]="['active']" class="texto-regular">Eliminar evento</a>
                     </li>
                 </ul>
             </nav>
