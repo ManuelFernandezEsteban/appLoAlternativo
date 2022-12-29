@@ -434,6 +434,23 @@ $breakpointMovilSmall: 420px;
     height: 40px;
 }
 
+.custom-file-input::-webkit-file-upload-button{
+    visibility: hidden;
+}
+
+.custom-file-input::before{
+    content: 'Examinar';
+    background-color: transparent;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid $darkColor;
+    color: $darkColor;
+    font-family: $fontPrimary;
+    font-size: $fsCaption;
+    padding: 2px 6px;
+}
+
 .btn-small {
     border: 2px solid $darkColor;
     color: $darkColor;
@@ -472,7 +489,9 @@ input[type='password'] {
     font-size: $fsRegular;
     outline: none;
 }
-
+input [type='email']{
+    size: 50;
+}
 input [type='email'] {
     border: none;
     border-bottom: 2px solid $accentColor;
