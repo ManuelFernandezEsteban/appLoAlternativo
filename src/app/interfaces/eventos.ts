@@ -18,6 +18,7 @@ export interface Evento{
     telefono:string;
     email:string;
     web:string;
+    pdf:string;
     twitter:string;
     facebook:string;
     instagram:string;

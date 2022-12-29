@@ -24,6 +24,9 @@ const routes: Routes = [
       {
         path: 'principal', component: PrincipalComponent, children: [
           {
+            path:'',redirectTo:'mis-eventos',pathMatch:'full'
+          },
+          {
             path: 'mis-eventos', component: MisEventosComponent
           },
           {

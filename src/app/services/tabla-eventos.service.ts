@@ -27,7 +27,8 @@ export class TablaEventosService {
     facebook: '',
     instagram: '',
     you_tube: '',
-    twich: ''
+    twich: '',
+    pdf:''
   };
 
   constructor() { }
@@ -44,7 +45,7 @@ export class TablaEventosService {
   isSelected(): boolean {
     return this.onEventosSelection;
   }
-  getEventoSelectedFalse(): Evento {
+  getEventoSelected(): Evento {
     return this.eventoSelected;
   }
 
@@ -72,7 +73,8 @@ export class TablaEventosService {
       facebook: '',
       instagram: '',
       you_tube: '',
-      twich: ''
+      twich: '',
+      pdf:''
     };
   }
 
