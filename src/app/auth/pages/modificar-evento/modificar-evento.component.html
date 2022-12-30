@@ -1,6 +1,6 @@
 <div class="box-formulario-evento">
 
-    <form [formGroup]="formModificarEvento" (ngSubmit)="onModify()">
+    <form [formGroup]="formModificarEvento" (ngSubmit)="onModify()" (reset)="onReset()">
         <h3 class="title-l-primary">Modificar Evento</h3>
         <div class="wrapper-form">
 
@@ -110,7 +110,7 @@
         </div>
         <div class="fila gap-10 botones">
             <button type="submit" class="boton btn-submit-form">Aceptar</button>
-            <button type="reset" class="boton btn-borrar">Borrar</button>
+            <button type="reset" class="boton btn-cancelar">Cancelar</button>
         </div>
     </form>
 </div>

@@ -1,0 +1,24 @@
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    top: 0;
+    right: 0;
+    position: relative;
+}
+
+.box-modal{
+    border: 2px solid black;
+    border-radius: 4px;
+    box-shadow: 5px 5px 6px #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    max-width: 300px;
+    max-height: 300px;
+}

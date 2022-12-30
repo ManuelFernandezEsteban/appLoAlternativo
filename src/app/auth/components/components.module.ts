@@ -10,6 +10,7 @@ import { TablaEventosComponent } from './tabla-eventos/tabla-eventos.component';
 import { FilaEventosComponent } from './fila-eventos/fila-eventos.component';
 import { MonedaPipe } from './pipes/moneda.pipe';
 import { OnlinePipe } from './pipes/online.pipe';
+import { ModalInfoComponent } from './modal-info/modal-info.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { OnlinePipe } from './pipes/online.pipe';
     TablaEventosComponent,
     FilaEventosComponent,
     MonedaPipe,
-    OnlinePipe
+    OnlinePipe,
+    ModalInfoComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { OnlinePipe } from './pipes/online.pipe';
     TablaEventosComponent,
     FilaEventosComponent,
     MonedaPipe,
-    OnlinePipe
+    OnlinePipe,
+    ModalInfoComponent
   ]
 })
 export class ComponentsModule { }

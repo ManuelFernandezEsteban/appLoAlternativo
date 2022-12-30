@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ServiceModalEventoService } from '../../../services/service-modal-evento.service';
 
 @Component({
   selector: 'app-publicar-evento',
@@ -29,7 +31,7 @@ export class PublicarEventoComponent implements OnInit {
   })
 
   constructor(private tablaEventosService:TablaEventosService,
-              private fb:FormBuilder) { }
+              private fb:FormBuilder,private route:Router,public serviceModalEventoService:ServiceModalEventoService) { }
 
   ngOnInit(): void {
   }
@@ -67,6 +69,13 @@ export class PublicarEventoComponent implements OnInit {
     console.log(this.formPublicarEvento.value, this.formPublicarEvento.valid);
     this.formPublicarEvento.reset();
     this.submitted = false;
+    this.serviceModalEventoService.openDialog();
+    //this.route.navigate((['auth/principal/']));
+  }
+
+  onReset(){
+    this.desactivarSelected();
+    this.route.navigate((['auth/principal/']))
   }
 }
 

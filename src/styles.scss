@@ -434,6 +434,15 @@ $breakpointMovilSmall: 420px;
     height: 40px;
 }
 
+.btn-cancelar {
+    border: 2px solid $secondaryColor;
+    color: $darkColor;
+    font-family: $fontOptions;
+    font-size: $fsOptionMenu;
+    width: 110px;
+    height: 40px;
+}
+
 .custom-file-input::-webkit-file-upload-button{
     visibility: hidden;
 }
@@ -586,6 +595,10 @@ app-root {
 
 .pad-20 {
     padding: 20px;
+}
+
+.ocultar{
+    visibility: hidden;
 }
 
 /*pagina principal*/

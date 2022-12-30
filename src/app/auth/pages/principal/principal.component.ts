@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Especialista } from 'src/app/interfaces/especialistas';
+import { ServiceModalEventoService } from '../../../services/service-modal-evento.service';
 
 @Component({
   selector: 'app-principal',
@@ -33,9 +34,10 @@ export class PrincipalComponent implements OnInit {
     web: ''
   };
 
-  constructor() { }
+  constructor(public serviceModalEventoService:ServiceModalEventoService) { }
 
   ngOnInit(): void {
+    this.serviceModalEventoService.openDialog()
   }
 
 }

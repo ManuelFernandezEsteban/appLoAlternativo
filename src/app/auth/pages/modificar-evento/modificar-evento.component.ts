@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { TablaEventosService } from 'src/app/services/tabla-eventos.service';
 import { Evento } from '../../../interfaces/eventos';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modificar-evento',
@@ -56,7 +57,7 @@ export class ModificarEventoComponent implements OnInit {
   })
 
   constructor(private tablaEventosService:TablaEventosService,
-    private fb:FormBuilder) {    
+    private fb:FormBuilder,private route:Router) {    
       this.eventoSeleccionado=this.tablaEventosService.getEventoSelected();
      }
 
@@ -124,6 +125,12 @@ export class ModificarEventoComponent implements OnInit {
     this.formModificarEvento.reset();
     this.submitted = false;
     this.desactivarSelected();
+    this.route.navigate((['auth/principal/']))
+  }
+
+  onReset(){
+    this.desactivarSelected();
+    this.route.navigate((['auth/principal/']))
   }
 
 }
