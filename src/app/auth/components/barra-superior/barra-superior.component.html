@@ -1,13 +1,13 @@
 <div class="fila">
     <div class="columna gap-10">
-        <span class="encabezado">{{terapeuta.nombre}}</span>
-        <span class="encabezado">{{terapeuta.apellidos}}</span>
+        <span class="encabezado">{{especialista.nombre}}</span>
+        <span class="encabezado">{{especialista.apellidos}}</span>
     </div>
 
    <a class="sub-title-xxl center color-accent" href=""><span >Mejora tu plan</span></a> 
 
     <div class="columna end">
-        <span class="option-menu end">{{terapeuta.plan_contratado}}</span>
-        <a class="texto-regular end color-red cerrar">Cerrar sesión</a>
+        <span class="option-menu end">{{especialista.plan_contratado}}</span>
+        <a class="texto-regular end color-red cerrar" [routerLink]="['/']">Cerrar sesión</a>
     </div>
 </div>

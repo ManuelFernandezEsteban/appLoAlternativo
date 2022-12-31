@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Especialista } from '../../../interfaces/especialistas';
+import { DataEspecialistasService } from '../../../services/data-especialistas.service';
 
 @Component({
   selector: 'app-barra-superior',
@@ -8,11 +9,13 @@ import { Especialista } from '../../../interfaces/especialistas';
 })
 export class BarraSuperiorComponent implements OnInit {
 
-  @Input()terapeuta!:Especialista;
+  @Input()especialista!:Especialista;
 
-  constructor() { }
+  constructor ( private dataEspecialistasService:DataEspecialistasService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
+   
+    console.log(this.especialista)
   }
 
 }

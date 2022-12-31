@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 
 @Component({
@@ -8,15 +8,26 @@ import { ServiceModalEventoService } from 'src/app/services/service-modal-evento
 })
 export class ModalInfoComponent implements OnInit {
 
-  constructor(private serviceModalEventoService: ServiceModalEventoService) { }
+  @Input()mensaje:string='';
+
+  @Input()borrar:boolean=false;
+
+
+  @Output()onAceptar=new EventEmitter<boolean>();
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   aceptar(){
 
-    this.serviceModalEventoService.closeDialog();
+    this.onAceptar.emit(true);
 
+  }
+
+  cancelar(){
+    this.onAceptar.emit(false);
   }
 
 }

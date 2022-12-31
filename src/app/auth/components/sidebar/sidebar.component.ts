@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
+import { Especialista } from 'src/app/interfaces/especialistas';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,7 +9,7 @@ import { TablaEventosService } from '../../../services/tabla-eventos.service';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input() idTerapeuta: number = 0;
+  @Input() especialista!:Especialista;
 
   constructor(public tablaEventosService: TablaEventosService) { }
 

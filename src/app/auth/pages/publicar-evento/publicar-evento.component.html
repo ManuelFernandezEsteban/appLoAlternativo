@@ -113,7 +113,7 @@
         </div>
     </form>
 
-
+    <app-modal-info [mensaje]="mensaje" (onAceptar)="cerrar()" *ngIf="serviceModalEventoService.showDialog"></app-modal-info>
 
 </div>
 

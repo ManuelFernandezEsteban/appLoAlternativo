@@ -2,9 +2,27 @@
 
     <div class="box-modal">
         <h4 class="option-menu">
-            Evento creado
+            {{mensaje}}
         </h4>
-        <button class="btn btn-info-solid" (click)="aceptar()">Aceptar</button>
+
+        <ng-container *ngIf="borrar">
+
+            <div class="fila center gap-20">
+                <button class="boton btn-borrar" (click)="aceptar()">Borrar</button>
+                <button class="boton btn-cancelar" (click)="cancelar()">Cancelar</button>
+            </div>            
+
+        </ng-container>
+
+        <ng-container *ngIf="!borrar">
+            
+            <button class="btn btn-info" (click)="aceptar()">Aceptar</button>
+
+        </ng-container>
+        
+        
+
+        
     </div>
 
 

@@ -12,6 +12,7 @@ import { ServiceModalEventoService } from '../../../services/service-modal-event
 export class PublicarEventoComponent implements OnInit {
 
   submitted:boolean=false;
+  mensaje:string='Evento creado';
 
   formPublicarEvento=this.fb.group({
     evento:['',Validators.required],
@@ -34,6 +35,7 @@ export class PublicarEventoComponent implements OnInit {
               private fb:FormBuilder,private route:Router,public serviceModalEventoService:ServiceModalEventoService) { }
 
   ngOnInit(): void {
+    this.serviceModalEventoService.showDialog=false;
   }
   desactivarSelected() {
     this.tablaEventosService.setIsSelectedOnFalse();
@@ -70,7 +72,12 @@ export class PublicarEventoComponent implements OnInit {
     this.formPublicarEvento.reset();
     this.submitted = false;
     this.serviceModalEventoService.openDialog();
-    //this.route.navigate((['auth/principal/']));
+    //
+  }
+
+  cerrar(){
+    this.serviceModalEventoService.closeDialog();
+    this.route.navigate((['auth/principal/']));
   }
 
   onReset(){

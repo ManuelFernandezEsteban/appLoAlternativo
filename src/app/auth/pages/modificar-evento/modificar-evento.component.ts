@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { TablaEventosService } from 'src/app/services/tabla-eventos.service';
 import { Evento } from '../../../interfaces/eventos';
 import { Router } from '@angular/router';
+import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 
 @Component({
   selector: 'app-modificar-evento',
@@ -13,6 +14,7 @@ export class ModificarEventoComponent implements OnInit {
 
   submitted:boolean=false;
   fechaValue!:Date;
+  mensaje:string='Evento modificado';
 
   eventoSeleccionado:Evento={
     id: 0,
@@ -57,11 +59,12 @@ export class ModificarEventoComponent implements OnInit {
   })
 
   constructor(private tablaEventosService:TablaEventosService,
-    private fb:FormBuilder,private route:Router) {    
+    private fb:FormBuilder,private route:Router , public dataServiceModal:ServiceModalEventoService) {    
       this.eventoSeleccionado=this.tablaEventosService.getEventoSelected();
      }
 
   ngOnInit(): void {
+    this.dataServiceModal.showDialog=false;
     this.eventoSeleccionado=this.tablaEventosService.getEventoSelected();
     this.setEvento();
 
@@ -125,6 +128,12 @@ export class ModificarEventoComponent implements OnInit {
     this.formModificarEvento.reset();
     this.submitted = false;
     this.desactivarSelected();
+    this.dataServiceModal.openDialog();
+    
+  }
+
+  cerrar(){
+    this.dataServiceModal.closeDialog();
     this.route.navigate((['auth/principal/']))
   }
 

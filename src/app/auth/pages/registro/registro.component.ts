@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, AbstractControl, ValidationErrors } from "@angular/forms";
+import { Router } from '@angular/router';
+import { Especialidad, Especialidades } from 'src/app/interfaces/especialiadad';
+import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -8,6 +11,7 @@ import { Validators, FormBuilder, AbstractControl, ValidationErrors } from "@ang
 export class RegistroComponent implements OnInit {
 
   submitted: boolean = false;
+  especialidades:Especialidad[]=[]
 
   formRegistro = this.fb.group(
     {
@@ -46,9 +50,12 @@ export class RegistroComponent implements OnInit {
     return this.formRegistro.get('privacidad')?.invalid || false;
   }
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private especialidadesService:DataEspecialidadesService,private http:Router) { }
 
   ngOnInit(): void {
+    this.especialidadesService.getEspecialidades<Especialidades>().subscribe(res=>{
+      this.especialidades=res.especialidades;
+    })
   }
 
   onRegister() {
@@ -66,6 +73,8 @@ export class RegistroComponent implements OnInit {
     console.log(this.formRegistro.value, this.formRegistro.valid);
     this.formRegistro.reset();
     this.submitted = false;
+
+    this.http.navigate(['auth/principal']);
   }
 
 
@@ -84,4 +93,7 @@ export class RegistroComponent implements OnInit {
     
   }
 
+  actividadesChange(event:Event){
+    
+  }
 }

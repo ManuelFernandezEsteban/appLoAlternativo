@@ -82,6 +82,8 @@
         <button type="reset" class="boton btn-cancelar">Cancelar</button>
     </div>
     </form>
+
+    <app-modal-info (onAceptar)="cerrar()" (onCancelar)="onReset()" [mensaje]="mensaje" [borrar]="true" *ngIf="serviceModal.showDialog"></app-modal-info>
 </div>
 
 <!--./../../../../assets/images/Imagen_no_disponible.svg.png-->

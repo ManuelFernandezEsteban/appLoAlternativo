@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Especialista } from 'src/app/interfaces/especialistas';
+import { Especialista, Especialistas } from 'src/app/interfaces/especialistas';
 import { ServiceModalEventoService } from '../../../services/service-modal-evento.service';
+import { DataEspecialistasService } from '../../../services/data-especialistas.service';
 
 @Component({
   selector: 'app-principal',
@@ -9,13 +10,13 @@ import { ServiceModalEventoService } from '../../../services/service-modal-event
 })
 export class PrincipalComponent implements OnInit {
 
-  @Input()terapeuta:Especialista={
+ especialista:Especialista={
     id: 0,
-    nombre: 'Olaya',
-    apellidos: 'Nieto Mascarenas',
-    fecha_alta: '26-12-2022',
+    nombre: '',
+    apellidos: '',
+    fecha_alta: '',
     descripcion_terapia: '',
-    actividad: 'esoterismo',
+    actividad: '',
     direccion: '',
     provincia: '',
     localidad: '',
@@ -23,10 +24,10 @@ export class PrincipalComponent implements OnInit {
     pais: '',
     video: '',
     imagen_terapeuta: '',
-    telefono: '612345678',
-    plan_contratado: 'oro',
+    telefono: '',
+    plan_contratado: '',
     token_pago: '',
-    email: 'olayanietomarcarenas@fontdrift.com',
+    email: '',
     twitter: '',
     facebook: '',
     instagram: '',
@@ -34,10 +35,17 @@ export class PrincipalComponent implements OnInit {
     web: ''
   };
 
-  constructor(public serviceModalEventoService:ServiceModalEventoService) { }
+  constructor(private dataEspecialistasService:DataEspecialistasService) { 
+    
+  }
 
   ngOnInit(): void {
-    this.serviceModalEventoService.openDialog()
+    this.dataEspecialistasService.getEspecialistas<Especialistas>()
+      .subscribe(res=>{        
+        this.especialista=res.especialistas[1];
+        
+    })
+    //this.serviceModalEventoService.openDialog()
   }
 
 }

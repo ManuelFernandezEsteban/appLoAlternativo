@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from "@angular/forms";
+import { Route, Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   public get email() : boolean {
     return this.formLogin.get('email')?.invalid || false;
   }
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private http:Router) { }
 
   ngOnInit(): void {
   }
@@ -32,11 +33,11 @@ export class LoginComponent implements OnInit {
     if (!this.formLogin.valid){
       return;
     }
-   
-    //TODO event emiter con formContacto
-    console.log(this.formLogin.value,this.formLogin.valid);
+    
     this.formLogin.reset();
     this.submitted=false;
+    this.http.navigate(['auth/principal']);
+
   }
 
 }

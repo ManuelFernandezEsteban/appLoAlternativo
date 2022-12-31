@@ -75,9 +75,11 @@
                 <div class="fila">
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="especialidad">Especialidad:</label>
-                        <div class="columna gap-10">
-                            <input type="text" name="especialidad" id="" formControlName="especialidad"
-                                placeholder="Especialidad">
+                        <div class="select-registro columna gap-10">
+                            <select class="texto-regular" name="especialidad" (change)="actividadesChange($event)" formControlName="especialidad">
+                                <option class="texto-regular" *ngFor="let item of especialidades" value="{{item.id}}">{{item.nombre}}</option>
+        
+                            </select>
                             <span *ngIf="especialidad && submitted" class="caption color-red">Indique una
                                 especialidad</span>
                         </div>

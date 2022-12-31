@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Evento } from 'src/app/interfaces/eventos';
 import { TablaEventosService } from 'src/app/services/tabla-eventos.service';
 import { Router } from '@angular/router';
+import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 
 @Component({
   selector: 'app-eliminar-evento',
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./eliminar-evento.component.scss']
 })
 export class EliminarEventoComponent implements OnInit {
+
+  mensaje:string='¿Seguro qué desea borrar el evento?';
 
   hayPDF:boolean=false;
   eventoSeleccionado:Evento={
@@ -55,11 +58,12 @@ export class EliminarEventoComponent implements OnInit {
   })
 
   constructor(private tablaEventosService:TablaEventosService,
-    private fb:FormBuilder,private route:Router) {
+    private fb:FormBuilder,private route:Router,public serviceModal: ServiceModalEventoService) {
       
      }
 
   ngOnInit(): void {
+    this.serviceModal.showDialog=false;
     this.eventoSeleccionado=this.tablaEventosService.getEventoSelected();
       this.setEvento();
   }
@@ -100,7 +104,18 @@ export class EliminarEventoComponent implements OnInit {
   onDelete(){
     //TODO Borrar el evento
     //TODO Mostrar modal para confirmacion
+
+    this.serviceModal.openDialog();
+
+    
+    
+
+  }
+
+  cerrar(){
+    
     this.formEliminarEvento.reset();
+    this.serviceModal.closeDialog();
     this.route.navigate(['auth/principal/']);
 
   }

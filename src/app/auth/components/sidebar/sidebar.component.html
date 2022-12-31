@@ -62,7 +62,14 @@
             <nav>
                 <ul>
                     <li>
-                        <a [routerLink]="['datos']" [routerLinkActive]="['active']" class="texto-regular">Modificar datos</a>
+                        <a [routerLink]="['datos']" [routerLinkActive]="['active']" class="texto-regular">
+                            <div class="fila gap-10">
+                                <span>Modificar datos</span>
+                                <span>
+                                    <img src="./../../../../assets/images/icons-svg/user-gear-solid.svg" alt="">
+                                </span>
+                            </div>
+                        </a>
                     </li>
                 </ul>
             </nav>

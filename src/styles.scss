@@ -369,7 +369,8 @@ $breakpointMovilSmall: 420px;
     border: 2px solid $primaryColor;
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.15));
     padding: 5px;
-
+    font-family: $fontPrimary;
+    border-radius: 4px;
 }
 
 .btn-info-solid {
@@ -1231,6 +1232,16 @@ app-registro {
         }
     }
 
+}
+
+.select-registro select {
+    border: none;
+    border-bottom: 2px solid $accentColor;
+    outline: none;
+    width: 90%;
+    padding: 8px;
+    font-size: 1rem;
+    font-family: $fontPrimary;
 }
 
 /*fin página registro*/

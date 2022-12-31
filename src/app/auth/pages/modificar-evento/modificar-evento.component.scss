@@ -235,22 +235,22 @@ input[type="checkbox"]{
     min-width: 200px;
     min-height: 200px;
     max-width: 300px;
-    max-height: 300px;
+    max-height: auto;
     grid-column-start: first;
-    grid-column-end: col2;  
+    
     place-items: start;  
     @media (max-width:760px){
         max-width: 200px;
-        max-height: 200px;       
+        max-height: 200px; 
+           
     }
     img{
         aspect-ratio: 1;
         width: 100%;
         min-height: 100%;
-        object-fit: cover;
-
-        
+        object-fit: cover;        
     }
+    
 }
 .pdf{
     grid-column-start: first;
@@ -271,6 +271,17 @@ input[type="checkbox"]{
 textarea{
     border-color: black;
     width: 100%;
+}
+
+app-modal-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+    inset: 0;
+    position: fixed; 
 }
 
 
