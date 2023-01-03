@@ -13,6 +13,7 @@ import { PublicarEventoComponent } from './pages/publicar-evento/publicar-evento
 import { ModificarEventoComponent } from './pages/modificar-evento/modificar-evento.component';
 import { EliminarEventoComponent } from './pages/eliminar-evento/eliminar-evento.component';
 import { ModificarDatosComponent } from './pages/modificar-datos/modificar-datos.component';
+import { PlanesComponent } from './pages/planes/planes.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ModificarDatosComponent } from './pages/modificar-datos/modificar-datos
     PublicarEventoComponent,
     ModificarEventoComponent,
     EliminarEventoComponent,
-    ModificarDatosComponent,  
+    ModificarDatosComponent,
+    PlanesComponent,  
   ],
   imports: [
     CommonModule,

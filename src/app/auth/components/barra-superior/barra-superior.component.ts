@@ -13,9 +13,8 @@ export class BarraSuperiorComponent implements OnInit {
 
   constructor ( private dataEspecialistasService:DataEspecialistasService) { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {       
    
-    console.log(this.especialista)
   }
 
 }

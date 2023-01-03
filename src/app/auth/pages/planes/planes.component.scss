@@ -1,0 +1,37 @@
+.plan-plata,.plan-oro{
+    background-color: #C3C8D4;
+    padding: 20px;
+    width: 45%;
+    border-radius: 4px;
+    gap: 20px;
+    @media (max-width:576px){
+        width: 100%;
+    }
+  
+}
+.plan-oro{   
+    background-color: white; 
+    color: #525020;
+    border: 2px solid #525020;
+    .btn-registro{
+        border: 2px solid #525020;
+        color: #525020;
+    }
+    
+}
+
+.wrapper-planes{
+    width: 100%;
+    justify-content: space-around;
+    align-items: flex-start;
+    @media (max-width:576px){
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+.wrp-planes{
+    padding: 20px 20px 20px 20px;
+    
+}

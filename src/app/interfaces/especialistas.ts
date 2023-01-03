@@ -8,7 +8,7 @@ export interface Especialista {
     apellidos:           string;
     fecha_alta:          string;
     descripcion_terapia: string;
-    actividad:           string;
+    actividad:           number;
     direccion:           string;
     provincia:           string;
     localidad:           string;
@@ -20,6 +20,7 @@ export interface Especialista {
     plan_contratado:     string;
     token_pago:          string;
     email:               string;
+    password:            string;   
     twitter:             string;
     facebook:            string;
     instagram:           string;

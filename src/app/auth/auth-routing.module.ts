@@ -8,6 +8,7 @@ import { PublicarEventoComponent } from './pages/publicar-evento/publicar-evento
 import { ModificarEventoComponent } from './pages/modificar-evento/modificar-evento.component';
 import { EliminarEventoComponent } from './pages/eliminar-evento/eliminar-evento.component';
 import { ModificarDatosComponent } from './pages/modificar-datos/modificar-datos.component';
+import { PlanesComponent } from './pages/planes/planes.component';
 
 
 
@@ -40,6 +41,9 @@ const routes: Routes = [
           },
           {
             path: 'datos', component: ModificarDatosComponent
+          },
+          {
+            path: 'planes', component: PlanesComponent
           },
         ]
       },

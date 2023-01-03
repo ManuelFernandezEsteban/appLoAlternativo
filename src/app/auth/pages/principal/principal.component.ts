@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Especialista, Especialistas } from 'src/app/interfaces/especialistas';
 import { ServiceModalEventoService } from '../../../services/service-modal-evento.service';
 import { DataEspecialistasService } from '../../../services/data-especialistas.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-principal',
@@ -16,7 +17,7 @@ export class PrincipalComponent implements OnInit {
     apellidos: '',
     fecha_alta: '',
     descripcion_terapia: '',
-    actividad: '',
+    actividad: 0,
     direccion: '',
     provincia: '',
     localidad: '',
@@ -28,6 +29,7 @@ export class PrincipalComponent implements OnInit {
     plan_contratado: '',
     token_pago: '',
     email: '',
+    password:'',
     twitter: '',
     facebook: '',
     instagram: '',
@@ -35,17 +37,28 @@ export class PrincipalComponent implements OnInit {
     web: ''
   };
 
-  constructor(private dataEspecialistasService:DataEspecialistasService) { 
+  constructor(private dataEspecialistasService:DataEspecialistasService,
+              private userService:UserService) { 
     
   }
 
   ngOnInit(): void {
+
+    
+
     this.dataEspecialistasService.getEspecialistas<Especialistas>()
-      .subscribe(res=>{        
-        this.especialista=res.especialistas[1];
+      .subscribe(res=>{   
+        
+        res.especialistas.forEach(element => {
+          if (element.id===5){
+            this.especialista=element;
+          }
+        });
+        
+        
         
     })
-    //this.serviceModalEventoService.openDialog()
+    
   }
 
 }

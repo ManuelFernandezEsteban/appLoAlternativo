@@ -26,11 +26,12 @@
                 <label class="option-menu" for="actividad">Actividad:</label>
                 <div class="select columna gap-10">
                     <select class="texto-regular" name="actividad" (change)="actividadesChange($event)"
-                        formControlName="actividad">                        
-                        <option class="texto-regular" *ngFor="let item of especialidades" value="{{item.id}}">
+                        formControlName="actividad" #selectActividad>                        
+                     <!--   <option class="texto-regular" *ngFor="let item of especialidades" 
+                            value="{{item.id}}" #option>
                             {{item.nombre}}
                         </option>
-
+                    -->
                     </select>
                     <span *ngIf="submitted && actividad" class="caption color-red">Seleccione su actividad</span>
                 </div>
@@ -38,8 +39,9 @@
 
             <div class="columna gap-10 fecha">
                 <label class="option-menu" for="fecha">Fecha de alta:</label>
-                <div class="columna gap-10">
-                    <input type="date" name="fecha" [valueAsDate]="fechaValue" id="" formControlName="fecha_alta"
+                <div class="columna gap-10">                   
+                    
+                    <input type="date" name="fecha" [valueAsDate]="fechaValue" id=""
                         placeholder="27-12-2022" readonly>
 
                 </div>
@@ -139,6 +141,19 @@
                 <input type="file" name="imagen_terapeuta" id="" formControlName="imagen_terapeuta"
                     class="custom-file-input">
             </div>
+            <div class="img-video">
+                <img src="{{especialista.video}}" alt="">
+            </div>
+            <div class="columna gap-10 img-video">
+                <label class="option-menu" for="file-video">Video:</label>
+                <span class="texto-regular">{{especialista.video}}</span>
+            </div>
+            <div class="columna gap-10 img-input">
+                <label class="option-menu" for="video">Cambia tu video:</label>
+                <input type="file" name="video" id="" formControlName="video"
+                    class="custom-file-input">
+            </div>
+
 
         </div>
         <div class="fila gap-10 botones">

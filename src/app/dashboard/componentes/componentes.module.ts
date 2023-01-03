@@ -17,6 +17,9 @@ import { ModalEspecialistaComponent } from './modal-especialista/modal-especiali
 import { FormsModule } from '@angular/forms';
 import { EspecialistaComponent } from './especialista/especialista.component';
 import { SharedModule } from '../../shared/shared.module';
+import { ActividadPipe } from './pipes/actividad.pipe';
+import { CarouselPublicidadComponent } from './carousel-publicidad/carousel-publicidad.component';
+import { SponsorComponent } from './sponsor/sponsor.component';
 
 
 
@@ -37,7 +40,7 @@ import { SharedModule } from '../../shared/shared.module';
     ResultadoBusquedaEspecialistasComponent, 
     FiltroEspecialistasComponent,
     ModalEspecialistaComponent, 
-    EspecialistaComponent
+    EspecialistaComponent, ActividadPipe, CarouselPublicidadComponent, SponsorComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +59,8 @@ import { SharedModule } from '../../shared/shared.module';
     ResultadoBusquedaEspecialistasComponent, 
     FiltroEspecialistasComponent,
     ModalEspecialistaComponent, 
-    EspecialistaComponent
+    EspecialistaComponent,
+    CarouselPublicidadComponent
   ]
 
   

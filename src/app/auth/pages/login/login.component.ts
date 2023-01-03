@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from "@angular/forms";
 import { Route, Router } from '@angular/router';
+import { UserService } from '../../../services/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,8 +13,8 @@ export class LoginComponent implements OnInit {
 
   formLogin = this.fb.group(
     {
-      password:['',Validators.required],
-      email:['',[Validators.required, Validators.email]]     
+      password:['123456',Validators.required],
+      email:['prueba@prueba.com',[Validators.required, Validators.email]]     
     }
   );
   public get password() : boolean {
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   public get email() : boolean {
     return this.formLogin.get('email')?.invalid || false;
   }
-  constructor(private fb:FormBuilder,private http:Router) { }
+  constructor(private fb:FormBuilder,private http:Router,private userService:UserService) { }
 
   ngOnInit(): void {
   }
@@ -33,10 +34,17 @@ export class LoginComponent implements OnInit {
     if (!this.formLogin.valid){
       return;
     }
-    
+    const user = this.formLogin.get('email')?.value || '';
+    const pass = this.formLogin.get('password')?.value || '';
     this.formLogin.reset();
     this.submitted=false;
-    this.http.navigate(['auth/principal']);
+  
+
+    const id = this.userService.login(user,pass);
+
+    console.log(id)
+
+    this.http.navigate(['auth/principal',{id}]);
 
   }
 
