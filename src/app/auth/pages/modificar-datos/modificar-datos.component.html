@@ -27,11 +27,7 @@
                 <div class="select columna gap-10">
                     <select class="texto-regular" name="actividad" (change)="actividadesChange($event)"
                         formControlName="actividad" #selectActividad>                        
-                     <!--   <option class="texto-regular" *ngFor="let item of especialidades" 
-                            value="{{item.id}}" #option>
-                            {{item.nombre}}
-                        </option>
-                    -->
+
                     </select>
                     <span *ngIf="submitted && actividad" class="caption color-red">Seleccione su actividad</span>
                 </div>
