@@ -1,0 +1,23 @@
+{
+    "sponsors": [
+        {
+            "id": 1,
+            "nombre": "Google",
+            "imagen": "./../../../../assets/images/sponsors/google.png",
+            "url":"https://www.google.com"
+        },
+        {
+            "id": 2,
+            "nombre": "bmw",
+            "imagen": "./../../../../assets/images/sponsors/bmw.png",
+            "url":"https://www.bmw.com"
+
+        },
+        {
+            "id": 3,
+            "nombre": "tesla",
+            "imagen": "./../../../../assets/images/sponsors/tesla.png",
+            "url":"https://www.tesla.com"
+        }        
+    ]
+}
