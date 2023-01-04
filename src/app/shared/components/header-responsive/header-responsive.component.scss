@@ -1,15 +1,30 @@
 header {
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, #7BACD5 0%, rgba(255, 255, 255, 1) 80%);
     width: 100%;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 20px 0px 20px;
+    
+    justify-content: space-around;
+    padding-top: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    @media screen and (max-width:1440px) {
+        justify-content: space-between;        
+    }
 
+    @media (max-width:1280px) {
 
+        padding-left: 20px;
+        padding-right: 20px;
 
+    }
     @media screen and (max-width:1080px) {
-        justify-content: space-around;
-
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    @media screen and (max-width:800px) {
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
 }
@@ -29,7 +44,7 @@ header {
     display: none;
     cursor: pointer;
     flex-grow: 1;
-    margin-left: 20px;
+    
 
     @media screen and (max-width:1080px) {
         display: block;
@@ -37,15 +52,19 @@ header {
 }
 
 .logo-header {
+    
     img {
         object-fit: cover;
-        width: 300px;
-        height: 300px;
-
+        width: 330px;
+        height: 330px;
+        @media screen and (max-width:1440px) {
+            width: 240px;
+            height: 240px;        
+        }
         @media (max-width:1280px) {
 
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
 
         }
 
@@ -147,7 +166,7 @@ h2 {
     }
     @media screen and (max-width:1080px) {
         position: absolute;
-        top: 260px;
+        top: 300px;
         /* change to 8vh */
         height: 60%;
         /* change to 92vh */
@@ -166,12 +185,12 @@ h2 {
 
     @media screen and (max-width:800px) {
 
-        top: 210px;
+        top: 230px;
     }
 
     @media screen and (max-width:576px) {
         width: 80%;
-        top: 159px;
+        top: 175px;
     }
 }
 

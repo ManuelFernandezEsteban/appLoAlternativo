@@ -2,17 +2,15 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Evento } from 'src/app/interfaces/eventos';
 import { InfoDireccionModal } from 'src/app/interfaces/infoDireccionModal';
 import { InfoModal } from 'src/app/interfaces/infoModal';
+import { RedSocialIcon } from 'src/app/interfaces/redSocialIcon';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
-import { RedSocialIcon } from '../../../interfaces/redSocialIcon';
-import { RespuestaEmail } from '../../../interfaces/respuestaEmail';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-modal-evento',
-  templateUrl: './modal-evento.component.html',
-  styleUrls: ['./modal-evento.component.scss']
+  selector: 'app-modal-revista',
+  templateUrl: './modal-revista.component.html',
+  styleUrls: ['./modal-revista.component.scss']
 })
-export class ModalEventoComponent implements OnInit {
+export class ModalRevistaComponent implements OnInit {
 
   @Input()
   evento!: Evento;
@@ -45,13 +43,8 @@ export class ModalEventoComponent implements OnInit {
     enlace: '',
     icono: ''
   };
-  mostrarModalEmail:boolean=false;
-  revista:boolean=false;
 
-
-
-
-  constructor(public serviceModalEventoService: ServiceModalEventoService,private router:Router) { }
+  constructor(public serviceModalEventoService: ServiceModalEventoService) { }
 
   ngOnInit(): void {
     this.direccion = {
@@ -108,18 +101,9 @@ export class ModalEventoComponent implements OnInit {
     this.serviceModalEventoService.closeDialog();
   }
 
-  descargarContenido(){
-    if (this.evento.id===0){
-      console.log(this.evento.evento);
-      this.mostrarModalEmail=true;
-    }
+  descargarRevista(){
+    console.log('revista')
+    this.serviceModalEventoService.openDialog();
   }
 
-  cerrarModalEmail(event:RespuestaEmail){
-    this.mostrarModalEmail=false;
-    if (event.mail!=''){
-      this.cerrarModal()
-      this.router.navigate(['revistas']);
-    }
-  }
 }

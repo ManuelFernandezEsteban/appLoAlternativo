@@ -37,18 +37,15 @@
                     <app-red-social [redSocial]="twitch"></app-red-social>
 
                 </div>
-                
                 <div class="fila">
-                    <button class="boton btn-info color-accent bold" (click)="descargarContenido()">Descargable</button>
+                    <button class="boton btn-info color-accent bold" (click)="descargarRevista()">Descargable</button>
                     <span class="title-l-primary color-accent bold">{{evento.precio|euros}}</span>
                 </div>
             </div>
         </div>
 
     </div>
-    
+
+    <app-modal-email *ngIf="serviceModalEventoService.showDialog"></app-modal-email>
 
 </div>
-
-
-<app-modal-email *ngIf="mostrarModalEmail" (close)="cerrarModalEmail($event)"></app-modal-email>

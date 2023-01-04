@@ -2,12 +2,13 @@
     <div class="columna gap-10">
         <span class="encabezado">{{especialista.nombre}}</span>
         <span class="encabezado">{{especialista.apellidos}}</span>
+        <span class="sub-title-xxl color-accent">{{especialista.plan_contratado | uppercase}}</span>
     </div>
 
-   <a class="sub-title-xxl center color-accent" [routerLink]="['planes']"><span >Mejora tu plan</span></a> 
+   <a class="sub-title-xxl center color-accent" [routerLink]="['planes']"><span>Mejora tu plan</span></a> 
 
     <div class="columna end">
-        <span class="option-menu end">{{especialista.plan_contratado}}</span>
+        
         <a class="texto-regular end color-red cerrar" [routerLink]="['/']">Cerrar sesión</a>
     </div>
 </div>

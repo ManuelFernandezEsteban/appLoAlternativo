@@ -4,31 +4,44 @@
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, #7BACD5 0%, rgba(255, 255, 255, 1) 80%);
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding: 20px 20px 0px 20px;
+
     @media (max-width:1080px){
         justify-content: center;
         .container-nav-content{
             width: 60%;
         }
     }
+    h2{
+        @media (max-width:576px){
+            display: none;
+        }
+    }
     .container-logo{
         img{
-            width: 150px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
         }
         @media (max-width:1080px){
             img{
-                width: 100px;
-                height: 100px;
+                width: 200px;
+                height: 200px;
             }   
 
         }
         @media (max-width:800px){
             img{
-                width: 80px;
-                height: 80px;
+                width: 150px;
+                height: 150px;
+            }   
+
+        }
+        @media (max-width:576px){
+            img{
+                width: 100px;
+                height: 100px;
             }   
 
         }

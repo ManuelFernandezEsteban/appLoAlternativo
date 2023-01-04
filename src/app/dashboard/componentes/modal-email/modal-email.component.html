@@ -1,0 +1,21 @@
+<div class="wrapper-modal-email">
+    <h4 class="option-menu color-accent">Déjanos tu email para descargar la revista</h4>
+    <form [formGroup]="formEmail" (ngSubmit)="onSubmit()" (reset)="cancelar()">   
+
+            <div class="columna gap-10">
+                <label class="encabezado color-accent" for="email">Email:</label>
+                <div class="columna gap-10">
+                    <input type="email" name="email" id="" formControlName="email" placeholder="tuemail@email.es">
+                    <span *ngIf="email && submitted" class="caption color-red">No es un email válido</span>
+                </div>
+            </div>
+            <div class="fila gap-20 end">
+
+                <button class="boton btn-login" type="submit">Enviar</button>
+                <button class="boton btn-cancelar" type="reset">Cancelar</button>
+            </div>
+
+       
+    </form>
+
+</div>

@@ -13,5 +13,8 @@ export class DataEventosService {
   getEventos<Eventos>():Observable<Eventos>{
     return this.http.get<Eventos>('./../../assets/data/eventosEsoterismo.json');
   }
+  getEventosAlernativo<Eventos>():Observable<Eventos>{
+    return this.http.get<Eventos>('./../../assets/data/eventos-loalternativo.json');
+  }
 
 }

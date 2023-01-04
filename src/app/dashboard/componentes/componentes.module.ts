@@ -14,12 +14,14 @@ import { InfoModalEnlaceComponent } from './info-modal-enlace/info-modal-enlace.
 import { ResultadoBusquedaEspecialistasComponent } from './resultado-busqueda-especialistas/resultado-busqueda-especialistas.component';
 import { FiltroEspecialistasComponent } from './filtro-especialistas/filtro-especialistas.component';
 import { ModalEspecialistaComponent } from './modal-especialista/modal-especialista.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EspecialistaComponent } from './especialista/especialista.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ActividadPipe } from './pipes/actividad.pipe';
 import { CarouselPublicidadComponent } from './carousel-publicidad/carousel-publicidad.component';
 import { SponsorComponent } from './sponsor/sponsor.component';
+import { ModalRevistaComponent } from './modal-revista/modal-revista.component';
+import { ModalEmailComponent } from './modal-email/modal-email.component';
 
 
 
@@ -40,12 +42,13 @@ import { SponsorComponent } from './sponsor/sponsor.component';
     ResultadoBusquedaEspecialistasComponent, 
     FiltroEspecialistasComponent,
     ModalEspecialistaComponent, 
-    EspecialistaComponent, ActividadPipe, CarouselPublicidadComponent, SponsorComponent
+    EspecialistaComponent, ActividadPipe, CarouselPublicidadComponent, SponsorComponent, ModalRevistaComponent, ModalEmailComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],exports:[
     BannerPublicidadComponent,
     DirectorioComponent,
@@ -60,7 +63,8 @@ import { SponsorComponent } from './sponsor/sponsor.component';
     FiltroEspecialistasComponent,
     ModalEspecialistaComponent, 
     EspecialistaComponent,
-    CarouselPublicidadComponent
+    CarouselPublicidadComponent,
+    ModalRevistaComponent
   ]
 
   

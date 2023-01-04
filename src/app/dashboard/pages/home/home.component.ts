@@ -17,12 +17,15 @@ export class HomeComponent implements OnInit {
   constructor(private dataEventos:DataEventosService,public serviceModalEventoService:ServiceModalEventoService,) { }
 
   ngOnInit(): void {
-    this.dataEventos.getEventos<Eventos>().subscribe(res=>{
+    this.dataEventos.getEventosAlernativo<Eventos>().subscribe(res=>{
       this.eventos=res.eventos;
     })
   }
   eventoSeleccionado(event:Evento){
     this.eventoAMostrar=event;
+    if(this.eventoAMostrar.id===0){
+      this.serviceModalEventoService.showDialogRevista=true;
+    }
     this.serviceModalEventoService.openDialog();
   }
 }

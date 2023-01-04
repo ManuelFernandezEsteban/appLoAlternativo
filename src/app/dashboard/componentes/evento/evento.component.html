@@ -9,7 +9,7 @@
     <div class="box-content">
 
         <div class="info-evento">
-            <button class="boton btn-info color-light">Descargable</button>
+            <button class="boton btn-info color-light" (click)="descargarContenido()">Descargable</button>
             <span class="texto-regular bold color-light">{{evento.fecha}}</span>
             <span class="texto-regular bold color-light">{{evento.precio|euros  }}</span>
             <div class="fila">
@@ -25,3 +25,5 @@
 
 
 </div>
+
+<app-modal-email *ngIf="mostrarModalEmail" (close)="cerrarModalEmail($event)"></app-modal-email>

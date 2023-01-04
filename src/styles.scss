@@ -18,7 +18,7 @@ $fontSecondary: Roboto,
 $fontAccent: buffaloregular;
 $fontPrimary: Quicksand;
 $fontOptions: Teko;
-$fsizeXXL: 9rem;
+$fsizeXXL: 11rem;
 $fsizeXL: 4rem;
 $fsizeL: 2rem;
 $fsOptionEncabezado: 1.8rem;
@@ -29,18 +29,18 @@ $fsRegular: 1rem;
 $fsCaption: 0.9rem;
 $fsSmall: 0.7rem;
 
-$fsizeXXLLaptop: 6.5rem;
+$fsizeXXLLaptop: 8.8rem;
 $fsizeXLLaptop: 3rem;
 $fsizeLLaptop: 2rem;
-$fsOptionEncabezadoLaptop: 1.6rem;
-$fsOptionMenuLaptop: 1.2rem;
+$fsOptionEncabezadoLaptop: 1.4rem;
+$fsOptionMenuLaptop: 1.1rem;
 $fsPrimaryTextXLLaptop: 1.1rem;
 $fsEncabezadoLaptop: 1rem;
 $fsRegularLaptop: 0.9rem;
 $fsCaptionLaptop: 0.8rem;
 $fsSmallLaptop: 0.65rem;
 
-$fsizeXXLTablet: 5.8rem;
+$fsizeXXLTablet: 5rem;
 $fsizeXLTablet: 2.3rem;
 $fsizeLTablet: 1.7rem;
 $fsOptionEncabezadoTablet: 1.4rem;
@@ -51,7 +51,7 @@ $fsRegularTablet: 0.8rem;
 $fsCaptionTablet: 0.7rem;
 $fsSmallTablet: 0.65rem;
 
-$fsizeXXLMovil: 4rem;
+$fsizeXXLMovil: 4.3rem;
 $fsizeXLMovil: 2rem;
 $fsizeLMovil: 1.6rem;
 $fsOptionEncabezadoMovil: 1.3rem;
@@ -86,44 +86,44 @@ $breakpointMovilSmall: 420px;
 .title-xxl-accent {
     font-family: $fontAccent;
     font-size: $fsizeXXL;
-    line-height: 110px;
+    line-height: 13rem;
     font-weight: 400;
 
     @media (max-width:$breakpointLaptop) {
         font-size: $fsizeXXLLaptop;
-        line-height: 80px;
+        line-height: 11.5rem;
     }
 
     @media (max-width:$breakpoint935) {
         font-size: $fsizeXXLTablet;
-        line-height: 70px;
+        line-height: 5.8rem;
     }
 
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeXXLMovil;
-        line-height: 60px;
+        line-height: 3.5rem;
     }
 }
 
 .title-xl-accent {
     font-family: $fontAccent;
     font-size: $fsizeXL;
-    line-height: 96px;
+    
     font-weight: 400;
 
     @media (max-width:$breakpointLaptop) {
         font-size: $fsizeXLLaptop;
-        line-height: 70px;
+        
     }
 
     @media (max-width:$breakpointTablet) {
         font-size: $fsizeXLTablet;
-        line-height: 60px;
+        
     }
 
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeXLMovil;
-        line-height: 48px;
+        line-height: 1rem;
     }
 }
 
@@ -131,44 +131,44 @@ $breakpointMovilSmall: 420px;
 .title-xl-primary {
     font-family: $fontPrimary;
     font-size: $fsizeXL;
-    line-height: 96px;
+    line-height: 4.6rem;
     font-weight: 400;
 
     @media (max-width:$breakpointLaptop) {
         font-size: $fsizeXLLaptop;
-        line-height: 80px;
+        line-height: 11.5rem;
     }
 
     @media (max-width:$breakpointTablet) {
         font-size: $fsizeXLTablet;
-        line-height: 70px;
+        line-height: 5.8rem;
     }
 
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeXLMovil;
-        line-height: 48px;
+        line-height: 3.5rem;
     }
 }
 
 .title-l-primary {
     font-family: $fontPrimary;
     font-size: $fsizeL;
-    line-height: 72px;
+    line-height: 2.4rem;
     font-weight: 400;
 
     @media (max-width:$breakpointLaptop) {
         font-size: $fsizeLLaptop;
-        line-height: 60px;
+        line-height: 2.4rem;
     }
 
     @media (max-width:$breakpointTablet) {
         font-size: $fsizeLTablet;
-        line-height: 50px;
+        line-height: 2rem;
     }
 
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeLMovil;
-        line-height: 36px;
+        line-height: 1.9rem;
     }
 
 }
@@ -390,12 +390,12 @@ $breakpointMovilSmall: 420px;
     color: $accentColor;
     font-family: $fontOptions;
     font-size: $fsOptionMenu;
-    width: 150px;
-    height: 60px;
+    padding: 10px 30px 10px 30px;
 
     @media (max-width:$breakpointTablet) {
-        width: 130px;
-        height: 60px;
+        padding: 10px 30px 10px 30px;
+        
+
     }
 }
 
@@ -422,8 +422,8 @@ $breakpointMovilSmall: 420px;
     color: $lightColor;
     font-family: $fontOptions;
     font-size: $fsOptionMenu;
-    width: 110px;
-    height: 40px;
+    padding: 10px 30px 10px 30px;
+    
 }
 
 .btn-borrar {
@@ -431,8 +431,8 @@ $breakpointMovilSmall: 420px;
     color: $redColor;
     font-family: $fontOptions;
     font-size: $fsOptionMenu;
-    width: 110px;
-    height: 40px;
+    padding: 10px 30px 10px 30px;
+    
 }
 
 .btn-cancelar {
@@ -440,8 +440,8 @@ $breakpointMovilSmall: 420px;
     color: $darkColor;
     font-family: $fontOptions;
     font-size: $fsOptionMenu;
-    width: 110px;
-    height: 40px;
+    padding: 10px 30px 10px 30px;
+    
 }
 
 .custom-file-input::-webkit-file-upload-button {
@@ -652,7 +652,7 @@ app-boton-plantilla {
     width: 120px;
     height: 120px;
     position: fixed;
-    top: 150px;
+    top: 350px;
     right: 50px;
 
     @media (max-width:$breakpointLaptop) {
@@ -874,27 +874,30 @@ app-directorio {
 
 .grid-directorio {
     display: grid;
-    grid-template-columns: 360px 360px 360px;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 60px;
     width: 100%;
     margin-top: 60px;
-    justify-content: space-around;
+    justify-content: center;
+    place-items: center;
 
     @media (max-width:$breakpointLaptop) {
-        grid-template-columns: 280px 280px 280px;
+        /*grid-template-columns: 280px 280px 280px;*/
         gap: 20px;
     }
 
     @media (max-width:$breakpoint935) {
-        grid-template-columns: 280px 280px;
+        grid-template-columns: 1fr 1fr;
     }
 
     @media (max-width:600px) {
+        grid-template-columns: 1fr;
+        /*
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center;*/
     }
 
 }
@@ -909,18 +912,30 @@ app-mis-eventos {
 
 footer {
     display: flex;
-    justify-content: center;
+    justify-content:space-around;
     width: 100%;
     background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 80%);
-    padding: 20px;
+    gap: 50px;
+    padding-bottom: 40px;
+    padding-top: 100px;
+    padding-left: 80px;
+    padding-right: 80px;
+    /*    padding: 20px;
     padding-top: 50px;
     padding-bottom: 50px;
-    margin-top: 50px;
-    gap: 50px;
+    margin-top: 50px;*/
+    @media screen and (max-width:1440px) {
+        justify-content: space-between;        
+    }
+    @media (max-width:$breakpoint935) {
+       
+        justify-content: space-around;
+    }
+    
 
     .box:first-child {
-        align-items: center;
-        justify-content: space-around;
+     /*   align-items: center;
+        justify-content: space-around;*/
 
         @media (max-width:$breakpoint935) {
             display: none;
@@ -933,7 +948,7 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
     gap: 30px;
 
@@ -1323,6 +1338,9 @@ app-modal-evento {
 
     form {
         padding: 0px 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
 
         @media (max-width:1080px) {
             padding: 0px;
@@ -1693,7 +1711,9 @@ app-modal-evento {
 
     form {
         padding: 0px 200px 200px 200px;
-
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         @media (max-width:1440px) {
             padding: 0px 130px 130px 130px;
         }
@@ -2031,7 +2051,9 @@ app-modal-evento {
 
     form {
         padding: 0px 200px 200px 200px;
-
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         @media (max-width:1440px) {
             padding: 0px 130px 130px 130px;
         }
@@ -2369,7 +2391,9 @@ app-modal-evento {
 
     form {
         padding: 0px 200px 200px 200px;
-
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         @media (max-width:1440px) {
             padding: 0px 130px 130px 130px;
         }

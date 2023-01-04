@@ -15,6 +15,7 @@ import { EventosComponent } from './pages/eventos/eventos.component';
 import { EspecialistasComponent } from './pages/especialistas/especialistas.component';
 import { EventosEspecialidadComponent } from './pages/eventos-especialidad/eventos-especialidad.component';
 import { EspecialistasEspecialidadComponent } from './pages/especialistas-especialidad/especialistas-especialidad.component';
+import { RevistasComponent } from './pages/revistas/revistas.component';
 
 
 
@@ -30,6 +31,7 @@ import { EspecialistasEspecialidadComponent } from './pages/especialistas-especi
     EspecialistasComponent,
     EventosEspecialidadComponent,
     EspecialistasEspecialidadComponent,
+    RevistasComponent,
    
   ],
   imports: [

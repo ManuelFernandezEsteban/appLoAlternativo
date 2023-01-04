@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ServiceModalEventoService {
 
   showDialog:boolean=false;
-  
+  showDialogRevista:boolean=false;
   constructor() { }
 
   closeDialog(){
