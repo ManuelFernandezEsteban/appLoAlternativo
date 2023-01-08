@@ -27,3 +27,12 @@ export interface Especialista {
     you_tube:            string;
     web:                 string;
 }
+
+export interface Registro_Especialista{
+    nombre:string,
+    apellidos:string,
+    actividad:number,
+    email:string,
+    password:string,
+    telefono:string
+}

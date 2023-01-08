@@ -76,9 +76,11 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="especialidad">Especialidad:</label>
                         <div class="select-registro columna gap-10">
-                            <select class="texto-regular" name="especialidad" (change)="actividadesChange($event)" formControlName="especialidad">
-                                <option class="texto-regular" *ngFor="let item of especialidades" value="{{item.id}}">{{item.nombre}}</option>
-        
+                            <select class="texto-regular" name="especialidad" (change)="actividadesChange($event)"
+                                formControlName="especialidad">
+                                <option class="texto-regular" *ngFor="let item of especialidades" value="{{item.id}}">
+                                    {{item.nombre}}</option>
+
                             </select>
                             <span *ngIf="especialidad && submitted" class="caption color-red">Indique una
                                 especialidad</span>
@@ -102,13 +104,18 @@
             <div class="columna gap-20">
                 <button class="boton btn-login center sub-title-xl" type="submit">Sign in</button>
             </div>
+
+
         </div>
+
     </form>
-    <div class="fila">
+    <div class="fila terminos">
         <a class="texto-regular color-accent">Términos y condiciones</a>
         
-        <span class="texto-regular color-accent">¿Ya tienes cuenta?, pulsa <a class="texto-regular color-accent bold" [routerLink]="['/auth/login']">aquí </a>para entrar</span>
-        
+        <span class="texto-regular color-accent">¿Ya tienes cuenta?, pulsa <a class="texto-regular color-accent bold"
+                [routerLink]="['/auth/login']">aquí </a>para entrar
+            </span>
+            <a class="sub-title-xl color-accent center" [routerLink]="['/']">Volver</a>
     </div>
 
 

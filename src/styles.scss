@@ -101,7 +101,11 @@ $breakpointMovilSmall: 420px;
 
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeXXLMovil;
-        line-height: 3.5rem;
+        line-height: 5.8rem;
+    }
+    @media (max-width:375px) {
+        font-size: 3.5rem;
+        line-height: 5.8rem;
     }
 }
 
@@ -1224,6 +1228,10 @@ app-registro {
     display: flex;
     flex-direction: column;
     align-items: center;
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
 }
 
 .box-registro {
@@ -1237,6 +1245,14 @@ app-registro {
     justify-content: center;
     align-self: center;
     margin-bottom: 100px;
+    .terminos{
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        span:last-child{
+            text-align: end;
+        }
+    }
 
     @media (max-width:$breakpoint800) {
         padding: 20px;
@@ -1268,10 +1284,7 @@ app-registro {
             align-self: flex-end;
         }
 
-        a {
-            text-decoration: none;
-            cursor: pointer;
-        }
+        
     }
 
 }

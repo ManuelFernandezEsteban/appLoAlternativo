@@ -3,6 +3,9 @@ import { Validators, FormBuilder, AbstractControl, ValidationErrors } from "@ang
 import { Router } from '@angular/router';
 import { Especialidad, Especialidades } from 'src/app/interfaces/especialiadad';
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
+import { Especialista } from '../../models/user.models';
+import { DataEspecialistasService } from 'src/app/services/data-especialistas.service';
+import { Registro_Especialista } from '../../../interfaces/especialistas';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -11,18 +14,18 @@ import { DataEspecialidadesService } from 'src/app/services/data-especialidades.
 export class RegistroComponent implements OnInit {
 
   submitted: boolean = false;
-  especialidades:Especialidad[]=[]
+  especialidades:Especialidad[]=[];
 
   formRegistro = this.fb.group(
     {
-      name: ['', Validators.required],
-      apellidos: ['', Validators.required],
-      telefono: ['', Validators.required],
-      password: ['', [Validators.required,Validators.minLength(8) ]],
-      password2: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      especialidad: ['', Validators.required],
-      privacidad: [false, Validators.requiredTrue],
+      name: ['Manuel', Validators.required],
+      apellidos: ['Fernandez', Validators.required],
+      telefono: ['67723977', Validators.required],
+      password: ['12345678', [Validators.required,Validators.minLength(8) ]],
+      password2: ['12345678', Validators.required],
+      email: ['lolo3f@gmail.com', [Validators.required, Validators.email]],
+      especialidad: [2, Validators.required],
+      privacidad: [true, Validators.requiredTrue],
     },
   );
   public get password(): boolean {
@@ -50,7 +53,10 @@ export class RegistroComponent implements OnInit {
     return this.formRegistro.get('privacidad')?.invalid || false;
   }
 
-  constructor(private fb: FormBuilder, private especialidadesService:DataEspecialidadesService,private http:Router) { }
+  constructor(private fb: FormBuilder, 
+    private especialidadesService:DataEspecialidadesService,
+    private http:Router,
+    private dataEspecialistasService:DataEspecialistasService) { }
 
   ngOnInit(): void {
     this.especialidadesService.getEspecialidades<Especialidades>().subscribe(res=>{
@@ -70,11 +76,25 @@ export class RegistroComponent implements OnInit {
     }
 
     //TODO event emiter con formContacto
-    console.log(this.formRegistro.value, this.formRegistro.valid);
-    this.formRegistro.reset();
+    //console.log(this.formRegistro.value, this.formRegistro.valid);
+    
     this.submitted = false;
-
-    this.http.navigate(['auth/principal']);
+    const especialista:Especialista = new Especialista(
+      this.formRegistro.value.name!,this.formRegistro.value.apellidos!,this.formRegistro.value.especialidad!,this.formRegistro.value.email!,this.formRegistro.value.password!,this.formRegistro.value.telefono!) 
+    /*const registro:Registro_Especialista={nombre: this.formRegistro.value.name||'',
+                                          apellidos: this.formRegistro.value.apellidos||'',
+                                          actividad: this.formRegistro.value.especialidad||1,
+                                          email: this.formRegistro.value.email||'',
+                                          password: this.formRegistro.value.password||'',
+                                          telefono:this.formRegistro.value.telefono||'',
+                                        };
+    console.log(registro);*/
+    especialista.fecha_alta=new Date(Date.now()).toDateString();
+    //TODO guardar especialista en BD//
+    this.dataEspecialistasService.setEspecialista(especialista);
+    console.log(this.dataEspecialistasService.especialista);
+    this.formRegistro.reset();
+    this.http.navigate(['auth/principal/planes']);
   }
 
 

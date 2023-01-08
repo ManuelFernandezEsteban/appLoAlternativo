@@ -1,6 +1,6 @@
 <div class="box-formulario-evento" id="modificar-datos-especialista">
 
-    <form [formGroup]="formModificarEspecialista" (ngSubmit)="onModify()" (reset)="onReset()">
+    <form [formGroup]="formModificarEspecialista" (submit)="onModify()" (reset)="onReset()">
         <h3 class="title-l-primary">Modificar datos</h3>
         <div class="wrapper-form">
             <div class="columna gap-10 apellidos">
@@ -35,8 +35,7 @@
 
             <div class="columna gap-10 fecha">
                 <label class="option-menu" for="fecha">Fecha de alta:</label>
-                <div class="columna gap-10">                   
-                    
+                <div class="columna gap-10"> 
                     <input type="date" name="fecha" [valueAsDate]="fechaValue" id=""
                         placeholder="27-12-2022" readonly>
 
@@ -153,7 +152,7 @@
 
         </div>
         <div class="fila gap-10 botones">
-            <button type="submit" class="boton btn-submit-form">Aceptar</button>
+            <button type="submit" class="boton btn-submit-form" >Aceptar</button>
             <button type="reset" class="boton btn-cancelar">Cancelar</button>
         </div>
     </form>

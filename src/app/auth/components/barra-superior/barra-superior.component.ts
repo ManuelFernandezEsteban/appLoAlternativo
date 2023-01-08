@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Especialista } from '../../../interfaces/especialistas';
+import { Especialista } from '../../models/user.models';
 import { DataEspecialistasService } from '../../../services/data-especialistas.service';
 
 @Component({
@@ -9,12 +9,14 @@ import { DataEspecialistasService } from '../../../services/data-especialistas.s
 })
 export class BarraSuperiorComponent implements OnInit {
 
-  @Input()especialista!:Especialista;
+  @Input() especialista!:Especialista;
 
   constructor ( private dataEspecialistasService:DataEspecialistasService) { }
 
   ngOnInit(): void {       
-   
+    this.dataEspecialistasService.getEspecialista().subscribe(res=>{
+      this.especialista=res
+    })
   }
 
 }
