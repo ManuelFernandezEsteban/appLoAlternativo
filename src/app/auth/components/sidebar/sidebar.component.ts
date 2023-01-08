@@ -11,18 +11,16 @@ import { Observable } from 'rxjs';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input() especialista!:Especialista;
+  
 
   constructor(public tablaEventosService: TablaEventosService,private dataEspecialistasService:DataEspecialistasService) { }
 
   ngOnInit(): void {
-    this.dataEspecialistasService.getEspecialista().subscribe(res=>{
-      this.especialista=res;
-    })
+
   }
 
   esOro():boolean{   
-      return this.especialista.plan_contratado==='oro'
+      return this.dataEspecialistasService.especialista.plan_contratado==='oro'
   }
 
   desactivarSelected() {

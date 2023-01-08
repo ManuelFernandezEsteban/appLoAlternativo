@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { TablaEventosService } from 'src/app/services/tabla-eventos.service';
-import { Evento } from '../../../interfaces/eventos';
+//import { Evento } from '../../../interfaces/eventos';
 import { Router } from '@angular/router';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
+import { Evento } from '../../models/user.models';
 
 @Component({
   selector: 'app-modificar-evento',
@@ -26,17 +27,12 @@ export class ModificarEventoComponent implements OnInit {
     provincia: '',
     codigo_postal: '',
     online: false,
-    organizador: '',
+    organizador: 0,
     descripcion: '',
     imagen: '',
     telefono: '',
     email: '',
-    web: '',
-    twitter: '',
-    facebook: '',
-    instagram: '',
-    you_tube: '',
-    twich: '',
+    web: '',    
     pdf:''
     
   };
@@ -75,6 +71,7 @@ export class ModificarEventoComponent implements OnInit {
     this.formModificarEvento.get('evento')?.setValue( this.eventoSeleccionado.evento) ;   
     let arrayFecha = this.eventoSeleccionado.fecha.split('-');
     let fecha = arrayFecha[2]+'-'+arrayFecha[1]+'-'+arrayFecha[0];   
+    console.log(fecha);
     this.fechaValue= new Date (fecha);
     this.formModificarEvento.get('online')?.setValue(this.eventoSeleccionado.online);        
     this.formModificarEvento.get('fecha')?.setValue(fecha);        

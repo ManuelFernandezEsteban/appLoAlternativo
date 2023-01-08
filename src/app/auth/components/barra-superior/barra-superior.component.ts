@@ -9,14 +9,12 @@ import { DataEspecialistasService } from '../../../services/data-especialistas.s
 })
 export class BarraSuperiorComponent implements OnInit {
 
-  @Input() especialista!:Especialista;
 
-  constructor ( private dataEspecialistasService:DataEspecialistasService) { }
+
+  constructor ( public dataEspecialistasService:DataEspecialistasService) { }
 
   ngOnInit(): void {       
-    this.dataEspecialistasService.getEspecialista().subscribe(res=>{
-      this.especialista=res
-    })
+   
   }
 
 }

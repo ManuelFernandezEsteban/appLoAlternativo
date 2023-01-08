@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Evento } from '../../../interfaces/eventos';
+//import { Evento } from '../../../interfaces/eventos';
+import { Evento } from '../../models/user.models';
 
 @Component({
   selector: 'app-fila-eventos',

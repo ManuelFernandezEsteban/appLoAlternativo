@@ -10,29 +10,30 @@ import { Especialista } from '../../models/user.models';
 })
 export class PlanesComponent implements OnInit {
 
-  especialista!:Especialista;
+ // especialista!:Especialista;
 
-  constructor(private dataEspecialistasService:DataEspecialistasService,
+  constructor(public dataEspecialistasService:DataEspecialistasService,
               private http:Router) { }
 
   ngOnInit(): void {
-    this.dataEspecialistasService.getEspecialista().subscribe(res=>{
+    /*this.dataEspecialistasService.getEspecialista().subscribe(res=>{
       this.especialista=res;
-    })
+    })*/
+
     
     console.log(this.dataEspecialistasService.especialista)
   }
 
   onClickPlata(){
-    this.especialista.plan_contratado='plata';
-    this.dataEspecialistasService.setEspecialista(this.dataEspecialistasService.especialista);
+    this.dataEspecialistasService.especialista.plan_contratado='plata';
+    //this.dataEspecialistasService.setEspecialista(this.dataEspecialistasService.especialista);
     
     this.http.navigate(['auth/principal/datos']);
   }
 
   onClickOro(){
-    this.especialista.plan_contratado='oro';
-    this.dataEspecialistasService.setEspecialista(this.dataEspecialistasService.especialista);
+    this.dataEspecialistasService.especialista.plan_contratado='oro';
+    //this.dataEspecialistasService.setEspecialista(this.dataEspecialistasService.especialista);
    
     console.log(this.dataEspecialistasService.especialista);
     this.http.navigate(['auth/principal/datos']);

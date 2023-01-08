@@ -1020,27 +1020,40 @@ footer {
 /*fin footer*/
 
 /* página nosotros*/
-
-.box-nosotros {
+app-nosotros{
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    justify-content: center;
 }
-
-.row-nosotros {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 70px;
+#nosotros{
     width: 60%;
-    gap: 100px;
-
-    img {
-        width: 250px;
-        height: 250px;
-        border-radius: 4px;
+    justify-content: center;
+    @media (max-width:$breakpoint935){
+        width: 90%;
     }
+    .fila{
+        @media (max-width:$breakpoint935){
+            flex-direction: column;            
+        }
+        img{
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+        }
+    }
+    .grid-nosotros{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        @media (max-width:$breakpoint935){
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            .columna{
+                align-items: center;
+            }
+        }
+    }
+
 }
 
 /*fin página nosotros*/
@@ -1356,7 +1369,7 @@ app-modal-evento {
         gap: 40px;
 
         @media (max-width:1080px) {
-            padding: 0px;
+            padding: 20px;
         }
     }
 
@@ -1583,7 +1596,7 @@ app-modal-evento {
 
         @media (max-width:1440px) {
             grid-column-start: col4;
-            grid-column-end: end;
+            grid-column-end: col8;
         }
 
         @media (max-width:860px) {
@@ -1613,7 +1626,7 @@ app-modal-evento {
 
         @media (max-width:1440px) {
             grid-column-start: col4;
-            grid-column-end: end;
+            grid-column-end: col8;
         }
 
         @media (max-width:860px) {
@@ -1653,7 +1666,7 @@ app-modal-evento {
             aspect-ratio: 1;
             width: 100%;
             min-height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
     }

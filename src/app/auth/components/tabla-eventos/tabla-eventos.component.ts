@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Evento, Eventos } from 'src/app/interfaces/eventos';
+//import { Evento, Eventos } from 'src/app/interfaces/eventos';
 import { DataEventosService } from '../../../services/data-eventos.service';
+import { DataEspecialistasService } from '../../../services/data-especialistas.service';
+import { Evento } from '../../models/user.models';
 
 @Component({
   selector: 'app-tabla-eventos',
@@ -11,14 +13,12 @@ export class TablaEventosComponent implements OnInit {
 
   @Output()eventoSelection=new EventEmitter<Evento>()
   
-  eventos:Evento[]=[];
+  //eventos:Evento[]=[];
 
-  constructor(private dataEventosService:DataEventosService) { }
+  constructor(private dataEventosService:DataEventosService,public dataEspecialistaService:DataEspecialistasService) { }
 
   ngOnInit(): void {
-    this.dataEventosService.getEventos<Eventos>().subscribe(res=>{
-      this.eventos=res.eventos;
-    })
+
   }
 
   filaSelected(event:Evento){

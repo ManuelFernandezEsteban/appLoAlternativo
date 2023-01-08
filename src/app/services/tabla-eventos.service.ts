@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Evento } from '../interfaces/eventos';
+import { Evento } from '../auth/models/user.models';
+//import { Evento } from '../interfaces/eventos';
 
 @Injectable({
   providedIn: 'root'
@@ -17,17 +18,12 @@ export class TablaEventosService {
     provincia: '',
     codigo_postal: '',
     online: false,
-    organizador: '',
+    organizador: 0,
     descripcion: '',
     imagen: '',
     telefono: '',
     email: '',
-    web: '',
-    twitter: '',
-    facebook: '',
-    instagram: '',
-    you_tube: '',
-    twich: '',
+    web: '',    
     pdf:''
   };
 
@@ -53,27 +49,23 @@ export class TablaEventosService {
     this.onEventosSelection = false;
   }
   resetEventoSelected() {
+    let fecha = Date.now().toLocaleString();
     this.eventoSelected = {
       id: 0,
       evento: '',
-      fecha: '',
+      fecha: fecha,
       precio: 0,
       direccion: '',
       localidad: '',
       provincia: '',
       codigo_postal: '',
       online: false,
-      organizador: '',
+      organizador: 0,
       descripcion: '',
       imagen: '',
       telefono: '',
       email: '',
-      web: '',
-      twitter: '',
-      facebook: '',
-      instagram: '',
-      you_tube: '',
-      twich: '',
+      web: '',      
       pdf:''
     };
   }

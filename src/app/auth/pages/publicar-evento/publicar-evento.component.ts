@@ -3,6 +3,8 @@ import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceModalEventoService } from '../../../services/service-modal-evento.service';
+import { DataEspecialistasService } from '../../../services/data-especialistas.service';
+import { Evento } from '../../models/user.models';
 
 @Component({
   selector: 'app-publicar-evento',
@@ -17,7 +19,7 @@ export class PublicarEventoComponent implements OnInit {
   formPublicarEvento=this.fb.group({
     evento:['',Validators.required],
     fecha:['',Validators.required],
-    precio:['',Validators.required],
+    precio:[0,Validators.required],
     email:['',[Validators.required,Validators.email]],
     web:[''],
     online:[false],
@@ -32,7 +34,9 @@ export class PublicarEventoComponent implements OnInit {
   })
 
   constructor(private tablaEventosService:TablaEventosService,
-              private fb:FormBuilder,private route:Router,public serviceModalEventoService:ServiceModalEventoService) { }
+              private fb:FormBuilder,private route:Router,
+              public serviceModalEventoService:ServiceModalEventoService,
+              private dataEspecialistasService:DataEspecialistasService) { }
 
   ngOnInit(): void {
     this.serviceModalEventoService.showDialog=false;
@@ -68,7 +72,16 @@ export class PublicarEventoComponent implements OnInit {
       return;
     }
     //TODO event emiter con formContacto
-    console.log(this.formPublicarEvento.value, this.formPublicarEvento.valid);
+  /*  console.log(this.formPublicarEvento.value, this.formPublicarEvento.valid);
+    const evento:Evento = new Evento(
+        this.formPublicarEvento.get('evento').value,
+        this.formPublicarEvento.get('fecha').value,
+        this.formPublicarEvento.get('precio').value,
+        this.dataEspecialistasService.especialista.id,
+        this.formPublicarEvento.get('descripcion').value);
+    */ 
+    this.dataEspecialistasService.setEvento(this.formPublicarEvento.value);      
+
     this.formPublicarEvento.reset();
     this.submitted = false;
     this.serviceModalEventoService.openDialog();

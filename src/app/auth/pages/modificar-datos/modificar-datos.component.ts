@@ -17,6 +17,7 @@ export class ModificarDatosComponent implements OnInit {
 
   especialidades: Especialidad[] = [];
 
+  @ViewChild('imgInput') imgInput!:ElementRef;
   @ViewChild('selectActividad') select!: ElementRef;
   @ViewChild('option') options!: ElementRef[];
 
@@ -32,7 +33,7 @@ export class ModificarDatosComponent implements OnInit {
     codigo_postal: '',
     pais: '',
     video: '',
-    imagen_terapeuta: [''],
+    imagen_terapeuta: [null],
     telefono: ['', Validators.required],
     plan_contratado: [''],
     email: ['', [Validators.required, Validators.email]],
@@ -46,14 +47,35 @@ export class ModificarDatosComponent implements OnInit {
   fechaValue!: Date;
   submitted: boolean = false;
   mensaje: string = 'Cambios guardados';
-  especialista!: Especialista;
+  imgUrl:string='';
+  //especialista!: Especialista;
 
   constructor(private fb: FormBuilder, private route: Router,
     public dataServiceModal: ServiceModalEventoService,
     private especialidadesService: DataEspecialidadesService,
-    private dataEspecialistasService: DataEspecialistasService,
+    public dataEspecialistasService: DataEspecialistasService,
     private renderer: Renderer2,
-    private tablaEventos: TablaEventosService) { }
+    private tablaEventos: TablaEventosService,
+    public serviceModal: ServiceModalEventoService) { }
+
+
+
+    cambiarImg(event: Event){
+      
+      const file = (event.target as HTMLInputElement).files[0];
+      console.log(file)
+     /* this.formModificarEspecialista.patchValue({
+        imagen_terapeuta:file
+      });*/
+      this.formModificarEspecialista.get('imagen_terapeuta').updateValueAndValidity();
+    
+      const reader = new FileReader();
+      reader.onload=()=>{
+        this.imgUrl=reader.result as string;
+      }
+      reader.readAsDataURL(file);
+    }
+
 
   rellenarSelect() {
     this.especialidades.forEach(e => {
@@ -61,7 +83,7 @@ export class ModificarDatosComponent implements OnInit {
       this.renderer.addClass(option, 'texto-regular');
       this.renderer.setAttribute(option, 'value', e.id.toString());
       const valor = this.renderer.createText(e.nombre);
-      if (e.id == this.especialista.actividad) {
+      if (e.id == this.dataEspecialistasService.especialista.actividad) {
         this.renderer.setAttribute(option, 'selected', '');
       }
       this.renderer.appendChild(option, valor);
@@ -71,29 +93,29 @@ export class ModificarDatosComponent implements OnInit {
   }
 
   setEspecialista() {
-    this.formModificarEspecialista.get('nombre')?.setValue(this.especialista.nombre);
-    this.formModificarEspecialista.get('apellidos')?.setValue(this.especialista.apellidos);
-    this.formModificarEspecialista.get('descripcion_terapia')?.setValue(this.especialista.descripcion_terapia||'');
-    this.formModificarEspecialista.get('direccion')?.setValue(this.especialista.direccion||'');
-    this.formModificarEspecialista.get('provincia')?.setValue(this.especialista.provincia||'');
-    this.formModificarEspecialista.get('localidad')?.setValue(this.especialista.localidad||'');
-    this.formModificarEspecialista.get('codigo_postal')?.setValue(this.especialista.codigo_postal||'');
-    this.formModificarEspecialista.get('pais')?.setValue(this.especialista.pais||'');
-    this.formModificarEspecialista.get('video')?.setValue(this.especialista.video||'');
+    this.formModificarEspecialista.get('nombre')?.setValue(this.dataEspecialistasService.especialista.nombre);
+    this.formModificarEspecialista.get('apellidos')?.setValue(this.dataEspecialistasService.especialista.apellidos);
+    this.formModificarEspecialista.get('descripcion_terapia')?.setValue(this.dataEspecialistasService.especialista.descripcion_terapia||'');
+    this.formModificarEspecialista.get('direccion')?.setValue(this.dataEspecialistasService.especialista.direccion||'');
+    this.formModificarEspecialista.get('provincia')?.setValue(this.dataEspecialistasService.especialista.provincia||'');
+    this.formModificarEspecialista.get('localidad')?.setValue(this.dataEspecialistasService.especialista.localidad||'');
+    this.formModificarEspecialista.get('codigo_postal')?.setValue(this.dataEspecialistasService.especialista.codigo_postal||'');
+    this.formModificarEspecialista.get('pais')?.setValue(this.dataEspecialistasService.especialista.pais||'');
+    this.formModificarEspecialista.get('video')?.setValue(this.dataEspecialistasService.especialista.video||'');
    /* if (this.especialista.imagen_terapeuta===''){
       this.formModificarEspecialista.get('imagen_terapeuta')?.setValue('./../../../../assets/images/imagen_no_disponible.svg.png');
     }*/
     //
-    this.formModificarEspecialista.get('telefono')?.setValue(this.especialista.telefono||'');
+    this.formModificarEspecialista.get('telefono')?.setValue(this.dataEspecialistasService.especialista.telefono||'');
     //this.formModificarEspecialista.get('plan_contratado')?.setValue(this.especialista.plan_contratado);
-    this.formModificarEspecialista.get('email')?.setValue(this.especialista.email||'');
-    this.formModificarEspecialista.get('twitter')?.setValue(this.especialista.twitter||'');
-    this.formModificarEspecialista.get('facebook')?.setValue(this.especialista.facebook||'');
-    this.formModificarEspecialista.get('you_tube')?.setValue(this.especialista.you_tube||'');
-    this.formModificarEspecialista.get('web')?.setValue(this.especialista.web||'');
-    this.formModificarEspecialista.get('actividad')?.setValue(this.especialista.actividad);
+    this.formModificarEspecialista.get('email')?.setValue(this.dataEspecialistasService.especialista.email||'');
+    this.formModificarEspecialista.get('twitter')?.setValue(this.dataEspecialistasService.especialista.twitter||'');
+    this.formModificarEspecialista.get('facebook')?.setValue(this.dataEspecialistasService.especialista.facebook||'');
+    this.formModificarEspecialista.get('you_tube')?.setValue(this.dataEspecialistasService.especialista.you_tube||'');
+    this.formModificarEspecialista.get('web')?.setValue(this.dataEspecialistasService.especialista.web||'');
+    this.formModificarEspecialista.get('actividad')?.setValue(this.dataEspecialistasService.especialista.actividad);
     
-    let arrayFecha = this.especialista.fecha_alta!.split('-');
+    let arrayFecha = this.dataEspecialistasService.especialista.fecha_alta!.split('-');
     let fecha = arrayFecha[2] + '-' + arrayFecha[1] + '-' + arrayFecha[0];    
     this.fechaValue = new Date(fecha);
     
@@ -105,7 +127,7 @@ export class ModificarDatosComponent implements OnInit {
     this.tablaEventos.resetEventoSelected();
     this.tablaEventos.setIsSelectedOnFalse();
     this.dataServiceModal.showDialog = false;
-    this.especialista= this.dataEspecialistasService.especialista;
+    this.dataEspecialistasService.especialista;
     this.setEspecialista();
     this.especialidadesService.getEspecialidades<Especialidades>().subscribe(res => {
         this.especialidades = res.especialidades;
@@ -144,14 +166,22 @@ export class ModificarDatosComponent implements OnInit {
 
 
 
-  cerrar() { }
+  cerrar() {     
+    this.serviceModal.closeDialog();
+    this.route.navigate(['auth/principal/']);
+  }
 
 
   onReset() {
-
+    this.submitted=false;
+    this.setEspecialista();
+    this.rellenarSelect();
+    console.log('reset')
   }
 
   onModify() {
+    console.log('cancel')
+    this.submitted=true;
 
     if (!this.formModificarEspecialista.valid){
       console.log(this.formModificarEspecialista.valid,this.formModificarEspecialista.value);
@@ -160,7 +190,7 @@ export class ModificarDatosComponent implements OnInit {
     console.log(this.formModificarEspecialista.valid);
     //this.dataEspecialistasService.setEspecialista(this.especialista);
     
-    this.especialista={
+    this.dataEspecialistasService.especialista={
       actividad:this.formModificarEspecialista.value.actividad||1,
       nombre:this.formModificarEspecialista.value.nombre||'',
       email:this.formModificarEspecialista.value.email||'',
@@ -182,8 +212,9 @@ export class ModificarDatosComponent implements OnInit {
       plan_contratado:this.dataEspecialistasService.especialista.plan_contratado
            
     }   
-
-    this.dataEspecialistasService.setEspecialista(this.especialista);
+    console.log(this.dataEspecialistasService.especialista);
+    this.serviceModal.openDialog();
+//    this.dataEspecialistasService.setEspecialista(this.especialista);
 
   }
 

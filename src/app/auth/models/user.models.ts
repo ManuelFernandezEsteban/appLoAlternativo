@@ -23,6 +23,7 @@ export class Especialista{
     plan_contratado?:     string;
     token_pago?:          string;
     fecha_alta?:          string;   
+    eventos?:             Evento[];
 
     constructor(nombre:string,apellidos:string,actividad:number,email:string,password:string,telefono:string ){
         this.nombre=nombre;
@@ -31,6 +32,36 @@ export class Especialista{
         this.email=email;
         this.password=password;
         this.telefono=telefono;
+        this.eventos=[]
     }
     
+}
+
+export class Evento{
+
+    evento:string;
+    fecha:string;
+    precio:number;
+    online:boolean;
+    organizador:number;
+    descripcion:string;
+    id?:number;
+    direccion?:string;
+    localidad?:string;
+    provincia?:string;
+    codigo_postal?:string;   
+    imagen?:string;
+    telefono?:string;
+    email?:string;
+    web?:string;
+    pdf?:string;    
+    
+    constructor(evento:string,fecha:string,precio:number,organizador:number,descripcion:string){
+        this.evento=evento;
+        this.fecha=fecha;
+        this.precio=precio;
+        this.organizador=organizador;
+        this.descripcion=descripcion;   
+             
+    }
 }

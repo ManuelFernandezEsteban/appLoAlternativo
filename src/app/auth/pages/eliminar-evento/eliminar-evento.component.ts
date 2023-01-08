@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Evento } from 'src/app/interfaces/eventos';
+//import { Evento } from 'src/app/interfaces/eventos';
+
 import { TablaEventosService } from 'src/app/services/tabla-eventos.service';
 import { Router } from '@angular/router';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
+import { Evento } from '../../models/user.models';
 
 @Component({
   selector: 'app-eliminar-evento',
@@ -25,17 +27,12 @@ export class EliminarEventoComponent implements OnInit {
     provincia: '',
     codigo_postal: '',
     online: false,
-    organizador: '',
+    organizador: 0,
     descripcion: '',
     imagen: '',
     telefono: '',
     email: '',
-    web: '',
-    twitter: '',
-    facebook: '',
-    instagram: '',
-    you_tube: '',
-    twich: '',
+    web: '',   
     pdf:''
     
   };
