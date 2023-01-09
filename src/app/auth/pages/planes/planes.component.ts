@@ -16,26 +16,19 @@ export class PlanesComponent implements OnInit {
               private http:Router) { }
 
   ngOnInit(): void {
-    /*this.dataEspecialistasService.getEspecialista().subscribe(res=>{
-      this.especialista=res;
-    })*/
 
-    
-    console.log(this.dataEspecialistasService.especialista)
   }
 
   onClickPlata(){
     this.dataEspecialistasService.especialista.plan_contratado='plata';
-    //this.dataEspecialistasService.setEspecialista(this.dataEspecialistasService.especialista);
+    
     
     this.http.navigate(['auth/principal/datos']);
   }
 
   onClickOro(){
     this.dataEspecialistasService.especialista.plan_contratado='oro';
-    //this.dataEspecialistasService.setEspecialista(this.dataEspecialistasService.especialista);
-   
-    console.log(this.dataEspecialistasService.especialista);
+    
     this.http.navigate(['auth/principal/datos']);
   }
 

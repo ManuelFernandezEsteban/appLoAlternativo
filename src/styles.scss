@@ -103,6 +103,7 @@ $breakpointMovilSmall: 420px;
         font-size: $fsizeXXLMovil;
         line-height: 5.8rem;
     }
+
     @media (max-width:375px) {
         font-size: 3.5rem;
         line-height: 5.8rem;
@@ -112,17 +113,17 @@ $breakpointMovilSmall: 420px;
 .title-xl-accent {
     font-family: $fontAccent;
     font-size: $fsizeXL;
-    
+
     font-weight: 400;
 
     @media (max-width:$breakpointLaptop) {
         font-size: $fsizeXLLaptop;
-        
+
     }
 
     @media (max-width:$breakpointTablet) {
         font-size: $fsizeXLTablet;
-        
+
     }
 
     @media (max-width:$breakpointMovil) {
@@ -398,7 +399,7 @@ $breakpointMovilSmall: 420px;
 
     @media (max-width:$breakpointTablet) {
         padding: 10px 30px 10px 30px;
-        
+
 
     }
 }
@@ -427,7 +428,7 @@ $breakpointMovilSmall: 420px;
     font-family: $fontOptions;
     font-size: $fsOptionMenu;
     padding: 10px 30px 10px 30px;
-    
+
 }
 
 .btn-borrar {
@@ -436,7 +437,7 @@ $breakpointMovilSmall: 420px;
     font-family: $fontOptions;
     font-size: $fsOptionMenu;
     padding: 10px 30px 10px 30px;
-    
+
 }
 
 .btn-cancelar {
@@ -445,7 +446,7 @@ $breakpointMovilSmall: 420px;
     font-family: $fontOptions;
     font-size: $fsOptionMenu;
     padding: 10px 30px 10px 30px;
-    
+
 }
 
 .custom-file-input::-webkit-file-upload-button {
@@ -916,7 +917,7 @@ app-mis-eventos {
 
 footer {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     width: 100%;
     background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 80%);
     gap: 50px;
@@ -924,21 +925,23 @@ footer {
     padding-top: 100px;
     padding-left: 80px;
     padding-right: 80px;
+
     /*    padding: 20px;
     padding-top: 50px;
     padding-bottom: 50px;
     margin-top: 50px;*/
     @media screen and (max-width:1440px) {
-        justify-content: space-between;        
+        justify-content: space-between;
     }
+
     @media (max-width:$breakpoint935) {
-       
+
         justify-content: space-around;
     }
-    
+
 
     .box:first-child {
-     /*   align-items: center;
+        /*   align-items: center;
         justify-content: space-around;*/
 
         @media (max-width:$breakpoint935) {
@@ -1020,35 +1023,42 @@ footer {
 /*fin footer*/
 
 /* página nosotros*/
-app-nosotros{
+app-nosotros {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-#nosotros{
+
+#nosotros {
     width: 60%;
     justify-content: center;
-    @media (max-width:$breakpoint935){
+
+    @media (max-width:$breakpoint935) {
         width: 90%;
     }
-    .fila{
-        @media (max-width:$breakpoint935){
-            flex-direction: column;            
+
+    .fila {
+        @media (max-width:$breakpoint935) {
+            flex-direction: column;
         }
-        img{
+
+        img {
             width: 250px;
             height: 250px;
             object-fit: contain;
         }
     }
-    .grid-nosotros{
+
+    .grid-nosotros {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        @media (max-width:$breakpoint935){
+
+        @media (max-width:$breakpoint935) {
             grid-template-columns: 1fr;
             grid-template-rows: 1fr;
-            .columna{
+
+            .columna {
                 align-items: center;
             }
         }
@@ -1241,6 +1251,7 @@ app-registro {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     a {
         text-decoration: none;
         cursor: pointer;
@@ -1258,11 +1269,13 @@ app-registro {
     justify-content: center;
     align-self: center;
     margin-bottom: 100px;
-    .terminos{
+
+    .terminos {
         align-items: center;
         width: 100%;
         justify-content: space-between;
-        span:last-child{
+
+        span:last-child {
             text-align: end;
         }
     }
@@ -1297,7 +1310,7 @@ app-registro {
             align-self: flex-end;
         }
 
-        
+
     }
 
 }
@@ -1740,6 +1753,7 @@ app-modal-evento {
         display: flex;
         flex-direction: column;
         gap: 40px;
+
         @media (max-width:1440px) {
             padding: 0px 130px 130px 130px;
         }
@@ -2080,6 +2094,7 @@ app-modal-evento {
         display: flex;
         flex-direction: column;
         gap: 40px;
+
         @media (max-width:1440px) {
             padding: 0px 130px 130px 130px;
         }
@@ -2350,12 +2365,14 @@ app-modal-evento {
 
         }
 
+
         img {
             aspect-ratio: 1;
             width: 100%;
             min-height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
+
 
     }
 
@@ -2420,6 +2437,7 @@ app-modal-evento {
         display: flex;
         flex-direction: column;
         gap: 40px;
+
         @media (max-width:1440px) {
             padding: 0px 130px 130px 130px;
         }
@@ -2693,9 +2711,7 @@ app-modal-evento {
             aspect-ratio: 1;
             width: 100%;
             min-height: 100%;
-            object-fit: cover;
-
-
+            object-fit: contain;
         }
     }
 

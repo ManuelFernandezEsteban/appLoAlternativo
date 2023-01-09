@@ -134,8 +134,8 @@
             <div class="columna gap-10 img-input">
                 <label class="option-menu" for="imagen_terapeuta">Cambia tu imagen:</label>
                 <input type="file" name="imagen_terapeuta" accept="image/*" id="" (change)="cambiarImg($event)"
-                    formControlName="imagen_terapeuta"
-                    class="custom-file-input">
+                   
+                    class="custom-file-input"> <!--formControlName="imagen_terapeuta"-->
             </div>
             <div class="img-video">
                 <img [src]="dataEspecialistasService.especialista.video" alt="" #imgPreview>

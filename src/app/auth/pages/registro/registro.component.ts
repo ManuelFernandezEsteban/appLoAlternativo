@@ -5,7 +5,7 @@ import { Especialidad, Especialidades } from 'src/app/interfaces/especialiadad';
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 import { Especialista } from '../../models/user.models';
 import { DataEspecialistasService } from 'src/app/services/data-especialistas.service';
-import { Registro_Especialista } from '../../../interfaces/especialistas';
+import { DataEventosService } from '../../../services/data-eventos.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -15,7 +15,6 @@ export class RegistroComponent implements OnInit {
 
   submitted: boolean = false;
   especialidades:Especialidad[]=[];
-
   formRegistro = this.fb.group(
     {
       name: ['Manuel', Validators.required],
@@ -56,7 +55,8 @@ export class RegistroComponent implements OnInit {
   constructor(private fb: FormBuilder, 
     private especialidadesService:DataEspecialidadesService,
     private http:Router,
-    private dataEspecialistasService:DataEspecialistasService) { }
+    private dataEspecialistasService:DataEspecialistasService,
+    private dataEventosService:DataEventosService) { }
 
   ngOnInit(): void {
     this.especialidadesService.getEspecialidades<Especialidades>().subscribe(res=>{
@@ -81,17 +81,11 @@ export class RegistroComponent implements OnInit {
     this.submitted = false;
     const especialista:Especialista = new Especialista(
       this.formRegistro.value.name!,this.formRegistro.value.apellidos!,this.formRegistro.value.especialidad!,this.formRegistro.value.email!,this.formRegistro.value.password!,this.formRegistro.value.telefono!) 
-    /*const registro:Registro_Especialista={nombre: this.formRegistro.value.name||'',
-                                          apellidos: this.formRegistro.value.apellidos||'',
-                                          actividad: this.formRegistro.value.especialidad||1,
-                                          email: this.formRegistro.value.email||'',
-                                          password: this.formRegistro.value.password||'',
-                                          telefono:this.formRegistro.value.telefono||'',
-                                        };
-    console.log(registro);*/
+   
     especialista.fecha_alta=new Date(Date.now()).toDateString();
     //TODO guardar especialista en BD//
     this.dataEspecialistasService.setEspecialista(especialista);
+    this.dataEventosService.setEventosEspecialistaRegistro(especialista.id);                                         
     console.log(this.dataEspecialistasService.especialista);
     this.formRegistro.reset();
     this.http.navigate(['auth/principal/planes']);

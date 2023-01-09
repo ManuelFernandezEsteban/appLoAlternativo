@@ -96,13 +96,13 @@
                 <label class="option-menu" for="file-pdf">Sube tu PDF del evento:</label>
                 <input type="file" name="file-pdf" id="" formControlName="pdf" class="custom-file-input">
             </div>
-            <div class="img-evento">
-                <img src="./../../../../assets/images/eventosEsoterismo/imagen_1.jpg" alt="">
+            <div class="img-evento" *ngIf="imgUrl && imgUrl !== ''">
+                <img [src]="imgUrl" [alt]="imgUrl">
             </div>
             <div class="columna gap-10 img-input">
                 <label class="option-menu" for="file-img">Sube tu imagen del evento:</label>
                 
-                <input type="file" name="file-img" id="" formControlName="img" class="custom-file-input">
+                <input type="file" name="file-img" id="" formControlName="img" class="custom-file-input" (change)="cambiarImg($event)">
             </div>
 
 

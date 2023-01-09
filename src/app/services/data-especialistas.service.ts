@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {  Observable } from 'rxjs';
 import { Especialista, Evento } from '../auth/models/user.models';
 
-import { EventosForm } from '../auth/interfaces/eventosForm.interface';
+
 
 
 @Injectable({
@@ -37,24 +37,9 @@ export class DataEspecialistasService {
    
   }
 
-  setEvento(dataForm:EventosForm){
-    let evento = new Evento (dataForm.evento,dataForm.fecha,dataForm.precio,this.especialista.id,dataForm.descripcion);
-    evento.codigo_postal= dataForm.cp;
-    evento.direccion=dataForm.direccion;
-    evento.email=dataForm.email;
-    evento.id=this.especialista.eventos.length+1;
-    evento.imagen=dataForm.img;
-    evento.online=dataForm.online;
-    evento.localidad=dataForm.poblacion;
-    evento.pdf=evento.pdf;
-    evento.provincia=dataForm.provincia;
-    evento.telefono=dataForm.telefono;
-    evento.web=dataForm.web;
-    this.especialista.eventos.push(evento);
-
+  login(){
     
-    
-
   }
+
 
 }

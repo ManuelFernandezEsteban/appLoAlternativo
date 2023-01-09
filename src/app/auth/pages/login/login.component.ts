@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from "@angular/forms";
 import { Route, Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
+import { DataEspecialistasService } from '../../../services/data-especialistas.service';
+import { Especialista } from '../../models/user.models';
+import { Especialistas } from '../../../interfaces/especialistas';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,7 +26,10 @@ export class LoginComponent implements OnInit {
   public get email() : boolean {
     return this.formLogin.get('email')?.invalid || false;
   }
-  constructor(private fb:FormBuilder,private http:Router,private userService:UserService) { }
+  constructor(private fb:FormBuilder,
+              private http:Router,
+              private userService:UserService,
+              private dataEspecialistaService:DataEspecialistasService) { }
 
   ngOnInit(): void {
   }
@@ -36,15 +42,23 @@ export class LoginComponent implements OnInit {
     }
     const user = this.formLogin.get('email')?.value || '';
     const pass = this.formLogin.get('password')?.value || '';
+    this.dataEspecialistaService.getEspecialistas<Especialistas>().subscribe(res=>{
+      const especialista:Especialista=res.especialistas[1];
+      this.dataEspecialistaService.setEspecialista(especialista);
+      this.http.navigate(['auth/principal']);
+    })
+    
+
     this.formLogin.reset();
     this.submitted=false;
   
 
-    const id = this.userService.login(user,pass);
+    //const id = this.userService.login(user,pass);
 
-    console.log(id)
 
-    this.http.navigate(['auth/principal',{id}]);
+   // console.log(id)
+
+    
 
   }
 

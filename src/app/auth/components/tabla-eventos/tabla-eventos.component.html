@@ -10,6 +10,6 @@
 </div>
 
 
-<ng-container *ngFor="let evento of dataEspecialistaService.especialista.eventos">
+<ng-container *ngFor="let evento of dataEventosService.eventos_especialista">
     <app-fila-eventos [evento]="evento" (onFilaSelection)="filaSelected($event)"></app-fila-eventos>
 </ng-container>

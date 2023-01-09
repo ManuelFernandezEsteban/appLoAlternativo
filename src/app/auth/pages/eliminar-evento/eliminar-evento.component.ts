@@ -6,6 +6,7 @@ import { TablaEventosService } from 'src/app/services/tabla-eventos.service';
 import { Router } from '@angular/router';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { Evento } from '../../models/user.models';
+import { DataEventosService } from '../../../services/data-eventos.service';
 
 @Component({
   selector: 'app-eliminar-evento',
@@ -55,7 +56,10 @@ export class EliminarEventoComponent implements OnInit {
   })
 
   constructor(private tablaEventosService:TablaEventosService,
-    private fb:FormBuilder,private route:Router,public serviceModal: ServiceModalEventoService) {
+              private fb:FormBuilder,
+              private route:Router,
+              public serviceModal: ServiceModalEventoService,
+              private dataEventosService:DataEventosService) {
       
      }
 
@@ -69,7 +73,8 @@ export class EliminarEventoComponent implements OnInit {
     this.formEliminarEvento.get('evento')?.setValue( this.eventoSeleccionado.evento) ;   
     let arrayFecha = this.eventoSeleccionado.fecha.split('-');
     let fecha = arrayFecha[2]+'-'+arrayFecha[1]+'-'+arrayFecha[0];   
-    this.fechaValue= new Date (fecha);
+    this.fechaValue = new Date(parseInt(arrayFecha[0]),parseInt(arrayFecha[1]),parseInt(arrayFecha[2]));
+   
     this.formEliminarEvento.get('online')?.setValue(this.eventoSeleccionado.online);        
     this.formEliminarEvento.get('fecha')?.setValue(fecha);        
     this.formEliminarEvento.get('precio')?.setValue( (this.eventoSeleccionado.precio).toString() );
@@ -110,7 +115,7 @@ export class EliminarEventoComponent implements OnInit {
   }
 
   cerrar(){
-    
+    this.dataEventosService.eliminarEvento(this.eventoSeleccionado)
     this.formEliminarEvento.reset();
     this.serviceModal.closeDialog();
     this.route.navigate(['auth/principal/']);

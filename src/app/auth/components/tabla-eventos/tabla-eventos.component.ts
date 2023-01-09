@@ -15,7 +15,8 @@ export class TablaEventosComponent implements OnInit {
   
   //eventos:Evento[]=[];
 
-  constructor(private dataEventosService:DataEventosService,public dataEspecialistaService:DataEspecialistasService) { }
+  constructor(public dataEventosService:DataEventosService,
+              ) { }
 
   ngOnInit(): void {
 

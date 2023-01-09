@@ -31,9 +31,10 @@ export class CarouselPublicidadComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
 
-    this.http.get<Sponsors>('./../../assets/data/sponsors.json').subscribe(res=>{
+    this.http.get<Sponsors>('./../../assets/data/sponsors-principales.json').subscribe(res=>{
       this.sponsors=res.sponsors;
-      let grupos: Sponsor[][]=[];      
+    })
+   /*   let grupos: Sponsor[][]=[];      
       grupos[0]=this.sponsors.splice(0,4);
       grupos[1]=this.sponsors.splice(0,4);
       grupos[2]=this.sponsors.splice(0,4);        
@@ -60,7 +61,7 @@ export class CarouselPublicidadComponent implements OnInit,OnDestroy {
         this.sponsorCentral=this.sponsorsPpales[i];
         i++;
       }, 5000);
-    })
+    })*/
     
   }
 

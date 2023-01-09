@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ServiceModalEventoService } from '../../../services/service-modal-evento.service';
 import { DataEspecialistasService } from '../../../services/data-especialistas.service';
 import { Evento } from '../../models/user.models';
+import { DataEventosService } from '../../../services/data-eventos.service';
 
 @Component({
   selector: 'app-publicar-evento',
@@ -15,6 +16,7 @@ export class PublicarEventoComponent implements OnInit {
 
   submitted:boolean=false;
   mensaje:string='Evento creado';
+  imgUrl:string='';
 
   formPublicarEvento=this.fb.group({
     evento:['',Validators.required],
@@ -36,7 +38,8 @@ export class PublicarEventoComponent implements OnInit {
   constructor(private tablaEventosService:TablaEventosService,
               private fb:FormBuilder,private route:Router,
               public serviceModalEventoService:ServiceModalEventoService,
-              private dataEspecialistasService:DataEspecialistasService) { }
+              private dataEspecialistasService:DataEspecialistasService,
+              private dataEventosService:DataEventosService) { }
 
   ngOnInit(): void {
     this.serviceModalEventoService.showDialog=false;
@@ -80,7 +83,8 @@ export class PublicarEventoComponent implements OnInit {
         this.dataEspecialistasService.especialista.id,
         this.formPublicarEvento.get('descripcion').value);
     */ 
-    this.dataEspecialistasService.setEvento(this.formPublicarEvento.value);      
+   
+    this.dataEventosService.setEvento(this.formPublicarEvento.value,this.dataEspecialistasService.especialista.id);      
 
     this.formPublicarEvento.reset();
     this.submitted = false;
@@ -96,6 +100,22 @@ export class PublicarEventoComponent implements OnInit {
   onReset(){
     this.desactivarSelected();
     this.route.navigate((['auth/principal/']))
+  }
+
+  cambiarImg(event: Event) {
+
+    const file = (event.target as HTMLInputElement).files[0];
+
+    /* this.formModificarEspecialista.patchValue({
+       imagen_terapeuta:file
+     });*/
+    this.formPublicarEvento.get('img').updateValueAndValidity();
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imgUrl = reader.result as string;
+    }
+    reader.readAsDataURL(file);
   }
 }
 

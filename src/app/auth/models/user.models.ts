@@ -31,11 +31,12 @@ export class Especialista{
         this.apellidos=apellidos;
         this.email=email;
         this.password=password;
-        this.telefono=telefono;
-        this.eventos=[]
+        this.telefono=telefono;     
+        this.id=1;   
     }
     
 }
+
 
 export class Evento{
 
@@ -61,7 +62,8 @@ export class Evento{
         this.fecha=fecha;
         this.precio=precio;
         this.organizador=organizador;
-        this.descripcion=descripcion;   
+        this.descripcion=descripcion;  
+        
              
     }
 }

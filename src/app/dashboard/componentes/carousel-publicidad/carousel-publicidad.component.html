@@ -1,3 +1,4 @@
+<!--
 <div class="grid-publicidad">
 
     <ng-container *ngFor="let sponsor of sponsors; let i = index">
@@ -10,4 +11,7 @@
         <app-sponsor [sponsor]="sponsor" [clase]="claseSponsor" [ngClass]="setImg(i+5)"></app-sponsor>
     </ng-container>
 </div>
-
+-->
+<ng-container *ngFor="let sponsor of sponsors; let i = index">
+    <app-sponsor [sponsor]="sponsor" [clase]="claseSponsor" [ngClass]="setImg(i)"></app-sponsor>
+</ng-container>

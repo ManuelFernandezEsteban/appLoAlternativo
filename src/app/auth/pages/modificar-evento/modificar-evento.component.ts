@@ -5,6 +5,7 @@ import { TablaEventosService } from 'src/app/services/tabla-eventos.service';
 import { Router } from '@angular/router';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { Evento } from '../../models/user.models';
+import { DataEventosService } from '../../../services/data-eventos.service';
 
 @Component({
   selector: 'app-modificar-evento',
@@ -13,11 +14,12 @@ import { Evento } from '../../models/user.models';
 })
 export class ModificarEventoComponent implements OnInit {
 
-  submitted:boolean=false;
-  fechaValue!:Date;
-  mensaje:string='Evento modificado';
+  submitted: boolean = false;
+  fechaValue!: Date;
+  mensaje: string = 'Evento modificado';
+  imgUrl:string='';
 
-  eventoSeleccionado:Evento={
+  eventoSeleccionado: Evento = {
     id: 0,
     evento: '',
     fecha: '',
@@ -32,62 +34,68 @@ export class ModificarEventoComponent implements OnInit {
     imagen: '',
     telefono: '',
     email: '',
-    web: '',    
-    pdf:''
-    
+    web: '',
+    pdf: ''
+
   };
 
-  formModificarEvento=this.fb.group({
-    evento:['',Validators.required],
-    fecha:['',Validators.required],
-    precio:['',Validators.required],
-    email:['',[Validators.required,Validators.email]],
-    web:[''],
-    online:[false],
-    direccion:[''],
-    poblacion:[''],
-    provincia:[''],
-    cp:[''],
-    telefono:['',Validators.required],
-    descripcion:['',[Validators.required,Validators.minLength(10)]],
-    img:[''],
-    pdf:['']
+  formModificarEvento = this.fb.group({
+    evento: ['', Validators.required],
+    fecha: ['', Validators.required],
+    precio: [0, Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    web: [''],
+    online: [false],
+    direccion: [''],
+    poblacion: [''],
+    provincia: [''],
+    cp: [''],
+    telefono: ['', Validators.required],
+    descripcion: ['', [Validators.required, Validators.minLength(10)]],
+    img: [''],
+    pdf: ['']
   })
 
-  constructor(private tablaEventosService:TablaEventosService,
-    private fb:FormBuilder,private route:Router , public dataServiceModal:ServiceModalEventoService) {    
-      this.eventoSeleccionado=this.tablaEventosService.getEventoSelected();
-     }
+  constructor(private tablaEventosService: TablaEventosService,
+    private fb: FormBuilder,
+    private route: Router,
+    public dataServiceModal: ServiceModalEventoService,
+    private dataEventosService: DataEventosService) {
+    this.eventoSeleccionado = this.tablaEventosService.getEventoSelected();
+  }
 
   ngOnInit(): void {
-    this.dataServiceModal.showDialog=false;
-    this.eventoSeleccionado=this.tablaEventosService.getEventoSelected();
+    this.dataServiceModal.showDialog = false;
+    this.eventoSeleccionado = this.tablaEventosService.getEventoSelected();
     this.setEvento();
 
   }
 
-  
+
   public setEvento() {
-    this.formModificarEvento.get('evento')?.setValue( this.eventoSeleccionado.evento) ;   
+    this.formModificarEvento.get('evento')?.setValue(this.eventoSeleccionado.evento);
+    
+    this.formModificarEvento.get('online')?.setValue(this.eventoSeleccionado.online);
+    
+    this.formModificarEvento.get('precio')?.setValue((this.eventoSeleccionado.precio));
+    this.formModificarEvento.get('email')?.setValue(this.eventoSeleccionado.email);
+    this.formModificarEvento.get('web')?.setValue(this.eventoSeleccionado.web);
+    this.formModificarEvento.get('direccion')?.setValue(this.eventoSeleccionado.direccion);
+    this.formModificarEvento.get('poblacion')?.setValue(this.eventoSeleccionado.localidad);
+    this.formModificarEvento.get('provincia')?.setValue(this.eventoSeleccionado.provincia);
+    this.formModificarEvento.get('cp')?.setValue(this.eventoSeleccionado.codigo_postal);
+    this.formModificarEvento.get('telefono')?.setValue(this.eventoSeleccionado.telefono);
+    this.formModificarEvento.get('descripcion')?.setValue(this.eventoSeleccionado.descripcion);
     let arrayFecha = this.eventoSeleccionado.fecha.split('-');
-    let fecha = arrayFecha[2]+'-'+arrayFecha[1]+'-'+arrayFecha[0];   
-    console.log(fecha);
-    this.fechaValue= new Date (fecha);
-    this.formModificarEvento.get('online')?.setValue(this.eventoSeleccionado.online);        
-    this.formModificarEvento.get('fecha')?.setValue(fecha);        
-    this.formModificarEvento.get('precio')?.setValue( (this.eventoSeleccionado.precio).toString() );
-    this.formModificarEvento.get('email')?.setValue( this.eventoSeleccionado.email) ;
-    this.formModificarEvento.get('web')?.setValue( this.eventoSeleccionado.web) ;
-    this.formModificarEvento.get('direccion')?.setValue( this.eventoSeleccionado.direccion) ;
-    this.formModificarEvento.get('poblacion')?.setValue( this.eventoSeleccionado.localidad) ;
-    this.formModificarEvento.get('provincia')?.setValue( this.eventoSeleccionado.provincia) ;
-    this.formModificarEvento.get('cp')?.setValue( this.eventoSeleccionado.codigo_postal) ;
-    this.formModificarEvento.get('telefono')?.setValue( this.eventoSeleccionado.telefono) ;
-    this.formModificarEvento.get('descripcion')?.setValue( this.eventoSeleccionado.descripcion) ;
-  /*  this.formModificarEvento.get('img')?.setValue( this.eventoSeleccionado.imagen) ;
-    this.formModificarEvento.get('pdf')?.setValue( this.eventoSeleccionado.pdf) ;*/
+    let fecha = arrayFecha[0] + '-' + arrayFecha[1] + '-' + arrayFecha[2];
+    
+    this.fechaValue = new Date(parseInt(arrayFecha[0]),parseInt(arrayFecha[1]),parseInt(arrayFecha[2]));
+    console.log(fecha,arrayFecha,this.fechaValue);
+    this.formModificarEvento.get('fecha')?.setValue(fecha);
+    /*  this.formModificarEvento.get('img')?.setValue( this.eventoSeleccionado.imagen) ;
+      this.formModificarEvento.get('pdf')?.setValue( this.eventoSeleccionado.pdf) ;*/
   }
-  
+
 
   public get evento(): boolean {
     return this.formModificarEvento.get('evento')?.invalid || false;
@@ -114,7 +122,7 @@ export class ModificarEventoComponent implements OnInit {
     this.tablaEventosService.resetEventoSelected();
   }
 
-  onModify(){
+  onModify() {
 
     this.submitted = true;
     if (!this.formModificarEvento.valid) {
@@ -122,21 +130,41 @@ export class ModificarEventoComponent implements OnInit {
     }
     //TODO event emiter con formContacto
     console.log(this.formModificarEvento.value, this.formModificarEvento.valid);
+    this.dataEventosService.eliminarEvento(this.eventoSeleccionado);
+    this.dataEventosService.setEvento(this.formModificarEvento.value, this.eventoSeleccionado.organizador);
+
     this.formModificarEvento.reset();
     this.submitted = false;
     this.desactivarSelected();
     this.dataServiceModal.openDialog();
-    
+
   }
 
-  cerrar(){
+  cerrar() {
     this.dataServiceModal.closeDialog();
     this.route.navigate((['auth/principal/']))
   }
 
-  onReset(){
+  onReset() {
     this.desactivarSelected();
     this.route.navigate((['auth/principal/']))
   }
+
+  cambiarImg(event: Event) {
+
+    const file = (event.target as HTMLInputElement).files[0];
+    console.log(file)
+    /* this.formModificarEspecialista.patchValue({
+       imagen_terapeuta:file
+     });*/
+    this.formModificarEvento.get('img').updateValueAndValidity();
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imgUrl = reader.result as string;
+    }
+    reader.readAsDataURL(file);
+  }
+
 
 }

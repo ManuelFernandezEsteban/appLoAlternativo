@@ -2,6 +2,7 @@
 .wrapper-modal-email{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -9,12 +10,20 @@
     bottom: 0;
     margin: auto;
     width: 40%;
-    height: 30%;
+    height: 32%;
     background-color: #ccc;
     border-radius: 4px;
     border-color: 2px solid black;
     padding: 20px;
     gap: 20px;
+    @media (max-width:1080px) {
+        width: 80%;
+        height: 30%;
+    }
+    @media (max-width:375px) {
+        width: 95%;
+        height: 30%;
+    }
 }
 
 .columna{
@@ -25,6 +34,11 @@ form{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    .fila{
+        button{
+            background-color: white;
+        }
+    }
 }
 .fila{
     justify-content: end;

@@ -101,7 +101,7 @@ export class ModificarDatosComponent implements OnInit {
     this.formModificarEspecialista.get('localidad')?.setValue(this.dataEspecialistasService.especialista.localidad||'');
     this.formModificarEspecialista.get('codigo_postal')?.setValue(this.dataEspecialistasService.especialista.codigo_postal||'');
     this.formModificarEspecialista.get('pais')?.setValue(this.dataEspecialistasService.especialista.pais||'');
-    this.formModificarEspecialista.get('video')?.setValue(this.dataEspecialistasService.especialista.video||'');
+   // this.formModificarEspecialista.get('video')?.setValue(this.dataEspecialistasService.especialista.video||'');
    /* if (this.especialista.imagen_terapeuta===''){
       this.formModificarEspecialista.get('imagen_terapeuta')?.setValue('./../../../../assets/images/imagen_no_disponible.svg.png');
     }*/
@@ -118,6 +118,7 @@ export class ModificarDatosComponent implements OnInit {
     let arrayFecha = this.dataEspecialistasService.especialista.fecha_alta!.split('-');
     let fecha = arrayFecha[2] + '-' + arrayFecha[1] + '-' + arrayFecha[0];    
     this.fechaValue = new Date(fecha);
+    this.imgUrl=this.dataEspecialistasService.especialista.imagen_terapeuta;
     
   }
 
@@ -137,7 +138,7 @@ export class ModificarDatosComponent implements OnInit {
   }
 
   actividadesChange(event: Event) {
-    console.log(this.formModificarEspecialista.get('actividad')?.value)
+    
 
   }
 
@@ -176,20 +177,17 @@ export class ModificarDatosComponent implements OnInit {
     this.submitted=false;
     this.setEspecialista();
     this.rellenarSelect();
-    console.log('reset')
+    
   }
 
   onModify() {
-    console.log('cancel')
+   
     this.submitted=true;
 
     if (!this.formModificarEspecialista.valid){
-      console.log(this.formModificarEspecialista.valid,this.formModificarEspecialista.value);
+      
       return
-    }
-    console.log(this.formModificarEspecialista.valid);
-    //this.dataEspecialistasService.setEspecialista(this.especialista);
-    
+    }    
     this.dataEspecialistasService.especialista={
       actividad:this.formModificarEspecialista.value.actividad||1,
       nombre:this.formModificarEspecialista.value.nombre||'',
@@ -209,13 +207,10 @@ export class ModificarDatosComponent implements OnInit {
       pais:this.formModificarEspecialista.value.pais||'',
       video:this.formModificarEspecialista.value.video||'',
       imagen_terapeuta:this.formModificarEspecialista.value.imagen_terapeuta||'' ,
-      plan_contratado:this.dataEspecialistasService.especialista.plan_contratado
-           
+      plan_contratado:this.dataEspecialistasService.especialista.plan_contratado           
     }   
-    console.log(this.dataEspecialistasService.especialista);
-    this.serviceModal.openDialog();
-//    this.dataEspecialistasService.setEspecialista(this.especialista);
 
+    this.serviceModal.openDialog();
   }
 
 

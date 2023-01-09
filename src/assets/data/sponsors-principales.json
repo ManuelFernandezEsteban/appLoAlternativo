@@ -2,22 +2,15 @@
     "sponsors": [
         {
             "id": 1,
-            "nombre": "Google",
-            "imagen": "./../../../../assets/images/sponsors/google.png",
-            "url":"https://www.google.com"
+            "nombre": "Dinergia",
+            "imagen": "./../../../../assets/images/sponsors/dinergia.jpg",
+            "url":"https://www.dinergia.com/"
         },
         {
             "id": 2,
-            "nombre": "bmw",
-            "imagen": "./../../../../assets/images/sponsors/bmw.png",
-            "url":"https://www.bmw.com"
-
-        },
-        {
-            "id": 3,
-            "nombre": "tesla",
-            "imagen": "./../../../../assets/images/sponsors/tesla.png",
-            "url":"https://www.tesla.com"
+            "nombre": "Posada Park",
+            "imagen": "./../../../../assets/images/sponsors/posada-park.jpg",
+            "url":"https://parklaposada.com/"
         }        
     ]
 }

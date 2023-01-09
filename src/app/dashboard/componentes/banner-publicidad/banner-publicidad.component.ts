@@ -32,17 +32,17 @@ export class BannerPublicidadComponent implements OnInit, AfterViewInit, OnDestr
   ngAfterViewInit() {
     this.huecos.push(this.img1);
     this.huecos.push(this.img2);
-    this.huecos.push(this.img3);
-    this.huecos.push(this.img4);
+//    this.huecos.push(this.img3);
+//    this.huecos.push(this.img4);
   }
   ngOnInit(): void {
 
-    this.http.get<Sponsors>('./../../assets/data/sponsors.json').subscribe(res => {
+    this.http.get<Sponsors>('./../../assets/data/sponsors-principales.json').subscribe(res => {
       this.sponsors = res.sponsors;
       this.inicializarBanner();
-      this.interval = setInterval(() => {
+     /* this.interval = setInterval(() => {
         this.cambiar()
-      }, this.timeout);
+      }, this.timeout);*/
     });
 
   }

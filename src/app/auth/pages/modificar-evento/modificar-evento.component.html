@@ -98,8 +98,8 @@
                 <span class="texto-regular">{{eventoSeleccionado.pdf}}</span>
                 <input type="file" name="file-pdf" id="" formControlName="pdf" class="custom-file-input">
             </div>
-            <div class="img-evento">                
-                    <img src="{{eventoSeleccionado.imagen}}" alt="">
+            <div class="img-evento" *ngIf="imgUrl && imgUrl !== ''">                
+                    <img [src]="imgUrl" alt="">
             </div>
             <div class="columna gap-10 img-input">
                 <label class="option-menu" for="file-img">Imagen del evento:</label>                
@@ -107,7 +107,7 @@
             </div>
             <div class="columna gap-10 img-input">
                 <label class="option-menu" for="file-img">Cambia la imagen del evento:</label>                
-                <input type="file" name="file-img" id="" formControlName="img" class="custom-file-input">
+                <input type="file" name="file-img" id="" formControlName="img" class="custom-file-input" (change)="cambiarImg($event)">
             </div>
 
         </div>
