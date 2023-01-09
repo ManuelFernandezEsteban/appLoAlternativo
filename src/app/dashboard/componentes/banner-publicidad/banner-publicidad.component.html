@@ -1,15 +1,13 @@
 <div class="fila gap-20">
-    <div class="wrp-img ">
-        <img #img1 src="" alt="" class="fadein">
-    </div>
-    <div class="wrp-img fadein">
-        <img #img2 src="" alt="">
-    </div>
-    <div class="wrp-img fadein">
-        <img #img3 src="" alt="">
-    </div>
-    <div class="wrp-img fadein">
-        <img #img4 src="" alt="">
-    </div>
+
+    <ng-container *ngFor="let item of sponsors">
+        <app-sponsor [sponsor]="item"></app-sponsor>
+
+    </ng-container>
+    
+    
+
+
+    
 </div>
 

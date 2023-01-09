@@ -62,14 +62,20 @@ $fsRegularMovil: 0.75rem;
 $fsCaptionMovil: 0.7rem;
 $fsSmallMovil: 0.65rem;
 /*variables color*/
-$primaryColor: #7BACD5;
+//$primaryColor: #7BACD5;
+
+$primaryColor:#89166C;
 $accentColor: #525020;
 $secondaryColor: #C3C8D4;
+
+$alternative:#F1DFF1;
+$c_alternative:#89166C;
 
 $submitColor: #5ac6a6;
 $redColor: #FC0E0E;
 $darkColor: #0a0a0a;
 $lightColor: #f0f0f0;
+//$lightColor:$c_alternative;
 $primaryColorHover: #568795;
 $accentColorHover: #9D8B3D;
 
@@ -919,7 +925,7 @@ footer {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, $primaryColor 0%, rgba(255, 255, 255, 1) 80%);
+    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, #7BACD5 0%, rgba(255, 255, 255, 1) 80%);
     gap: 50px;
     padding-bottom: 40px;
     padding-top: 100px;
