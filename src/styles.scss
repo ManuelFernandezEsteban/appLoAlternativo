@@ -32,7 +32,7 @@ $fsSmall: 0.7rem;
 $fsizeXXLLaptop: 8.8rem;
 $fsizeXLLaptop: 3rem;
 $fsizeLLaptop: 2rem;
-$fsOptionEncabezadoLaptop: 1.4rem;
+$fsOptionEncabezadoLaptop: 1.3rem;
 $fsOptionMenuLaptop: 1.1rem;
 $fsPrimaryTextXLLaptop: 1.1rem;
 $fsEncabezadoLaptop: 1rem;
@@ -43,7 +43,7 @@ $fsSmallLaptop: 0.65rem;
 $fsizeXXLTablet: 5rem;
 $fsizeXLTablet: 2.3rem;
 $fsizeLTablet: 1.7rem;
-$fsOptionEncabezadoTablet: 1.4rem;
+$fsOptionEncabezadoTablet: 1.2rem;
 $fsOptionMenutablet: 1.1rem;
 $fsPrimaryTextXLTablet: 1rem;
 $fsEncabezadoTablet: 1rem;
@@ -78,7 +78,7 @@ $lightColor: #f0f0f0;
 //$lightColor:$c_alternative;
 $primaryColorHover: #568795;
 $accentColorHover: #9D8B3D;
-
+$breakpoint1440:1440px;
 $breakpointLaptop: 1280px;
 $breakpointTablet: 1080px;
 $breakpoint935: 935px;
@@ -88,31 +88,37 @@ $breakpointMovilSmall: 420px;
 
 
 /* clases tipografia*/
-
+.color-purple{
+    color: $primaryColor;
+}
 .title-xxl-accent {
     font-family: $fontAccent;
     font-size: $fsizeXXL;
-    line-height: 13rem;
+    //line-height: 13rem;
     font-weight: 400;
+    @media (max-width:$breakpoint1440) {
+        font-size: $fsizeXXLLaptop;
+        //line-height: 11.5rem;
+    }
 
     @media (max-width:$breakpointLaptop) {
         font-size: $fsizeXXLLaptop;
-        line-height: 11.5rem;
+        //line-height: 11.5rem;
     }
 
     @media (max-width:$breakpoint935) {
         font-size: $fsizeXXLTablet;
-        line-height: 5.8rem;
+        //line-height: 5.8rem;
     }
 
     @media (max-width:$breakpointMovil) {
         font-size: $fsizeXXLMovil;
-        line-height: 5.8rem;
+        //line-height: 5.8rem;
     }
 
     @media (max-width:375px) {
         font-size: 3.5rem;
-        line-height: 5.8rem;
+        //line-height: 5.8rem;
     }
 }
 
@@ -190,7 +196,10 @@ $breakpointMovilSmall: 420px;
     line-height: 36px;
     letter-spacing: 4.8px;
     font-weight: 400;
-
+    @media (max-width:$breakpoint1440) {
+        font-size: $fsOptionEncabezadoLaptop;
+        //line-height: 11.5rem;
+    }
     @media (max-width:$breakpointLaptop) {
         font-size: $fsOptionEncabezadoLaptop;
         line-height: 36px;

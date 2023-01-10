@@ -12,9 +12,12 @@ a {
     text-decoration: none;
     align-items: center;
     justify-content: space-between;
+    @media (max-width:375px){
+        justify-content: flex-end;
+    }
     span:nth-child(1){
-        @media (max-width:576px){
-          /*  display: none;*/
+        @media (max-width:375px){
+            display: none;
         }
 
     }
