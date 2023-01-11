@@ -1,1 +1,22 @@
+
+
+<h3 class="title-xl-primary color-accent pad-20 center">Eventos LöAlternativo</h3>
+
+<div class="wrapper-eventos">
+    <div class="contenedor-eventos">
+        <ng-container *ngFor="let e of eventos">
+            <app-evento [evento]="e" (onEvento)="eventoSeleccionado($event)"></app-evento>
+        </ng-container>
+
+
+    </div>
+</div>
+
 <app-banner-publicidad></app-banner-publicidad>
+
+<app-modal-evento *ngIf="serviceModalEventoService.showDialog" [evento]="eventoAMostrar"></app-modal-evento>
+
+
+
+
+

@@ -1,0 +1,31 @@
+.wrp-imagen-sponsor {
+    max-width: 250px;
+    @media (max-width:800px){
+        max-width: 100px;
+    }
+    a {
+        img {
+            width: 100%;       
+            object-fit: contain;
+            overflow: hidden;
+            object-fit: cover;
+        }
+    }
+}
+
+
+.wrp-imagen-sponsor-ppal {
+
+    max-width: 400px;
+    @media (max-width:1440px){
+        max-width: 300px;
+    }
+    a {
+        img {
+            width: 100%;       
+            object-fit: contain;
+            overflow: hidden;
+            object-fit: cover;
+        }
+    }
+}

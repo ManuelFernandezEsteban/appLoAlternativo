@@ -1,0 +1,89 @@
+<div id="eliminar-evento" class="box-formulario-evento">
+
+    <form [formGroup]="formEliminarEvento" (reset)="onReset()" (ngSubmit)="onDelete()" >
+        <h3 class="title-l-primary">Eliminar Evento</h3>
+        <div class="wrapper-form">
+
+            <div class="columna gap-10 evento">
+                <label class="option-menu" for="evento">Evento:</label>
+                <input type="text" name="evento" id="" formControlName="evento" placeholder="Evento"
+                    [value]=eventoSeleccionado.evento readonly>
+
+            </div>
+            <div class="columna gap-10 fecha">
+                <label class="option-menu" for="fecha">Fecha:</label>
+                <input type="date" name="fecha" [valueAsDate]="fechaValue" id="" formControlName="fecha"
+                    placeholder="27-12-2022" readonly>
+
+            </div>
+            <div class="columna gap-10 precio">
+                <label class="option-menu" for="precio">Precio:</label>
+                <input type="number" name="precio" id="" formControlName="precio" placeholder="€" readonly>
+
+            </div>
+            <div class="columna gap-10 email">
+                <label class="option-menu" for="email">Email:</label>
+                <input type="email" name="email" id="" formControlName="email" placeholder="email@evento.com" readonly>
+            </div>
+
+            <div class="columna gap-10 web">
+                <label class="option-menu" for="web">Web:</label>
+                <input type="url" name="web" id="" formControlName="web" placeholder="www.evento.com" readonly>
+            </div>
+            <div class="columna gap-10 telefono">
+                <label class="option-menu" for="telefono">Teléfono:</label>
+                <input type="tel" id="" formControlName="telefono" placeholder="612345678" readonly>
+            </div>
+            <div class="fila gap-10 w-online">
+                <label class="option-menu online" for="online">Online
+                    <input type="checkbox" name="online" formControlName="online" id="" readonly>
+                </label>
+            </div>
+
+            <div class="columna gap-10 direccion">
+                <label class="option-menu" for="direccion">Dirección:</label>
+                <input type="text" name="direccion" id="" formControlName="direccion" placeholder="Calle del evento, 1" readonly>
+            </div>
+            <div class="columna gap-10 poblacion">
+                <label class="option-menu" for="poblacion">Población:</label>
+                <input type="text" name="poblacion" id="" formControlName="poblacion" placeholder="Alameda" readonly>
+            </div>
+            <div class="columna gap-10 provincia">
+                <label class="option-menu" for="provincia">Provincia:</label>
+                <input type="text" name="provincia" id="" formControlName="provincia" placeholder="Málaga" readonly>
+            </div>
+            <div class="columna gap-10 c-postal">
+                <label class="option-menu" for="cp">C.P.:</label>
+                <input type="text" name="cp" id="" formControlName="cp" placeholder="29000" readonly>
+            </div>
+
+            <div class="columna gap-10 descripcion">
+                <label class="option-menu" for="mensaje">Breve descripción del evento:</label>
+                <textarea name="mensaje" id="" rows="7" formControlName="descripcion" placeholder="" readonly>
+                </textarea>
+            </div>
+        </div>
+        <div [ngClass]="ocultar()" class="columna gap-10 pdf">
+            <label class="option-menu" for="file-pdf">PDF del evento:</label>
+            <span class="texto-regular">{{eventoSeleccionado.pdf}}</span>
+        </div>
+        <div class="img-evento">
+            <img src="{{eventoSeleccionado.imagen}}" alt="" readonly>
+        </div>
+        <div class="columna gap-10 img-input">
+            <label class="option-menu" for="file-img">Imagen del evento:</label>
+            <span class="texto-regular">{{eventoSeleccionado.imagen}}</span>
+        </div>
+
+
+    
+    <div class="fila gap-10 botones">
+        <button type="submit" class="boton btn-borrar">Borrar</button>
+        <button type="reset" class="boton btn-cancelar">Cancelar</button>
+    </div>
+    </form>
+
+    <app-modal-info (onAceptar)="cerrar()" (onCancelar)="onReset()" [mensaje]="mensaje" [borrar]="true" *ngIf="serviceModal.showDialog"></app-modal-info>
+</div>
+
+<!--./../../../../assets/images/Imagen_no_disponible.svg.png-->

@@ -1,29 +1,19 @@
-<div id="normal1" class="publicidad">
-    <div class="columna">
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
+<h3 class="title-xl-primary color-accent pad-20 center">Colaboradores de LöAlternativo</h3>
+<p class="encabezado color-accent">Forma parte de nuestra Comunidad de Patrocinadores con tu imagen de empresa y
+    ayudanos a crecer juntos.</p>
 
-    </div>
-    <div id="premium" class="columna">
-        <div class="premium"></div>
-        <div class="premium"></div>
-        <div class="premium"></div>
-    </div>
-    <div id="normal2" class="columna">
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
-        <div class="normal"></div>
-    </div>
+
+<div class="fila gap-20">
+
+
+
+    <ng-container *ngFor="let item of sponsors">
+        <app-sponsor [sponsor]="item"></app-sponsor>
+
+    </ng-container>
+
+
+
+
+
 </div>
-

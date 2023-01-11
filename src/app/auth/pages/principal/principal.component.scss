@@ -1,0 +1,11 @@
+.box-dash{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    @media (max-width:576px){
+        flex-direction: column;
+
+    }
+}

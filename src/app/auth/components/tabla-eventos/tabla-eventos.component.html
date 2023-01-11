@@ -1,0 +1,15 @@
+<div class="tabla">
+    <span class="option-menu">Nombre</span>
+    <span class="option-menu">Fecha</span>
+    <span class="option-menu">Precio</span>
+    <span class="option-menu">Localización</span>
+
+
+
+
+</div>
+
+
+<ng-container *ngFor="let evento of dataEventosService.eventos_especialista">
+    <app-fila-eventos [evento]="evento" (onFilaSelection)="filaSelected($event)"></app-fila-eventos>
+</ng-container>

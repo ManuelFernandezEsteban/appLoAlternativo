@@ -1,0 +1,14 @@
+<div class="fila">
+    <div class="columna gap-10">
+        <span class="encabezado">{{dataEspecialistasService.especialista.nombre}}</span>
+        <span class="encabezado">{{dataEspecialistasService.especialista.apellidos}}</span>
+        <span class="sub-title-xxl color-accent">{{dataEspecialistasService.especialista.plan_contratado | uppercase}}</span>
+    </div>
+
+   <a class="sub-title-xxl center color-accent" [routerLink]="['planes']"><span>Mejora tu plan</span></a> 
+
+    <div class="columna end">
+        
+        <a class="texto-regular end color-red cerrar" [routerLink]="['/']">Cerrar sesión</a>
+    </div>
+</div>

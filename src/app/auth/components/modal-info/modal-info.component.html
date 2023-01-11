@@ -1,0 +1,29 @@
+<div class="overlay">
+
+    <div class="box-modal">
+        <h4 class="option-menu">
+            {{mensaje}}
+        </h4>
+
+        <ng-container *ngIf="borrar">
+
+            <div class="fila center gap-20">
+                <button class="boton btn-borrar" (click)="aceptar()">Borrar</button>
+                <button class="boton btn-cancelar" (click)="cancelar()">Cancelar</button>
+            </div>            
+
+        </ng-container>
+
+        <ng-container *ngIf="!borrar">
+            
+            <button class="btn btn-info" (click)="aceptar()">Aceptar</button>
+
+        </ng-container>
+        
+        
+
+        
+    </div>
+
+
+</div>

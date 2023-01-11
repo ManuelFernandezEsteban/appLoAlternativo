@@ -11,6 +11,7 @@ import { DondeComponent } from './pages/donde/donde.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { EventosEspecialidadComponent } from './pages/eventos-especialidad/eventos-especialidad.component';
 import { EspecialistasEspecialidadComponent } from './pages/especialistas-especialidad/especialistas-especialidad.component';
+import { RevistasComponent } from './pages/revistas/revistas.component';
 
 const routes:Routes=[
   {
@@ -33,6 +34,9 @@ const routes:Routes=[
       },
       {
         path:'eventos',component:EventosComponent
+      },
+      {
+        path:'revistas',component:RevistasComponent
       },
       {
         path:'eventos/eventos-especialidad/:id',component:EventosEspecialidadComponent

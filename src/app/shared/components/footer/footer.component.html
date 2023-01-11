@@ -3,8 +3,8 @@
 
     <div class="box">
         <div class="container-content">
-            <h1 class="title-xl-accent ">LöAlternativo</h1>
-            <h2 class="sub-title-xl ">Comunidad de terapeutas, eventos y cursos</h2>
+            <h1 class="title-xl-accent "><span class="color-purple">Lö</span>Alternativo</h1>
+            <h2 class="sub-title-xl ">Comunidad de especialistas, eventos y cursos</h2>
         </div>
         <app-newsletter></app-newsletter>
     </div>
@@ -15,19 +15,20 @@
             <ul>
                 <span class="option-menu">Mapa</span>
                 <li>
-                    <a class="caption" [routerLink]="['/home']" (click)="scroll()">Home</a>
-                </li>
-                <li>
-                    <a class="caption" [routerLink]="['nosotros']" (click)="scroll()">Nosotros</a>
-                </li>
-                <li>
-                    <a class="caption" [routerLink]="['especialistas']" (click)="scroll()">Especialistas</a>
+                    <a class="caption" [routerLink]="['/home']" (click)="scroll()">Inicio</a>
                 </li>
                 <li>
                     <a class="caption" [routerLink]="['eventos']" (click)="scroll()">Eventos</a>
                 </li>
                 <li>
                     <a class="caption" [routerLink]="['cursos']" (click)="scroll()">Cursos</a>
+                </li>
+
+                <li>
+                    <a class="caption" [routerLink]="['especialistas']" (click)="scroll()">Especialistas</a>
+                </li>
+                <li>
+                    <a class="caption" [routerLink]="['nosotros']" (click)="scroll()">Nosotros</a>
                 </li>
                 <li>
                     <a class="caption" [routerLink]="['donde']" (click)="scroll()">Donde estamos</a>

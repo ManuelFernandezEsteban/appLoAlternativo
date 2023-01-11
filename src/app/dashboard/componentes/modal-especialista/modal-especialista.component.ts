@@ -3,6 +3,7 @@ import { Especialista } from 'src/app/interfaces/especialistas';
 import { InfoDireccionModal } from 'src/app/interfaces/infoDireccionModal';
 import { InfoModal } from 'src/app/interfaces/infoModal';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
+import { DataEspecialidadesService } from '../../../services/data-especialidades.service';
 
 @Component({
   selector: 'app-modal-especialista',
@@ -11,6 +12,7 @@ import { ServiceModalEventoService } from 'src/app/services/service-modal-evento
 })
 export class ModalEspecialistaComponent implements OnInit {
 
+  
 
   @Input()
   especialista!: Especialista;
@@ -19,7 +21,8 @@ export class ModalEspecialistaComponent implements OnInit {
   infoMail!:InfoModal;
   infoWeb!:InfoModal;
 
-  constructor(private serviceModalEventoService:ServiceModalEventoService) { }
+  constructor(private serviceModalEventoService:ServiceModalEventoService,
+              ) { }
 
   ngOnInit(): void {
     
@@ -47,6 +50,7 @@ export class ModalEspecialistaComponent implements OnInit {
       info:this.especialista.web,
       icono:'../../assets/images/icons-svg/globe-solid.svg'
     }
+
 
 
   }

@@ -4,6 +4,8 @@ import { InfoDireccionModal } from 'src/app/interfaces/infoDireccionModal';
 import { InfoModal } from 'src/app/interfaces/infoModal';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { RedSocialIcon } from '../../../interfaces/redSocialIcon';
+import { RespuestaEmail } from '../../../interfaces/respuestaEmail';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-evento',
@@ -43,12 +45,13 @@ export class ModalEventoComponent implements OnInit {
     enlace: '',
     icono: ''
   };
+  mostrarModalEmail:boolean=false;
+  revista:boolean=false;
 
 
 
 
-
-  constructor(private serviceModalEventoService: ServiceModalEventoService) { }
+  constructor(public serviceModalEventoService: ServiceModalEventoService,private router:Router) { }
 
   ngOnInit(): void {
     this.direccion = {
@@ -103,5 +106,20 @@ export class ModalEventoComponent implements OnInit {
 
   cerrarModal() {
     this.serviceModalEventoService.closeDialog();
+  }
+
+  descargarContenido(){
+    if (this.evento.id===0){
+      console.log(this.evento.evento);
+      this.mostrarModalEmail=true;
+    }
+  }
+
+  cerrarModalEmail(event:RespuestaEmail){
+    this.mostrarModalEmail=false;
+    if (event.mail!=''){
+      this.cerrarModal()
+      this.router.navigate(['revistas']);
+    }
   }
 }

@@ -1,0 +1,79 @@
+<div class="columna gap-20 principal">
+
+    <div class="columna gap-10" *ngIf="esOro()">
+        <div>
+            <span class="option-menu">Eventos</span>
+        </div>
+        <div class="columna">
+            <nav>
+                <ul>
+                    <li>
+                        <a [routerLink]="['mis-eventos']" [routerLinkActive]="['active']" 
+                            class="texto-regular" (click)="desactivarSelected()">
+                            Mis eventos
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['publicar']" [routerLinkActive]="['active']" 
+                            class="texto-regular" (click)="desactivarSelected()">
+                            <div class="fila gap-10">
+                                <span>Publicar evento</span>
+                                <span>
+                                    <img src="./../../../../assets/images/icons-svg/square-plus-regular.svg" alt="">
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a [ngClass]="habilitar()" [routerLink]="['modificar']" 
+                            [routerLinkActive]="['active']" class="texto-regular">
+                            <div class="fila gap-10">
+                                <span>Modificar evento</span>
+                                <span>
+                                    <img src="./../../../../assets/images/icons-svg/m-solid.svg" alt="">
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a [ngClass]="habilitar()" [routerLink]="['eliminar']" 
+                            [routerLinkActive]="['active']" class="texto-regular">
+                            <div class="fila gap-10">
+                                <span>Eliminar evento</span>
+                                <span>
+                                    <img src="./../../../../assets/images/icons-svg/trash-solid.svg" alt="">
+                                </span>
+                            </div>
+                            
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+    <hr>
+
+    <div class="columna gap-10">
+        <div>
+            <span class="option-menu">Datos</span>
+        </div>
+        <div class="columna">
+            <nav>
+                <ul>
+                    <li>
+                        <a [routerLink]="['datos']" [routerLinkActive]="['active']" class="texto-regular">
+                            <div class="fila gap-10">
+                                <span>Modificar datos</span>
+                                <span>
+                                    <img src="./../../../../assets/images/icons-svg/user-gear-solid.svg" alt="">
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</div>
