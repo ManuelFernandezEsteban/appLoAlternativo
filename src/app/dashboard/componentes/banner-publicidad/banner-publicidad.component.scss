@@ -20,7 +20,13 @@ img{
     animation: fadeIn 0.2s;
 }
 
+h3, p {
+    text-align: center;
+}
+
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
+  
+  
