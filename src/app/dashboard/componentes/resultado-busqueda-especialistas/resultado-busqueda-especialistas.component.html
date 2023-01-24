@@ -3,10 +3,12 @@
 
 
 <app-filtro-especialistas *ngIf="isVisible" [listaEspecialistas]="lista" (onBuscar)="resultado($event)" (onReset)="reset($event)">
-</app-filtro-especialistas>
+        </app-filtro-especialistas>
 
 <div class="wrapper">
+    
     <div class="wrapper2">
+        
         <ng-container *ngFor="let especialista of lista">
 
             <app-especialista [especialista]="especialista" (onEspecialista)="eventoSeleccionado($event)">

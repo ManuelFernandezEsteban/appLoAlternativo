@@ -138,3 +138,74 @@
     font-family: $fontPrimary;
     font-size: $fsRegular;
 }
+
+.bold {
+    font-weight: bold;
+}
+
+.color-accent {
+    color: $accentColor;
+}
+
+.color-red {
+    color: $redColor;
+}
+
+.color-light {
+    color: $lightColor;
+}
+
+.color-purple{
+    color: $primaryColor;
+}
+
+.sr-only {
+    display: none;
+}
+
+.pad-20 {
+    padding: 20px;
+}
+
+.ocultar {
+    visibility: hidden;
+}
+
+.active {
+    border-bottom: 4px solid $accentColor;
+}
+
+.end {
+    align-self: flex-end;
+}
+
+.center {
+    align-self: center;
+}
+
+.box-evento{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 240px;
+    height: 350px;
+    border-radius: 4px;
+    aspect-ratio: 1;
+    padding: 15px;
+    
+    .info-evento{
+        display: flex;
+        flex-direction: column;        
+        gap: 6px;
+        align-items: flex-end;
+    }
+    .fila{
+        justify-content: space-between;
+        align-items: center;
+        span{
+            text-align: right;
+            width: 60%;
+        }
+    }
+    
+}
