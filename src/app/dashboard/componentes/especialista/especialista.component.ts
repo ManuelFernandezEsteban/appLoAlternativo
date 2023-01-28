@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
-import { Especialista } from 'src/app/interfaces/especialistas';
+import { IEspecialista } from 'src/app/interfaces/especialistas';
 
 @Component({
   selector: 'app-especialista',
@@ -9,10 +9,10 @@ import { Especialista } from 'src/app/interfaces/especialistas';
 export class EspecialistaComponent implements OnInit {
 
   @Input()
-  especialista!: Especialista;
+  especialista!: IEspecialista;
   @ViewChild('cajaEspecialista') cajaEspecialista!: ElementRef;
 
-  @Output() onEspecialista = new EventEmitter<Especialista>();
+  @Output() onEspecialista = new EventEmitter<IEspecialista>();
 
   constructor(private renderer:Renderer2) { }
 

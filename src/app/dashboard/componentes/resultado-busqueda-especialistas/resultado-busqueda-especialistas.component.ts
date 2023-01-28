@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Especialidad } from 'src/app/interfaces/especialiadad';
-import { Especialista, Especialistas } from 'src/app/interfaces/especialistas';
+import { IEspecialista, Especialistas } from 'src/app/interfaces/especialistas';
 import { DataEspecialistasService } from 'src/app/services/data-especialistas.service';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 
@@ -14,8 +14,8 @@ export class ResultadoBusquedaEspecialistasComponent implements OnInit {
   @Input()
   especialidad!: number;
   isVisible:boolean=false;
-  lista:Especialista[]=[];
-  especialistaAMostrar!: Especialista;
+  lista:IEspecialista[]=[];
+  especialistaAMostrar!: IEspecialista;
 
 
   constructor(public serviceDataEspecialistas:DataEspecialistasService,public serviceModalEventoService:ServiceModalEventoService) { }
@@ -30,7 +30,7 @@ export class ResultadoBusquedaEspecialistasComponent implements OnInit {
     });
   }
 
-  resultado(lista:Especialista[]){
+  resultado(lista:IEspecialista[]){
     this.lista=lista;    
   }
 
@@ -42,7 +42,7 @@ export class ResultadoBusquedaEspecialistasComponent implements OnInit {
     this.isVisible=!this.isVisible;
   }
 
-  eventoSeleccionado(event:Especialista){
+  eventoSeleccionado(event:IEspecialista){
     this.especialistaAMostrar=event;
     this.serviceModalEventoService.openDialog();
   }

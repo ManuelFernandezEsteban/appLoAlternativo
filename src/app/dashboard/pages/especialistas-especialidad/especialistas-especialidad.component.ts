@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Especialista } from 'src/app/interfaces/especialistas';
+import { IEspecialista } from 'src/app/interfaces/especialistas';
 import { DataEspecialidadesService } from '../../../services/data-especialidades.service';
 
 @Component({
@@ -12,8 +12,8 @@ export class EspecialistasEspecialidadComponent implements OnInit {
 
   idEspecialidad!: number;
   especialidad:string='';
-  listaEntrada:Especialista[]=[];
-  listaResultado:Especialista[]=[];
+  listaEntrada:IEspecialista[]=[];
+  listaResultado:IEspecialista[]=[];
 
   constructor(private route:ActivatedRoute,private dataEspecialidadesService:DataEspecialidadesService) { }
 
@@ -27,7 +27,7 @@ export class EspecialistasEspecialidadComponent implements OnInit {
 
   }
 
-  resultado(listaResultado:Especialista[]){
+  resultado(listaResultado:IEspecialista[]){
     this.listaResultado=listaResultado;
   }
 

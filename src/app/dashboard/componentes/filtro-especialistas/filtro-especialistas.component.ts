@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Especialista } from 'src/app/interfaces/especialistas';
+import { IEspecialista } from 'src/app/interfaces/especialistas';
 
 @Component({
   selector: 'app-filtro-especialistas',
@@ -9,9 +9,9 @@ import { Especialista } from 'src/app/interfaces/especialistas';
 export class FiltroEspecialistasComponent implements OnInit {
 
   @Input()
-  listaEspecialistas: Especialista[]=[]; 
+  listaEspecialistas: IEspecialista[]=[]; 
 
-  @Output() onBuscar = new EventEmitter<Especialista[]>();
+  @Output() onBuscar = new EventEmitter<IEspecialista[]>();
   @Output() onReset = new EventEmitter<boolean>();
   
   nombre:string='';
@@ -30,7 +30,7 @@ export class FiltroEspecialistasComponent implements OnInit {
   }
 
   onClickBuscar() {
-    let seleccionados:Especialista[] = [];
+    let seleccionados:IEspecialista[] = [];
     // cada vez que el valor del elemento input cambia
     //vacia el array de los nombres seleccionados
     //recupera el valor del input y guardalo en una variable

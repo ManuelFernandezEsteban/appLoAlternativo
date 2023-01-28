@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Especialista } from '../../models/user.models';
-import { DataEspecialistasService } from '../../../services/data-especialistas.service';
+import { Component, OnInit } from '@angular/core';
+import { EspecialistasService } from '../../../services/especialistas.service';
+import { Router } from '@angular/router';
+import { PlanesService } from '../../../services/planes.service';
+import { ResPlan } from '../../interfaces/plan.interface';
 
 @Component({
   selector: 'app-barra-superior',
@@ -9,12 +11,26 @@ import { DataEspecialistasService } from '../../../services/data-especialistas.s
 })
 export class BarraSuperiorComponent implements OnInit {
 
+  plan:string='';
 
 
-  constructor ( public dataEspecialistasService:DataEspecialistasService) { }
+  constructor ( private router:Router,
+                public especialistaService:EspecialistasService,
+                private planesService:PlanesService
+                ) { }
 
-  ngOnInit(): void {       
-   
+  ngOnInit(): void {  
+
+    this.planesService.getPlan(this.especialistaService.especialista.PlaneId)
+      .subscribe((res:ResPlan)=>{
+        this.plan=res.plan.nombre        
+      })
+    this.plan   
   }
 
+  cerrarSesion(){
+    this.especialistaService.logOut();
+    this.router.navigateByUrl('/');
+
+  }
 }

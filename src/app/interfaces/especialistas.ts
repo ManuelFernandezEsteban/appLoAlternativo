@@ -1,14 +1,14 @@
 export interface Especialistas {
-    especialistas: Especialista[];
+    especialistas: IEspecialista[];
 }
 
-export interface Especialista {
-    id:                  number;
+export interface IEspecialista {
+    
     nombre:              string;
     apellidos:           string;
     fecha_alta:          string;
     descripcion_terapia: string;
-    actividad:           number;
+    ActividadeId:        number;
     direccion:           string;
     provincia:           string;
     localidad:           string;
@@ -17,7 +17,7 @@ export interface Especialista {
     video:               string;
     imagen_terapeuta:    string;
     telefono:            string;
-    plan_contratado:     string;
+    PlaneId:             number;
     token_pago:          string;
     email:               string;
     password:            string;   
@@ -26,6 +26,11 @@ export interface Especialista {
     instagram:           string;
     you_tube:            string;
     web:                 string;
+    createdAt:           string;
+    deletedAt:           string;
+    updatedAt:           string;   
+    id?:                 string;
+
 }
 
 export interface Registro_Especialista{

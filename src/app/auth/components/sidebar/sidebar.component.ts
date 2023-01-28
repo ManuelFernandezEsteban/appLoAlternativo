@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
-import { Especialista } from '../../models/user.models';
-import { DataEspecialistasService } from '../../../services/data-especialistas.service';
-import { Observable } from 'rxjs';
+import { PlanesService } from '../../../services/planes.service';
+import { EspecialistasService } from '../../../services/especialistas.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,17 +10,27 @@ import { Observable } from 'rxjs';
 })
 export class SidebarComponent implements OnInit {
 
+  esOro:boolean=false;
   
 
-  constructor(public tablaEventosService: TablaEventosService,private dataEspecialistasService:DataEspecialistasService) { }
+  constructor(public tablaEventosService: TablaEventosService,
+              private planesService:PlanesService,
+              private especialistaService:EspecialistasService) 
+              { }
 
   ngOnInit(): void {
+    this.planesService.getPlan( (this.especialistaService.especialista.PlaneId) )
+        .subscribe(res=>{
+          if (res.plan.nombre==='oro'){
+            this.esOro=true;
+          }
+          else {
+            this.esOro=false;
+          }
+        })
+    }
 
-  }
-
-  esOro():boolean{   
-      return this.dataEspecialistasService.especialista.plan_contratado==='oro'
-  }
+ 
 
   desactivarSelected() {
     this.tablaEventosService.setIsSelectedOnFalse();
