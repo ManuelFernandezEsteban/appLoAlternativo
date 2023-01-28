@@ -1,6 +1,6 @@
 <div class="columna gap-20 principal">
 
-    <div class="columna gap-10" *ngIf="esOro">
+    <div class="columna gap-10" *ngIf="this.especialistaService.especialista.PlaneId!=1">
         <div>
             <span class="option-menu">Eventos</span>
         </div>
@@ -50,9 +50,9 @@
                 </ul>
             </nav>
         </div>
-
-    </div>
     <hr>
+    </div>
+    
 
     <div class="columna gap-10">
         <div>

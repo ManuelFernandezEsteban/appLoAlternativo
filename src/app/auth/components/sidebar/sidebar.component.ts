@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { PlanesService } from '../../../services/planes.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
+import { RespuestaEspecialista } from 'src/app/interfaces/respuesta-especialista.interface';
+import { Especialistas } from '../../../interfaces/especialistas';
+import { Especialista } from '../../models/especialista.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,27 +13,27 @@ import { EspecialistasService } from '../../../services/especialistas.service';
 })
 export class SidebarComponent implements OnInit {
 
-  esOro:boolean=false;
-  
+  esOro: boolean = false;
+
+  especialista: Especialista;
+
 
   constructor(public tablaEventosService: TablaEventosService,
-              private planesService:PlanesService,
-              private especialistaService:EspecialistasService) 
-              { }
+    public especialistaService: EspecialistasService) { }
 
   ngOnInit(): void {
-    this.planesService.getPlan( (this.especialistaService.especialista.PlaneId) )
-        .subscribe(res=>{
-          if (res.plan.nombre==='oro'){
-            this.esOro=true;
-          }
-          else {
-            this.esOro=false;
-          }
-        })
+
+
+    if (this.especialistaService.especialista.PlaneId === 1) {
+      this.esOro = false;
+    } else {
+      this.esOro = true;
     }
 
- 
+
+  }
+
+
 
   desactivarSelected() {
     this.tablaEventosService.setIsSelectedOnFalse();

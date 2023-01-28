@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataEspecialistasService } from '../../../services/data-especialistas.service';
 import { Router } from '@angular/router';
 import { Especialista } from '../../models/user.models';
+import { EspecialistasService } from '../../../services/especialistas.service';
 
 @Component({
   selector: 'app-planes',
@@ -12,7 +13,7 @@ export class PlanesComponent implements OnInit {
 
  // especialista!:Especialista;
 
-  constructor(public dataEspecialistasService:DataEspecialistasService,
+  constructor(private especialistaService:EspecialistasService,
               private http:Router) { }
 
   ngOnInit(): void {
@@ -20,16 +21,20 @@ export class PlanesComponent implements OnInit {
   }
 
   onClickPlata(){
-    this.dataEspecialistasService.especialista.plan_contratado='plata';
+    this.especialistaService.cambiarPlan(1).subscribe(res=>{
+      this.http.navigate(['auth/principal/datos']);
+    })
     
     
-    this.http.navigate(['auth/principal/datos']);
   }
 
   onClickOro(){
-    this.dataEspecialistasService.especialista.plan_contratado='oro';
+
+    this.especialistaService.cambiarPlan(2).subscribe(res=>{
+      this.http.navigate(['auth/principal/datos']);
+    });   
     
-    this.http.navigate(['auth/principal/datos']);
+    
   }
 
 }

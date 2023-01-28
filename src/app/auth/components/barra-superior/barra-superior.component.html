@@ -2,7 +2,7 @@
     <div class="columna gap-10">
         <span class="encabezado">{{especialistaService.especialista.nombre}}</span>
         <span class="encabezado">{{especialistaService.especialista.apellidos}}</span>
-        <span class="sub-title-xxl color-accent">{{plan}}</span>
+        <span class="sub-title-xxl color-accent">{{especialistaService.especialista.PlaneId|planesPipe}}</span>
     </div>
 
    <a class="sub-title-xxl center color-accent" [routerLink]="['planes']"><span>Mejora tu plan</span></a> 

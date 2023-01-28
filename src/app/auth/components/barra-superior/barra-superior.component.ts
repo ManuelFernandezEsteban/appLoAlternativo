@@ -24,8 +24,7 @@ export class BarraSuperiorComponent implements OnInit {
     this.planesService.getPlan(this.especialistaService.especialista.PlaneId)
       .subscribe((res:ResPlan)=>{
         this.plan=res.plan.nombre        
-      })
-    this.plan   
+      })     
   }
 
   cerrarSesion(){

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Evento } from 'src/app/interfaces/eventos';
+import { IEvento } from 'src/app/interfaces/eventos';
 import { InfoDireccionModal } from 'src/app/interfaces/infoDireccionModal';
 import { InfoModal } from 'src/app/interfaces/infoModal';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class ModalEventoComponent implements OnInit {
 
   @Input()
-  evento!: Evento;
+  evento!: IEvento;
   direccion!: InfoDireccionModal;
   infoTelefono!: InfoModal;
   infoMail!: InfoModal;

@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
-import { Evento } from 'src/app/interfaces/eventos';
+import { IEvento } from 'src/app/interfaces/eventos';
 import { RespuestaEmail } from '../../../interfaces/respuestaEmail';
 import { Router } from '@angular/router';
 
@@ -12,12 +12,12 @@ export class EventoComponent implements OnInit {
 
   @ViewChild('cajaEvento') cajaEvento!:ElementRef;
 
-  @Output() onEvento = new EventEmitter<Evento>();
+  @Output() onEvento = new EventEmitter<IEvento>();
 
   mostrarModalEmail:boolean=false;
 
   @Input()
-  evento!: Evento;
+  evento!: IEvento;
 
   constructor(private renderer:Renderer2,private router:Router) { }
 

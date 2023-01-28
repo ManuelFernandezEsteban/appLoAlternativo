@@ -1,8 +1,8 @@
-export interface Eventos{
-    eventos:Evento[];
+export interface IEventos{
+    eventos:IEvento[];
 }
 
-export interface Evento{
+export interface IEvento{
     id:number;
     evento:string;
     fecha:string;
@@ -24,5 +24,6 @@ export interface Evento{
     instagram:string;
     you_tube:string;
     twich:string;
+    actividadeId:number;
 }
 

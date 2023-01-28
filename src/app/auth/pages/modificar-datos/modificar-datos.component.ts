@@ -9,6 +9,7 @@ import { ServiceModalEventoService } from 'src/app/services/service-modal-evento
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
 import { Especialista } from '../../models/especialista.model';
+import { RespuestaEspecialista } from 'src/app/interfaces/respuesta-especialista.interface';
 
 @Component({
   selector: 'app-modificar-datos',
@@ -155,9 +156,9 @@ export class ModificarDatosComponent implements OnInit {
       return
     }
     this.especialistasService.actualizarEspecialista(this.formModificarEspecialista.value)
-    .subscribe((res:Especialista)=>{
+    .subscribe((res:RespuestaEspecialista)=>{
       console.log(res);
-      this.especialistasService.especialista=res
+      //this.especialistasService.especialista=res
       this.serviceModal.openDialog();
     },error=>{
       console.log(error);
