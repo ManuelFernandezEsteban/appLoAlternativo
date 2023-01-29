@@ -11,28 +11,20 @@ import { Especialista } from '../../models/especialista.model';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
-
-  esOro: boolean = false;
-
-  especialista: Especialista;
-
-
+export class SidebarComponent implements OnInit { 
+  
   constructor(public tablaEventosService: TablaEventosService,
     public especialistaService: EspecialistasService) { }
 
   ngOnInit(): void {
-
-
-    if (this.especialistaService.especialista.PlaneId === 1) {
-      this.esOro = false;
-    } else {
-      this.esOro = true;
-    }
-
-
+    
   }
 
+  esOro():boolean{
+    let fechaFin= new Date(this.especialistaService.especialista.fecha_fin_suscripcion);
+    let hoy = new Date(Date.now());
+    return (fechaFin>=hoy)
+  }
 
 
   desactivarSelected() {

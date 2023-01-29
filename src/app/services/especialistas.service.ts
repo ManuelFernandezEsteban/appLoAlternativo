@@ -36,7 +36,7 @@ export class EspecialistasService {
       }
     }).pipe(
       tap((res: RespuestaToken) => {
-        
+
         this.especialista = new Especialista(res.especialista);
         localStorage.setItem('token', res.token)
       }),
@@ -45,37 +45,37 @@ export class EspecialistasService {
     )
   }
 
-  crearEspecialista(formData: RegisterForm) {    
+  crearEspecialista(formData: RegisterForm) {
     return this.http.post(`${base_url}/especialistas`, formData)
       .pipe(
         tap((res: RespuestaToken) => {
           localStorage.setItem('token', res.token)
-          this.especialista=res.especialista;
+          this.especialista = res.especialista;
         })
-      );   
+      );
 
   }
 
   loginEspecialista(formData: LoginForm) {
-   
+
     return this.http.post(`${base_url}/auth/login`, formData)
       .pipe(
         tap((res: RespuestaToken) => {
           localStorage.setItem('token', res.token);
-          
+
           this.especialista = new Especialista(res.especialista);
         })
       );
   }
 
   actualizarEspecialista(formData: ActualizarEspecialistaForm) {
-    const token = localStorage.getItem('token');  
+    const token = localStorage.getItem('token');
     return this.http.put(`${base_url}/especialistas/${formData.id}`, formData, {
       headers: {
         'x-token': token
       }
     }).pipe(
-      tap((res:RespuestaEspecialista) => {       
+      tap((res: RespuestaEspecialista) => {
         console.log(res.especialista);
         this.especialista = new Especialista(res.especialista);
 
@@ -85,23 +85,24 @@ export class EspecialistasService {
     );;
   }
 
-  cambiarPlan(plan:number){
-    const token = localStorage.getItem('token');  
-    return this.http.patch(`${base_url}/especialistas/modificarPlan/${this.especialista.id}`, 
-      {"PlaneId":plan}, 
+  cambiarPlan(plan: number) {
+    const token = localStorage.getItem('token');
+    let datos = { "PlaneId": plan };    
+    return this.http.patch(`${base_url}/especialistas/modificarPlan/${this.especialista.id}`,
+      datos,
       {
-      headers: {
-        'x-token': token
-      }
-    }).pipe(
-      tap((res:RespuestaEspecialista) => {
-        
-        this.especialista = new Especialista(res.especialista);
+        headers: {
+          'x-token': token
+        }
+      }).pipe(
+        tap((res: RespuestaEspecialista) => {
 
-        console.log(this.especialista)
+          this.especialista = new Especialista(res.especialista);
 
-      })
-    );
+          console.log(this.especialista)
+
+        })
+      );
   }
 
 }

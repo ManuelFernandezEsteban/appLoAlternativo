@@ -1,5 +1,6 @@
+import { IEspecialista } from './especialistas';
 export interface RespuestaEspecialista{
 
-    especialista:any,       
+    especialista:IEspecialista,       
     
 }

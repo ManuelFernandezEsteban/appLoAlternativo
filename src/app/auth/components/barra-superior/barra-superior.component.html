@@ -1,14 +1,49 @@
+
+<!--
 <div class="fila">
     <div class="columna gap-10">
-        <span class="encabezado">{{especialistaService.especialista.nombre}}</span>
-        <span class="encabezado">{{especialistaService.especialista.apellidos}}</span>
+        <div class="fila">
+            <span class="encabezado">{{especialistaService.especialista.nombre}}</span>
+            <span class="encabezado">{{especialistaService.especialista.apellidos}}</span>
+        </div>
+
         <span class="sub-title-xxl color-accent">{{especialistaService.especialista.PlaneId|planesPipe}}</span>
+        <div class="columna">
+            <span class="encabezado">{{especialistaService.especialista.fecha_pago_actual | date:'dd/MM/yyyy'}}</span>
+            <span class="encabezado">{{especialistaService.especialista.fecha_fin_suscripcion |
+                date:'dd/MM/yyyy'}}</span>
+        </div>
+
     </div>
 
-   <a class="sub-title-xxl center color-accent" [routerLink]="['planes']"><span>Mejora tu plan</span></a> 
+    <a class="sub-title-xxl center color-accent" [routerLink]="['planes']"><span>Mejora tu plan</span></a>
 
     <div class="columna end">
-        
+
         <a class="texto-regular end color-red cerrar" (click)="cerrarSesion()">Cerrar sesión</a>
     </div>
+</div>
+
+-->
+
+<div class="columna">
+
+    <div class="fila">
+        <div>
+            <a class="sub-title-xxl center color-accent" [routerLink]="['planes']"><span>Mejora tu plan</span></a>
+        </div>
+        <div>
+            <span class="encabezado">{{especialistaService.especialista.nombre}} </span>
+            <span class="encabezado">{{especialistaService.especialista.apellidos}}</span>
+        </div>
+    </div>
+    <div class="fila">
+        <span class="sub-title-xxl color-accent">Tu plan actual {{especialistaService.especialista| planesPipe}}</span>
+    </div>
+    <div class="fila">
+        <span class="encabezado">Fin periodo {{especialistaService.especialista.fecha_fin_suscripcion |
+            date:'dd/MM/yyyy'}}</span>
+        <span><a class="texto-regular end color-red cerrar" (click)="cerrarSesion()">Cerrar sesión</a></span>
+    </div>
+
 </div>

@@ -25,8 +25,10 @@ export class TablaEventosComponent implements OnInit {
   ngOnInit(): void {
 
     this.eventosService.getEventos(this.especialistasService.especialista.id)
-      .subscribe((res:RespuestaEventos)=>{
+      .subscribe((res:RespuestaEventos)=>{  
+        console.log(res)      
         this.eventos=res.eventos;
+        console.log(this.eventos)
       })
 
   }

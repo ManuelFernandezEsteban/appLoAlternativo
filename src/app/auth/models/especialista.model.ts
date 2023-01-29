@@ -26,6 +26,8 @@ export class Especialista{
     instagram:           string;
     you_tube:            string;
     web:                 string;
+    fecha_fin_suscripcion:string; 
+    fecha_pago_actual   :string;
     id?:                 string;   
     
     constructor(especialista:IEspecialista){
@@ -50,7 +52,10 @@ export class Especialista{
         this.instagram=          especialista.instagram;
         this.you_tube=           especialista.you_tube;
         this.web=                 especialista.web;
+        this.fecha_fin_suscripcion=especialista.fecha_fin_suscripcion;
+        this.fecha_pago_actual=especialista.fecha_pago_actual;
         this.id=                  especialista.id;
+
 
     }
 }

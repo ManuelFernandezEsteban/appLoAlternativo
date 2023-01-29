@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../guards/auth.guard';
 
+
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
@@ -11,6 +12,7 @@ import { ModificarEventoComponent } from './pages/modificar-evento/modificar-eve
 import { EliminarEventoComponent } from './pages/eliminar-evento/eliminar-evento.component';
 import { ModificarDatosComponent } from './pages/modificar-datos/modificar-datos.component';
 import { PlanesComponent } from './pages/planes/planes.component';
+
 
 
 
@@ -30,18 +32,23 @@ const routes: Routes = [
         canActivate:[AuthGuard],
         children: [
           {
+            
             path:'',redirectTo:'mis-eventos',pathMatch:'full'
           },
           {
+          
             path: 'mis-eventos', component: MisEventosComponent
           },
           {
+          
             path: 'publicar', component: PublicarEventoComponent
           },
           {
+            
             path: 'modificar', component: ModificarEventoComponent
           },
           {
+            
             path: 'eliminar', component: EliminarEventoComponent
           },
           {

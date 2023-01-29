@@ -28,7 +28,9 @@ export interface IEspecialista {
     web:                 string;
     createdAt:           string;
     deletedAt:           string;
-    updatedAt:           string;   
+    updatedAt:           string;  
+    fecha_fin_suscripcion:string; 
+    fecha_pago_actual   :string; 
     id?:                 string;
 
 }
