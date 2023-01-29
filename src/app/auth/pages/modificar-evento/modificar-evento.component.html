@@ -9,28 +9,28 @@
                 <div class="columna gap-10">
                     <input type="text" 
                         name="evento" id="" formControlName="evento" placeholder="Evento" [value]=eventoSeleccionado.evento>
-                    <span *ngIf="submitted && evento" class="caption color-red">Introduzca un nombre para su evento</span>
+                    <span *ngIf="submitted && campoNoValido('evento')" class="caption color-red">Introduzca un nombre para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 fecha">
                 <label class="option-menu" for="fecha">Fecha:</label>
                 <div class="columna gap-10">
                     <input type="date" name="fecha" [valueAsDate]="fechaValue" id="" formControlName="fecha" placeholder="27-12-2022">
-                    <span *ngIf="submitted && fecha" class="caption color-red">Introduzca una fecha para su evento</span>
+                    <span *ngIf="submitted && campoNoValido('fecha')" class="caption color-red">Introduzca una fecha para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 precio">
                 <label class="option-menu" for="precio">Precio:</label>
                 <div class="columna gap-10">
                     <input type="number" name="precio" id="" formControlName="precio" placeholder="€">
-                    <span *ngIf="submitted && precio" class="caption color-red">Introduzca un precio para su evento</span>
+                    <span *ngIf="submitted && campoNoValido('precio')" class="caption color-red">Introduzca un precio para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 email">
                 <label class="option-menu" for="email">Email:</label>
                 <div class="columna gap-10">
                     <input type="email" name="email" id="" formControlName="email" placeholder="email@evento.com">
-                    <span *ngIf="submitted && email" class="caption color-red">Introduzca un email para su evento</span>
+                    <span *ngIf="submitted && campoNoValido('email')" class="caption color-red">Introduzca un email para su evento</span>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
                 <label class="option-menu" for="telefono">Teléfono:</label>
                 <div class="columna gap-10">
                     <input type="tel" id="" formControlName="telefono" placeholder="612345678">
-                    <span *ngIf="submitted && telefono" class="caption color-red">Introduzca un teléfono para su evento</span>
+                    <span *ngIf="submitted && campoNoValido('telefono')" class="caption color-red">Introduzca un teléfono para su evento</span>
                 </div>
             </div>
             <div class="fila gap-10 w-online">
@@ -88,7 +88,7 @@
                 <div class="columna gap-10">
                     <textarea name="mensaje" id="" rows="7" formControlName="descripcion" placeholder="">
                     </textarea>
-                    <span *ngIf="submitted && descripcion" class="caption color-red">
+                    <span *ngIf="submitted && campoNoValido('descripcion')" class="caption color-red">
                         Indique una descripción de al menos diez caracteres
                     </span>
                 </div>

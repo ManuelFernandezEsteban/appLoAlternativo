@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
-import { Evento } from '../auth/models/evento.model';
 import { RespuestaEventos } from '../interfaces/eventos-respuesta.interface';
+import { IEvento } from '../interfaces/eventos';
 
 
 const base_url = environment.base_url;
@@ -18,6 +18,32 @@ export class EventosService {
   
 
   constructor(private http:HttpClient) { }
+
+  crearEvento(formData:IEvento){
+
+    console.log(formData);
+
+    const token = localStorage.getItem('token');
+
+    return this.http.post(`${base_url}/eventos`,
+      formData,{
+          headers:{'x-token':token}
+        }
+      )
+  }
+
+  actualizarEvento(formData:IEvento){
+    console.log(formData);
+    const token = localStorage.getItem('token');
+
+    return this.http.put(`${base_url}/eventos/${formData.id}`,
+      formData,{
+          headers:{'x-token':token}
+        }
+      )
+  }
+
+  
 
   getEventos(especialista:string):Observable<RespuestaEventos>{
 

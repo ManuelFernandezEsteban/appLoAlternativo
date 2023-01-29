@@ -36,7 +36,7 @@ export class EventoComponent implements OnInit {
   }
 
   descargarContenido(){
-    if (this.evento.id===0){
+    if (this.evento.id===''){
       this.mostrarModalEmail=true;
     }
   }

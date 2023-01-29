@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 //import { Evento } from '../../../interfaces/eventos';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
-import { Evento } from '../../models/user.models';
+
 import { EspecialistasService } from '../../../services/especialistas.service';
+import { Evento } from '../../models/evento.model';
 
 @Component({
   selector: 'app-mis-eventos',

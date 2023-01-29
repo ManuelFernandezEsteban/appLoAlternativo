@@ -109,7 +109,7 @@ export class ModalEventoComponent implements OnInit {
   }
 
   descargarContenido(){
-    if (this.evento.id===0){
+    if (this.evento.id===''){
       console.log(this.evento.evento);
       this.mostrarModalEmail=true;
     }

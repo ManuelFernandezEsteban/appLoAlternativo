@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
   eventoSeleccionado(event:IEvento){
     this.eventoAMostrar=event;
-    if(this.eventoAMostrar.id===0){
+    if(this.eventoAMostrar.id===''){
       this.serviceModalEventoService.showDialogRevista=true;
     }
     this.serviceModalEventoService.openDialog();

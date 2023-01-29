@@ -2,7 +2,7 @@ import { IEvento } from '../../interfaces/eventos';
 
 
 export class Evento{
-    id:number;
+    id:string;
     evento:string;
     fecha:string;
     precio:number;
@@ -11,7 +11,7 @@ export class Evento{
     provincia:string;
     codigo_postal:string;
     online:boolean;
-    especialistaid:string;
+    EspecialistaId:string;
     descripcion:string;
     imagen:string;
     telefono:string;
@@ -23,7 +23,7 @@ export class Evento{
     instagram:string;
     you_tube:string;
     twich:string;
-    actividadeId:number;
+    ActividadeId:number;
     
     constructor(evento:IEvento){
         this.id=evento.id;
@@ -35,7 +35,7 @@ export class Evento{
         this.provincia=evento.provincia;
         this.codigo_postal=evento.codigo_postal;
         this.online=evento.online;
-        this.especialistaid=evento.organizador;
+        this.EspecialistaId=evento.EspecialistaId;
         this.descripcion=evento.descripcion;
         this.imagen=evento.imagen;
         this.telefono=evento.telefono;
@@ -47,6 +47,7 @@ export class Evento{
         this.instagram=evento.instagram;
         this.you_tube=evento.you_tube;
         this.twich=evento.twich;
+        this.ActividadeId=evento.ActividadeId;
     }
 
 }

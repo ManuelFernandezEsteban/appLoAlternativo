@@ -3,12 +3,7 @@
     <span class="option-menu">Fecha</span>
     <span class="option-menu">Precio</span>
     <span class="option-menu">Localización</span>
-
-
-
-
 </div>
-
 
 <ng-container *ngFor="let evento of eventos">
     <app-fila-eventos [evento]="evento" (onFilaSelection)="filaSelected($event)"></app-fila-eventos>

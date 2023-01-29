@@ -5,8 +5,9 @@ import { FormBuilder } from '@angular/forms';
 import { TablaEventosService } from 'src/app/services/tabla-eventos.service';
 import { Router } from '@angular/router';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
-import { Evento } from '../../models/user.models';
+
 import { DataEventosService } from '../../../services/data-eventos.service';
+import { Evento } from '../../models/evento.model';
 
 @Component({
   selector: 'app-eliminar-evento',
@@ -19,7 +20,7 @@ export class EliminarEventoComponent implements OnInit {
 
   hayPDF:boolean=false;
   eventoSeleccionado:Evento={
-    id: 0,
+    id: '',
     evento: '',
     fecha: '',
     precio: 0,
@@ -28,14 +29,19 @@ export class EliminarEventoComponent implements OnInit {
     provincia: '',
     codigo_postal: '',
     online: false,
-    organizador: 0,
+    EspecialistaId: '',
     descripcion: '',
     imagen: '',
     telefono: '',
     email: '',
-    web: '',   
-    pdf:''
-    
+    web: '',
+    pdf: '',
+    twitter: '',
+    facebook: '',
+    instagram: '',
+    you_tube: '',
+    twich: '',
+    ActividadeId: 0
   };
   fechaValue!:Date;
   formEliminarEvento=this.fb.group({
@@ -115,7 +121,7 @@ export class EliminarEventoComponent implements OnInit {
   }
 
   cerrar(){
-    this.dataEventosService.eliminarEvento(this.eventoSeleccionado)
+    //this.dataEventosService.eliminarEvento(this.eventoSeleccionado)
     this.formEliminarEvento.reset();
     this.serviceModal.closeDialog();
     this.route.navigate(['auth/principal/']);

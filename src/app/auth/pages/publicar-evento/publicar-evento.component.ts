@@ -3,9 +3,8 @@ import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceModalEventoService } from '../../../services/service-modal-evento.service';
-import { DataEspecialistasService } from '../../../services/data-especialistas.service';
-import { Evento } from '../../models/user.models';
-import { DataEventosService } from '../../../services/data-eventos.service';
+import { EspecialistasService } from '../../../services/especialistas.service';
+import { EventosService } from '../../../services/eventos.service';
 
 @Component({
   selector: 'app-publicar-evento',
@@ -14,90 +13,101 @@ import { DataEventosService } from '../../../services/data-eventos.service';
 })
 export class PublicarEventoComponent implements OnInit {
 
-  submitted:boolean=false;
-  mensaje:string='Evento creado';
-  imgUrl:string='';
+  submitted: boolean = false;
+  mensaje: string = 'Evento creado';
+  imgUrl: string = '';
 
-  formPublicarEvento=this.fb.group({
-    evento:['',Validators.required],
-    fecha:['',Validators.required],
-    precio:[0,Validators.required],
-    email:['',[Validators.required,Validators.email]],
-    web:[''],
-    online:[false],
-    direccion:[''],
-    poblacion:[''],
-    provincia:[''],
-    cp:[''],
-    telefono:['',Validators.required],
-    descripcion:['',[Validators.required,Validators.minLength(10)]],
-    img:[''],
-    pdf:['']
+  formPublicarEvento = this.fb.group({
+    evento: ['', Validators.required],
+    fecha: ['', Validators.required],
+    precio: [0, Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    web: [''],
+    online: [false],
+    direccion: [''],
+    poblacion: [''],
+    provincia: [''],
+    cp: [''],
+    telefono: ['', Validators.required],
+    descripcion: ['', [Validators.required, Validators.minLength(10)]],
+    img: [''],
+    pdf: [''],
+    EspecialistaId: [''],
+    ActividadeId: 0,
+    twitter: [''],
+    facebook: [''],
+    instagram: [''],
+    you_tube: [''],
+    twich: ['']
   })
 
-  constructor(private tablaEventosService:TablaEventosService,
-              private fb:FormBuilder,private route:Router,
-              public serviceModalEventoService:ServiceModalEventoService,
-              private dataEspecialistasService:DataEspecialistasService,
-              private dataEventosService:DataEventosService) { }
+  constructor(private tablaEventosService: TablaEventosService,
+    private fb: FormBuilder, private route: Router,
+    public serviceModalEventoService: ServiceModalEventoService,
+    private especialistasService: EspecialistasService,
+    private eventosService: EventosService) { }
 
   ngOnInit(): void {
-    this.serviceModalEventoService.showDialog=false;
+    this.serviceModalEventoService.showDialog = false;
+
+    this.formPublicarEvento = this.fb.group({
+      evento: ['', Validators.required],
+      fecha: ['', Validators.required],
+      precio: [0, Validators.required],
+      email: [this.especialistasService.especialista.email, [Validators.required, Validators.email]],
+      web: [this.especialistasService.especialista.web],
+      online: [false],
+      direccion: [this.especialistasService.especialista.direccion],
+      poblacion: [this.especialistasService.especialista.localidad],
+      provincia: [this.especialistasService.especialista.provincia],
+      cp: [this.especialistasService.especialista.codigo_postal],
+      telefono: [this.especialistasService.especialista.telefono, Validators.required],
+      descripcion: ['', [Validators.required, Validators.minLength(10)]],
+      img: [''],
+      pdf: [''],
+      EspecialistaId: [this.especialistasService.especialista.id],
+      ActividadeId: [this.especialistasService.especialista.ActividadeId],
+      twitter: [''],
+      facebook: [''],
+      instagram: [''],
+      you_tube: [''],
+      twich: ['']
+    })
   }
   desactivarSelected() {
     this.tablaEventosService.setIsSelectedOnFalse();
     this.tablaEventosService.resetEventoSelected();
   }
 
-  public get evento(): boolean {
-    return this.formPublicarEvento.get('evento')?.invalid || false;
+  campoNoValido(campo: string): boolean {
+    return this.submitted && this.formPublicarEvento.get(campo).invalid;
   }
-  public get fecha(): boolean {
-    return this.formPublicarEvento.get('fecha')?.invalid || false;
-  }
-  public get precio(): boolean {
-    return this.formPublicarEvento.get('precio')?.invalid || false;
-  }
-  public get email(): boolean {
-    return this.formPublicarEvento.get('email')?.invalid || false;
-  }
-  public get telefono(): boolean {
-    return this.formPublicarEvento.get('telefono')?.invalid || false;
-  }
-  public get descripcion(): boolean {
-    return this.formPublicarEvento.get('descripcion')?.invalid || false;
-  }
-
-  onPublic(){
+  onPublic() {
 
     this.submitted = true;
     if (!this.formPublicarEvento.valid) {
       return;
     }
-    //TODO event emiter con formContacto
-  /*  console.log(this.formPublicarEvento.value, this.formPublicarEvento.valid);
-    const evento:Evento = new Evento(
-        this.formPublicarEvento.get('evento').value,
-        this.formPublicarEvento.get('fecha').value,
-        this.formPublicarEvento.get('precio').value,
-        this.dataEspecialistasService.especialista.id,
-        this.formPublicarEvento.get('descripcion').value);
-    */ 
-   
-    this.dataEventosService.setEvento(this.formPublicarEvento.value,this.dataEspecialistasService.especialista.id);      
 
-    this.formPublicarEvento.reset();
-    this.submitted = false;
-    this.serviceModalEventoService.openDialog();
-    //
+    this.eventosService.crearEvento(this.formPublicarEvento.value).subscribe(res => {
+      console.log(res);
+      this.formPublicarEvento.reset();
+      this.submitted = false;
+      this.serviceModalEventoService.openDialog();
+    }, err => {
+      console.log(err)
+    });
+
+
+
   }
 
-  cerrar(){
+  cerrar() {
     this.serviceModalEventoService.closeDialog();
     this.route.navigate((['auth/principal/']));
   }
 
-  onReset(){
+  onReset() {
     this.desactivarSelected();
     this.route.navigate((['auth/principal/']))
   }
