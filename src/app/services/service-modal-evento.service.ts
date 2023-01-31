@@ -13,6 +13,12 @@ export class ServiceModalEventoService {
     this.showDialog=false;
   }
   openDialog(){
-    this.showDialog=true;
+
+    return new Promise(resolve=>{
+      this.showDialog=true;
+      
+    })
+
+    
   }
 }

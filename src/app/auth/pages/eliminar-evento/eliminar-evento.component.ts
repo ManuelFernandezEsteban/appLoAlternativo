@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-//import { Evento } from 'src/app/interfaces/eventos';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 import { TablaEventosService } from 'src/app/services/tabla-eventos.service';
-import { Router } from '@angular/router';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 
-import { DataEventosService } from '../../../services/data-eventos.service';
 import { Evento } from '../../models/evento.model';
+import { EventosService } from '../../../services/eventos.service';
 
 @Component({
   selector: 'app-eliminar-evento',
@@ -16,10 +16,10 @@ import { Evento } from '../../models/evento.model';
 })
 export class EliminarEventoComponent implements OnInit {
 
-  mensaje:string='¿Seguro qué desea borrar el evento?';
+  mensaje: string = '¿Seguro qué desea borrar el evento?';
 
-  hayPDF:boolean=false;
-  eventoSeleccionado:Evento={
+  hayPDF: boolean = false;
+  eventoSeleccionado: Evento = {
     id: '',
     evento: '',
     fecha: '',
@@ -43,65 +43,80 @@ export class EliminarEventoComponent implements OnInit {
     twich: '',
     ActividadeId: 0
   };
-  fechaValue!:Date;
-  formEliminarEvento=this.fb.group({
-    evento:[''],
-    fecha:['',],
-    precio:['',],
-    email:['',],
-    web:[''],
-    online:[false],
-    direccion:[''],
-    poblacion:[''],
-    provincia:[''],
-    cp:[''],
-    telefono:[''],
-    descripcion:[''],
-    img:[''],
-    pdf:['']
+  fechaValue!: Date;
+  formEliminarEvento = this.fb.group({
+    evento: [''],
+    fecha: [''],
+    precio: [0],
+    email: [''],
+    web: [''],
+    online: [],
+    direccion: [''],
+    poblacion: [''],
+    provincia: [''],
+    cp: [''],
+    telefono: [''],
+    descripcion: [''],
+    img: [''],
+    pdf: [''],
+    id: [''],
+    EspecialistaId: [''],
+    ActividadeId: 0,
+    twitter: [''],
+    facebook: [''],
+    instagram: [''],
+    you_tube: [''],
+    twich: ['']
   })
 
-  constructor(private tablaEventosService:TablaEventosService,
-              private fb:FormBuilder,
-              private route:Router,
-              public serviceModal: ServiceModalEventoService,
-              private dataEventosService:DataEventosService) {
-      
-     }
+  constructor(private tablaEventosService: TablaEventosService,
+    private fb: FormBuilder,
+    private route: Router,
+    public serviceModal: ServiceModalEventoService,
+    private eventosService: EventosService
+  ) {
+
+  }
 
   ngOnInit(): void {
-    this.serviceModal.showDialog=false;
-    this.eventoSeleccionado=this.tablaEventosService.getEventoSelected();
-      this.setEvento();
-  }
+    this.serviceModal.showDialog = false;
+    this.eventoSeleccionado = this.tablaEventosService.getEventoSelected();
+    this.formEliminarEvento = this.fb.group({
+      evento: [this.eventoSeleccionado.evento],
+      fecha: [''],
+      precio: [this.eventoSeleccionado.precio],
+      email: [this.eventoSeleccionado.email],
+      web: [this.eventoSeleccionado.web],
+      online: [this.eventoSeleccionado.online],
+      direccion: [this.eventoSeleccionado.direccion],
+      poblacion: [this.eventoSeleccionado.localidad],
+      provincia: [this.eventoSeleccionado.provincia],
+      cp: [this.eventoSeleccionado.codigo_postal],
+      telefono: [this.eventoSeleccionado.telefono],
+      descripcion: [this.eventoSeleccionado.descripcion],
+      img: [''],
+      pdf: [this.eventoSeleccionado.pdf],
+      id: [this.eventoSeleccionado.id],
+      EspecialistaId: [this.eventoSeleccionado.EspecialistaId],
+      ActividadeId: [this.eventoSeleccionado.ActividadeId],
+      twitter: [this.eventoSeleccionado.twitter],
+      facebook: [this.eventoSeleccionado.facebook],
+      instagram: [this.eventoSeleccionado.instagram],
+      you_tube: [this.eventoSeleccionado.you_tube],
+      twich: [this.eventoSeleccionado.twich]
+    })
 
-  public setEvento() {
-    this.formEliminarEvento.get('evento')?.setValue( this.eventoSeleccionado.evento) ;   
     let arrayFecha = this.eventoSeleccionado.fecha.split('-');
-    let fecha = arrayFecha[2]+'-'+arrayFecha[1]+'-'+arrayFecha[0];   
-    this.fechaValue = new Date(parseInt(arrayFecha[0]),parseInt(arrayFecha[1]),parseInt(arrayFecha[2]));
-   
-    this.formEliminarEvento.get('online')?.setValue(this.eventoSeleccionado.online);        
-    this.formEliminarEvento.get('fecha')?.setValue(fecha);        
-    this.formEliminarEvento.get('precio')?.setValue( (this.eventoSeleccionado.precio).toString() );
-    this.formEliminarEvento.get('email')?.setValue( this.eventoSeleccionado.email) ;
-    this.formEliminarEvento.get('web')?.setValue( this.eventoSeleccionado.web) ;
-    this.formEliminarEvento.get('direccion')?.setValue( this.eventoSeleccionado.direccion) ;
-    this.formEliminarEvento.get('poblacion')?.setValue( this.eventoSeleccionado.localidad) ;
-    this.formEliminarEvento.get('provincia')?.setValue( this.eventoSeleccionado.provincia) ;
-    this.formEliminarEvento.get('cp')?.setValue( this.eventoSeleccionado.codigo_postal) ;
-    this.formEliminarEvento.get('telefono')?.setValue( this.eventoSeleccionado.telefono) ;
-    this.formEliminarEvento.get('descripcion')?.setValue( this.eventoSeleccionado.descripcion) ;
-    
-  /*  this.formModificarEvento.get('img')?.setValue( this.eventoSeleccionado.imagen) ;
-    this.formModificarEvento.get('pdf')?.setValue( this.eventoSeleccionado.pdf) ;*/
+    let fecha = arrayFecha[0] + '-' + arrayFecha[1] + '-' + arrayFecha[2];
+    this.formEliminarEvento.get('fecha')?.setValue(fecha);
   }
 
-  ocultar():string{
-    if (this.eventoSeleccionado.pdf){
+
+  ocultar(): string {
+    if (this.eventoSeleccionado.pdf) {
       return '';
     }
-    else{
+    else {
       return 'ocultar';
     }
   }
@@ -109,27 +124,31 @@ export class EliminarEventoComponent implements OnInit {
     this.tablaEventosService.setIsSelectedOnFalse();
     this.tablaEventosService.resetEventoSelected();
   }
-  onDelete(){
-    //TODO Borrar el evento
-    //TODO Mostrar modal para confirmacion
+  async onDelete() {
+    await this.serviceModal.openDialog().then(res => {
 
-    this.serviceModal.openDialog();
+    });
 
-    
-    
 
   }
 
-  cerrar(){
-    //this.dataEventosService.eliminarEvento(this.eventoSeleccionado)
-    this.formEliminarEvento.reset();
-    this.serviceModal.closeDialog();
-    this.route.navigate(['auth/principal/']);
+  cerrar() {    
+
+    this.eventosService.eliminarEvento(this.eventoSeleccionado.id)
+      .subscribe(res => {
+        this.formEliminarEvento.reset();
+        this.serviceModal.closeDialog();
+        this.route.navigate(['auth/principal/']);
+      }, err => {
+        Swal.fire('Error',err.error.msg,'error');
+      });
 
   }
 
-  onReset(){
+  onReset() {
     this.desactivarSelected();
     this.route.navigate(['auth/principal/']);
   }
+
+
 }

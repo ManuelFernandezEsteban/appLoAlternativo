@@ -16,11 +16,7 @@
                     placeholder="27-12-2022" readonly>
 
             </div>
-            <div class="columna gap-10 precio">
-                <label class="option-menu" for="precio">Precio:</label>
-                <input type="number" name="precio" id="" formControlName="precio" placeholder="€" readonly>
 
-            </div>
             <div class="columna gap-10 email">
                 <label class="option-menu" for="email">Email:</label>
                 <input type="email" name="email" id="" formControlName="email" placeholder="email@evento.com" readonly>
@@ -30,10 +26,20 @@
                 <label class="option-menu" for="web">Web:</label>
                 <input type="url" name="web" id="" formControlName="web" placeholder="www.evento.com" readonly>
             </div>
+
             <div class="columna gap-10 telefono">
                 <label class="option-menu" for="telefono">Teléfono:</label>
                 <input type="tel" id="" formControlName="telefono" placeholder="612345678" readonly>
             </div>
+
+            <div class="columna gap-10 precio">
+                <label class="option-menu" for="precio">Precio:</label>
+                <div class="inputCurrency">
+                    <input type="number" name="precio" id="" formControlName="precio" placeholder="€" readonly >
+                    <span class="option-menu" >€</span>
+                </div>               
+            </div>
+
             <div class="fila gap-10 w-online">
                 <label class="option-menu online" for="online">Online
                     <input type="checkbox" name="online" formControlName="online" id="" readonly>
@@ -62,7 +68,25 @@
                 <textarea name="mensaje" id="" rows="7" formControlName="descripcion" placeholder="" readonly>
                 </textarea>
             </div>
+            <div class="columna gap-10 instagram">
+                <label class="option-menu" for="instagram">Instagram:</label>
+                <input type="text" name="instagram" id="" formControlName="instagram">
+            </div>
+            <div class="columna gap-10 twitter">
+                <label class="option-menu" for="twitter">Twitter:</label>
+                <input type="text" name="twitter" id="" formControlName="twitter" >
+            </div>
+            <div class="columna gap-10 facebook">
+                <label class="option-menu" for="facebook">Facebook:</label>
+                <input type="text" name="facebook" id="" formControlName="facebook" >
+            </div>
+            <div class="columna gap-10 you_tube">
+                <label class="option-menu" for="you_tube">You tube:</label>
+                <input type="text" name="you_tube" id="" formControlName="you_tube" >
+            </div>
+    
         </div>
+        
         <div [ngClass]="ocultar()" class="columna gap-10 pdf">
             <label class="option-menu" for="file-pdf">PDF del evento:</label>
             <span class="texto-regular">{{eventoSeleccionado.pdf}}</span>
@@ -86,4 +110,3 @@
     <app-modal-info (onAceptar)="cerrar()" (onCancelar)="onReset()" [mensaje]="mensaje" [borrar]="true" *ngIf="serviceModal.showDialog"></app-modal-info>
 </div>
 
-<!--./../../../../assets/images/Imagen_no_disponible.svg.png-->

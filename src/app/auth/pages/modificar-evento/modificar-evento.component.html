@@ -19,13 +19,7 @@
                     <span *ngIf="submitted && campoNoValido('fecha')" class="caption color-red">Introduzca una fecha para su evento</span>
                 </div>
             </div>
-            <div class="columna gap-10 precio">
-                <label class="option-menu" for="precio">Precio:</label>
-                <div class="columna gap-10">
-                    <input type="number" name="precio" id="" formControlName="precio" placeholder="€">
-                    <span *ngIf="submitted && campoNoValido('precio')" class="caption color-red">Introduzca un precio para su evento</span>
-                </div>
-            </div>
+            
             <div class="columna gap-10 email">
                 <label class="option-menu" for="email">Email:</label>
                 <div class="columna gap-10">
@@ -46,6 +40,16 @@
                 <div class="columna gap-10">
                     <input type="tel" id="" formControlName="telefono" placeholder="612345678">
                     <span *ngIf="submitted && campoNoValido('telefono')" class="caption color-red">Introduzca un teléfono para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10 precio">
+                <label class="option-menu" for="precio">Precio:</label>
+                <div class="columna gap-10">
+                    <div class="inputCurrency">
+                        <input type="number" name="precio" id="" formControlName="precio" placeholder="€">
+                        <span class="option-menu" >€</span>
+                    </div>
+                    <span *ngIf="submitted && campoNoValido('precio')" class="caption color-red">Introduzca un precio para su evento</span>
                 </div>
             </div>
             <div class="fila gap-10 w-online">
@@ -92,6 +96,22 @@
                         Indique una descripción de al menos diez caracteres
                     </span>
                 </div>
+            </div>
+            <div class="columna gap-10 instagram">
+                <label class="option-menu" for="instagram">Instagram:</label>
+                <input type="text" name="instagram" id="" formControlName="instagram">
+            </div>
+            <div class="columna gap-10 twitter">
+                <label class="option-menu" for="twitter">Twitter:</label>
+                <input type="text" name="twitter" id="" formControlName="twitter" >
+            </div>
+            <div class="columna gap-10 facebook">
+                <label class="option-menu" for="facebook">Facebook:</label>
+                <input type="text" name="facebook" id="" formControlName="facebook" >
+            </div>
+            <div class="columna gap-10 you_tube">
+                <label class="option-menu" for="you_tube">You tube:</label>
+                <input type="text" name="you_tube" id="" formControlName="you_tube" >
             </div>
             <div class="columna gap-10 pdf">
                 <label class="option-menu" for="file-pdf">PDF del evento:</label>

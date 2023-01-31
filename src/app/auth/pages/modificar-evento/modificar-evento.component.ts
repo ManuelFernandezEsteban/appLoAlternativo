@@ -3,9 +3,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { TablaEventosService } from 'src/app/services/tabla-eventos.service';
 import { Router } from '@angular/router';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
-import { DataEventosService } from '../../../services/data-eventos.service';
 import { Evento } from '../../models/evento.model';
 import { EventosService } from '../../../services/eventos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modificar-evento',
@@ -17,7 +17,7 @@ export class ModificarEventoComponent implements OnInit {
   submitted: boolean = false;
   fechaValue!: Date;
   mensaje: string = 'Evento modificado';
-  imgUrl:string='';
+  imgUrl: string = '';
 
   eventoSeleccionado: Evento = {
     id: '',
@@ -126,24 +126,15 @@ export class ModificarEventoComponent implements OnInit {
     if (!this.formModificarEvento.valid) {
       return;
     }
-    //TODO event emiter con formContacto
-    //console.log(this.formModificarEvento.value, this.formModificarEvento.valid);
-/*    this.dataEventosService.eliminarEvento(this.eventoSeleccionado);
-    this.dataEventosService.setEvento(this.formModificarEvento.value, this.eventoSeleccionado.organizador);
-*/
     this.eventosService.actualizarEvento(this.formModificarEvento.value)
-    .subscribe(res=>{
-      console.log(res)
-    },err=>{
-      console.log(err)
-    });
-    
-
-    this.formModificarEvento.reset();
-    this.submitted = false;
-    this.desactivarSelected();
-    this.dataServiceModal.openDialog();
-
+      .subscribe(res => {
+        this.formModificarEvento.reset();
+        this.submitted = false;
+        this.desactivarSelected();
+        this.dataServiceModal.openDialog();
+      }, err => {
+        Swal.fire('Error',err.error.msg,'error');
+      });
   }
 
   cerrar() {
@@ -160,9 +151,7 @@ export class ModificarEventoComponent implements OnInit {
 
     const file = (event.target as HTMLInputElement).files[0];
     console.log(file)
-    /* this.formModificarEspecialista.patchValue({
-       imagen_terapeuta:file
-     });*/
+
     this.formModificarEvento.get('img').updateValueAndValidity();
 
     const reader = new FileReader();

@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from "@angular/forms";
-import { Route, Router } from '@angular/router';
-
-import { DataEspecialistasService } from '../../../services/data-especialistas.service';
-import { Especialista } from '../../models/user.models';
-import { Especialistas } from '../../../interfaces/especialistas';
+import { Router } from '@angular/router';
 import { EspecialistasService } from '../../../services/especialistas.service';
 import Swal from 'sweetalert2';
 @Component({

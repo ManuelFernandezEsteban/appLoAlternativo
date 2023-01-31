@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 import { ServiceModalEventoService } from '../../../services/service-modal-evento.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
 import { EventosService } from '../../../services/eventos.service';
@@ -90,12 +92,12 @@ export class PublicarEventoComponent implements OnInit {
     }
 
     this.eventosService.crearEvento(this.formPublicarEvento.value).subscribe(res => {
-      console.log(res);
+      
       this.formPublicarEvento.reset();
       this.submitted = false;
       this.serviceModalEventoService.openDialog();
     }, err => {
-      console.log(err)
+      Swal.fire('Error',err.error.msg,'error');
     });
 
 

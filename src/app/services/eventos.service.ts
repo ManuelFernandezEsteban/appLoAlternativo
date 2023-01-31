@@ -43,6 +43,17 @@ export class EventosService {
       )
   }
 
+  eliminarEvento(id:string){
+
+    const token = localStorage.getItem('token');   
+
+    return this.http.delete(`${base_url}/eventos/${id}`,{
+      headers:{
+        'x-token':token
+      }
+    });
+
+  }
   
 
   getEventos(especialista:string):Observable<RespuestaEventos>{
