@@ -1,5 +1,5 @@
-
 #modificar-datos-especialista {
+
     .wrapper-form {
         width: 100%;
         display: grid;
@@ -51,11 +51,11 @@
     }
 
     .nombre {
-        grid-column-start: col2;
-        grid-column-end: col4;
+        grid-column-start: col4;
+        grid-column-end: col6;
 
         @media (max-width:$breakpoint860) {
-            grid-column-start: col4;
+            grid-column-start: col5;
             grid-column-end: col8;
         }
 
@@ -67,11 +67,11 @@
 
     .apellidos {
         grid-column-start: first;
-        grid-column-end: col2;
+        grid-column-end: col4;
 
         @media (max-width:$breakpoint860) {
             grid-column-start: first;
-            grid-column-end: col4;
+            grid-column-end: col5;
         }
 
         @media (max-width:$breakpointMovil) {
@@ -81,8 +81,8 @@
     }
 
     .actividad {
-        grid-column-start: col4;
-        grid-column-end: col6;
+        grid-column-start: col6;
+        grid-column-end: col8;
 
         @media (max-width:$breakpoint860) {
             grid-column-start: first;
@@ -91,34 +91,32 @@
 
         @media (max-width:$breakpointMovil) {
             grid-column-start: first;
-            grid-column-end: col4;
+            grid-column-end: col8;
         }
     }
 
-    .fecha {
-        grid-column-start: col6;
-        grid-column-end: col8;
+    .telefono {
+        grid-column-start: first;
+        grid-column-end: col3;
 
         @media (max-width:$breakpoint860) {
             grid-column-start: col4;
             grid-column-end: col8;
         }
 
-        @media (max-width:$breakpointMovil) {
+        @media (max-width:$breakpoint760) {
             grid-column-start: first;
-            grid-column-end: col4;
+            grid-column-end: col8;
         }
     }
 
-
-
     .email {
-        grid-column-start: first;
-        grid-column-end: col3;
+        grid-column-start: col3;
+        grid-column-end: col6;
 
         @media (max-width:$breakpoint860) {
             grid-column-start: first;
-            grid-column-end: col4;
+            grid-column-end: col6;
         }
 
         @media (max-width:$breakpoint760) {
@@ -133,12 +131,12 @@
     }
 
     .web {
-        grid-column-start: col5;
+        grid-column-start: col6;
         grid-column-end: col8;
 
         @media (max-width:$breakpoint860) {
             grid-column-start: first;
-            grid-column-end: col4;
+            grid-column-end: col6;
         }
 
         @media (max-width:$breakpoint760) {
@@ -152,28 +150,14 @@
         }
     }
 
-    .telefono {
-        grid-column-start: col3;
-        grid-column-end: col5;
-
-        @media (max-width:$breakpoint860) {
-            grid-column-start: col4;
-            grid-column-end: col8;
-        }
-
-        @media (max-width:$breakpoint760) {
-            grid-column-start: first;
-            grid-column-end: col4;
-        }
-    }
 
     .direccion {
         grid-column-start: first;
-        grid-column-end: col2;
+        grid-column-end: col6;
 
         @media (max-width:$breakpoint860) {
             grid-column-start: first;
-            grid-column-end: col4;
+            grid-column-end: col5;
         }
 
         @media (max-width:$breakpointMovil) {
@@ -184,11 +168,11 @@
     }
 
     .poblacion {
-        grid-column-start: col2;
+        grid-column-start: first;
         grid-column-end: col4;
 
         @media (max-width:$breakpoint860) {
-            grid-column-start: col4;
+            grid-column-start: col5;
             grid-column-end: col8;
         }
 
@@ -205,7 +189,7 @@
 
         @media (max-width:$breakpoint860) {
             grid-column-start: first;
-            grid-column-end: col4;
+            grid-column-end: col5;
         }
 
         @media (max-width:$breakpointMovil) {
@@ -220,7 +204,7 @@
         grid-column-end: col8;
 
         @media (max-width:$breakpoint860) {
-            grid-column-start: col4;
+            grid-column-start: col5;
             grid-column-end: col8;
         }
 
@@ -232,13 +216,10 @@
     }
 
     .instagram {
-        grid-column-start: first;
-        grid-column-end: col2;
 
-        @media (max-width:$breakpoint1440) {
-            grid-column-start: first;
-            grid-column-end: col4;
-        }
+        grid-column-start: first;
+        grid-column-end: col4;
+
 
         @media (max-width:$breakpoint860) {
             grid-column-start: first;
@@ -247,13 +228,10 @@
     }
 
     .twitter {
-        grid-column-start: col2;
-        grid-column-end: col4;
 
-        @media (max-width:$breakpoint1440) {
-            grid-column-start: col4;
-            grid-column-end: col8;
-        }
+        grid-column-start: col4;
+        grid-column-end: col8;
+
 
         @media (max-width:$breakpoint860) {
             grid-column-start: first;
@@ -262,13 +240,10 @@
     }
 
     .facebook {
-        grid-column-start: col4;
-        grid-column-end: col6;
 
-        @media (max-width:$breakpoint1440) {
-            grid-column-start: first;
-            grid-column-end: col4;
-        }
+        grid-column-start: first;
+        grid-column-end: col4;
+
 
         @media (max-width:$breakpoint860) {
             grid-column-start: first;
@@ -277,13 +252,10 @@
     }
 
     .you_tube {
-        grid-column-start: col6;
+
+        grid-column-start: col4;
         grid-column-end: col8;
 
-        @media (max-width:$breakpoint1440) {
-            grid-column-start: col4;
-            grid-column-end: col8;
-        }
 
         @media (max-width:$breakpoint860) {
             grid-column-start: first;

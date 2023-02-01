@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
-import { FormBuilder, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 import { ServiceModalEventoService } from '../../../services/service-modal-evento.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
 import { EventosService } from '../../../services/eventos.service';
+import { IEvento } from '../../../interfaces/eventos';
+import { Evento } from '../../models/evento.model';
 
 @Component({
   selector: 'app-publicar-evento',
@@ -19,32 +21,33 @@ export class PublicarEventoComponent implements OnInit {
   mensaje: string = 'Evento creado';
   imgUrl: string = '';
 
-  formPublicarEvento = this.fb.group({
-    evento: ['', Validators.required],
-    fecha: ['', Validators.required],
-    precio: [0, Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    web: [''],
-    online: [false],
-    direccion: [''],
-    poblacion: [''],
-    provincia: [''],
-    cp: [''],
-    telefono: ['', Validators.required],
-    descripcion: ['', [Validators.required, Validators.minLength(10)]],
-    img: [''],
-    pdf: [''],
-    EspecialistaId: [''],
+  evento:Evento = {
+    evento: '',
+    fecha: '',
+    precio: 0,
+    email: '',
+    web: '',
+    online: false,
+    direccion: '',
+    localidad: '',
+    provincia: '',
+    codigo_postal: '',
+    telefono: '',
+    descripcion: '',
+    imagen: '',
+    pdf: '',
+    EspecialistaId: '',
     ActividadeId: 0,
-    twitter: [''],
-    facebook: [''],
-    instagram: [''],
-    you_tube: [''],
-    twich: ['']
-  })
+    twitter: '',
+    facebook: '',
+    instagram: '',
+    you_tube: '',
+    twich: '',
+    id: ''
+  }
 
   constructor(private tablaEventosService: TablaEventosService,
-    private fb: FormBuilder, private route: Router,
+     private route: Router,
     public serviceModalEventoService: ServiceModalEventoService,
     private especialistasService: EspecialistasService,
     private eventosService: EventosService) { }
@@ -52,56 +55,46 @@ export class PublicarEventoComponent implements OnInit {
   ngOnInit(): void {
     this.serviceModalEventoService.showDialog = false;
 
-    this.formPublicarEvento = this.fb.group({
-      evento: ['', Validators.required],
-      fecha: ['', Validators.required],
-      precio: [0, Validators.required],
-      email: [this.especialistasService.especialista.email, [Validators.required, Validators.email]],
-      web: [this.especialistasService.especialista.web],
-      online: [false],
-      direccion: [this.especialistasService.especialista.direccion],
-      poblacion: [this.especialistasService.especialista.localidad],
-      provincia: [this.especialistasService.especialista.provincia],
-      cp: [this.especialistasService.especialista.codigo_postal],
-      telefono: [this.especialistasService.especialista.telefono, Validators.required],
-      descripcion: ['', [Validators.required, Validators.minLength(10)]],
-      img: [''],
-      pdf: [''],
-      EspecialistaId: [this.especialistasService.especialista.id],
-      ActividadeId: [this.especialistasService.especialista.ActividadeId],
-      twitter: [''],
-      facebook: [''],
-      instagram: [''],
-      you_tube: [''],
-      twich: ['']
-    })
+    this.evento ={
+      evento: '',
+      fecha: '',
+      precio: 0,
+      email: this.especialistasService.especialista.email, 
+      web: this.especialistasService.especialista.web,
+      online: false,
+      direccion: this.especialistasService.especialista.direccion,
+      localidad: this.especialistasService.especialista.localidad,
+      provincia: this.especialistasService.especialista.provincia,
+      codigo_postal: this.especialistasService.especialista.codigo_postal,
+      telefono: this.especialistasService.especialista.telefono,
+      descripcion: '', 
+      imagen: '',
+      pdf: '',
+      EspecialistaId: this.especialistasService.especialista.id,
+      ActividadeId: this.especialistasService.especialista.ActividadeId,
+      twitter: '',
+      facebook: '',
+      instagram: '',
+      you_tube: '',
+      twich: '',
+      id:''
+    }
+
   }
   desactivarSelected() {
     this.tablaEventosService.setIsSelectedOnFalse();
     this.tablaEventosService.resetEventoSelected();
   }
 
-  campoNoValido(campo: string): boolean {
-    return this.submitted && this.formPublicarEvento.get(campo).invalid;
-  }
-  onPublic() {
-
-    this.submitted = true;
-    if (!this.formPublicarEvento.valid) {
-      return;
-    }
-
-    this.eventosService.crearEvento(this.formPublicarEvento.value).subscribe(res => {
+  onPublic(evento:IEvento) {
+    const {id, ...nuevoEvento}= evento;
+    this.eventosService.crearEvento(nuevoEvento).subscribe(res => {      
       
-      this.formPublicarEvento.reset();
       this.submitted = false;
       this.serviceModalEventoService.openDialog();
     }, err => {
       Swal.fire('Error',err.error.msg,'error');
     });
-
-
-
   }
 
   cerrar() {
@@ -114,20 +107,5 @@ export class PublicarEventoComponent implements OnInit {
     this.route.navigate((['auth/principal/']))
   }
 
-  cambiarImg(event: Event) {
-
-    const file = (event.target as HTMLInputElement).files[0];
-
-    /* this.formModificarEspecialista.patchValue({
-       imagen_terapeuta:file
-     });*/
-    this.formPublicarEvento.get('img').updateValueAndValidity();
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imgUrl = reader.result as string;
-    }
-    reader.readAsDataURL(file);
-  }
 }
 

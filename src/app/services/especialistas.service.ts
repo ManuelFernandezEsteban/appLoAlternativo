@@ -9,7 +9,6 @@ import { RegisterForm } from '../interfaces/registerForm.interface';
 import { RespuestaToken } from '../interfaces/respuesta-token.interface';
 import { Especialista } from '../auth/models/especialista.model';
 import { ActualizarEspecialistaForm } from '../interfaces/actualizar-especialista-form';
-import { IEspecialista } from '../interfaces/especialistas';
 import { RespuestaEspecialista } from '../interfaces/respuesta-especialista.interface';
 
 const base_url = environment.base_url;

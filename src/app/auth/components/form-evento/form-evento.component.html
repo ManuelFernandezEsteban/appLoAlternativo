@@ -1,0 +1,148 @@
+<div class="box-formulario-evento eventos-form">
+
+    <form [formGroup]="formEvento" (ngSubmit)="onAccept()" (reset)="onReset()">
+        <h3 class="title-l-primary">{{tipo}} Evento</h3>        
+        <div class="wrapper-form">
+
+            <div class="columna gap-10 evento">
+                <label class="option-menu" for="evento">Evento:</label>
+                <div class="columna gap-10">
+                    <input type="text" 
+                        name="evento" id="" formControlName="evento" placeholder="Evento" [value]=eventoSeleccionado.evento>
+                    <span *ngIf="submitted && campoNoValido('evento')" class="caption color-red">Introduzca un nombre para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10 fecha">
+                <label class="option-menu" for="fecha">Fecha:</label>
+                <div class="columna gap-10">
+                    <input type="date" name="fecha" [valueAsDate]="fechaValue" id="" formControlName="fecha" placeholder="27-12-2022">
+                    <span *ngIf="submitted && campoNoValido('fecha')" class="caption color-red">Introduzca una fecha para su evento</span>
+                </div>
+            </div>
+            
+            <div class="columna gap-10 email">
+                <label class="option-menu" for="email">Email:</label>
+                <div class="columna gap-10">
+                    <input type="email" name="email" id="" formControlName="email" placeholder="email@evento.com">
+                    <span *ngIf="submitted && campoNoValido('email')" class="caption color-red">Introduzca un email para su evento</span>
+                </div>
+            </div>
+
+            <div class="columna gap-10 web">
+                <label class="option-menu" for="web">Web:</label>
+                <div class="columna gap-10">
+                    <input type="url" name="web" id="" formControlName="web" placeholder="www.evento.com">
+                    <span *ngIf="" class="caption color-red">Introduzca una url para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10 telefono">
+                <label class="option-menu" for="telefono">Teléfono:</label>
+                <div class="columna gap-10">
+                    <input type="tel" id="" formControlName="telefono" placeholder="612345678">
+                    <span *ngIf="submitted && campoNoValido('telefono')" class="caption color-red">Introduzca un teléfono para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10 precio">
+                <label class="option-menu" for="precio">Precio:</label>
+                <div class="columna gap-10">
+                    <div class="inputCurrency">
+                        <input type="number" name="precio" id="" formControlName="precio" placeholder="€">
+                        <span class="option-menu" >€</span>
+                    </div>
+                    <span *ngIf="submitted && campoNoValido('precio')" class="caption color-red">Introduzca un precio para su evento</span>
+                </div>
+            </div>
+            <div class="fila gap-10 w-online">
+                <label class="option-menu online" for="online">Online
+                    <input type="checkbox" name="online" formControlName="online" id="">
+                </label>
+            </div>
+
+            <div class="columna gap-10 direccion">
+                <label class="option-menu" for="direccion">Dirección:</label>
+                <div class="columna gap-10">
+                    <input type="text" name="direccion" id="" formControlName="direccion" placeholder="Calle del evento, 1">
+                    <span *ngIf="" class="caption color-red">Introduzca una dirección para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10 poblacion">
+                <label class="option-menu" for="poblacion">Población:</label>
+                <div class="columna gap-10">
+                    <input type="text" name="poblacion" id="" formControlName="poblacion" placeholder="Alameda">
+                    <span *ngIf="" class="caption color-red">Introduzca una población para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10 provincia">
+                <label class="option-menu" for="provincia">Provincia:</label>
+                <div class="columna gap-10">
+                    <input type="text" name="provincia" id="" formControlName="provincia" placeholder="Málaga">
+                    <span *ngIf="" class="caption color-red">Introduzca una provincia para su evento</span>
+                </div>
+            </div>
+            <div class="columna gap-10 c-postal">
+                <label class="option-menu" for="cp">C.P.:</label>
+                <div class="columna gap-10">
+                    <input type="text" name="cp" id="" formControlName="cp" placeholder="29000">
+                    <span *ngIf="" class="caption color-red">Introduzca un código postal para su evento</span>
+                </div>
+            </div>
+
+            <div class="columna gap-10 descripcion">
+                <label class="option-menu" for="mensaje">Breve descripción del evento:</label>
+                <div class="columna gap-10">
+                    <textarea name="mensaje" id="" rows="7" formControlName="descripcion" placeholder="">
+                    </textarea>
+                    <span *ngIf="submitted && campoNoValido('descripcion')" class="caption color-red">
+                        Indique una descripción de al menos diez caracteres
+                    </span>
+                </div>
+            </div>
+            <div class="columna gap-10 instagram">
+                <label class="option-menu" for="instagram">Instagram:</label>
+                <input type="text" name="instagram" id="" formControlName="instagram">
+            </div>
+            <div class="columna gap-10 twitter">
+                <label class="option-menu" for="twitter">Twitter:</label>
+                <input type="text" name="twitter" id="" formControlName="twitter" >
+            </div>
+            <div class="columna gap-10 facebook">
+                <label class="option-menu" for="facebook">Facebook:</label>
+                <input type="text" name="facebook" id="" formControlName="facebook" >
+            </div>
+            <div class="columna gap-10 you_tube">
+                <label class="option-menu" for="you_tube">You tube:</label>
+                <input type="text" name="you_tube" id="" formControlName="you_tube" >
+            </div>
+            <div class="columna gap-10 pdf">
+                <label class="option-menu" for="file-pdf">PDF del evento:</label>
+                <span class="texto-regular">{{eventoSeleccionado.pdf}}</span>
+                <input type="file" name="file-pdf" id="" formControlName="pdf" class="custom-file-input">
+            </div>
+            <div class="img-evento" *ngIf="imgUrl && imgUrl !== ''">                
+                    <img [src]="imgUrl" alt="">
+            </div>
+            <div class="columna gap-10 img-input">
+                <label class="option-menu" for="file-img">Imagen del evento:</label>                
+                <span class="texto-regular">{{eventoSeleccionado.imagen}}</span>
+            </div>
+            <div class="columna gap-10 img-input">
+                <label class="option-menu" for="file-img">Cambia la imagen del evento:</label>                
+                <input type="file" name="file-img" id="" formControlName="img" class="custom-file-input" (change)="cambiarImg($event)">
+            </div>
+
+        </div>
+        <div class="fila gap-10 botones" *ngIf="!eliminando">
+            <button type="submit" class="boton btn-submit-form">Aceptar</button>
+            <button type="reset" class="boton btn-cancelar">Cancelar</button>
+        </div>
+        <div class="fila gap-10 botones" *ngIf="eliminando">
+            <button type="submit" class="boton btn-borrar">Borrar</button>
+            <button type="reset" class="boton btn-cancelar">Cancelar</button>
+        </div>
+    </form>
+
+    
+</div>
+
+<!--./../../../../assets/images/Imagen_no_disponible.svg.png-->
+

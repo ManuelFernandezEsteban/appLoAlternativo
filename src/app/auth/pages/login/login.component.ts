@@ -3,6 +3,7 @@ import { Validators, FormBuilder } from "@angular/forms";
 import { Router } from '@angular/router';
 import { EspecialistasService } from '../../../services/especialistas.service';
 import Swal from 'sweetalert2';
+import { RespuestaToken } from '../../../interfaces/respuesta-token.interface';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -35,9 +36,17 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.especialistaService.loginEspecialista(this.formLogin.value)
-      .subscribe(res=>{
+      .subscribe((res:RespuestaToken)=>{
         //navegar al zona privada
-        this.router.navigateByUrl('auth/principal');
+
+        console.log(res.especialista);
+        if (res.especialista.PlaneId===1){
+          this.router.navigateByUrl('auth/principal/planes');
+        }else{
+          this.router.navigateByUrl('auth/principal');
+        }
+
+        
         
 
       },(err)=>{

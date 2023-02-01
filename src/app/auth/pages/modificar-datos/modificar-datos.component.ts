@@ -8,8 +8,9 @@ import { DataEspecialidadesService } from 'src/app/services/data-especialidades.
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
-import { Especialista } from '../../models/especialista.model';
+
 import { RespuestaEspecialista } from 'src/app/interfaces/respuesta-especialista.interface';
+import { Actividad, Actividades } from '../../../interfaces/especialiadad';
 
 @Component({
   selector: 'app-modificar-datos',
@@ -18,7 +19,7 @@ import { RespuestaEspecialista } from 'src/app/interfaces/respuesta-especialista
 })
 export class ModificarDatosComponent implements OnInit {
 
-  especialidades: Especialidad[] = [];
+  especialidades: Actividad[] = [];
 
   @ViewChild('imgInput') imgInput!: ElementRef;
   @ViewChild('selectActividad') select!: ElementRef;
@@ -122,8 +123,9 @@ export class ModificarDatosComponent implements OnInit {
       web: this.especialistasService.especialista.web,
       id:this.especialistasService.especialista.id,
     });
-    this.especialidadesService.getEspecialidades<Especialidades>().subscribe(res => {
-      this.especialidades = res.especialidades;
+    this.especialidadesService.getEspecialidades<Actividades>()
+      .subscribe(res => {
+      this.especialidades = res.actividades;
       this.rellenarSelect();
     })    
     this.fechaValue = new Date(this.especialistasService.especialista.fecha_alta);    

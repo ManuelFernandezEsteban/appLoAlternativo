@@ -32,23 +32,6 @@
                     <span *ngIf="submitted && campoNoValido('ActividadeId')" class="caption color-red">Seleccione su actividad</span>
                 </div>
             </div>
-
-            <div class="columna gap-10 fecha">
-                <label class="option-menu" for="fecha">Fecha de alta:</label>
-                <div class="columna gap-10"> 
-                    <input type="date" name="fecha" [valueAsDate]="fechaValue" id=""
-                        placeholder="27-12-2022" readonly>
-
-                </div>
-            </div>
-
-            <div class="columna gap-10 email">
-                <label class="option-menu" for="email">Email:</label>
-                <div class="columna gap-10">
-                    <input type="email" name="email" id="" formControlName="email"  placeholder="email@especialista.com">
-                    <span *ngIf="submitted && campoNoValido('email')" class="caption color-red">Introduzca su email (username)</span>
-                </div>
-            </div>
             <div class="columna gap-10 telefono">
                 <label class="option-menu" for="telefono">Teléfono:</label>
                 <div class="columna gap-10">
@@ -56,6 +39,14 @@
                     <span *ngIf="submitted && campoNoValido('telefono')" class="caption color-red">Introduzca su teléfono</span>
                 </div>
             </div>
+            <div class="columna gap-10 email">
+                <label class="option-menu" for="email">Email:</label>
+                <div class="columna gap-10">
+                    <input type="email" name="email" id="" formControlName="email"  placeholder="email@especialista.com">
+                    <span *ngIf="submitted && campoNoValido('email')" class="caption color-red">Introduzca su email (username)</span>
+                </div>
+            </div>
+
             <div class="columna gap-10 web">
                 <label class="option-menu" for="web">Web:</label>
                 <div class="columna gap-10">

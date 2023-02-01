@@ -12,6 +12,7 @@ import { ModalInfoComponent } from './modal-info/modal-info.component';
 import { MonedaPipe } from './pipes/moneda.pipe';
 import { OnlinePipe } from './pipes/online.pipe';
 import { PlanesPipe } from './pipes/planes.pipe';
+import { FormEventoComponent } from './form-evento/form-evento.component';
 
 
 
@@ -26,6 +27,7 @@ import { PlanesPipe } from './pipes/planes.pipe';
     OnlinePipe,
     PlanesPipe,
     ModalInfoComponent,
+    FormEventoComponent,
    
   ],
   imports: [
@@ -41,7 +43,8 @@ import { PlanesPipe } from './pipes/planes.pipe';
     FilaEventosComponent,
     MonedaPipe,
     OnlinePipe,
-    ModalInfoComponent
+    ModalInfoComponent,
+    FormEventoComponent
   ]
 })
 export class ComponentsModule { }

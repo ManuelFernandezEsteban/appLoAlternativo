@@ -4,16 +4,16 @@
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, $blueColor 0%, rgba(255, 255, 255, 1) 80%);
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding: 20px 20px 0px 20px;
-
+/*
     @media (max-width:$breakpointTablet){
         justify-content: center;
         .container-nav-content{
             width: 60%;
         }
-    }
+    }*/
     h2{
         @media (max-width:$breakpointTablet){
             display: none;
@@ -21,10 +21,10 @@
     }
     .container-logo{
         img{
-            width: 300px;
-            height: 300px;
+            width: 100px;
+            height: 100px;
         }
-        @media (max-width:$breakpointTablet){
+    /*    @media (max-width:$breakpointTablet){
             img{
                 width: 200px;
                 height: 200px;
@@ -44,6 +44,6 @@
                 height: 100px;
             }   
 
-        }
+        }*/
     }
 }
