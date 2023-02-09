@@ -1,0 +1,49 @@
+<div class="container">
+    <h3 class="title-xl-primary color-accent pad-20 center">Suscríbete a nuestra newsletter</h3>
+
+
+
+    <div class="box-donde color-accent" id="contacto">
+
+        <form [formGroup]="formNewsletter" (ngSubmit)="onSubmit()">
+
+            <div class="fila gap-20">
+                <div class="columna gap-20">
+                    <div class="columna gap-10">
+                        <label class="encabezado color-accent" for="nombre">Nombre:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="nombre" id="" formControlName="nombre" placeholder="Manuel">
+                            <span *ngIf="campoValido('nombre') && submitted" class="caption color-red">Introduzca su
+                                nombre</span>
+                        </div>
+                    </div>
+                    <div class="columna gap-10">
+                        <label class="encabezado color-accent" for="email">Email:</label>
+                        <div class="columna gap-10">
+                            <input type="email" name="email" id="" formControlName="email"
+                                placeholder="tuemail@email.es">
+                            <span *ngIf="campoValido('email') && submitted" class="caption color-red">No es un email
+                                válido</span>
+                        </div>
+                    </div>
+                    <div class="columna gap-10">
+                        <label class="form-control encabezado color-accent" for="privacidad">Acepto la <a class="color-accent" [routerLink]="['/privacidad']" target="blank">política de
+                            privacidad</a>
+                            <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
+                        </label>
+                        <span *ngIf="campoValido('privacidad') && submitted" 
+                        class="caption color-red">Debe aceptar la política de privacidad</span>
+
+                    </div>
+                </div>
+                <div class="columna gap-20 end">
+                    <button class="boton btn-login end" type="submit">Enviar</button>
+                </div>
+
+            </div>
+        </form>
+
+       
+    </div>
+
+</div>

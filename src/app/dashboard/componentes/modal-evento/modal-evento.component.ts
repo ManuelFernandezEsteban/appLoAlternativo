@@ -14,8 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ModalEventoComponent implements OnInit {
 
-  @Input()
-  evento!: IEvento;
+  @Input() evento!: IEvento;
   direccion!: InfoDireccionModal;
   infoTelefono!: InfoModal;
   infoMail!: InfoModal;
@@ -54,6 +53,11 @@ export class ModalEventoComponent implements OnInit {
   constructor(public serviceModalEventoService: ServiceModalEventoService,private router:Router) { }
 
   ngOnInit(): void {
+
+    this.evento.Especialista.nombre;
+
+
+
     this.direccion = {
       title: 'Ubicacion',
       direccion: this.evento.direccion,

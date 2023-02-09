@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RedSocialIcon } from 'src/app/interfaces/redSocialIcon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -26,12 +27,15 @@ export class FooterComponent implements OnInit {
     icono:'../../../assets/images/icons-svg/youtube.svg'
   }
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit(): void {
   }
   scroll(){
     window.scrollTo(0,0);
+  }
+  irANewsletter(){
+    this.route.navigate(['/newsletter']);
   }
 
 }

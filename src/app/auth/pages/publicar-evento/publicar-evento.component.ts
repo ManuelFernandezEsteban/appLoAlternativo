@@ -89,7 +89,7 @@ export class PublicarEventoComponent implements OnInit {
   onPublic(evento:IEvento) {
     const {id, ...nuevoEvento}= evento;
     this.eventosService.crearEvento(nuevoEvento).subscribe(res => {      
-      
+      console.log(res)
       this.submitted = false;
       this.serviceModalEventoService.openDialog();
     }, err => {

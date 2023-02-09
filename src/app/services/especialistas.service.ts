@@ -10,6 +10,7 @@ import { RespuestaToken } from '../interfaces/respuesta-token.interface';
 import { Especialista } from '../auth/models/especialista.model';
 import { ActualizarEspecialistaForm } from '../interfaces/actualizar-especialista-form';
 import { RespuestaEspecialista } from '../interfaces/respuesta-especialista.interface';
+import { EspecialistasActividad } from '../interfaces/especialistas-actividad.interface';
 
 const base_url = environment.base_url;
 
@@ -18,6 +19,7 @@ const base_url = environment.base_url;
 })
 export class EspecialistasService {
 
+  private limiteResultados:number=5;
   public especialista: Especialista;
 
   constructor(private http: HttpClient) { }
@@ -102,6 +104,18 @@ export class EspecialistasService {
 
         })
       );
+  }
+
+  getEspecialistasActividadPagination(actividad:number,pagina:number):Observable<EspecialistasActividad>{
+    
+    const desde:number = (pagina*this.limiteResultados)-this.limiteResultados;
+   
+    return this.http.get<EspecialistasActividad>(`${base_url}/especialistas/pagination/${actividad}?desde=${desde}`);
+  }
+
+  getEspecialistasActividad(actividad:number):Observable<EspecialistasActividad>{    
+   
+    return this.http.get<EspecialistasActividad>(`${base_url}/especialistas/${actividad}`);
   }
 
 }

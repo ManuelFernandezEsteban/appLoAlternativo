@@ -24,18 +24,8 @@ export class ContactoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
-  public get name() : boolean {
-    return this.formContacto.get('name')?.invalid || false;
-  }
-  public get email() : boolean {
-    return this.formContacto.get('email')?.invalid || false;
-  }
-  public get privacidad() : boolean {
-    return this.formContacto.get('privacidad')?.invalid || false;
-  }
-  public get mensaje() : boolean {
-    return this.formContacto.get('mensaje')?.invalid || false;
+  campoValido(campo:string){
+    return this.formContacto.get(campo)?.invalid || false;
   }
 
   onSubmit(){
@@ -43,8 +33,7 @@ export class ContactoComponent implements OnInit {
     this.submitted=true;
     if (!this.formContacto.valid){
       return;
-    }
-   
+    }   
     //TODO event emiter con formContacto
     console.log(this.formContacto.value,this.formContacto.valid);
     this.formContacto.reset();

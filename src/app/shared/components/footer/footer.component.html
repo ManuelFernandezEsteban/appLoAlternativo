@@ -6,11 +6,14 @@
             <h1 class="title-xl-accent "><span class="color-purple">Lö</span>Alternativo</h1>
             <h2 class="sub-title-xl ">Comunidad de especialistas, eventos y cursos</h2>
         </div>
-        <app-newsletter></app-newsletter>
+        
     </div>
+
+    
 
 
     <div class="box">
+        
         <div class="columna">
             <ul>
                 <span class="option-menu">Mapa</span>
@@ -45,13 +48,13 @@
             <ul>
                 <span class="option-menu">Información legal</span>
                 <li>
-                    <a class="caption" href="">Política de privacidad</a>
+                    <a class="caption"  [routerLink]="['/privacidad']" target="_blank">Política de privacidad</a>
                 </li>
                 <li>
-                    <a class="caption" href="">Aviso legal</a>
+                    <a class="caption" [routerLink]="['/privacidad']" target="_blank">Aviso legal</a>
                 </li>
                 <li>
-                    <a class="caption" href="">Política de cookies</a>
+                    <a class="caption" [routerLink]="['/privacidad']" target="_blank">Política de cookies</a>
                 </li>
             </ul>
         </div>
@@ -66,6 +69,9 @@
                 </li>
                 <li>
                     <app-red-social [fontSize]="caption" [redSocial]="youtube"></app-red-social>
+                </li>
+                <li>
+                    <button class="boton btn-info" (click)="irANewsletter()">Suscríbete a nuestra newsletter</button>
                 </li>
             </ul>
         </div>

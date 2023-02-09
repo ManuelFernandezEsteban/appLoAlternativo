@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { RespuestaEventos } from '../interfaces/eventos-respuesta.interface';
-import { IEvento } from '../interfaces/eventos';
+import { IEvento, IEventos } from '../interfaces/eventos';
+import { EventosActividad } from '../interfaces/eventos-actividad.interface';
 
 
 const base_url = environment.base_url;
@@ -15,6 +16,7 @@ const base_url = environment.base_url;
 
 export class EventosService {
 
+  limiteResultados:number=5;
   
 
   constructor(private http:HttpClient) { }
@@ -59,6 +61,14 @@ export class EventosService {
   getEventos(especialista:string):Observable<RespuestaEventos>{
 
     return this.http.get<RespuestaEventos>(`${base_url}/eventos/eventos/${especialista}`);
+
+  }
+
+  getEventosActividad(especialidad:number,pagina:number):Observable<EventosActividad>{
+
+    const desde:number = (pagina*this.limiteResultados)-this.limiteResultados;
+
+    return this.http.get<EventosActividad>(`${base_url}/eventos/eventoxactividad/${especialidad}?desde=${desde}`);
 
   }
 }

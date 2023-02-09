@@ -9,7 +9,7 @@ export interface RegisterForm{
     email?:string,
     ActividadeId?:number,
     privacidad?:boolean, 
-    PlaneId?:number,    
-      
+    PlaneId?:number, 
+    provincia?:string      
 
 }

@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { Especialidad, Especialidades } from 'src/app/interfaces/especialiadad';
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
+import { Actividades, Actividad } from '../../../interfaces/especialiadad';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -14,13 +15,14 @@ import { EspecialistasService } from '../../../services/especialistas.service';
 export class RegistroComponent implements OnInit {
 
   submitted: boolean = false;
-  especialidades:Especialidad[]=[];
+  especialidades:Actividad[]=[];
   valido:boolean=false;
   formRegistro = this.fb.group(
     {
       nombre: ['Manuel', Validators.required],
       apellidos: ['Fernández', Validators.required],
       telefono: ['677230977', Validators.required],
+      provincia:['Málaga',Validators.required],
       password: ['12345678', [Validators.required,Validators.minLength(8) ]],
       password2: ['12345678', Validators.required],
       email: ['test100f@gmail.com', [Validators.required, Validators.email]],
@@ -38,8 +40,8 @@ export class RegistroComponent implements OnInit {
     private router:Router ) { }
 
   ngOnInit(): void {
-    this.especialidadesService.getEspecialidades<Especialidades>().subscribe(res=>{
-      this.especialidades=res.especialidades;
+    this.especialidadesService.getEspecialidades<Actividades>().subscribe(res=>{
+      this.especialidades=res.actividades;      
     })
   }
 

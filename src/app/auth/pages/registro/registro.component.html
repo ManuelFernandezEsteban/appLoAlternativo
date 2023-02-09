@@ -48,6 +48,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="fila">
+                    <div class="columna gap-10">
+                        <label class="encabezado color-accent" for="provincia">Provincia:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="provincia" id="" formControlName="provincia" placeholder="Provincia">
+                            <span *ngIf="campoNoValido('provincia') && submitted" class="caption color-red">La provincia es obligatoria</span>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="fila">
                     <div class="columna gap-10">

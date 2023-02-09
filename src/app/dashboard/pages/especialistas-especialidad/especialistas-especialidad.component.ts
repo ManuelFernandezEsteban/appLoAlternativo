@@ -12,33 +12,16 @@ import { Actividad } from '../../../interfaces/especialiadad';
 export class EspecialistasEspecialidadComponent implements OnInit {
 
   actividad:Actividad;
-
-
   idEspecialidad!: number;
   especialidad:string='';
-  listaEntrada:IEspecialista[]=[];
-  listaResultado:IEspecialista[]=[];
 
-  constructor(private route:ActivatedRoute,private dataEspecialidadesService:DataEspecialidadesService) { }
+  constructor(private dataEspecialidadesService:DataEspecialidadesService) { }
 
   ngOnInit(): void {
 
-
     this.actividad=this.dataEspecialidadesService.actividadSeleccionada;
-    this.especialidad=this.actividad.nombre;
+    this.especialidad=this.actividad.nombre;  
+    this.idEspecialidad=this.actividad.id;
 
-/*
-    this.route.params.subscribe(params=>{      
-       
-      this.idEspecialidad= parseInt(params['id']);       
-      this.especialidad= this.dataEspecialidadesService.getNombreEspecialidad(this.idEspecialidad); 
-      
-    });    
-*/
   }
-
-  resultado(listaResultado:IEspecialista[]){
-    this.listaResultado=listaResultado;
-  }
-
 }

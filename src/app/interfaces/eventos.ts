@@ -1,3 +1,4 @@
+import { IEspecialista } from './especialistas';
 export interface IEventos{
     eventos:IEvento[];
 }
@@ -25,5 +26,6 @@ export interface IEvento{
     you_tube?:string;
     twich?:string;
     ActividadeId?:number;
+    Especialista?:IEspecialista;
 }
 

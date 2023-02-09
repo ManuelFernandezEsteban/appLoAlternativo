@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IEspecialista } from 'src/app/interfaces/especialistas';
+import Swal from 'sweetalert2';
+import { EspecialistasActividad } from '../../../interfaces/especialistas-actividad.interface';
+import { EspecialistasService } from '../../../services/especialistas.service';
 
 @Component({
   selector: 'app-filtro-especialistas',
@@ -8,19 +11,19 @@ import { IEspecialista } from 'src/app/interfaces/especialistas';
 })
 export class FiltroEspecialistasComponent implements OnInit {
 
-  @Input()
-  listaEspecialistas: IEspecialista[]=[]; 
+  @Input() especialidad: number=0; 
 
-  @Output() onBuscar = new EventEmitter<IEspecialista[]>();
+  @Output() onBuscar = new EventEmitter<EspecialistasActividad>();
   @Output() onReset = new EventEmitter<boolean>();
   
+  especialistas:IEspecialista[]=[];
   nombre:string='';
-  provincia:string='';
+  provincia:string='';  
 
-  constructor() { }
+  constructor(public especialistasServices: EspecialistasService) { }
 
   ngOnInit(): void {    
-    console.log( this.listaEspecialistas)
+   this.getLista();
   }
   
   reset(){
@@ -29,44 +32,49 @@ export class FiltroEspecialistasComponent implements OnInit {
     this.onReset.emit(true);
   }
 
-  onClickBuscar() {
-    let seleccionados:IEspecialista[] = [];
-    // cada vez que el valor del elemento input cambia
-    //vacia el array de los nombres seleccionados
-    //recupera el valor del input y guardalo en una variable
+  getLista() {
+    this.especialistas=[];
+    this.especialistasServices.getEspecialistasActividad(this.especialidad)
+      .subscribe((res: EspecialistasActividad) => {
+        this.especialistas=res.especialistas;
+      }, (err) => {
+        Swal.fire('Error', err.error.msg, 'error');
+      });
+
+  }
+
+  filtro(lista:IEspecialista[],cadena:string):IEspecialista[]{
+    return lista.filter((item)=>item.nombre.toLowerCase().includes(cadena))
+  } 
+
+  onClickBuscar() {    
+    
     let nombre = this.nombre.trim().toLowerCase();
-    let provincia = this.provincia.trim().toLowerCase(); 
-     
+    let provincia = this.provincia.trim().toLowerCase();      
     //si hay un valor
     if (nombre.length > 0) {
       // busca en el json si el nombre incluye (o empieza por) el valor
-      this.listaEspecialistas.forEach(j => {               
-        if (j.nombre.toLocaleLowerCase().includes(nombre) || j.apellidos.toLocaleLowerCase().includes(nombre)) {
-
-          if (provincia.length>0){
-            if (j.provincia.toLocaleLowerCase().includes(provincia)){
-              seleccionados.push(j);
-            }
-          }else{
-            seleccionados.push(j);
-          }
-        }
-      });
-    }else if (provincia.length>0){
-      this.listaEspecialistas.forEach(j => {       
-        
-        if (j.provincia.toLocaleLowerCase().includes(provincia)) {
-         
-            seleccionados.push(j);         
-            // si lo incluye agregalo al array de los seleccionados
-          
-        }
-      });
-    }else{
-      seleccionados=this.listaEspecialistas;
+      this.especialistas =  this.filtro(this.especialistas,nombre)      
+      
+    }    
+    if (provincia.length>0){
+      this.especialistas = this.filtro(this.especialistas,provincia);
     }
-    this.onBuscar.emit(seleccionados);
+    const resultado:EspecialistasActividad ={
+      count: this.especialistas.length,
+      especialistas: this.especialistas
+    }
+
+    this.onBuscar.emit(resultado);
+    
     
   }
+
+
+
+
+
+
+
 
 }

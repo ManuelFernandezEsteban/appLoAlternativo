@@ -1,4 +1,4 @@
-import { Component, OnInit,EventEmitter,Input,Output } from '@angular/core';
+import { Component, OnInit,EventEmitter,Input,Output, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Especialidad } from 'src/app/interfaces/especialiadad';
 
 @Component({
@@ -7,7 +7,6 @@ import { Especialidad } from 'src/app/interfaces/especialiadad';
   styleUrls: ['./especialidad-cuadrada.component.scss']
 })
 export class EspecialidadCuadradaComponent implements OnInit {
-
 
   @Output() onEspecialidad = new EventEmitter<Especialidad>();
 
@@ -18,13 +17,13 @@ export class EspecialidadCuadradaComponent implements OnInit {
   };
   
 
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit(): void {
   }
 
-  onClickEspecialidad(){
-   
+  async onClickEspecialidad (){ 
+      
     this.onEspecialidad.emit(this.boxEspecialidad);
   }
 }

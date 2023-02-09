@@ -21,18 +21,27 @@
 @import './assets/scss/header-responsive';
 @import './assets/scss/modal-especialista';
 @import './assets/scss/modal-evento';
+@import './assets/scss/paginacion';
+@import './assets/scss/carousel.scss';
+
 /*pagina principal*/
 
 app-header-responsive,
 app-header-no-menu,
 app-publicar-evento ,
 app-footer,
-app-mis-eventos{
+app-mis-eventos,
+app-pagination{
     width: 100%;
 }
 
 #cursos-provisional {
     height: 30vh;
+}
+app-carousel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
