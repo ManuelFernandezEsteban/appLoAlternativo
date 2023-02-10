@@ -8,6 +8,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width: $breakpoint800){
+        width: 100%;
+    }
 
 }
 

@@ -1,42 +1,30 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators " #indicators>
-        <li class="color-active"><span></span></li>
-        <li class="color-no-active"><span></span></li>
-        <li class="color-no-active"><span></span></li>
+        <li *ngFor="let item of eventos"><span></span></li>
     </ol>
-    <div class="carousel-inner" #contenedor>
-        <div class="carousel-item fade-in-right">
-            <img src="./../../../../assets/images/eventosEsoterismo/imagen_1.jpg" alt="First slide">
-            <div class="carousel-caption">
-                <h5 class="accent-color encabezado">Evento 1</h5>
-                <p class="accent-color texto-regular">breve descripcion evento 1</p>
-              </div>
+    <div class="carousel-inner">
+
+        <div #contenedor>
+            <div *ngFor="let item of eventos" class="carousel-item fade-in-right sr-only">
+                <img [src]="item.imagen" [alt]="item.evento">
+                <div class="carousel-caption">
+                    <h5 class="accent-color encabezado">{{item.evento}}</h5>
+                    <p class="accent-color texto-regular">{{item.descripcion}}</p>
+                </div>
+            </div>
         </div>
-        <div class="carousel-item sr-only fade-in-right">
-            <img src="./../../../../assets/images/eventosEsoterismo/imagen_2.jpg" alt="Second slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5 class="accent-color encabezado">Evento 2</h5>
-                <p class="accent-color texto-regular">breve desceipcion evento 2</p>
-              </div>
-        </div>
-        <div class="carousel-item sr-only fade-in-right">
-            <img src="./../../../../assets/images/eventosEsoterismo/imagen_3.jpg" alt="Third slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5 class="accent-color encabezado">Evento 3</h5>
-                <p class="accent-color texto-regular">breve descripcion evento 3</p>
-              </div>
-        </div>
+
+
+        <a *ngIf="hayEventos" class="carousel-control-prev" (click)="mover(-1)" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true">
+                <img src="./../../../../assets/images/icons-svg/angle-left-solid.svg" alt="">
+            </span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a *ngIf="hayEventos" class="carousel-control-next" (click)="mover(+1)" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true">
+                <img src="./../../../../assets/images/icons-svg/angle-right-solid.svg" alt="">
+            </span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    <a class="carousel-control-prev" (click)="mover(-1)" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true">
-            <img src="./../../../../assets/images/icons-svg/angle-left-solid.svg" alt="">
-        </span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" (click)="mover(+1)" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true">
-            <img src="./../../../../assets/images/icons-svg/angle-right-solid.svg" alt="">
-        </span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
