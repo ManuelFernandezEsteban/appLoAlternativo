@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Especialista } from 'src/app/interfaces/especialistas';
+import { IEspecialista } from 'src/app/interfaces/especialistas';
 import { InfoDireccionModal } from 'src/app/interfaces/infoDireccionModal';
 import { InfoModal } from 'src/app/interfaces/infoModal';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
@@ -15,7 +15,7 @@ export class ModalEspecialistaComponent implements OnInit {
   
 
   @Input()
-  especialista!: Especialista;
+  especialista!: IEspecialista;
   direccion!: InfoDireccionModal;
   infoTelefono!:InfoModal;
   infoMail!:InfoModal;

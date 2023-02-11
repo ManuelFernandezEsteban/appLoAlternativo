@@ -1,0 +1,30 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators " #indicators>
+        <li *ngFor="let item of eventos"><span></span></li>
+    </ol>
+    <div class="carousel-inner">
+
+        <div #contenedor>
+            <div *ngFor="let item of eventos" class="carousel-item fade-in-right sr-only">
+                <img [src]="item.imagen" [alt]="item.evento">
+                <div class="carousel-caption">
+                    <h5 class="accent-color encabezado">{{item.evento}}</h5>
+                    <p class="accent-color texto-regular">{{item.descripcion}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <a *ngIf="hayEventos" class="carousel-control-prev" (click)="mover(-1)" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true">
+                <img src="./../../../../assets/images/icons-svg/angle-left-solid.svg" alt="">
+            </span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a *ngIf="hayEventos" class="carousel-control-next" (click)="mover(+1)" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true">
+                <img src="./../../../../assets/images/icons-svg/angle-right-solid.svg" alt="">
+            </span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
+import { PrivacidadComponent } from './dashboard/pages/privacidad/privacidad.component';
 
 
 
@@ -15,7 +17,9 @@ const routes: Routes = [
     path:'', 
     loadChildren:()=>import('./dashboard/dashboard.module').then(m=>m.DashboardModule)
   },
-  
+  {
+    path:'privacidad',component:PrivacidadComponent
+  },
   {
     path:'**',redirectTo:'404',pathMatch:'full'
   },

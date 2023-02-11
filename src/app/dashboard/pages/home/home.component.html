@@ -1,7 +1,6 @@
-
-
-<h3 class="title-xl-primary color-accent pad-20 center">Eventos LöAlternativo</h3>
-
+<div class="container">
+    <h3 class="title-xl-primary color-accent pad-20 center">Eventos LöAlternativo</h3>
+    <!--
 <div class="wrapper-eventos">
     <div class="contenedor-eventos">
         <ng-container *ngFor="let e of eventos">
@@ -11,12 +10,15 @@
 
     </div>
 </div>
+-->
 
-<app-banner-publicidad></app-banner-publicidad>
+    <app-carousel></app-carousel>
 
-<app-modal-evento *ngIf="serviceModalEventoService.showDialog" [evento]="eventoAMostrar"></app-modal-evento>
+    <app-banner-publicidad></app-banner-publicidad>
+
+    <app-modal-evento *ngIf="serviceModalEventoService.showDialog" [evento]="eventoAMostrar"></app-modal-evento>
 
 
 
 
-
+</div>

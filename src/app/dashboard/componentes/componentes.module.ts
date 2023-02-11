@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 import { BannerPublicidadComponent } from './banner-publicidad/banner-publicidad.component';
 import { DirectorioComponent } from './directorio/directorio.component';
 import { EspecialidadCuadradaComponent } from './especialidad-cuadrada/especialidad-cuadrada.component';
@@ -22,10 +24,10 @@ import { CarouselPublicidadComponent } from './carousel-publicidad/carousel-publ
 import { SponsorComponent } from './sponsor/sponsor.component';
 import { ModalRevistaComponent } from './modal-revista/modal-revista.component';
 import { ModalEmailComponent } from './modal-email/modal-email.component';
-
-
-
-
+import { PaginationComponent } from './pagination/pagination.component';
+import { FiltroEspecialistasPipe } from './pipes/filtro-especialistas.pipe';
+import { NewsletterComponent } from './newsletter/newsletter.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -42,13 +44,23 @@ import { ModalEmailComponent } from './modal-email/modal-email.component';
     ResultadoBusquedaEspecialistasComponent, 
     FiltroEspecialistasComponent,
     ModalEspecialistaComponent, 
-    EspecialistaComponent, ActividadPipe, CarouselPublicidadComponent, SponsorComponent, ModalRevistaComponent, ModalEmailComponent
+    EspecialistaComponent,
+    ActividadPipe, 
+    CarouselPublicidadComponent, 
+    SponsorComponent, 
+    ModalRevistaComponent, 
+    ModalEmailComponent, 
+    PaginationComponent,
+    FiltroEspecialistasPipe,
+    NewsletterComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],exports:[
     BannerPublicidadComponent,
     DirectorioComponent,
@@ -64,7 +76,9 @@ import { ModalEmailComponent } from './modal-email/modal-email.component';
     ModalEspecialistaComponent, 
     EspecialistaComponent,
     CarouselPublicidadComponent,
-    ModalRevistaComponent
+    ModalRevistaComponent,
+    PaginationComponent,
+    CarouselComponent
   ]
 
   

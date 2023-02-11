@@ -1,6 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Especialista } from '../../models/user.models';
-import { DataEspecialistasService } from '../../../services/data-especialistas.service';
+import { Component, OnInit } from '@angular/core';
+import { EspecialistasService } from '../../../services/especialistas.service';
+import { Router } from '@angular/router';
+import { PlanesService } from '../../../services/planes.service';
+import { ResPlan } from '../../interfaces/plan.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-barra-superior',
@@ -9,12 +12,35 @@ import { DataEspecialistasService } from '../../../services/data-especialistas.s
 })
 export class BarraSuperiorComponent implements OnInit {
 
+  private _plan:string='';
 
 
-  constructor ( public dataEspecialistasService:DataEspecialistasService) { }
+  constructor ( private router:Router,
+                public especialistaService:EspecialistasService,
+                private planesService:PlanesService
+                ) { }
 
-  ngOnInit(): void {       
-   
+  ngOnInit(): void {  
+
+    const fecha_fin = new Date(this.especialistaService.especialista.fecha_fin_suscripcion);
+
+    this.planesService.getPlan(this.especialistaService.especialista.PlaneId)
+      .subscribe((res:ResPlan)=>{
+        if (fecha_fin> new Date(Date.now())){
+          this._plan='ORO'
+        }else{
+          this._plan=res.plan.nombre;
+        }                
+      })     
   }
 
+  
+
+  
+
+  cerrarSesion(){
+    this.especialistaService.logOut();
+    this.router.navigateByUrl('/');
+
+  }
 }

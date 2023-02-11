@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Especialista } from 'src/app/interfaces/especialistas';
+import { IEspecialista } from 'src/app/interfaces/especialistas';
 import { DataEspecialidadesService } from '../../../services/data-especialidades.service';
+import { Actividad } from '../../../interfaces/especialiadad';
 
 @Component({
   selector: 'app-especialistas-especialidad',
@@ -10,25 +11,17 @@ import { DataEspecialidadesService } from '../../../services/data-especialidades
 })
 export class EspecialistasEspecialidadComponent implements OnInit {
 
+  actividad:Actividad;
   idEspecialidad!: number;
   especialidad:string='';
-  listaEntrada:Especialista[]=[];
-  listaResultado:Especialista[]=[];
 
-  constructor(private route:ActivatedRoute,private dataEspecialidadesService:DataEspecialidadesService) { }
+  constructor(private dataEspecialidadesService:DataEspecialidadesService) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params=>{      
-      
-      this.idEspecialidad= parseInt(params['id']);       
-      this.especialidad= this.dataEspecialidadesService.getNombreEspecialidad(this.idEspecialidad); 
-      
-    });    
+
+    this.actividad=this.dataEspecialidadesService.actividadSeleccionada;
+    this.especialidad=this.actividad.nombre;  
+    this.idEspecialidad=this.actividad.id;
 
   }
-
-  resultado(listaResultado:Especialista[]){
-    this.listaResultado=listaResultado;
-  }
-
 }

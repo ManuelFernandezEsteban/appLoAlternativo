@@ -1,14 +1,25 @@
-<div class="fila">
-    <div class="columna gap-10">
-        <span class="encabezado">{{dataEspecialistasService.especialista.nombre}}</span>
-        <span class="encabezado">{{dataEspecialistasService.especialista.apellidos}}</span>
-        <span class="sub-title-xxl color-accent">{{dataEspecialistasService.especialista.plan_contratado | uppercase}}</span>
-    </div>
 
-   <a class="sub-title-xxl center color-accent" [routerLink]="['planes']"><span>Mejora tu plan</span></a> 
+<div class="columna">
 
-    <div class="columna end">
+    <div class="fila">
+        <span class="encabezado color-accent">Alta {{especialistaService.especialista.fecha_alta | date:'dd/MM/yyyy'}} </span>
         
-        <a class="texto-regular end color-red cerrar" [routerLink]="['/']">Cerrar sesión</a>
+        <div class="end">
+            <span class="encabezado color-accent ">{{especialistaService.especialista.nombre}} </span>
+            <span class="encabezado color-accent ">{{especialistaService.especialista.apellidos}}</span>
+        </div>
     </div>
+    <div class="fila">
+        <span class="sub-title-xxl color-accent">Tu plan actual {{especialistaService.especialista| planesPipe}}</span>
+    </div>
+    <div class="fila">
+        <span class="encabezado color-accent">Fin periodo {{especialistaService.especialista.fecha_fin_suscripcion |
+            date:'dd/MM/yyyy'}}
+        </span>
+        <div>
+            <a class="encabezado center color-accent" [routerLink]="['planes']"><span>Mejora tu plan</span></a>
+        </div>
+        <span><a class="texto-regular end color-red cerrar" (click)="cerrarSesion()">Cerrar sesión</a></span>
+    </div>
+
 </div>

@@ -4,24 +4,31 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BarraSuperiorComponent } from './barra-superior/barra-superior.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TablaEventosComponent } from './tabla-eventos/tabla-eventos.component';
 import { FilaEventosComponent } from './fila-eventos/fila-eventos.component';
+import { ModalInfoComponent } from './modal-info/modal-info.component';
+
 import { MonedaPipe } from './pipes/moneda.pipe';
 import { OnlinePipe } from './pipes/online.pipe';
-import { ModalInfoComponent } from './modal-info/modal-info.component';
+import { PlanesPipe } from './pipes/planes.pipe';
+import { FormEventoComponent } from './form-evento/form-evento.component';
+
+
+
 
 @NgModule({
   declarations: [
     BarraSuperiorComponent,
-    DashboardComponent,
     SidebarComponent,
     TablaEventosComponent,
     FilaEventosComponent,
     MonedaPipe,
     OnlinePipe,
-    ModalInfoComponent
+    PlanesPipe,
+    ModalInfoComponent,
+    FormEventoComponent,
+   
   ],
   imports: [
     CommonModule,
@@ -31,13 +38,13 @@ import { ModalInfoComponent } from './modal-info/modal-info.component';
     
   ],exports:[
     BarraSuperiorComponent,
-    DashboardComponent,
     SidebarComponent,
     TablaEventosComponent,
     FilaEventosComponent,
     MonedaPipe,
     OnlinePipe,
-    ModalInfoComponent
+    ModalInfoComponent,
+    FormEventoComponent
   ]
 })
 export class ComponentsModule { }

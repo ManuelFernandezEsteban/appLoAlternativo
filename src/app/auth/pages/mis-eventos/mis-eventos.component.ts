@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 //import { Evento } from '../../../interfaces/eventos';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
-import { Evento } from '../../models/user.models';
+
+import { EspecialistasService } from '../../../services/especialistas.service';
+import { Evento } from '../../models/evento.model';
 
 @Component({
   selector: 'app-mis-eventos',
@@ -10,7 +12,8 @@ import { Evento } from '../../models/user.models';
 })
 export class MisEventosComponent implements OnInit {
 
-  constructor(private tablaEventosService:TablaEventosService) { }
+  constructor(private tablaEventosService:TablaEventosService,
+              public especialistasService:EspecialistasService) { }
 
   ngOnInit(): void {
   }

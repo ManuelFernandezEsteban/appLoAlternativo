@@ -12,6 +12,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
 import { EventosEspecialidadComponent } from './pages/eventos-especialidad/eventos-especialidad.component';
 import { EspecialistasEspecialidadComponent } from './pages/especialistas-especialidad/especialistas-especialidad.component';
 import { RevistasComponent } from './pages/revistas/revistas.component';
+import { NewsletterComponent } from './componentes/newsletter/newsletter.component';
 
 const routes:Routes=[
   {
@@ -47,7 +48,10 @@ const routes:Routes=[
       {
         path:'especialistas/especialistas-especialidad/:id',component:EspecialistasEspecialidadComponent
       },
-      
+      {
+        path:'newsletter',component:NewsletterComponent
+      },
+
       {
         path:'',redirectTo:'home',pathMatch:'full'
       },

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Evento } from 'src/app/interfaces/eventos';
+import { IEvento } from 'src/app/interfaces/eventos';
 import { InfoDireccionModal } from 'src/app/interfaces/infoDireccionModal';
 import { InfoModal } from 'src/app/interfaces/infoModal';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
@@ -14,8 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ModalEventoComponent implements OnInit {
 
-  @Input()
-  evento!: Evento;
+  @Input() evento!: IEvento;
   direccion!: InfoDireccionModal;
   infoTelefono!: InfoModal;
   infoMail!: InfoModal;
@@ -54,6 +53,11 @@ export class ModalEventoComponent implements OnInit {
   constructor(public serviceModalEventoService: ServiceModalEventoService,private router:Router) { }
 
   ngOnInit(): void {
+
+    this.evento.Especialista.nombre;
+
+
+
     this.direccion = {
       title: 'Ubicacion',
       direccion: this.evento.direccion,
@@ -109,7 +113,7 @@ export class ModalEventoComponent implements OnInit {
   }
 
   descargarContenido(){
-    if (this.evento.id===0){
+    if (this.evento.id===''){
       console.log(this.evento.evento);
       this.mostrarModalEmail=true;
     }

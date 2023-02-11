@@ -2,21 +2,68 @@
 <button class="boton btn-info" (click)="toggleFiltros()">Filtros</button>
 
 
-<app-filtro-especialistas *ngIf="isVisible" [listaEspecialistas]="lista" (onBuscar)="resultado($event)" (onReset)="reset($event)">
-</app-filtro-especialistas>
+<div class="box-filtro" *ngIf="isVisible">
+    <div class="fila">
+        <div class="columna texto-regular color-accent gap-10">
+            <div class="columna">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="" [(ngModel)]="nombre">
+            </div>
+            <div class="columna">
+                <label for="Provincia">Provincia:</label>
+                <input type="text" name="provincia" id="" [(ngModel)]="provincia">
+            </div>
+        </div>
+        <div class="fila botonera">
+            <button class="boton" (click)="onClickBuscar()">
+                <span>
+                    <img src="./../../../../assets/images/icons-svg/magnifying-glass-solid.svg" alt="buscar" width="20px">
+                </span>
+            </button>
+            <button class="boton" (click)="onReset()">
+                <span>
+                    <img src="./../../../../assets/images/icons-svg/trash-solid.svg" alt="buscar" width="20px">
+                </span>
+            </button>
+        </div>
+        
+    </div>
+    
+</div>
+
 
 <div class="wrapper">
+    
     <div class="wrapper2">
-        <ng-container *ngFor="let especialista of lista">
+        
+        <ng-container *ngFor="let especialista of listaResultado | filtroEspecialistas:pagina:nombre:provincia" >
 
-            <app-especialista [especialista]="especialista" (onEspecialista)="eventoSeleccionado($event)">
-
+            <app-especialista   
+                            [especialista]="especialista" 
+                            (onEspecialista)="especialistaSeleccionado($event)">
             </app-especialista>
 
         </ng-container>
     </div>
+    <div *ngIf="numeroTotalEspecialistas" class="pagination">
+
+        <div *ngIf="paginaActual > 1" class="pagination__prev"><a (click)="anterior()">Anterior</a></div>
+    
+        <div class="pagination__text">
+    
+            <p>Página {{paginaActual}} de {{numeroDePaginas}}</p>
+    
+            <p>{{numeroTotalEspecialistas}} resultados</p>
+    
+        </div>
+    
+        <div *ngIf="paginaActual < numeroDePaginas" class="pagination__next"><a (click)="siguiente()" >Siguiente</a></div>
+    
+    </div>
 
 </div>
-<app-modal-especialista *ngIf="serviceModalEventoService.showDialog" [especialista]="especialistaAMostrar"></app-modal-especialista>
+<app-modal-especialista *ngIf="serviceModalEventoService.showDialog" 
+                        [especialista]="especialistaAMostrar">
+</app-modal-especialista>
 
 

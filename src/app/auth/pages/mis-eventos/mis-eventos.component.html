@@ -1,3 +1,5 @@
-<app-tabla-eventos (eventoSelection)="eventoSeleccionado($event)">
+
+
+<app-tabla-eventos *ngIf="especialistasService.especialista.PlaneId===2"(eventoSelection)="eventoSeleccionado($event)">
 </app-tabla-eventos>
 

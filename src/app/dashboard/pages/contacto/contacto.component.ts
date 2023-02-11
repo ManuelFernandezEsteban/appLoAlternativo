@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from "@angular/forms";
+import Swal from 'sweetalert2';
+import { ContactoService } from '../../../services/contacto.service';
 
 @Component({
   selector: 'app-contacto',
@@ -12,30 +14,20 @@ export class ContactoComponent implements OnInit {
 
   formContacto = this.fb.group(
     {
-      name:['',Validators.required],
+      nombre:['',Validators.required],
       email:['',[Validators.required, Validators.email]],
       privacidad:[false,Validators.requiredTrue],
       mensaje:['',[Validators.required,Validators.minLength(10)]],
     }
   );
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private contactoService:ContactoService) { }
 
   ngOnInit(): void {
   }
 
-  
-  public get name() : boolean {
-    return this.formContacto.get('name')?.invalid || false;
-  }
-  public get email() : boolean {
-    return this.formContacto.get('email')?.invalid || false;
-  }
-  public get privacidad() : boolean {
-    return this.formContacto.get('privacidad')?.invalid || false;
-  }
-  public get mensaje() : boolean {
-    return this.formContacto.get('mensaje')?.invalid || false;
+  campoValido(campo:string){
+    return this.formContacto.get(campo)?.invalid || false;
   }
 
   onSubmit(){
@@ -43,10 +35,14 @@ export class ContactoComponent implements OnInit {
     this.submitted=true;
     if (!this.formContacto.valid){
       return;
-    }
-   
+    }   
     //TODO event emiter con formContacto
-    console.log(this.formContacto.value,this.formContacto.valid);
+    //console.log(this.formContacto.value,this.formContacto.valid);
+    this.contactoService.enviarConsulta(this.formContacto.value).subscribe(res=>{
+      Swal.fire('Enviado','Mensaje enviado','success');
+    },(err)=>{
+      Swal.fire('Error','Mensaje no enviado','error');
+    })
     this.formContacto.reset();
     this.submitted=false;
   }

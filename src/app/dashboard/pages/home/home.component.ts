@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Evento, Eventos } from 'src/app/interfaces/eventos';
+import { IEvento, IEventos } from 'src/app/interfaces/eventos';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { DataEventosService } from '../../../services/data-eventos.service';
 
@@ -10,20 +10,20 @@ import { DataEventosService } from '../../../services/data-eventos.service';
 })
 export class HomeComponent implements OnInit {
 
-  eventoAMostrar!: Evento;
+  eventoAMostrar!: IEvento;
   mostrarModal:boolean=false;
-  eventos:Evento[]=[];
+  eventos:IEvento[]=[];
 
   constructor(private dataEventos:DataEventosService,public serviceModalEventoService:ServiceModalEventoService,) { }
 
   ngOnInit(): void {
-    this.dataEventos.getEventosAlernativo<Eventos>().subscribe(res=>{
+    this.dataEventos.getEventosAlernativo<IEventos>().subscribe(res=>{
       this.eventos=res.eventos;
     })
   }
-  eventoSeleccionado(event:Evento){
+  eventoSeleccionado(event:IEvento){
     this.eventoAMostrar=event;
-    if(this.eventoAMostrar.id===0){
+    if(this.eventoAMostrar.id===''){
       this.serviceModalEventoService.showDialogRevista=true;
     }
     this.serviceModalEventoService.openDialog();

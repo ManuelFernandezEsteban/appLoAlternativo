@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Evento } from 'src/app/interfaces/eventos';
+import { IEvento } from 'src/app/interfaces/eventos';
 import { InfoDireccionModal } from 'src/app/interfaces/infoDireccionModal';
 import { InfoModal } from 'src/app/interfaces/infoModal';
 import { RedSocialIcon } from 'src/app/interfaces/redSocialIcon';
@@ -13,7 +13,7 @@ import { ServiceModalEventoService } from 'src/app/services/service-modal-evento
 export class ModalRevistaComponent implements OnInit {
 
   @Input()
-  evento!: Evento;
+  evento!: IEvento;
   direccion!: InfoDireccionModal;
   infoTelefono!: InfoModal;
   infoMail!: InfoModal;

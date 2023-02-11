@@ -8,5 +8,14 @@ export interface Especialidades{
 export interface Especialidad{
     id:number;
     nombre:string;
-    imagen:string
+    imagen:string;
+}
+
+export interface Actividades{
+    actividades:Actividad[];
+}
+export interface Actividad{
+    id:number;
+    nombre:string;
+    imagen:string;
 }

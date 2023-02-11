@@ -5,15 +5,15 @@
     <div id="modal-evento" class="modal-evento">
         <div class="fila">
             <span class="title-l-primary color-accent">{{evento.evento|uppercase}}</span>
-            <span class="encabezado color-accent">{{evento.fecha}}</span>
+            <span class="encabezado color-accent">{{evento.fecha | date:'dd/MM/yyyy'}}</span>
         </div>
         <div class="fila gap-20">
             <div class="columna">
-                <img src="{{evento.imagen}}" alt="imagen evento">
+                <img class="img-grande" src="{{evento.imagen}}" alt="imagen evento">
             </div>
             <div class="columna">
                 <div class="fila">
-                    <span class="title-l-primary color-accent">{{evento.organizador}}</span>
+                    <span class="title-l-primary color-accent">{{evento.Especialista.nombre}}</span>
                 </div>
                 <div class="fila gap-20 primerafila">
                     <app-info-modal [info]="infoTelefono"></app-info-modal>                   

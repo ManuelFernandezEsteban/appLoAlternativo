@@ -1,10 +1,12 @@
+/*
+
 .fila{
     border: 1px solid #7BACD5;
     justify-content: space-between;
     padding: 10px;
     align-items: center;
     .columna{
-        flex-direction: row;
+        //flex-direction: row;
         align-items: center;
         padding-left: 100px;
         padding-right: 100px;
@@ -45,4 +47,64 @@ a{
 
 .cerrar{
     text-align: end;
+}*/
+.end{
+    text-align: end;
+    
 }
+
+.columna{
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    border: 1px solid #7BACD5;
+}
+
+.fila{
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
