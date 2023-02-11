@@ -33,6 +33,11 @@ app-login {
     form {
         width: 100%;
     }
+    .columna{
+        a{
+            cursor: pointer;
+        }
+    }
 
     .fila {
         justify-content: space-between;

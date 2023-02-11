@@ -14,6 +14,7 @@ import { ModificarEventoComponent } from './pages/modificar-evento/modificar-eve
 import { EliminarEventoComponent } from './pages/eliminar-evento/eliminar-evento.component';
 import { ModificarDatosComponent } from './pages/modificar-datos/modificar-datos.component';
 import { PlanesComponent } from './pages/planes/planes.component';
+import { NewPasswordComponent } from './pages/new-password/new-password.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PlanesComponent } from './pages/planes/planes.component';
     ModificarEventoComponent,
     EliminarEventoComponent,
     ModificarDatosComponent,
-    PlanesComponent,  
+    PlanesComponent,
+    NewPasswordComponent,  
   ],
   imports: [
     CommonModule,

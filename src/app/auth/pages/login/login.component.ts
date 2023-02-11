@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
 
   formLogin = this.fb.group(
     {
-      password:['12345678',Validators.required],
-      email:['test100f@gmail.com',[Validators.required, Validators.email]]     
+      password:['',[Validators.required,Validators.minLength(8)]],
+      email:['',[Validators.required, Validators.email]]     
     }
   );
 
@@ -38,44 +38,33 @@ export class LoginComponent implements OnInit {
     this.especialistaService.loginEspecialista(this.formLogin.value)
       .subscribe((res:RespuestaToken)=>{
         //navegar al zona privada
-
-        console.log(res.especialista);
+        //console.log(res.especialista);
         if (res.especialista.PlaneId===1){
           this.router.navigateByUrl('auth/principal/planes');
         }else{
           this.router.navigateByUrl('auth/principal');
         }
 
-        
-        
-
       },(err)=>{
         //console.log(err);
-        Swal.fire('Error',err.error.msg,'error');
-      });
+        Swal.fire('Error',"Ha ocurrido algo inesperado",'error');
+      });   
 
+  }
 
+  forgotPassword(){
+    if (this.formLogin.get('email').value.trim()===''){      
+      return;
+    }
+    this.especialistaService.forgotEspecialista(this.formLogin.value)
+    .subscribe(res=>{
+      console.log(res)
+      Swal.fire('Enviado','Revisa tu correo, hemos enviado un enlace a tu correo de registro','success');
+    },(err)=>{
+      console.log(err)
+      Swal.fire('Error','Algo no ha ido bien','error');
+    });
 
-    /*
-    const user = this.formLogin.get('email')?.value || '';
-    const pass = this.formLogin.get('password')?.value || '';
-    this.dataEspecialistaService.getEspecialistas<Especialistas>().subscribe(res=>{
-      const especialista:Especialista=res.especialistas[1];
-      this.dataEspecialistaService.setEspecialista(especialista);
-      this.http.navigate(['auth/principal']);
-    })
-    
-
-    this.formLogin.reset();
-    this.submitted=false;
-  
-
-    //const id = this.userService.login(user,pass);
-
-
-   // console.log(id)
-*/
-    
 
   }
 

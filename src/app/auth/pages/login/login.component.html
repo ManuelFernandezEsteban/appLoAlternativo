@@ -20,7 +20,7 @@
                     <label class="encabezado color-accent" for="password">Password:</label>
                     <div class="columna gap-10">
                         <input type="password" name="password" id="" formControlName="password" placeholder="*******">
-                        <span class="caption color-accent">¿Olvidaste la contraseña?</span>
+                        <a class="caption color-accent" (click)="forgotPassword()">¿Olvidaste la contraseña? Introduce tu email de registro y pulsa este enlace</a>
                         <span *ngIf="campoNoValido('password') && submitted" class="caption color-red">Introduzca su password</span>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
         </div>
     </form>
     <div class="fila">
-        <a class="texto-regular color-accent">Términos y condiciones</a>
+        <a class="texto-regular color-accent" target="_blank" [routerLink]="['/privacidad']">Términos y condiciones</a>
         
         <a class="texto-regular color-accent" [routerLink]="['/auth/registro']">¿Aun no estás registrado?</a>
         <a class="sub-title-xl color-accent" [routerLink]="['/']">Volver</a>

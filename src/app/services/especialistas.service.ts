@@ -11,6 +11,7 @@ import { Especialista } from '../auth/models/especialista.model';
 import { ActualizarEspecialistaForm } from '../interfaces/actualizar-especialista-form';
 import { RespuestaEspecialista } from '../interfaces/respuesta-especialista.interface';
 import { EspecialistasActividad } from '../interfaces/especialistas-actividad.interface';
+import { NewPassForm } from '../interfaces/newPassForm.interface';
 
 const base_url = environment.base_url;
 
@@ -67,6 +68,18 @@ export class EspecialistasService {
           this.especialista = new Especialista(res.especialista);
         })
       );
+  }
+
+  forgotEspecialista(formData:LoginForm){    
+    return this.http.put(`${base_url}/auth/forgot-password`, formData)      
+  }
+
+  newPassword(formData:NewPassForm,resetToken:string){    
+    return this.http.put(`${base_url}/auth/new-password`, formData,{
+      headers:{
+        resetToken
+      }
+    })      
   }
 
   actualizarEspecialista(formData: ActualizarEspecialistaForm) {
