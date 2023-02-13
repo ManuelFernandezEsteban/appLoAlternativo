@@ -21,7 +21,14 @@ export class EspecialistaComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    let url = 'linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),url('+this.especialista.imagen_terapeuta+')';
+
+    let imagen = '';
+    if (this.especialista.imagen_terapeuta!=null){
+      imagen=this.especialista.imagen_terapeuta;
+    }else{
+      imagen='../../assets/images/no_disponible.png'
+    }   
+    let url = 'linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),url('+imagen+')';
     
     this.renderer.setStyle(this.cajaEspecialista.nativeElement,'background',url);
     this.renderer.setStyle(this.cajaEspecialista.nativeElement,'background-size','cover');

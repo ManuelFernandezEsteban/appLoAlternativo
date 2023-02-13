@@ -11,6 +11,7 @@ import { EspecialistasService } from '../../../services/especialistas.service';
 
 import { RespuestaEspecialista } from 'src/app/interfaces/respuesta-especialista.interface';
 import { Actividad, Actividades } from '../../../interfaces/especialiadad';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-modificar-datos',
@@ -53,6 +54,7 @@ export class ModificarDatosComponent implements OnInit {
   submitted: boolean = false;
   mensaje: string = 'Cambios guardados';
   imgUrl: string = '';
+  file: File;
 
   constructor(private fb: FormBuilder,
     private route: Router,
@@ -61,19 +63,22 @@ export class ModificarDatosComponent implements OnInit {
     private especialidadesService: DataEspecialidadesService,
     private renderer: Renderer2,
     private tablaEventos: TablaEventosService,
-    public serviceModal: ServiceModalEventoService) { }
+    public serviceModal: ServiceModalEventoService,
+    private http:HttpClient) { }
 
 
 
-  cambiarImg(event: Event) {
+  cambiarImg(event: Event) {   
 
-    const file = (event.target as HTMLInputElement).files[0];
+    this.file = (event.target as HTMLInputElement).files[0];
+    //console.log(this.file);
+
     this.formModificarEspecialista.get('imagen_terapeuta').updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {
       this.imgUrl = reader.result as string;
     }
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(this.file);
   }
   cambiarVideo(event:Event){
 
@@ -157,9 +162,24 @@ export class ModificarDatosComponent implements OnInit {
 
       return
     }
+    
+    if (this.especialistasService.especialista.ActividadeId===10){
+      this.formModificarEspecialista.get('ActividadeId').setValue(10);
+    }
     this.especialistasService.actualizarEspecialista(this.formModificarEspecialista.value)
     .subscribe((res:RespuestaEspecialista)=>{
       console.log(res);
+      if (this.file){
+        const fileName = this.file.name;
+  
+        const formData = new FormData();
+  
+        formData.append("file", this.file);
+  
+        const upload$ = this.http.post("http://localhost:8000/api/uploads/", formData);
+  
+        upload$.subscribe();
+      }
       //this.especialistasService.especialista=res
       this.serviceModal.openDialog();
     },error=>{

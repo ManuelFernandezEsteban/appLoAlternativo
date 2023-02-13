@@ -16,14 +16,14 @@
                 <span class="encabezado color-accent">{{especialista.apellidos}}</span>
             </div>
             
-            <img class="avatar" src="{{especialista.imagen_terapeuta}}" alt="imagen especialista">
+            <img class="avatar" [src]="especialista.imagen_terapeuta|noImage" [alt]="especialista.nombre">
         </div>
         <div class="fila gap-20">
             <div class="columna gap-20">
-                <img class="img-grande" src="{{especialista.imagen_terapeuta}}" alt="imagen especialista">
+                <img class="img-grande" [src]="especialista.imagen_terapeuta|noImage" [alt]="especialista.nombre">
                 <div class="fila">
                     <div class="contenedor-video">
-                        <video id="" src="{{especialista.video}}"  autoplay loop preload="metada"></video>
+                        <video id="" [src]="especialista.video|noImage"  autoplay loop preload="metada"></video>
                     </div>
                 </div>
             </div>

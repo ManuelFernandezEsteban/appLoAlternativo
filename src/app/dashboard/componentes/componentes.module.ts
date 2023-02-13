@@ -28,6 +28,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { FiltroEspecialistasPipe } from './pipes/filtro-especialistas.pipe';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { NoImagePipe } from './pipes/no-image.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     PaginationComponent,
     FiltroEspecialistasPipe,
     NewsletterComponent,
-    CarouselComponent
+    CarouselComponent,
+    NoImagePipe
   ],
   imports: [
     CommonModule,

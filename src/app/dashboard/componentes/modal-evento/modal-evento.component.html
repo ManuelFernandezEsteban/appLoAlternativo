@@ -9,7 +9,7 @@
         </div>
         <div class="fila gap-20">
             <div class="columna">
-                <img class="img-grande" src="{{evento.imagen}}" alt="imagen evento">
+                <img class="img-grande" [src]="evento.imagen|noImage" [alt]="evento.evento">
             </div>
             <div class="columna">
                 <div class="fila">

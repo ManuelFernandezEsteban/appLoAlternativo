@@ -22,7 +22,15 @@ export class EventoComponent implements OnInit {
   constructor(private renderer:Renderer2,private router:Router) { }
 
   ngAfterViewInit(): void {
-    let url = 'linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),url('+this.evento.imagen+')';
+
+    let imagen = '';
+    if (this.evento.imagen!=null){
+      imagen=this.evento.imagen;
+    }else{
+      imagen='../../assets/images/no_disponible.png'
+    }   
+    
+    let url = 'linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),url('+imagen+')';
     
     this.renderer.setStyle(this.cajaEvento.nativeElement,'background',url);
     this.renderer.setStyle(this.cajaEvento.nativeElement,'background-size','cover');

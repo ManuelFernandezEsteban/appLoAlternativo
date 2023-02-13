@@ -6,7 +6,8 @@
 
         <div #contenedor>
             <div *ngFor="let item of eventos" class="carousel-item fade-in-right sr-only">
-                <img [src]="item.imagen" [alt]="item.evento">
+
+                <img [src]="item.imagen|noImage" [alt]="item.evento">
                 <div class="carousel-caption">
                     <h5 class="accent-color encabezado">{{item.evento}}</h5>
                     <p class="accent-color texto-regular">{{item.descripcion}}</p>
