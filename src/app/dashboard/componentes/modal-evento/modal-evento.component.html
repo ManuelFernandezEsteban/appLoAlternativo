@@ -39,7 +39,7 @@
                 </div>
                 
                 <div class="fila">
-                    <button class="boton btn-info color-accent bold" (click)="descargarContenido()">Descargable</button>
+                    <a class="boton btn-info color-accent bold" [href]="evento.pdf" target="_blank">Descargable</a>
                     <span class="title-l-primary color-accent bold">{{evento.precio|euros}}</span>
                 </div>
             </div>

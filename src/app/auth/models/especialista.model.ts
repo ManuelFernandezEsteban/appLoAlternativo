@@ -15,7 +15,7 @@ export class Especialista{
     codigo_postal:       string;
     pais:                string;
     video:               string;
-    imagen_terapeuta:    string;
+    imagen:    string;
     telefono:            string;
     PlaneId:             number;
     token_pago:          string;
@@ -42,7 +42,7 @@ export class Especialista{
         this.codigo_postal=       especialista.codigo_postal;
         this.pais=                especialista.pais;
         this.video=                 especialista.video;
-        this.imagen_terapeuta=    especialista.imagen_terapeuta;
+        this.imagen=                especialista.imagen;
         this.telefono=            especialista.telefono;
         this.PlaneId=          especialista.PlaneId;
         this.token_pago=          especialista.token_pago;

@@ -15,7 +15,7 @@ export interface IEspecialista {
     codigo_postal:       string;
     pais:                string;
     video:               string;
-    imagen_terapeuta:    string;
+    imagen:              string;
     telefono:            string;
     PlaneId:             number;
     token_pago:          string;

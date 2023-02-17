@@ -23,7 +23,7 @@ export class EventosService {
 
   crearEvento(formData:IEvento){
 
-    console.log(formData);
+    //console.log(formData);
 
     const token = localStorage.getItem('token');
 

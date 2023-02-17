@@ -23,8 +23,8 @@ export class EspecialistaComponent implements OnInit {
   ngAfterViewInit(): void {
 
     let imagen = '';
-    if (this.especialista.imagen_terapeuta!=null){
-      imagen=this.especialista.imagen_terapeuta;
+    if (this.especialista.imagen!=null){
+      imagen=this.especialista.imagen;
     }else{
       imagen='../../assets/images/no_disponible.png'
     }   

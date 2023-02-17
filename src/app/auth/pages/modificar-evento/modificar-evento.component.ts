@@ -5,6 +5,8 @@ import { ServiceModalEventoService } from 'src/app/services/service-modal-evento
 import { EventosService } from '../../../services/eventos.service';
 import Swal from 'sweetalert2';
 import { IEvento } from '../../../interfaces/eventos';
+import { FormEventoFiles } from '../../../interfaces/formularioEvento.interface';
+import { UploadsService } from '../../../services/uploads.service';
 
 @Component({
   selector: 'app-modificar-evento',
@@ -19,7 +21,8 @@ export class ModificarEventoComponent implements OnInit {
   constructor(public tablaEventosService: TablaEventosService,
     private route: Router,
     public dataServiceModal: ServiceModalEventoService,
-    private eventosService: EventosService) {    
+    private eventosService: EventosService,
+    private uploadService:UploadsService) {    
   }
 
   ngOnInit(): void {
@@ -31,15 +34,35 @@ export class ModificarEventoComponent implements OnInit {
     this.tablaEventosService.resetEventoSelected();
   }
 
-  onModify(event:IEvento) {
+  onModify(event:FormEventoFiles) {
 
-    this.eventosService.actualizarEvento(event)
+    const evento = event.evento;
+
+    this.eventosService.actualizarEvento(evento)
       .subscribe(res => {
 
+        if (event.files.get('image')){
+          const formData = new FormData();
+          formData.append("file",event.files.get('image'));
+          this.uploadService.uploadEvento(formData,'eventoImagen',evento.id).subscribe(res=>{
+
+          },err=>{
+            Swal.fire('Error',err,'error');
+          })
+        }
+        if (event.files.get('pdf')){
+          const formData = new FormData();
+          formData.append("file",event.files.get('pdf'));
+          this.uploadService.uploadEvento(formData,'eventoInfo',evento.id).subscribe(res=>{
+
+          },err=>{
+            Swal.fire('Error',err,'error');
+          })
+        }
         this.desactivarSelected();
         this.dataServiceModal.openDialog();
       }, err => {
-        Swal.fire('Error',err.error.msg,'error');
+        Swal.fire('Error',err,'error');
       });
   }
 

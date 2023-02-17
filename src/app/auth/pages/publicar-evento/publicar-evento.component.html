@@ -1,16 +1,7 @@
 <div  class="box-formulario-evento eventos-form">
-
     <app-form-evento [eventoSeleccionado]="evento"
                      (formData)="onPublic($event)"
                      (reset)="onReset()">
-
-    </app-form-evento>
-
-   
+    </app-form-evento>   
     <app-modal-info [mensaje]="mensaje" (onAceptar)="cerrar()" *ngIf="serviceModalEventoService.showDialog"></app-modal-info>
-
 </div>
-
-
-
-<!--./../../../../assets/images/Imagen_no_disponible.svg.png-->
