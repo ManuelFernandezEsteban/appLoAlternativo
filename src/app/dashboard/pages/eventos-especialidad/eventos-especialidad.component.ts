@@ -50,7 +50,7 @@ export class EventosEspecialidadComponent implements OnInit {
     this.paginaActual=event;
     this.eventosService.getEventosActividad(this.actividad.id,this.paginaActual)
       .subscribe((res:EventosActividad)=>{
-        console.log(res.eventos);
+        //console.log(res.eventos);
         this.eventos=res.eventos;
         this.numeroTotalEventos=res.count;
         if (this.numeroTotalEventos===5){

@@ -113,7 +113,7 @@ export class EspecialistasService {
 
           this.especialista = new Especialista(res.especialista);
 
-          console.log(this.especialista)
+          //console.log(this.especialista)
 
         })
       );

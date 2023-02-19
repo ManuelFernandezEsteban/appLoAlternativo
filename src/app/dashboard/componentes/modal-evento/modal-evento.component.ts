@@ -114,7 +114,7 @@ export class ModalEventoComponent implements OnInit {
 
   descargarContenido(){
     if (this.evento.id===''){
-      console.log(this.evento.evento);
+      //console.log(this.evento.evento);
       this.mostrarModalEmail=true;
     }
   }

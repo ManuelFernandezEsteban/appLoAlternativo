@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Sponsor, Sponsors } from '../../../interfaces/sponsors';
+import { SponsorsService } from '../../../services/sponsors.service';
 
 @Component({
   selector: 'app-carousel-publicidad',
@@ -18,20 +19,18 @@ export class CarouselPublicidadComponent implements OnInit,OnDestroy {
   claseSponsor:string='wrp-imagen-sponsor'
   claseSponsorPpal:string='wrp-imagen-sponsor-ppal'
 
-  constructor(private renderer:Renderer2,private http:HttpClient) { }
+  constructor(private renderer:Renderer2,private sponsorsService:SponsorsService) { }
   ngOnDestroy(): void {
     clearInterval(this.intervalSponsosrs)
     clearInterval(this.intervalSponsosrsPPal)
   }
 
-  setImg(i:number):string{
-    
+  setImg(i:number):string{    
     return `img${i+1}`;
   }
 
   ngOnInit(): void {
-
-    this.http.get<Sponsors>('./../../assets/data/sponsors-principales.json').subscribe(res=>{
+    this.sponsorsService.getSponsors().subscribe(res=>{
       this.sponsors=res.sponsors;
     })
    /*   let grupos: Sponsor[][]=[];      

@@ -91,8 +91,7 @@ export class FormEventoComponent implements OnInit {
 
   cambiarImg(event: Event) {
 
-    this.fileImage = (event.target as HTMLInputElement).files[0];
-    console.log(this.fileImage)
+    this.fileImage = (event.target as HTMLInputElement).files[0];  
 
     this.formEvento.get('imagen').updateValueAndValidity();
 
@@ -106,8 +105,7 @@ export class FormEventoComponent implements OnInit {
 
   cambiarPDF(event: Event) {
 
-    this.filePDF = (event.target as HTMLInputElement).files[0];
-    console.log(this.filePDF)
+    this.filePDF = (event.target as HTMLInputElement).files[0];   
 
     this.formEvento.get('pdf').updateValueAndValidity();
 

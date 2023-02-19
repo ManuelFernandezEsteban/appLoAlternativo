@@ -36,5 +36,16 @@ export class UploadsService {
 
   }
 
+  deleteEvento(key:string){
+    const token = localStorage.getItem('token');
 
+    return this.http.delete(`${base_url}/uploads/delete/${key}`, {
+      headers: {
+        'x-token': token
+      }
+    })
+
+  }
 }
+
+

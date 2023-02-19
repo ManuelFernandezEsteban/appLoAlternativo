@@ -34,10 +34,6 @@ export class BarraSuperiorComponent implements OnInit {
       })     
   }
 
-  
-
-  
-
   cerrarSesion(){
     this.especialistaService.logOut();
     this.router.navigateByUrl('/');

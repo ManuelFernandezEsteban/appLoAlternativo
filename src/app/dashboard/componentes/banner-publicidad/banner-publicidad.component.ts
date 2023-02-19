@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit, OnDestroy } from '@angular/core';
 import { Sponsor, Sponsors } from 'src/app/interfaces/sponsors';
 import { HttpClient } from '@angular/common/http';
+import { SponsorsService } from '../../../services/sponsors.service';
 
 @Component({
   selector: 'app-banner-publicidad',
@@ -23,7 +24,7 @@ export class BannerPublicidadComponent implements OnInit, AfterViewInit, OnDestr
   nueva!: Sponsor;
   siguienteSponsor: number = 0;*/
 
-  constructor(private http: HttpClient, private renderer: Renderer2) {
+  constructor(private http: HttpClient, private renderer: Renderer2,private sponsorsService:SponsorsService) {
 
   }
   ngOnDestroy(): void {
@@ -37,13 +38,18 @@ export class BannerPublicidadComponent implements OnInit, AfterViewInit, OnDestr
   }
   ngOnInit(): void {
 
-    this.http.get<Sponsors>('./../../assets/data/sponsors-principales.json').subscribe(res => {
+    this.sponsorsService.getSponsors().subscribe(res=>{
+      this.sponsors=res.sponsors;
+      console.log()
+    })
+
+   /* this.http.get<Sponsors>('./../../assets/data/sponsors-principales.json').subscribe(res => {
       this.sponsors = res.sponsors;
    //   this.inicializarBanner();
      /* this.interval = setInterval(() => {
         this.cambiar()
-      }, this.timeout);*/
-    });
+      }, this.timeout);
+    });*/
 
   }
 /*
