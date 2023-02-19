@@ -4,6 +4,7 @@ import { Evento } from '../../models/evento.model';
 import { IEvento } from '../../../interfaces/eventos';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { Router } from '@angular/router';
+import { FormEventoFiles } from '../../../interfaces/formularioEvento.interface';
 
 @Component({
   selector: 'app-form-evento',
@@ -16,7 +17,7 @@ export class FormEventoComponent implements OnInit {
   @Input() eliminando:boolean=false;
   @Input() tipo:string='';
 
-  @Output() formData = new EventEmitter<IEvento>();
+  @Output() formData = new EventEmitter<FormEventoFiles>();
   @Output() reset = new EventEmitter<boolean>();
   formEvento = this.fb.group({
     evento: ['', Validators.required],
@@ -31,7 +32,7 @@ export class FormEventoComponent implements OnInit {
     codigo_postal: [''],
     telefono: ['', Validators.required],
     descripcion: ['', [Validators.required, Validators.minLength(10)]],
-    img: [''],
+    imagen: [''],
     pdf: [''],
     id: [''],
     EspecialistaId: [''],
@@ -45,7 +46,10 @@ export class FormEventoComponent implements OnInit {
   submitted: boolean = false;
   fechaValue!: Date;  
   imgUrl: string = '';
+  pdfUrl: string = '';
   hayPDF: boolean = false;
+  fileImage:File;
+  filePDF:File;
 
   constructor(private tablaEventosService: TablaEventosService,private route: Router,private fb: FormBuilder) { }
 
@@ -63,8 +67,8 @@ export class FormEventoComponent implements OnInit {
       codigo_postal: [this.eventoSeleccionado.codigo_postal],
       telefono: [this.eventoSeleccionado.telefono, Validators.required],
       descripcion: [this.eventoSeleccionado.descripcion, [Validators.required, Validators.minLength(10)]],
-      img: [''],
-      pdf: [this.eventoSeleccionado.pdf],
+      imagen: [null],
+      pdf: [null],
       id: [this.eventoSeleccionado.id],
       EspecialistaId: [this.eventoSeleccionado.EspecialistaId],
       ActividadeId: [this.eventoSeleccionado.ActividadeId],
@@ -74,7 +78,8 @@ export class FormEventoComponent implements OnInit {
       you_tube: [this.eventoSeleccionado.you_tube],
       twich: [this.eventoSeleccionado.twich]
     })
-
+    this.imgUrl=this.eventoSeleccionado.imagen;
+    this.pdfUrl=this.eventoSeleccionado.pdf;
     let arrayFecha = this.eventoSeleccionado.fecha.split('-');
     let fecha = arrayFecha[0] + '-' + arrayFecha[1] + '-' + arrayFecha[2];
     this.formEvento.get('fecha')?.setValue(fecha);
@@ -86,17 +91,33 @@ export class FormEventoComponent implements OnInit {
 
   cambiarImg(event: Event) {
 
-    const file = (event.target as HTMLInputElement).files[0];
-    console.log(file)
+    this.fileImage = (event.target as HTMLInputElement).files[0];  
 
-    this.formEvento.get('img').updateValueAndValidity();
+    this.formEvento.get('imagen').updateValueAndValidity();
 
     const reader = new FileReader();
     reader.onload = () => {
       this.imgUrl = reader.result as string;
     }
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(this.fileImage);
+    
   }
+
+  cambiarPDF(event: Event) {
+
+    this.filePDF = (event.target as HTMLInputElement).files[0];   
+
+    this.formEvento.get('pdf').updateValueAndValidity();
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.pdfUrl = reader.result as string;
+    }
+    reader.readAsDataURL(this.filePDF);
+    
+  }
+
+
   onReset() {
     this.reset.emit(true);
  //   this.desactivarSelected();
@@ -113,8 +134,20 @@ export class FormEventoComponent implements OnInit {
     if (!this.formEvento.valid) {
       return;
     }
-
-    this.formData.emit(this.formEvento.value)
+    const formData = new FormData();
+    if (this.fileImage){
+      formData.append("image",this.fileImage);  
+          
+    }
+    if (this.filePDF){
+      formData.append("pdf",this.filePDF);  
+          
+    }
+    
+    this.formData.emit({
+        evento:this.formEvento.value,
+        files:formData
+      })
 
   }
 }

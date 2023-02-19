@@ -6,6 +6,7 @@ import { Actividad } from '../../../interfaces/especialiadad';
 import { EventosService } from '../../../services/eventos.service';
 import { EventosActividad } from '../../../interfaces/eventos-actividad.interface';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-eventos-especialidad',
@@ -27,10 +28,14 @@ export class EventosEspecialidadComponent implements OnInit {
   constructor(    
     public serviceModalEventoService:ServiceModalEventoService,
     private dataEspecialidadesService:DataEspecialidadesService,
-    private eventosService:EventosService
+    private eventosService:EventosService,private route:Router
     ) { }
 
-  ngOnInit(): void {
+  ngOnInit():void {
+    if (!this.dataEspecialidadesService.actividadSeleccionada){
+      
+      this.route.navigate(['/']);
+    }
     this.actividad=this.dataEspecialidadesService.actividadSeleccionada;
     this.especialidad=this.actividad.nombre;
     this.cargarPagina(1);
@@ -45,7 +50,7 @@ export class EventosEspecialidadComponent implements OnInit {
     this.paginaActual=event;
     this.eventosService.getEventosActividad(this.actividad.id,this.paginaActual)
       .subscribe((res:EventosActividad)=>{
-        console.log(res.eventos);
+        //console.log(res.eventos);
         this.eventos=res.eventos;
         this.numeroTotalEventos=res.count;
         if (this.numeroTotalEventos===5){

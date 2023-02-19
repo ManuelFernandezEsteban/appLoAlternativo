@@ -57,11 +57,9 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.especialistaService.forgotEspecialista(this.formLogin.value)
-    .subscribe(res=>{
-      console.log(res)
+    .subscribe(res=>{      
       Swal.fire('Enviado','Revisa tu correo, hemos enviado un enlace a tu correo de registro','success');
-    },(err)=>{
-      console.log(err)
+    },(err)=>{      
       Swal.fire('Error','Algo no ha ido bien','error');
     });
 

@@ -9,7 +9,7 @@
     <div class="box-content">
 
         <div class="info-evento">
-            <button class="boton btn-info color-light" (click)="descargarContenido()">Descargable</button>
+            <a class="boton btn-info color-light" [href]="evento.pdf" target="_blank">Descargable</a>
             <span class="texto-regular bold color-light">{{evento.fecha}}</span>
             <span class="texto-regular bold color-light">{{evento.precio|euros  }}</span>
             <div class="fila">

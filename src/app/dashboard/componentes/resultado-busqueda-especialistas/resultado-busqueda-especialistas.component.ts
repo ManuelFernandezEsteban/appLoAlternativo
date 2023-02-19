@@ -55,7 +55,7 @@ export class ResultadoBusquedaEspecialistasComponent implements OnInit {
   traerEspecialistas() {    
     this.especialistasServices.getEspecialistasActividad(this.especialidad)
       .subscribe((res: EspecialistasActividad) => {
-        console.log(res.especialistas);
+        //console.log(res.especialistas);
         this.listaResultado=res.especialistas;
         this.numeroTotalEspecialistas=res.count;
         this.paginaActual=1;

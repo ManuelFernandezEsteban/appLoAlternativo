@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IEspecialista } from 'src/app/interfaces/especialistas';
 import { DataEspecialidadesService } from '../../../services/data-especialidades.service';
 import { Actividad } from '../../../interfaces/especialiadad';
@@ -15,9 +15,15 @@ export class EspecialistasEspecialidadComponent implements OnInit {
   idEspecialidad!: number;
   especialidad:string='';
 
-  constructor(private dataEspecialidadesService:DataEspecialidadesService) { }
+  constructor(private dataEspecialidadesService:DataEspecialidadesService,
+              private route:Router) { }
 
   ngOnInit(): void {
+
+    if (!this.dataEspecialidadesService.actividadSeleccionada){
+      
+      this.route.navigate(['/']);
+    }
 
     this.actividad=this.dataEspecialidadesService.actividadSeleccionada;
     this.especialidad=this.actividad.nombre;  

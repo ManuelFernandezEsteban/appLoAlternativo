@@ -90,10 +90,10 @@ export class EspecialistasService {
       }
     }).pipe(
       tap((res: RespuestaEspecialista) => {
-        console.log(res.especialista);
+        //console.log(res.especialista);
         this.especialista = new Especialista(res.especialista);
 
-        console.log(this.especialista)
+        //console.log(this.especialista)
 
       })
     );;
@@ -113,7 +113,7 @@ export class EspecialistasService {
 
           this.especialista = new Especialista(res.especialista);
 
-          console.log(this.especialista)
+          //console.log(this.especialista)
 
         })
       );

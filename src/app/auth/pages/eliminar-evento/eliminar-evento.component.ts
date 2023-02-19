@@ -8,6 +8,7 @@ import { ServiceModalEventoService } from 'src/app/services/service-modal-evento
 
 
 import { EventosService } from '../../../services/eventos.service';
+import { UploadsService } from '../../../services/uploads.service';
 
 @Component({
   selector: 'app-eliminar-evento',
@@ -24,7 +25,8 @@ export class EliminarEventoComponent implements OnInit {
   
     private route: Router,
     public serviceModal: ServiceModalEventoService,
-    private eventosService: EventosService
+    private eventosService: EventosService,
+    private uploadsService:UploadsService
   ) {
 
   }
@@ -49,6 +51,9 @@ export class EliminarEventoComponent implements OnInit {
 
     this.eventosService.eliminarEvento(this.tablaEventosService.getEventoSelected().id)
       .subscribe(res => {
+        this.uploadsService.deleteEvento(this.tablaEventosService.getEventoSelected().id).subscribe(res=>{
+
+        },err=>{Swal.fire('Error',err.error.msg,'error');})
         
         this.serviceModal.closeDialog();
         this.route.navigate(['auth/principal/']);

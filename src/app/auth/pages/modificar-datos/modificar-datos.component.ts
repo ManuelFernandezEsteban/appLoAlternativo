@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/co
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Especialidad, Especialidades } from 'src/app/interfaces/especialiadad';
-
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
@@ -11,6 +9,9 @@ import { EspecialistasService } from '../../../services/especialistas.service';
 
 import { RespuestaEspecialista } from 'src/app/interfaces/respuesta-especialista.interface';
 import { Actividad, Actividades } from '../../../interfaces/especialiadad';
+
+import { UploadsService } from '../../../services/uploads.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modificar-datos',
@@ -53,6 +54,9 @@ export class ModificarDatosComponent implements OnInit {
   submitted: boolean = false;
   mensaje: string = 'Cambios guardados';
   imgUrl: string = '';
+  videoUrl:string='';
+  file: File;
+  video: File;
 
   constructor(private fb: FormBuilder,
     private route: Router,
@@ -61,22 +65,33 @@ export class ModificarDatosComponent implements OnInit {
     private especialidadesService: DataEspecialidadesService,
     private renderer: Renderer2,
     private tablaEventos: TablaEventosService,
-    public serviceModal: ServiceModalEventoService) { }
+    public serviceModal: ServiceModalEventoService,
+    private uploadService:UploadsService) { }
 
 
 
-  cambiarImg(event: Event) {
+  cambiarImg(event: Event) {   
 
-    const file = (event.target as HTMLInputElement).files[0];
+    this.file = (event.target as HTMLInputElement).files[0];
+    //console.log(this.file);
+
     this.formModificarEspecialista.get('imagen_terapeuta').updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {
       this.imgUrl = reader.result as string;
     }
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(this.file);
   }
   cambiarVideo(event:Event){
+    this.video = (event.target as HTMLInputElement).files[0];
+    //console.log(this.file);
 
+    this.formModificarEspecialista.get('video').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.videoUrl = reader.result as string;
+    }
+    reader.readAsDataURL(this.video);
   }
 
   rellenarSelect() {
@@ -129,7 +144,8 @@ export class ModificarDatosComponent implements OnInit {
       this.rellenarSelect();
     })    
     this.fechaValue = new Date(this.especialistasService.especialista.fecha_alta);    
-    this.imgUrl = this.especialistasService.especialista.imagen_terapeuta;
+    this.imgUrl = this.especialistasService.especialista.imagen;
+   
   }
 
   campoNoValido(campo: string): boolean {
@@ -157,13 +173,35 @@ export class ModificarDatosComponent implements OnInit {
 
       return
     }
+    
+    if (this.especialistasService.especialista.ActividadeId===10){
+      this.formModificarEspecialista.get('ActividadeId').setValue(10);
+    }
+    
     this.especialistasService.actualizarEspecialista(this.formModificarEspecialista.value)
-    .subscribe((res:RespuestaEspecialista)=>{
-      console.log(res);
-      //this.especialistasService.especialista=res
+    .subscribe((res:RespuestaEspecialista)=>{           
+      if (this.file){        
+        const formData = new FormData();
+        formData.append("file", this.file);
+        this.uploadService.upload(formData,'avatarEspecialista').subscribe(res=>{
+
+        },err=>{
+          Swal.fire('Error',err.error,'error');
+        }
+        );
+      }
+      if (this.video){        
+        const formData = new FormData();
+        formData.append("file", this.video);
+        this.uploadService.upload(formData,'videoEspecialista').subscribe(res=>{
+          
+        },err=>{
+          Swal.fire('Error',err.error,'error');
+        });
+      }      
       this.serviceModal.openDialog();
     },error=>{
-      console.log(error);
+      Swal.fire('Error',error.error,'error');
     });
     
   }

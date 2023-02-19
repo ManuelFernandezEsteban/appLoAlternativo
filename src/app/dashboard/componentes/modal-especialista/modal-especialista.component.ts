@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IEspecialista } from 'src/app/interfaces/especialistas';
 import { InfoDireccionModal } from 'src/app/interfaces/infoDireccionModal';
 import { InfoModal } from 'src/app/interfaces/infoModal';
@@ -10,9 +11,7 @@ import { DataEspecialidadesService } from '../../../services/data-especialidades
   templateUrl: './modal-especialista.component.html',
   styleUrls: ['./modal-especialista.component.scss']
 })
-export class ModalEspecialistaComponent implements OnInit {
-
-  
+export class ModalEspecialistaComponent implements OnInit { 
 
   @Input()
   especialista!: IEspecialista;
@@ -22,10 +21,10 @@ export class ModalEspecialistaComponent implements OnInit {
   infoWeb!:InfoModal;
 
   constructor(private serviceModalEventoService:ServiceModalEventoService,
+              
               ) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {  
 
     this.direccion={
       title:'Ubicacion',

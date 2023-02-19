@@ -9,7 +9,7 @@ export class ActividadPipe implements PipeTransform {
                 'Productos bio','Retiros','Alquiler salas' ]
   transform(id_actividad:number): string {
     
-    return this.actividades[id_actividad];
+    return this.actividades[id_actividad-1];
   }
 
 }

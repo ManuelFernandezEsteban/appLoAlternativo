@@ -19,7 +19,7 @@ export class MisEventosComponent implements OnInit {
   }
 
   eventoSeleccionado(event:Evento){
-    console.log(event);
+    
     this.tablaEventosService.selection(event);
   }
 }

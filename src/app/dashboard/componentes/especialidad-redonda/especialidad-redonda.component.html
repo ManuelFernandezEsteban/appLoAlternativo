@@ -5,7 +5,7 @@
     </div>
 
     <div class="container-image" >
-        <img src="{{boxEspecialidad.imagen}}" alt="imagen especilidad">
+        <img [src]="boxEspecialidad.imagen|noImage" [alt]="boxEspecialidad.nombre">
     </div>
     
 </div>

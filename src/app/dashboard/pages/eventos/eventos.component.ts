@@ -24,7 +24,7 @@ export class EventosComponent implements OnInit {
     this.dataEspecialidadesService.getEspecialidades<Actividades>()
     .subscribe(res=> {
 
-      console.log(res.actividades)
+      //console.log(res.actividades)
       this.actividades=res.actividades;
 
     })

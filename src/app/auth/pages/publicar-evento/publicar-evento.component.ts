@@ -9,6 +9,10 @@ import { EspecialistasService } from '../../../services/especialistas.service';
 import { EventosService } from '../../../services/eventos.service';
 import { IEvento } from '../../../interfaces/eventos';
 import { Evento } from '../../models/evento.model';
+import { FormEventoFiles } from '../../../interfaces/formularioEvento.interface';
+import { RespuestaEventos } from '../../../interfaces/eventos-respuesta.interface';
+import { RespuestaEvento } from '../../../interfaces/respuestaEvento.interface';
+import { UploadsService } from 'src/app/services/uploads.service';
 
 @Component({
   selector: 'app-publicar-evento',
@@ -50,7 +54,8 @@ export class PublicarEventoComponent implements OnInit {
      private route: Router,
     public serviceModalEventoService: ServiceModalEventoService,
     private especialistasService: EspecialistasService,
-    private eventosService: EventosService) { }
+    private eventosService: EventosService,
+    private uploadService:UploadsService) { }
 
   ngOnInit(): void {
     this.serviceModalEventoService.showDialog = false;
@@ -86,10 +91,28 @@ export class PublicarEventoComponent implements OnInit {
     this.tablaEventosService.resetEventoSelected();
   }
 
-  onPublic(evento:IEvento) {
-    const {id, ...nuevoEvento}= evento;
-    this.eventosService.crearEvento(nuevoEvento).subscribe(res => {      
-      console.log(res)
+  onPublic(evento:FormEventoFiles) {
+    const {id, ...nuevoEvento}= evento.evento;
+    this.eventosService.crearEvento(nuevoEvento).subscribe((res:RespuestaEvento) => {      
+      const id = res.evento.id;
+      if (evento.files.get('image')){
+        const formData = new FormData();
+        formData.append("file",evento.files.get('image'));
+        this.uploadService.uploadEvento(formData,'eventoImagen',id).subscribe(res=>{
+
+        },err=>{
+          Swal.fire('Error',err,'error');
+        })
+      }
+      if (evento.files.get('pdf')){
+        const formData = new FormData();
+        formData.append("file",evento.files.get('pdf'));
+        this.uploadService.uploadEvento(formData,'eventoInfo',id).subscribe(res=>{
+
+        },err=>{
+          Swal.fire('Error',err,'error');
+        })
+      }
       this.submitted = false;
       this.serviceModalEventoService.openDialog();
     }, err => {

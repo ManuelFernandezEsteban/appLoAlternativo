@@ -1,6 +1,6 @@
 <div class="box-formulario-evento" id="modificar-datos-especialista">
 
-    <form [formGroup]="formModificarEspecialista">
+    <form [formGroup]="formModificarEspecialista" enctype="multipart/form-data">
         <h3 class="title-l-primary">Modificar datos</h3>
         <div class="wrapper-form">
             <div class="columna gap-10 apellidos">
@@ -118,22 +118,18 @@
             <div class="img-evento" *ngIf="imgUrl && imgUrl !== ''">
                 <img [src]="imgUrl"  [alt]="especialistasService.especialista.nombre">
             </div>
-            <div class="columna gap-10 img-input">
-                <label class="option-menu" for="file-img">Imagen:</label>
-                <span class="texto-regular">{{especialistasService.especialista.imagen_terapeuta}}</span>
-            </div>
+
             <div class="columna gap-10 img-input">
                 <label class="option-menu" for="imagen_terapeuta">Cambia tu imagen:</label>
                 <input type="file" name="imagen_terapeuta" accept="image/*" id="" (change)="cambiarImg($event)"
                    
                     class="custom-file-input"> <!--formControlName="imagen_terapeuta"-->
             </div>
-            <div class="img-video">
-                <img [src]="especialistasService.especialista.video" alt="" #imgPreview>
-            </div>
+
             <div class="columna gap-10 img-video">
                 <label class="option-menu" for="file-video">Video:</label>
-                <span class="texto-regular">{{especialistasService.especialista.video}}</span>
+                <video [src]="especialistasService.especialista.video" autoplay="true"></video>
+                <!--<span class="texto-regular">{{especialistasService.especialista.video}}</span>-->
             </div>
             <div class="columna gap-10 img-input">
                 <label class="option-menu" for="video">Cambia tu video:</label>
