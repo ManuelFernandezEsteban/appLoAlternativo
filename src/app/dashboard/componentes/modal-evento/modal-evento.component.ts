@@ -46,7 +46,7 @@ export class ModalEventoComponent implements OnInit {
   };
   mostrarModalEmail:boolean=false;
   revista:boolean=false;
-
+  enlacePDF:string="";
 
 
 
@@ -54,10 +54,8 @@ export class ModalEventoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.evento.Especialista.nombre;
-
-
-
+    this.enlacePDF=this.evento.pdf;
+    //this.evento.Especialista.nombre;
     this.direccion = {
       title: 'Ubicacion',
       direccion: this.evento.direccion,
