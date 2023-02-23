@@ -9,7 +9,8 @@
     <div class="box-content">
 
         <div class="info-evento">
-            <a class="boton btn-info color-light" [href]="evento.pdf" target="_blank">Descargable</a>
+            
+            <a *ngIf="evento.pdf!=null" class="boton btn-info color-light" [href]="evento.pdf" target="_blank">Info descargable</a>
             <span class="texto-regular bold color-light">{{evento.fecha}}</span>
             <span class="texto-regular bold color-light">{{evento.precio|euros  }}</span>
             <div class="fila">

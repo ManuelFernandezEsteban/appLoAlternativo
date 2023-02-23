@@ -39,7 +39,7 @@
                 </div>
                 
                 <div class="fila">
-                    <a class="boton btn-info color-accent bold" [href]="enlacePDF" target="_blank">Descargable</a>
+                    <a *ngIf="evento.pdf!=null" class="boton btn-info color-accent bold" [href]="enlacePDF" target="_blank">Info descargable</a>
                     <span class="title-l-primary color-accent bold">{{evento.precio|euros}}</span>
                 </div>
             </div>

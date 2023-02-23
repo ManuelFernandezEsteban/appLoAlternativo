@@ -31,7 +31,7 @@ export class EspecialistaComponent implements OnInit {
     let url = 'linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),url('+imagen+')';
     
     this.renderer.setStyle(this.cajaEspecialista.nativeElement,'background',url);
-    this.renderer.setStyle(this.cajaEspecialista.nativeElement,'background-size','cover');
+    this.renderer.setStyle(this.cajaEspecialista.nativeElement,'background-size','contain');
     this.renderer.setStyle(this.cajaEspecialista.nativeElement,'background-position','center');
     this.renderer.setStyle(this.cajaEspecialista.nativeElement,'background-repeat','no-repeat');
   }

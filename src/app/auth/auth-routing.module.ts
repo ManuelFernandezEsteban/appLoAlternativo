@@ -33,7 +33,7 @@ const routes: Routes = [
       },
       {
         path: 'principal', component: PrincipalComponent, 
-        canActivate:[AuthGuard],
+        //canActivate:[AuthGuard],
         children: [
           {
             
