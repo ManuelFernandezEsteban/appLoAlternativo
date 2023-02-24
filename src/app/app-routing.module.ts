@@ -21,7 +21,7 @@ const routes: Routes = [
     path:'privacidad',component:PrivacidadComponent
   },
   {
-    path:'**',redirectTo:'404',pathMatch:'full'
+    path:'**',redirectTo:'',pathMatch:'full'
   },
   {
     path:'404',component:ErrorPageComponent
