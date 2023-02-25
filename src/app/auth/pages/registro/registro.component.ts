@@ -19,14 +19,14 @@ export class RegistroComponent implements OnInit {
   valido:boolean=false;
   formRegistro = this.fb.group(
     {
-      nombre: ['Manuel', Validators.required],
-      apellidos: ['Fernández', Validators.required],
-      telefono: ['677230977', Validators.required],
-      provincia:['Málaga',Validators.required],
-      password: ['12345678', [Validators.required,Validators.minLength(8) ]],
-      password2: ['12345678', Validators.required],
-      email: ['test100f@gmail.com', [Validators.required, Validators.email]],
-      ActividadeId: [2, Validators.required],
+      nombre: ['', Validators.required],
+      apellidos: ['', Validators.required],
+      telefono: ['', Validators.required],
+      provincia:['',Validators.required],
+      password: ['', [Validators.required,Validators.minLength(8) ]],
+      password2: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      ActividadeId: [1, Validators.required],
       privacidad: [false, Validators.requiredTrue],
       PlaneId:[1]
     },
