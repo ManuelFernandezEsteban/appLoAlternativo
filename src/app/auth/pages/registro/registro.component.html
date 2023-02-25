@@ -12,7 +12,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="nombre">Nombre:</label>
                         <div class="columna gap-10">
-                            <input type="text" name="nombre" id="" formControlName="nombre" placeholder="Manuel">
+                            <input type="text" name="nombre" id="" formControlName="nombre" placeholder="Tu nombre">
                             <span *ngIf="campoNoValido('nombre') && submitted" class="caption color-red">Introduzca un nombre</span>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                         <label class="encabezado color-accent" for="apellidos">Apellidos:</label>
                         <div class="columna gap-10">
                             <input type="text" name="apellidos" id="" formControlName="apellidos"
-                                placeholder="Fernández">
+                                placeholder="Tus apellidos">
                             <span *ngIf="campoNoValido('apellidos') && submitted" class="caption color-red">Introduzca sus
                                 apellidos</span>
                         </div>
@@ -34,7 +34,7 @@
                         <label class="encabezado color-accent" for="email">Email(username):</label>
                         <div class="columna gap-10">
                             <input type="text" name="email" id="" formControlName="email"
-                                placeholder="tuemail@email.es">
+                                placeholder="Tu email">
                             <span *ngIf="campoNoValido('email') && submitted" class="caption color-red">No es un email válido</span>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="telefono">Teléfono:</label>
                         <div class="columna gap-10">
-                            <input type="text" name="telefono" id="" formControlName="telefono" placeholder="612345678">
+                            <input type="text" name="telefono" id="" formControlName="telefono" placeholder="Tu teléfono">
                             <span *ngIf="campoNoValido('telefono') && submitted" class="caption color-red">No es un teléfono válido</span>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="password">Password:</label>
                         <div class="columna gap-10">
-                            <input type="password" name="password" id="" formControlName="password" placeholder="*******">
+                            <input type="password" name="password" id="" formControlName="password" placeholder= "********" >
                             <span *ngIf="campoNoValido('password') && submitted" class="caption color-red">El password es
                                 requerido y debe tener al menos 8 caracteres</span>
                         </div>
@@ -72,7 +72,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="password2">Repite password:</label>
                         <div class="columna gap-10">
-                            <input type="password" name="password2" id="" formControlName="password2" placeholder="******">
+                            <input type="password" name="password2" id="" formControlName="password2" placeholder= "********" >
                             <span *ngIf="!camposIguales() && submitted" class="caption color-red">Los password deben ser
                                 iguales</span>
                         </div>
@@ -97,8 +97,7 @@
 
 
                     <div class="columna gap-10">
-                        <label class="form-control encabezado color-accent" for="privacidad">Acepto la política de
-                            privacidad
+                        <label class="form-control encabezado color-accent" for="privacidad">Acepto <a class="color-accent" [routerLink]="['/privacidad']">la política de privacidad</a>
                             <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
                         </label>
                         <span *ngIf="campoNoValido('privacidad') && submitted" class="caption color-red">Debe aceptar la política de
@@ -118,7 +117,7 @@
 
     </form>
     <div class="fila terminos">
-        <a class="texto-regular color-accent">Términos y condiciones</a>
+        <a class="texto-regular color-accent" [routerLink]="['/privacidad']">Términos y condiciones</a>
         
         <span class="texto-regular color-accent">¿Ya tienes cuenta?, pulsa <a class="texto-regular color-accent bold"
                 [routerLink]="['/auth/login']">aquí </a>para entrar

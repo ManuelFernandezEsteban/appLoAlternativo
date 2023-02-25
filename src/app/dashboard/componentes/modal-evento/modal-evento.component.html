@@ -7,8 +7,8 @@
             <span class="title-l-primary color-accent">{{evento.evento|uppercase}}</span>
             <span class="encabezado color-accent">{{evento.fecha | date:'dd/MM/yyyy'}}</span>
         </div>
-        <div class="fila gap-20">
-            <div class="columna">
+        <div class="content-evento gap-20">
+            <div class="columna imagen-evento">
                 <img class="img-grande" [src]="evento.imagen|noImage" [alt]="evento.evento">
             </div>
             <div class="columna">
@@ -25,6 +25,9 @@
                 <div class="fila">
                      <app-info-modal-enlace [info]="infoWeb"></app-info-modal-enlace>
                 </div>
+                <div class="fila">
+                    <app-info-modal-enlace [info]="infoMail"></app-info-modal-enlace>
+               </div>
                 <div class="fila">
                     <p class="texto-regular color-accent">{{evento.descripcion}}</p>
                 </div>
