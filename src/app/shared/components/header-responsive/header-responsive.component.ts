@@ -14,7 +14,7 @@ export class HeaderResponsiveComponent implements OnInit {
 
   instagram:RedSocialIcon={
     nombre:'',
-    enlace:'https://www.instagram.com/loalternativo_/',
+    enlace:'https://www.instagram.com/nativostierra_/',
     icono:'../../../assets/images/icons-svg/instagram.svg'
   }
   facebook:RedSocialIcon={

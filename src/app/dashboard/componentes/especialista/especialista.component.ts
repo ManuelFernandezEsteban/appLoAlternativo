@@ -26,7 +26,7 @@ export class EspecialistaComponent implements OnInit {
     if (this.especialista.imagen!=null){
       imagen=this.especialista.imagen;
     }else{
-      imagen='../../assets/images/no_disponible.png'
+      imagen='../../assets/images/especialista_no_disponible.svg'
     }   
     let url = 'linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),url('+imagen+')';
     

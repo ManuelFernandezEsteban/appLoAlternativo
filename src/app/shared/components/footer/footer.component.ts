@@ -13,7 +13,7 @@ export class FooterComponent implements OnInit {
 
   instagram:RedSocialIcon={
     nombre:'Instagram',
-    enlace:'https://www.instagram.com/loalternativo_/',
+    enlace:'https://www.instagram.com/nativostierra_/',
     icono:'../../../assets/images/icons-svg/instagram.svg'
   }
   facebook:RedSocialIcon={

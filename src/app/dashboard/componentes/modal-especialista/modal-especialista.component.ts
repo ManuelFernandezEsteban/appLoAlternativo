@@ -18,7 +18,7 @@ export class ModalEspecialistaComponent implements OnInit {
   direccion!: InfoDireccionModal;
   infoTelefono!:InfoModal;
   infoMail!:InfoModal;
-  infoWeb!:InfoModal;
+  infoWeb!:InfoModal;  
 
   constructor(private serviceModalEventoService:ServiceModalEventoService,
               
