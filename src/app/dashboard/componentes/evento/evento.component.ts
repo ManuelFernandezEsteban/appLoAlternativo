@@ -27,7 +27,7 @@ export class EventoComponent implements OnInit {
     if (this.evento.imagen!=null){
       imagen=this.evento.imagen;
     }else{
-      imagen='../../assets/images/no_disponible.png'
+      imagen='../../assets/images/evento_no_disponible.svg'
     }   
     
     let url = 'linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),url('+imagen+')';

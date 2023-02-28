@@ -67,7 +67,7 @@ export class FormEventoComponent implements OnInit {
       codigo_postal: [this.eventoSeleccionado.codigo_postal],
       telefono: [this.eventoSeleccionado.telefono, Validators.required],
       descripcion: [this.eventoSeleccionado.descripcion, [Validators.required, Validators.minLength(10)]],
-      imagen: [null],
+      imagen: [],
       pdf: [null],
       id: [this.eventoSeleccionado.id],
       EspecialistaId: [this.eventoSeleccionado.EspecialistaId],
@@ -80,6 +80,12 @@ export class FormEventoComponent implements OnInit {
     })
     this.imgUrl=this.eventoSeleccionado.imagen;
     this.pdfUrl=this.eventoSeleccionado.pdf;
+    if (this.imgUrl){
+      this.formEvento.get('imagen').setValue(this.imgUrl);
+    }
+    if (this.pdfUrl){
+      this.formEvento.get('pdf').setValue(this.pdfUrl);
+    }
     let arrayFecha = this.eventoSeleccionado.fecha.split('-');
     let fecha = arrayFecha[0] + '-' + arrayFecha[1] + '-' + arrayFecha[2];
     this.formEvento.get('fecha')?.setValue(fecha);

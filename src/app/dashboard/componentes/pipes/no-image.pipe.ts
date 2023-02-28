@@ -8,13 +8,17 @@ export class NoImagePipe implements PipeTransform {
 
   constructor(private sanitizer:DomSanitizer){}
 
-  transform(image:string): any {
+  transform(image:string,isEspecialista:boolean): any {
+    
     let resultado=image;
-
-
     
     if (image===''||image===null || image===undefined){      
-      resultado= './../../../../assets/images/no_disponible.png';
+      if (isEspecialista){
+        resultado= './../../../../assets/images/especialista_no_disponible.svg';
+      }else{
+        resultado= './../../../../assets/images/evento_no_disponible.svg';
+      }
+      
     }    
     return this.sanitizer.bypassSecurityTrustResourceUrl(resultado);
 

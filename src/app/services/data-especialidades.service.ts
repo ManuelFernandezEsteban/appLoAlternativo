@@ -18,22 +18,5 @@ export class DataEspecialidadesService {
   getEspecialidades<Actividades>(): Observable<Actividades> {
     return this.http.get<Actividades>(`${base_url}/actividades`);
   }
-/*
-  getNombreEspecialidad(id: number): string {
-    
-    let nombreEspecialidad: string = '';   
 
-    if (this.especialidades.length != 0) {
-
-      this.especialidades.forEach(e => {
-        if (e.id === id) {
-          nombreEspecialidad = e.nombre;
-        }
-      });
-
-    }
-
-    return nombreEspecialidad;
-  }
-*/
 }

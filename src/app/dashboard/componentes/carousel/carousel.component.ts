@@ -32,16 +32,11 @@ export class CarouselComponent implements OnInit, OnDestroy {
 
         this.eventos = res.eventos;
         if (this.eventos.length > 0) {
-          this.hayEventos=true;
-          
-          const intervalInicial = setInterval(() => {
-            this.mover(1)
-          }, 1000);
-          clearInterval(intervalInicial);
+          this.hayEventos=true;          
           this.interval = setInterval(() => {
             this.mover(1);
             
-          }, 1000);
+          }, 4000);
         }
       })
 
