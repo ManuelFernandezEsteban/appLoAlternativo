@@ -12,6 +12,7 @@ export interface IEvento{
     localidad?:string;
     provincia?:string;
     codigo_postal?:string;
+    pais?:string;
     online?:boolean;
     EspecialistaId?:string;
     descripcion?:string;
@@ -27,5 +28,6 @@ export interface IEvento{
     twich?:string;
     ActividadeId?:number;
     Especialista?:IEspecialista;
+    MonedaId?:number;
 }
 

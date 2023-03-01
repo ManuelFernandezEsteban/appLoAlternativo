@@ -39,7 +39,7 @@
                 </div>
                 <div class="fila">
                     <button class="boton btn-info color-accent bold" (click)="descargarRevista()">Descargable</button>
-                    <span class="title-l-primary color-accent bold">{{evento.precio|euros}}</span>
+                    <span class="title-l-primary color-accent bold">{{evento.precio|euros:evento.MonedaId}</span>
                 </div>
             </div>
         </div>

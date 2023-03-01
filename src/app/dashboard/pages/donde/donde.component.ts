@@ -31,6 +31,7 @@ export class DondeComponent implements OnInit {
     localidad:'Alameda',
     provincia:'Málaga',
     codigo_postal:'29530',
+    pais:'España',
     icono:'../../assets/images/icons-svg/location-pin-solid.svg'
   }
   instagram:RedSocialIcon={

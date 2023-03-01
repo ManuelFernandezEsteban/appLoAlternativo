@@ -62,6 +62,7 @@ export class ModalEventoComponent implements OnInit {
       localidad: this.evento.localidad,
       provincia: this.evento.provincia,
       codigo_postal: this.evento.codigo_postal,
+      pais:this.evento.pais,
       icono: '../../assets/images/icons-svg/location-pin-solid.svg'
     }
     this.infoTelefono = {

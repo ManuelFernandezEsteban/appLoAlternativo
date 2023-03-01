@@ -12,7 +12,7 @@
             
             <a *ngIf="evento.pdf!=null" class="boton btn-info color-light" [href]="evento.pdf" target="_blank">Info descargable</a>
             <span class="texto-regular bold color-light">{{evento.fecha}}</span>
-            <span class="texto-regular bold color-light">{{evento.precio|euros  }}</span>
+            <span class="texto-regular bold color-light">{{evento.precio|euros:evento.MonedaId  }}</span>
             <div class="fila">
                 <button class="boton btn-info color-light" (click)="onMasInfo()">más info</button>
                 <span class="texto-regular bold color-light">{{evento.localidad|localizacion}}</span>

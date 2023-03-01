@@ -42,21 +42,24 @@
                     <span *ngIf="submitted && campoNoValido('telefono')" class="caption color-red">Introduzca un teléfono para su evento</span>
                 </div>
             </div>
-            <div class="columna gap-10 precio">
-                <label class="option-menu" for="precio">Precio:</label>
-                <div class="columna gap-10">
-                    <div class="inputCurrency">
-                        <input type="number" name="precio" id="" formControlName="precio" placeholder="€">
-                        <span class="option-menu" >€</span>
-                    </div>
-                    <span *ngIf="submitted && campoNoValido('precio')" class="caption color-red">Introduzca un precio para su evento</span>
-                </div>
-            </div>
             <div class="fila gap-10 w-online">
                 <label class="option-menu online" for="online">Online
                     <input type="checkbox" name="online" formControlName="online" id="">
                 </label>
             </div>
+            <div class="columna gap-10 precio">
+                <label class="option-menu" for="precio">Precio:</label>
+                <div class="columna gap-10">
+                    <div class="inputCurrency">
+                        <input type="number" name="precio" id="" formControlName="precio" placeholder="">
+                        <select class="option-menu" formControlName="MonedaId" name="moneda" #selectMoneda>                            
+                        </select>
+                    </div>
+                    <span *ngIf="submitted && campoNoValido('precio')" class="caption color-red">Introduzca un precio para su evento</span>
+                </div>
+            </div>
+
+            
 
             <div class="columna gap-10 direccion">
                 <label class="option-menu" for="direccion">Dirección:</label>
@@ -86,7 +89,13 @@
                     <span *ngIf="" class="caption color-red">Introduzca un código postal para su evento</span>
                 </div>
             </div>
-
+            <div class="columna gap-10 pais">
+                <label class="option-menu" for="pais">País:</label>
+                <div class="columna gap-10">
+                    <input type="text" name="pais"  id="" formControlName="pais" placeholder="Pais">
+                    <span *ngIf="" class="caption color-red">Introduzca su pais</span>
+                </div>
+            </div>
             <div class="columna gap-10 descripcion">
                 <label class="option-menu" for="mensaje">Breve descripción del evento:</label>
                 <div class="columna gap-10">

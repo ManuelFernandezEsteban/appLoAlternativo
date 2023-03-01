@@ -1,10 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { IEspecialista } from 'src/app/interfaces/especialistas';
 import { InfoDireccionModal } from 'src/app/interfaces/infoDireccionModal';
 import { InfoModal } from 'src/app/interfaces/infoModal';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
-import { DataEspecialidadesService } from '../../../services/data-especialidades.service';
 
 @Component({
   selector: 'app-modal-especialista',
@@ -32,6 +30,7 @@ export class ModalEspecialistaComponent implements OnInit {
       localidad:this.especialista.localidad,
       provincia:this.especialista.provincia,
       codigo_postal:this.especialista.codigo_postal,
+      pais:this.especialista.pais,
       icono:'../../assets/images/icons-svg/location-pin-solid.svg'
     }
     this.infoTelefono={

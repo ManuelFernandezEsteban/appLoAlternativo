@@ -12,8 +12,9 @@
                 <img class="img-grande" [src]="evento.imagen|noImage:false" [alt]="evento.evento">
             </div>
             <div class="columna">
-                <div class="fila">
-                    <span class="title-l-primary color-accent">{{evento.Especialista.nombre}}</span>
+                <div class="fila gap-10">
+                    <span class="title-l-primary color-accent">{{evento.Especialista.nombre}} {{evento.Especialista.apellidos}}</span>
+                    
                 </div>
                 <div class="fila gap-20 primerafila">
                     <app-info-modal [info]="infoTelefono"></app-info-modal>                   
@@ -43,7 +44,7 @@
                 
                 <div class="fila">
                     <a *ngIf="evento.pdf!=null" class="boton btn-info color-accent bold" [href]="enlacePDF" target="_blank">Info descargable</a>
-                    <span class="title-l-primary color-accent bold">{{evento.precio|euros}}</span>
+                    <span class="title-l-primary color-accent bold">{{evento.precio|euros:evento.MonedaId}}</span>
                 </div>
             </div>
         </div>
