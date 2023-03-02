@@ -1,7 +1,19 @@
-<div class="container-especialidad" (click)="onClickEspecialidad()" >
+<div class="container-especialidad" (click)="onClickEspecialidad()" id="especialista" >
 
     <div class="container-title">
         <span class="option-menu">{{boxEspecialidad.nombre}}</span>        
+    </div>
+    <div *ngIf="boxEspecialidad.Categorias_actividades.length>0" 
+        class="desplegable animate__animated animate__fadeIn">
+
+        <ul>
+            <li *ngFor="let item of boxEspecialidad.Categorias_actividades">
+                <span class="caption color_accent">{{item.categoria}}</span>
+            </li>
+        </ul>
+        
+        
+        
     </div>
 
     <div class="container-image" >

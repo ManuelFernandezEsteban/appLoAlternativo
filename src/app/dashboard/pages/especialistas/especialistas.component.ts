@@ -22,7 +22,7 @@ export class EspecialistasComponent implements OnInit {
   ngOnInit(): void {
 
     this.dataEspecialidadesService.getEspecialidades<Actividades>().subscribe(res => {
-
+      
       this.especialidades = res.actividades;     
 
     })

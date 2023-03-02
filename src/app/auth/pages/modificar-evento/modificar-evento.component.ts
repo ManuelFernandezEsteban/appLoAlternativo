@@ -36,7 +36,7 @@ export class ModificarEventoComponent implements OnInit {
 
   onModify(event:FormEventoFiles) {
 
-    const evento = event.evento;
+    const evento = event.evento;    
 
     this.eventosService.actualizarEvento(evento)
       .subscribe(res => {

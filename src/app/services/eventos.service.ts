@@ -35,7 +35,7 @@ export class EventosService {
   }
 
   actualizarEvento(formData:IEvento){
-    console.log(formData);
+    
     const token = localStorage.getItem('token');
 
     return this.http.put(`${base_url}/eventos/${formData.id}`,

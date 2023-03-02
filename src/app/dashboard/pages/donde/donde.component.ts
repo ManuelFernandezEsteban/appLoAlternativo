@@ -22,7 +22,7 @@ export class DondeComponent implements OnInit {
   }
   infoEmail:InfoModal={
     title:'Email',
-    info:'loalternativo@gmail.com',
+    info:'Portalnativostierra@gmail.com',
     icono:'../../assets/images/icons-svg/envelope-regular.svg'
   }
   infoDireccion:InfoDireccionModal={

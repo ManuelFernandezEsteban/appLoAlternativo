@@ -97,6 +97,7 @@ export class PublicarEventoComponent implements OnInit {
 
   onPublic(evento:FormEventoFiles) {
     const {id, ...nuevoEvento}= evento.evento;
+    
     this.eventosService.crearEvento(nuevoEvento).subscribe((res:RespuestaEvento) => {      
       const id = res.evento.id;
       if (evento.files.get('image')){

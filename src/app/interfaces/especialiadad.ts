@@ -1,4 +1,11 @@
+export interface Categoria{
+    id:number;
+    categoria:string;
+}
 
+export interface Categorias{
+    categorias:Categoria[];
+}
 
 export interface Especialidades{
     especialidades:Especialidad[];
@@ -9,6 +16,7 @@ export interface Especialidad{
     id:number;
     nombre:string;
     imagen:string;
+    Categorias_actividades?:Categoria[];
 }
 
 export interface Actividades{
@@ -19,3 +27,4 @@ export interface Actividad{
     nombre:string;
     imagen:string;
 }
+

@@ -39,7 +39,7 @@ export class EventoComponent implements OnInit {
   }
 
  ngOnInit(): void {
-      console.log(this.evento)
+    
 
   }
 
