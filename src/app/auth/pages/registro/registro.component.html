@@ -56,6 +56,15 @@
                             <span *ngIf="campoNoValido('provincia') && submitted" class="caption color-red">La provincia es obligatoria</span>
                         </div>
                     </div>
+                    <div class="select-registro columna gap-10">
+                        <label class="encabezado color-accent" for="Categorias">Categoría:</label>
+                        <select class="texto-regular" name="Categorias"  formControlName="Categorias" multiple>
+                            <option class="texto-regular" *ngFor="let item of categorias" value="{{item.id}}">
+                                {{item.categoria}}</option>
+
+                        </select>
+                        <span *ngIf="campoNoValido('Categorias') && submitted" class="caption color-red">Seleccione al menos una categoría</span>
+                    </div>
                 </div>
 
                 <div class="fila">
@@ -84,7 +93,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="ActividadeId">Especialidad:</label>
                         <div class="select-registro columna gap-10">
-                            <select class="texto-regular" name="ActividadeId" (change)="actividadesChange($event)"
+                            <select class="texto-regular" name="ActividadeId" #t (change)="actividadesChange(t.value)"
                                 formControlName="ActividadeId">
                                 <option class="texto-regular" *ngFor="let item of especialidades" value="{{item.id}}">
                                     {{item.nombre}}</option>

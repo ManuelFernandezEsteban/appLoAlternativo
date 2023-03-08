@@ -3,10 +3,10 @@ import { Validators, FormBuilder } from "@angular/forms";
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
-import { Especialidad, Especialidades } from 'src/app/interfaces/especialiadad';
+import { Categoria, Especialidad, Especialidades } from 'src/app/interfaces/especialiadad';
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
-import { Actividades, Actividad } from '../../../interfaces/especialiadad';
+import { Actividades, Actividad, Categorias } from '../../../interfaces/especialiadad';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -14,21 +14,23 @@ import { Actividades, Actividad } from '../../../interfaces/especialiadad';
 })
 export class RegistroComponent implements OnInit {
 
+  categorias:Categoria[];
   submitted: boolean = false;
   especialidades:Actividad[]=[];
   valido:boolean=false;
   formRegistro = this.fb.group(
     {
-      nombre: ['', Validators.required],
-      apellidos: ['', Validators.required],
-      telefono: ['', Validators.required],
-      provincia:['',Validators.required],
-      password: ['', [Validators.required,Validators.minLength(8) ]],
-      password2: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      nombre: ['manuel', Validators.required],
+      apellidos: ['fernandez', Validators.required],
+      telefono: ['123456789', Validators.required],
+      provincia:['malaga',Validators.required],
+      password: ['123456789', [Validators.required,Validators.minLength(8) ]],
+      password2: ['123456789', Validators.required],
+      email: ['lolo3f@gmail.com', [Validators.required, Validators.email]],
       ActividadeId: [1, Validators.required],
       privacidad: [false, Validators.requiredTrue],
-      PlaneId:[1]
+      PlaneId:[1],
+      Categorias:[]
     },
   );
 
@@ -41,7 +43,8 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {
     this.especialidadesService.getEspecialidades<Actividades>().subscribe(res=>{
-      this.especialidades=res.actividades;      
+      this.especialidades=res.actividades; 
+      this.categorias=this.especialidades[0].Categorias_actividades     
     })
   }
 
@@ -58,10 +61,13 @@ export class RegistroComponent implements OnInit {
       return;
     }
     this.valido=true;       
-    this.submitted = false;  
+    this.submitted = false; 
+    console.log(this.formRegistro.value)
+     
     this.especialistasService.crearEspecialista(this.formRegistro.value)
       .subscribe(res=>{
         //navegar a la zona privada (selección de plan)
+        
         this.router.navigateByUrl('auth/principal/planes');
       },(err)=>{
         Swal.fire('Error',err.error.errors.errors[0].msg,'error');        
@@ -85,7 +91,8 @@ export class RegistroComponent implements OnInit {
     
   }
 
-  actividadesChange(event:Event){
-    
+  actividadesChange(especialidad_id){
+    //console.log( this.especialidades[especialidad_id-1].Categorias_actividades)
+    this.categorias=this.especialidades[especialidad_id-1].Categorias_actividades
   }
 }

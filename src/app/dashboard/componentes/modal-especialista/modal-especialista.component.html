@@ -14,9 +14,9 @@
             <div class="fila gap-20">
                 <span class="title-l-primary color-accent">{{especialista.nombre|uppercase}}</span>
                 <span class="encabezado color-accent">{{especialista.apellidos}}</span>
-            </div>
-            
+            </div>                       
             <img class="avatar" [src]="especialista.imagen|noImage:true" [alt]="especialista.nombre">
+
         </div>
         <div class="content-especialista fila gap-20">
             <div class="columna gap-20">
@@ -34,7 +34,9 @@
                 <div class="fila gap-20">
                     <p class="texto-regular color-accent">{{especialista.descripcion_terapia}}</p>
                 </div>
-
+                <div class="fila gap-20">
+                    <app-listado-categorias *ngIf="hayCategorias" [categorias]="categorias"></app-listado-categorias>
+                </div>
                 <div class="fila gap-20">
                     <app-info-direccion-modal [infoDireccion]="direccion">
                         
@@ -81,6 +83,7 @@
                         </svg></span>
 
                 </div>
+
             </div>
         </div>
 

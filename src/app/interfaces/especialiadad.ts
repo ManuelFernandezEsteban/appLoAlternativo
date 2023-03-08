@@ -1,6 +1,6 @@
 export interface Categoria{
     id:number;
-    categoria:string;
+    categoria:string;    
 }
 
 export interface Categorias{
@@ -26,5 +26,6 @@ export interface Actividad{
     id:number;
     nombre:string;
     imagen:string;
+    Categorias_actividades?:Categoria[];
 }
 

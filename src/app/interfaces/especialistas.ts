@@ -1,3 +1,4 @@
+import { Categoria } from './especialiadad';
 export interface Especialistas {
     especialistas: IEspecialista[];
 }
@@ -30,8 +31,9 @@ export interface IEspecialista {
     deletedAt:           string;
     updatedAt:           string;  
     fecha_fin_suscripcion:string; 
-    fecha_pago_actual   :string; 
+    fecha_pago_actual:   string; 
     id?:                 string;
+    Categorias:         number[]; 
 
 }
 

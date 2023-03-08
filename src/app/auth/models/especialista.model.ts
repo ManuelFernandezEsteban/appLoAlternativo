@@ -1,4 +1,5 @@
 import { IEspecialista } from '../../interfaces/especialistas';
+import { Categoria } from '../../interfaces/especialiadad';
 
 
 
@@ -15,7 +16,7 @@ export class Especialista{
     codigo_postal:       string;
     pais:                string;
     video:               string;
-    imagen:    string;
+    imagen:              string;
     telefono:            string;
     PlaneId:             number;
     token_pago:          string;
@@ -27,8 +28,9 @@ export class Especialista{
     you_tube:            string;
     web:                 string;
     fecha_fin_suscripcion:string; 
-    fecha_pago_actual   :string;
-    id?:                 string;   
+    fecha_pago_actual:   string;
+    id?:                 string;  
+    Categorias?:         number[];
     
     constructor(especialista:IEspecialista){
         this.nombre=              especialista.nombre;
@@ -55,7 +57,7 @@ export class Especialista{
         this.fecha_fin_suscripcion=especialista.fecha_fin_suscripcion;
         this.fecha_pago_actual=especialista.fecha_pago_actual;
         this.id=                  especialista.id;
-
+        this.Categorias=            especialista.Categorias;
 
     }
 }

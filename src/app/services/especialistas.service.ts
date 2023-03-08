@@ -12,6 +12,7 @@ import { ActualizarEspecialistaForm } from '../interfaces/actualizar-especialist
 import { RespuestaEspecialista } from '../interfaces/respuesta-especialista.interface';
 import { EspecialistasActividad } from '../interfaces/especialistas-actividad.interface';
 import { NewPassForm } from '../interfaces/newPassForm.interface';
+import { Especialistas_Categorias } from '../interfaces/especialistas_categorias.interface';
 
 const base_url = environment.base_url;
 
@@ -53,6 +54,7 @@ export class EspecialistasService {
         tap((res: RespuestaToken) => {
           localStorage.setItem('token', res.token)
           this.especialista = res.especialista;
+          
         })
       );
 
@@ -63,9 +65,9 @@ export class EspecialistasService {
     return this.http.post(`${base_url}/auth/login`, formData)
       .pipe(
         tap((res: RespuestaToken) => {
-          localStorage.setItem('token', res.token);
-
+          localStorage.setItem('token', res.token);          
           this.especialista = new Especialista(res.especialista);
+          //console.log(this.especialista)
         })
       );
   }
@@ -89,12 +91,8 @@ export class EspecialistasService {
         'x-token': token
       }
     }).pipe(
-      tap((res: RespuestaEspecialista) => {
-        //console.log(res.especialista);
-        this.especialista = new Especialista(res.especialista);
-
-        //console.log(this.especialista)
-
+      tap((res: RespuestaEspecialista) => {        
+        this.especialista = new Especialista(res.especialista); 
       })
     );;
   }
@@ -129,6 +127,13 @@ export class EspecialistasService {
   getEspecialistasActividad(actividad:number):Observable<EspecialistasActividad>{    
    
     return this.http.get<EspecialistasActividad>(`${base_url}/especialistas/${actividad}`);
+  }
+
+
+  getCategoriasEspecialista<Especialistas_Categorias>(id:string):Observable<Especialistas_Categorias>{
+
+    return this.http.get<Especialistas_Categorias>(`${base_url}/categorias_especialistas/${id}`);
+
   }
 
 }
