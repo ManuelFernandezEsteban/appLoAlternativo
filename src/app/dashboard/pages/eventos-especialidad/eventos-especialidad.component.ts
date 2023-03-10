@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IEvento,  } from 'src/app/interfaces/eventos';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
-import { Actividad } from '../../../interfaces/especialiadad';
+import { Actividad } from '../../../interfaces/especialidad';
 import { EventosService } from '../../../services/eventos.service';
 import { EventosActividad } from '../../../interfaces/eventos-actividad.interface';
 import Swal from 'sweetalert2';

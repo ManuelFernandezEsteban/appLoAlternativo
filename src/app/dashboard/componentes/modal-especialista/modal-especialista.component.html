@@ -35,7 +35,7 @@
                     <p class="texto-regular color-accent">{{especialista.descripcion_terapia}}</p>
                 </div>
                 <div class="fila gap-20">
-                    <app-listado-categorias *ngIf="hayCategorias" [categorias]="categorias"></app-listado-categorias>
+                    <app-listado-categorias *ngIf="hayCategorias" [especialista]="especialista.id"></app-listado-categorias>
                 </div>
                 <div class="fila gap-20">
                     <app-info-direccion-modal [infoDireccion]="direccion">

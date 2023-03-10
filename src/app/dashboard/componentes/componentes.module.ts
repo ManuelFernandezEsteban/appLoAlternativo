@@ -30,6 +30,7 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { NoImagePipe } from './pipes/no-image.pipe';
 import { ListadoCategoriasComponent } from './listado-categorias/listado-categorias.component';
+import { HerramientasPipe } from './pipes/herramientas.pipe';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ListadoCategoriasComponent } from './listado-categorias/listado-categor
     NewsletterComponent,
     CarouselComponent,
     NoImagePipe,
-    ListadoCategoriasComponent
+    ListadoCategoriasComponent,
+    HerramientasPipe
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IEspecialista } from 'src/app/interfaces/especialistas';
+import { EspecialistaClass } from 'src/app/interfaces/especialistas';
 import Swal from 'sweetalert2';
 import { EspecialistasActividad } from '../../../interfaces/especialistas-actividad.interface';
 import { EspecialistasService } from '../../../services/especialistas.service';
@@ -16,7 +16,7 @@ export class FiltroEspecialistasComponent implements OnInit {
   @Output() onBuscar = new EventEmitter<EspecialistasActividad>();
   @Output() onReset = new EventEmitter<boolean>();
   
-  especialistas:IEspecialista[]=[];
+  especialistas:EspecialistaClass[]=[];
   nombre:string='';
   provincia:string='';  
 
@@ -43,7 +43,7 @@ export class FiltroEspecialistasComponent implements OnInit {
 
   }
 
-  filtro(lista:IEspecialista[],cadena:string):IEspecialista[]{
+  filtro(lista:EspecialistaClass[],cadena:string):EspecialistaClass[]{
     return lista.filter((item)=>item.nombre.toLowerCase().includes(cadena))
   } 
 

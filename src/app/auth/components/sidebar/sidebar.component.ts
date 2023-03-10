@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
-import { PlanesService } from '../../../services/planes.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
-import { RespuestaEspecialista } from 'src/app/interfaces/respuesta-especialista.interface';
-import { Especialistas } from '../../../interfaces/especialistas';
-import { Especialista } from '../../models/especialista.model';
 
 @Component({
   selector: 'app-sidebar',

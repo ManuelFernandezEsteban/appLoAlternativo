@@ -1,15 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IEspecialista } from 'src/app/interfaces/especialistas';
+import { EspecialistaClass } from 'src/app/interfaces/especialistas';
 
 @Pipe({
   name: 'filtroEspecialistas'
 })
 export class FiltroEspecialistasPipe implements PipeTransform {
 
-  transform(value: IEspecialista[], pagina:number=0,nombre:string='',provincia:string=''): IEspecialista[] {
+  transform(value: EspecialistaClass[], pagina:number=0,nombre:string='',provincia:string=''): EspecialistaClass[] {
 
-    let resultado:IEspecialista[]=value;
-    let filtroProvincias:IEspecialista[]=value;
+    let resultado:EspecialistaClass[]=value;
+    let filtroProvincias:EspecialistaClass[]=value;
 
     if (nombre.length!=0){
       nombre=nombre.trim().toLowerCase();

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IEspecialista, Especialistas } from 'src/app/interfaces/especialistas';
+import { EspecialistaClass } from 'src/app/interfaces/especialistas';
 import { DataEspecialistasService } from 'src/app/services/data-especialistas.service';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
@@ -15,9 +15,9 @@ export class ResultadoBusquedaEspecialistasComponent implements OnInit {
 
   @Input() especialidad!: number;
   isVisible: boolean = false;
-  lista: IEspecialista[] = [];
-  listaResultado:IEspecialista[]=[];
-  especialistaAMostrar!: IEspecialista;
+  lista: EspecialistaClass[] = [];
+  listaResultado:EspecialistaClass[]=[];
+  especialistaAMostrar!: EspecialistaClass;
   paginaActual: number = 1;
   numeroDePaginas: number = 0;
   numeroTotalEspecialistas: number = 0;
@@ -47,7 +47,7 @@ export class ResultadoBusquedaEspecialistasComponent implements OnInit {
     this.isVisible = !this.isVisible;
   }
 
-  especialistaSeleccionado(event: IEspecialista) {
+  especialistaSeleccionado(event: EspecialistaClass) {
     this.especialistaAMostrar = event;
     this.serviceModalEventoService.openDialog();
   }

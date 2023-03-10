@@ -24,24 +24,30 @@
             <div class="columna gap-10 actividad">
                 <label class="option-menu" for="ActividadeId">Actividad:</label>
                 <div class="select columna gap-10">
-                    <select class="texto-regular" name="ActividadeId" formControlName="ActividadeId" #selectActividad
+                    <select class="texto-regular" name="ActividadeId" 
+                    formControlName="ActividadeId" #selectActividad
                         (change)="actividadChange(selectActividad.value)">
-                        <option class="texto-regular" *ngFor="let item of especialidades" value="{{item.id}}">
-                            {{item.nombre}}</option>
+                        <option class="texto-regular" 
+                        *ngFor="let item of actividades" value="{{item.id}}">
+                            {{item.nombre}}
+                        </option>
                     </select>
                     <span *ngIf="submitted && campoNoValido('ActividadeId')" class="caption color-red">Seleccione su
                         actividad</span>
                 </div>
             </div>
             <div class="columna gap-10 categoria">
-                <label class="option-menu" for="Categorias">Categoria:</label>
+                <label class="option-menu" for="UsaHerramientas">Herramientas:</label>
                 <div class="select columna gap-10">
-                    <select class="texto-regular" name="Categorias"
-                     multiple formControlName="Categorias" #categoria>
-                        <option class="texto-regular" *ngFor="let item of categorias" value="{{item.id}}">
-                            {{item.categoria}}</option>
+                    <select class="texto-regular" name="UsaHerramientas"
+                      formControlName="UsaHerramientas" #categoria multiple>
+                        <option class="texto-regular"
+                            *ngFor="let item of herramientas" 
+                            value="{{item.id}}">
+                            {{item.categoria}}
+                        </option>
                     </select>
-                    <span *ngIf="submitted && campoNoValido('Categorias')" class="caption color-red">Seleccione su
+                    <span *ngIf="submitted && campoNoValido('UsaHerramientas')" class="caption color-red">Seleccione su
                         categoria</span>
                 </div>
             </div>
@@ -170,4 +176,3 @@
     <app-modal-info [mensaje]="mensaje" (onAceptar)="cerrar()" *ngIf="dataServiceModal.showDialog"></app-modal-info>
 </div>
 
-<!--./../../../../assets/images/Imagen_no_disponible.svg.png-->

@@ -50,16 +50,23 @@
                 </div>
                 <div class="fila">
                     <div class="columna gap-10">
-                        <label class="encabezado color-accent" for="provincia">Provincia:</label>
-                        <div class="columna gap-10">
-                            <input type="text" name="provincia" id="" formControlName="provincia" placeholder="Provincia">
-                            <span *ngIf="campoNoValido('provincia') && submitted" class="caption color-red">La provincia es obligatoria</span>
+                        <label class="encabezado color-accent" for="ActividadeId">Especialidad:</label>
+                        <div class="select-registro columna gap-10">
+                            <select class="texto-regular" name="ActividadeId" #t (change)="actividadesChange(t.value)"
+                                formControlName="ActividadeId">
+                                <option class="texto-regular" *ngFor="let item of especialidades" value="{{item.id}}">
+                                    {{item.nombre}}</option>
+
+                            </select>
+                            <span *ngIf="campoNoValido('ActividadeId') && submitted" class="caption color-red">Indique una
+                                especialidad</span>
                         </div>
                     </div>
+                    
                     <div class="select-registro columna gap-10">
-                        <label class="encabezado color-accent" for="Categorias">Categoría:</label>
-                        <select class="texto-regular" name="Categorias"  formControlName="Categorias" multiple>
-                            <option class="texto-regular" *ngFor="let item of categorias" value="{{item.id}}">
+                        <label class="encabezado color-accent" for="UsaHerramientas">Herramientas:</label>
+                        <select class="texto-regular" name="UsaHerramientas"  formControlName="UsaHerramientas" multiple>
+                            <option class="texto-regular" *ngFor="let item of herramientas" value="{{item.id}}">
                                 {{item.categoria}}</option>
 
                         </select>
@@ -91,17 +98,14 @@
 
                 <div class="fila">
                     <div class="columna gap-10">
-                        <label class="encabezado color-accent" for="ActividadeId">Especialidad:</label>
-                        <div class="select-registro columna gap-10">
-                            <select class="texto-regular" name="ActividadeId" #t (change)="actividadesChange(t.value)"
-                                formControlName="ActividadeId">
-                                <option class="texto-regular" *ngFor="let item of especialidades" value="{{item.id}}">
-                                    {{item.nombre}}</option>
-
-                            </select>
-                            <span *ngIf="campoNoValido('ActividadeId') && submitted" class="caption color-red">Indique una
-                                especialidad</span>
+                        <div class="columna gap-10">
+                            <label class="encabezado color-accent" for="provincia">Provincia:</label>
+                            <div class="columna gap-10">
+                                <input type="text" name="provincia" id="" formControlName="provincia" placeholder="Provincia">
+                                <span *ngIf="campoNoValido('provincia') && submitted" class="caption color-red">La provincia es obligatoria</span>
+                            </div>
                         </div>
+                        
                     </div>
 
 

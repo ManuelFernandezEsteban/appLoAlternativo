@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Actividad, Especialidad, Especialidades } from 'src/app/interfaces/especialiadad';
+import { Actividad } from 'src/app/interfaces/especialidad';
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
-import { Actividades } from '../../../interfaces/especialiadad';
+import { Actividades } from '../../../interfaces/especialidad';
 
 @Component({
   selector: 'app-eventos',
@@ -30,7 +30,7 @@ export class EventosComponent implements OnInit {
     })
   }
 
-  selecionEspecialidad(event: Especialidad) {
+  selecionEspecialidad(event: Actividad) {
     window.scrollTo(0,0);
     this.dataEspecialidadesService.actividadSeleccionada=event;
     //this.router.navigateByUrl('/home/eventos/eventos-especialidad')

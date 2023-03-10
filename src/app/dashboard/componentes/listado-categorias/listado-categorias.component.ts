@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Especialistas_Categoria } from '../../../interfaces/especialistas_categorias.interface';
+
+import { UsaHerramienta } from '../../../interfaces/especialidad';
+import { HerramientasService } from '../../../services/herramientas.service';
+import { Herramienta, Herramientas, HerramientasResp } from '../../../interfaces/especialidad';
 
 @Component({
   selector: 'app-listado-categorias',
@@ -8,12 +11,25 @@ import { Especialistas_Categoria } from '../../../interfaces/especialistas_categ
 })
 export class ListadoCategoriasComponent implements OnInit {
 
-  @Input()categorias:Especialistas_Categoria[]=[];
+  @Input()especialista:string='';
+  herramientas:UsaHerramienta[]=[];
+  
+  constructor(private herramientasService:HerramientasService) { }
 
-  constructor() { }
+  ngOnInit(): void {   
+    console.log(this.especialista)
+    this.herramientasService.getHerramientasByEspecialista<HerramientasResp>(this.especialista)
+    .subscribe((res:HerramientasResp)=>{
+      this.herramientas=res.usaHerramientas;
 
-  ngOnInit(): void {
-    
+      console.log(this.herramientas)
+    });
   }
 
+
+
+
+
+  ññññ
+ 
 }

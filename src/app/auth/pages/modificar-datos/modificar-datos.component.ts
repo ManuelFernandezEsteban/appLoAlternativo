@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -8,11 +8,11 @@ import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
 
 import { RespuestaEspecialista } from 'src/app/interfaces/respuesta-especialista.interface';
-import { Actividad, Actividades, Categoria, Categorias } from '../../../interfaces/especialiadad';
 
 import { UploadsService } from '../../../services/uploads.service';
 import Swal from 'sweetalert2';
-import { Especialistas_Categoria, Especialistas_Categorias } from '../../../interfaces/especialistas_categorias.interface';
+import { Actividad, Actividades, Herramienta } from 'src/app/interfaces/especialidad';
+import { UsaHerramienta } from '../../../interfaces/especialistas';
 @Component({
   selector: 'app-modificar-datos',
   templateUrl: './modificar-datos.component.html',
@@ -20,7 +20,7 @@ import { Especialistas_Categoria, Especialistas_Categorias } from '../../../inte
 })
 export class ModificarDatosComponent implements OnInit {
 
-  especialidades: Actividad[] = [];
+  actividades: Actividad[] = [];
 
   @ViewChild('imgInput') imgInput!: ElementRef;
   @ViewChild('selectActividad') select!: ElementRef;
@@ -30,7 +30,7 @@ export class ModificarDatosComponent implements OnInit {
   formModificarEspecialista = this.fb.group({
     nombre: [this.especialistasService.especialista.nombre, Validators.required],
     apellidos: [this.especialistasService.especialista.apellidos, Validators.required],
-    fecha_alta: [this.especialistasService.especialista.fecha_alta],
+    createdAt: [this.especialistasService.especialista.createdAt],
     descripcion_terapia: [this.especialistasService.especialista.descripcion_terapia, Validators.required],
     ActividadeId: [this.especialistasService.especialista.ActividadeId, Validators.required],
     direccion: this.especialistasService.especialista.direccion,
@@ -49,7 +49,7 @@ export class ModificarDatosComponent implements OnInit {
     you_tube: this.especialistasService.especialista.you_tube,
     web: this.especialistasService.especialista.web,
     id: this.especialistasService.especialista.id,
-    Categorias: []
+    UsaHerramientas: []
   });
 
   fechaValue!: Date;
@@ -59,7 +59,7 @@ export class ModificarDatosComponent implements OnInit {
   videoUrl: string = '';
   file: File;
   video: File;
-  categorias: Categoria[];
+  herramientas: Herramienta[];
 
   constructor(private fb: FormBuilder,
     private route: Router,
@@ -72,46 +72,6 @@ export class ModificarDatosComponent implements OnInit {
     private uploadService: UploadsService) { }
 
 
-
-  cambiarImg(event: Event) {
-
-    this.file = (event.target as HTMLInputElement).files[0];
-    //console.log(this.file);
-
-    this.formModificarEspecialista.get('imagen_terapeuta').updateValueAndValidity();
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imgUrl = reader.result as string;
-    }
-    reader.readAsDataURL(this.file);
-  }
-  cambiarVideo(event: Event) {
-    this.video = (event.target as HTMLInputElement).files[0];
-    //console.log(this.file);
-
-    this.formModificarEspecialista.get('video').updateValueAndValidity();
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.videoUrl = reader.result as string;
-    }
-    reader.readAsDataURL(this.video);
-  }
-
-  selectCategorias() {
-    /*  if (this.especialistasService.especialista.Categorias) {
-        const options = (this.selectCategoria.nativeElement).childNodes;
-        options.forEach(element => {
-          console.log(element.value);
-          if (this.especialistasService.especialista.Categorias.includes(element.value)) {
-            this.renderer.setAttribute(element, 'selected', '');
-          }
-        });
-      }*/
-  }
-  selectActividad() {
-
-  }
-
   ngOnInit(): void {
 
     this.tablaEventos.resetEventoSelected();
@@ -120,7 +80,7 @@ export class ModificarDatosComponent implements OnInit {
     this.formModificarEspecialista = this.fb.group({
       nombre: [this.especialistasService.especialista.nombre, Validators.required],
       apellidos: [this.especialistasService.especialista.apellidos, Validators.required],
-      fecha_alta: [this.especialistasService.especialista.fecha_alta],
+      createdAt: [this.especialistasService.especialista.createdAt],
       descripcion_terapia: [this.especialistasService.especialista.descripcion_terapia, Validators.required],
       ActividadeId: [this.especialistasService.especialista.ActividadeId, Validators.required],
       direccion: this.especialistasService.especialista.direccion,
@@ -139,21 +99,28 @@ export class ModificarDatosComponent implements OnInit {
       you_tube: this.especialistasService.especialista.you_tube,
       web: this.especialistasService.especialista.web,
       id: this.especialistasService.especialista.id,
-      Categorias: []
-    });
-    this.especialistasService.getCategoriasEspecialista<Especialistas_Categorias>(this.especialistasService.especialista.id)
-      .subscribe(res => {
-        const categorias = res.categorias;
-        this.modificarValorCategorias(categorias);
-      })
+      UsaHerramientas: []
+    })
     this.especialidadesService.getEspecialidades<Actividades>()
       .subscribe(res => {
-        this.especialidades = res.actividades;
-        this.categorias = this.especialidades[this.especialistasService.especialista.ActividadeId - 1].Categorias_actividades;
+        
+        this.actividades = res.actividades;
+        this.herramientas = this.actividades[this.especialistasService.especialista.ActividadeId - 1].Herramientas;
+        const values = []
+        if (this.especialistasService.especialista.UsaHerramientas) {
+          
+          if (this.especialistasService.especialista.UsaHerramientas.length > 0) {
+           
+            this.especialistasService.especialista.UsaHerramientas.forEach(e => {
+             
+              values.push(e.HerramientaId.toString());
+            });
+            this.formModificarEspecialista.get('UsaHerramientas').setValue(values);
+          }
+        }
       })
-    this.fechaValue = new Date(this.especialistasService.especialista.fecha_alta);
+    this.fechaValue = new Date(this.especialistasService.especialista.createdAt);
     this.imgUrl = this.especialistasService.especialista.imagen;
-
 
   }
 
@@ -170,9 +137,6 @@ export class ModificarDatosComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.ngOnInit();
-    //this.setEspecialista();
-    // this.rellenarSelect();
-
   }
 
   onModify() {
@@ -187,12 +151,12 @@ export class ModificarDatosComponent implements OnInit {
     if (this.especialistasService.especialista.ActividadeId === 10) {
       this.formModificarEspecialista.get('ActividadeId').setValue(10);
     }
-   
-    console.log(this.formModificarEspecialista.value)
+
+    //console.log(this.formModificarEspecialista.value)
 
     this.especialistasService.actualizarEspecialista(this.formModificarEspecialista.value)
       .subscribe((res: RespuestaEspecialista) => {
-        
+
         if (this.file) {
           const formData = new FormData();
           formData.append("file", this.file);
@@ -220,30 +184,32 @@ export class ModificarDatosComponent implements OnInit {
   }
 
   actividadChange(actividad) {
-
-    this.categorias = this.especialidades[actividad - 1].Categorias_actividades;
-    const values = []
-    this.categorias.forEach(e => {
-      let value = e.id;
-      values.push(value);
-    });
-    
-    
-    this.modificarValorCategorias(values)
-    
-
+    this.herramientas = this.actividades[actividad - 1].Herramientas;
+    this.formModificarEspecialista.get('UsaHerramientas').reset();
   }
 
+  cambiarImg(event: Event) {
 
-  modificarValorCategorias(categorias) {
-    const values = []
-    if (categorias.length > 0) {
-      categorias.forEach(e => {
-        values.push(e.CategoriasActividadeId.toString());
-      });
-      this.formModificarEspecialista.get('Categorias').setValue(values);
+    this.file = (event.target as HTMLInputElement).files[0];
+    //console.log(this.file);
+
+    this.formModificarEspecialista.get('imagen_terapeuta').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imgUrl = reader.result as string;
     }
+    reader.readAsDataURL(this.file);
+  }
+  cambiarVideo(event: Event) {
+    this.video = (event.target as HTMLInputElement).files[0];
+    //console.log(this.file);
 
+    this.formModificarEspecialista.get('video').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.videoUrl = reader.result as string;
+    }
+    reader.readAsDataURL(this.video);
   }
 
 

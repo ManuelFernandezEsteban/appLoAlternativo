@@ -12,7 +12,7 @@ import { ActualizarEspecialistaForm } from '../interfaces/actualizar-especialist
 import { RespuestaEspecialista } from '../interfaces/respuesta-especialista.interface';
 import { EspecialistasActividad } from '../interfaces/especialistas-actividad.interface';
 import { NewPassForm } from '../interfaces/newPassForm.interface';
-import { Especialistas_Categorias } from '../interfaces/especialistas_categorias.interface';
+
 
 const base_url = environment.base_url;
 

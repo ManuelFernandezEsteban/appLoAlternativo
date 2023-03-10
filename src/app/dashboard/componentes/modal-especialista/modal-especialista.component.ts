@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IEspecialista } from 'src/app/interfaces/especialistas';
+import { EspecialistaClass } from 'src/app/interfaces/especialistas';
 import { InfoDireccionModal } from 'src/app/interfaces/infoDireccionModal';
 import { InfoModal } from 'src/app/interfaces/infoModal';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
-import { Especialistas_Categoria, Especialistas_Categorias } from '../../../interfaces/especialistas_categorias.interface';
+//import { Especialistas_Categoria, Especialistas_Categorias } from '../../../interfaces/especialistas_categorias.interface';
+import { HerramientasService } from '../../../services/herramientas.service';
+import { Herramienta, Herramientas } from '../../../interfaces/especialidad';
 
 @Component({
   selector: 'app-modal-especialista',
@@ -14,16 +16,16 @@ import { Especialistas_Categoria, Especialistas_Categorias } from '../../../inte
 export class ModalEspecialistaComponent implements OnInit { 
 
   @Input()
-  especialista!: IEspecialista;
+  especialista!: EspecialistaClass;
   direccion!: InfoDireccionModal;
   infoTelefono!:InfoModal;
   infoMail!:InfoModal;
   infoWeb!:InfoModal; 
-  categorias:Especialistas_Categoria[]; 
+  herramientas:Herramienta[];
   hayCategorias:boolean=false;
 
   constructor(private serviceModalEventoService:ServiceModalEventoService,
-              private especialistaService:EspecialistasService) { }
+              private herramientasService:HerramientasService) { }
 
   ngOnInit(): void {  
 
@@ -52,16 +54,12 @@ export class ModalEspecialistaComponent implements OnInit {
       icono:'../../assets/images/icons-svg/globe-solid.svg'
     }
 
-    this.especialistaService.getCategoriasEspecialista<Especialistas_Categorias>(this.especialista.id)
-      .subscribe(res=>{
-        this.categorias=res.categorias;
-        if (res.categorias.length>0){
-          this.hayCategorias=true;
-        }
+    if (this.especialista.UsaHerramientas){
+      if(this.especialista.UsaHerramientas.length>0){
+        this.hayCategorias=true;
         
-      },err=>{
-        console.log(err);
-      })
+      }
+    }
 
 
   }

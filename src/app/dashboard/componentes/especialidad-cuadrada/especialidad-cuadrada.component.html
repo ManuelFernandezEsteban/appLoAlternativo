@@ -3,11 +3,11 @@
     <div class="container-title">
         <span class="option-menu">{{boxEspecialidad.nombre}}</span>        
     </div>
-    <div *ngIf="boxEspecialidad.Categorias_actividades.length>0" 
+    <div *ngIf="boxEspecialidad.Herramientas.length>0" 
         class="desplegable animate__animated animate__fadeIn">
 
         <ul>
-            <li *ngFor="let item of boxEspecialidad.Categorias_actividades">
+            <li *ngFor="let item of boxEspecialidad.Herramientas">
                 <span class="texto-regular color_accent">{{item.categoria|uppercase}}</span>
             </li>
         </ul>

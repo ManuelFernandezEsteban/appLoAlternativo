@@ -1,5 +1,5 @@
 import { Component, OnInit,EventEmitter,Input,Output, ViewChild, ElementRef } from '@angular/core';
-import { Especialidad } from 'src/app/interfaces/especialiadad';
+import { Actividad } from 'src/app/interfaces/especialidad';
 
 
 @Component({
@@ -10,8 +10,8 @@ import { Especialidad } from 'src/app/interfaces/especialiadad';
 export class DirectorioComponent implements OnInit {
 
   @Input() cuadrada:boolean=false;
-  @Input() especialidades:Especialidad[]=[];
-  @Output() onSeleccionEspecialidad = new EventEmitter<Especialidad>();
+  @Input() especialidades:Actividad[]=[];
+  @Output() onSeleccionEspecialidad = new EventEmitter<Actividad>();
 
  
  
@@ -20,7 +20,7 @@ export class DirectorioComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  selecionEspecialidad(event:Especialidad){
+  selecionEspecialidad(event:Actividad){
   
     
     this.onSeleccionEspecialidad.emit(event);

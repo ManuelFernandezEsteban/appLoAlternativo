@@ -1,6 +1,6 @@
 import { Component, OnInit,EventEmitter,Input,Output, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { Especialidad } from 'src/app/interfaces/especialiadad';
-import { Categorias} from '../../../interfaces/especialiadad';
+import { Actividad } from 'src/app/interfaces/especialidad';
+import { Herramientas} from '../../../interfaces/especialidad';
 
 @Component({
   selector: 'app-especialidad-cuadrada',
@@ -9,13 +9,13 @@ import { Categorias} from '../../../interfaces/especialiadad';
 })
 export class EspecialidadCuadradaComponent implements OnInit {
 
-  @Output() onEspecialidad = new EventEmitter<Especialidad>();
+  @Output() onEspecialidad = new EventEmitter<Actividad>();
 
-  @Input() boxEspecialidad:Especialidad={
+  @Input() boxEspecialidad:Actividad={
     id:0,
     nombre: '',
     imagen: '',
-    Categorias_actividades:[]
+    Herramientas:[]
   };
   
 

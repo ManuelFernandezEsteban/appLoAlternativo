@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from "@angular/forms";
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
-import { Categoria, Especialidad, Especialidades } from 'src/app/interfaces/especialiadad';
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
-import { Actividades, Actividad, Categorias } from '../../../interfaces/especialiadad';
+import { Actividades, Actividad,  Herramienta } from '../../../interfaces/especialidad';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -14,7 +12,7 @@ import { Actividades, Actividad, Categorias } from '../../../interfaces/especial
 })
 export class RegistroComponent implements OnInit {
 
-  categorias:Categoria[];
+  herramientas:Herramienta[];
   submitted: boolean = false;
   especialidades:Actividad[]=[];
   valido:boolean=false;
@@ -30,7 +28,7 @@ export class RegistroComponent implements OnInit {
       ActividadeId: [1, Validators.required],
       privacidad: [false, Validators.requiredTrue],
       PlaneId:[1],
-      Categorias:[]
+      UsaHerramientas:[]
     },
   );
 
@@ -44,7 +42,7 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
     this.especialidadesService.getEspecialidades<Actividades>().subscribe(res=>{
       this.especialidades=res.actividades; 
-      this.categorias=this.especialidades[0].Categorias_actividades     
+      this.herramientas=this.especialidades[0].Herramientas;   
     })
   }
 
@@ -93,6 +91,6 @@ export class RegistroComponent implements OnInit {
 
   actividadesChange(especialidad_id){
     //console.log( this.especialidades[especialidad_id-1].Categorias_actividades)
-    this.categorias=this.especialidades[especialidad_id-1].Categorias_actividades
+    this.herramientas=this.especialidades[especialidad_id-1].Herramientas;
   }
 }
