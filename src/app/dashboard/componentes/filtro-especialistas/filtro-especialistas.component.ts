@@ -37,6 +37,7 @@ export class FiltroEspecialistasComponent implements OnInit {
     this.especialistasServices.getEspecialistasActividad(this.especialidad)
       .subscribe((res: EspecialistasActividad) => {
         this.especialistas=res.especialistas;
+        console.log(this.especialistas)
       }, (err) => {
         Swal.fire('Error', err.error.msg, 'error');
       });
@@ -49,14 +50,14 @@ export class FiltroEspecialistasComponent implements OnInit {
 
   onClickBuscar() {    
     
-    let nombre = this.nombre.trim().toLowerCase();
+    //let nombre = this.nombre.trim().toLowerCase();
     let provincia = this.provincia.trim().toLowerCase();      
     //si hay un valor
-    if (nombre.length > 0) {
+   /* if (nombre.length > 0) {
       // busca en el json si el nombre incluye (o empieza por) el valor
       this.especialistas =  this.filtro(this.especialistas,nombre)      
       
-    }    
+    }*/    
     if (provincia.length>0){
       this.especialistas = this.filtro(this.especialistas,provincia);
     }

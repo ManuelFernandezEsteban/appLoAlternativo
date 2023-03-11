@@ -22,7 +22,7 @@ export class ListadoCategoriasComponent implements OnInit {
     .subscribe((res:HerramientasResp)=>{
       this.herramientas=res.usaHerramientas;
 
-      console.log(this.herramientas)
+      //console.log(this.herramientas)
     });
   }
 
