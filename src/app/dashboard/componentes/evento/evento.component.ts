@@ -22,7 +22,7 @@ export class EventoComponent implements OnInit {
   constructor(private renderer:Renderer2,private router:Router) { }
 
   ngAfterViewInit(): void {
-
+/*
     let imagen = '';
     if (this.evento.imagen!=null){
       imagen=this.evento.imagen;
@@ -36,6 +36,7 @@ export class EventoComponent implements OnInit {
     this.renderer.setStyle(this.cajaEvento.nativeElement,'background-size','cover');
     this.renderer.setStyle(this.cajaEvento.nativeElement,'background-position','center');
     this.renderer.setStyle(this.cajaEvento.nativeElement,'background-repeat','no-repeat');
+    */
   }
 
  ngOnInit(): void {

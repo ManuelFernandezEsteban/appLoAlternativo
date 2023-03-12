@@ -1,4 +1,33 @@
-<div #cajaEspecialista class="box-evento">
+<div class="contenedor__especialista">
+    <div class="contenedor__imagen__especialista">
+        <img class="especialista__imagen" 
+            [src]="especialista.imagen|noImage:true" 
+            [alt]="especialista.nombre">    
+    </div>
+    <div class="contenedor__content__especialista">
+        <div class="columna">
+            <div class="fila gap-10">
+                <span class="option-menu color-accent">{{especialista.nombre}}</span>
+                <span class="option-menu color-accent">{{especialista.apellidos}}</span>
+            </div>
+            <div class="fila">
+                <span class="option-menu color-accent">{{especialista.telefono}}</span>
+            </div>
+            <div class="fila">
+                <button (click)="onMasInfo()" class="boton btn-info color-light">más info.</button>
+                <div class="fila gap-10 end">
+                    <span class="option-menu color-accent end">{{especialista.pais}}</span>
+                    <span class="option-menu color-accent end">{{especialista.provincia}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!--<div #cajaEspecialista class="box-evento">
 
     <div class="title">
         <h4 class="encabezado color-light">{{especialista.nombre | uppercase}}</h4>
@@ -24,4 +53,7 @@
 
 
 
-</div>
+</div>-->
+
+
+

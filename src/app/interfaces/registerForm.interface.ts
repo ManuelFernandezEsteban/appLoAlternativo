@@ -10,6 +10,7 @@ export interface RegisterForm{
     ActividadeId?:number,
     privacidad?:boolean, 
     PlaneId?:number, 
-    provincia?:string      
+    provincia?:string ,
+    pais?:string     
 
 }

@@ -25,6 +25,7 @@
 @import './assets/scss/carousel.scss';
 @import './assets/scss/new-password.scss';
 @import './assets/scss/resultados-especialistas.scss';
+@import './assets/scss/box-eventos-especialistas.scss';
 
 /*pagina principal*/
 
@@ -33,10 +34,15 @@ app-header-no-menu,
 app-publicar-evento ,
 app-footer,
 app-mis-eventos,
-app-pagination{
+app-pagination,
+app-principal{
     width: 100%;
+   
 }
-
+app-root{
+    background-color: rgba(30, 84, 95, 0.1);
+    min-height: 100vh;
+}
 #cursos-provisional {
     height: 30vh;
 }
@@ -45,5 +51,4 @@ app-carousel{
     justify-content: center;
     align-items: center;
 }
-
 

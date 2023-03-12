@@ -1,4 +1,40 @@
-<div #cajaEvento class="box-evento">
+<div class="contenedor__especialista">
+    <div class="contenedor__imagen__especialista">
+        <img class="especialista__imagen" 
+            [src]="evento.imagen|noImage:true" 
+            [alt]="evento.evento">    
+    </div>
+    <div class="contenedor__content__especialista">
+        <div class="columna">
+            <div class="fila gap-10">
+                <span class="option-menu color-accent">{{evento.evento}}</span>                
+            </div>
+            <div class="fila gap-10">
+                <span class="option-menu color-accent">{{evento.Especialista.nombre}}</span>
+                <span class="option-menu color-accent">{{evento.Especialista.apellidos}}</span>
+            </div>
+   <!--         <div class="fila gap-10">
+                <span class="option-menu color-accent">{{evento.telefono}}</span>
+                <span class="texto-regular bold color-light">{{evento.fecha}}</span>
+                <span class="texto-regular bold color-light">{{evento.precio|euros:evento.MonedaId  }}</span>
+            </div>-->
+            <div class="fila gap-10">
+                <button (click)="onMasInfo()" class="boton btn-info color-light">más info.</button>
+                <a *ngIf="evento.pdf!=null" class="boton btn-info color-light" [href]="evento.pdf" target="_blank">Info descargable</a>
+            </div>
+            <div class="fila">    
+                <div class="fila gap-10 end">
+                    <span class="option-menu color-accent end">{{evento.pais}}</span>
+                    <span class="texto-regular bold color-light">{{evento.localidad|localizacion}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!--<div #cajaEvento class="box-evento">
 
     <div class="title">
         <h4 class="encabezado color-light">{{evento.evento}}</h4>
@@ -28,3 +64,4 @@
 </div>
 
 <app-modal-email *ngIf="mostrarModalEmail" (close)="cerrarModalEmail($event)"></app-modal-email>
+-->
