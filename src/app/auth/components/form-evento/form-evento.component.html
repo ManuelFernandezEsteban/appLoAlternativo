@@ -9,7 +9,7 @@
                 <div class="columna gap-10">
                     <input type="text" 
                         name="evento" id="" formControlName="evento" placeholder="Evento" [value]=eventoSeleccionado.evento>
-                    <span *ngIf="submitted && campoNoValido('evento')" class="caption color-red">Introduzca un nombre para su evento</span>
+                    <span *ngIf="submitted && campoNoValido('evento')" class="caption color-red">Requerido y menor de 50 caracteres</span>
                 </div>
             </div>
             <div class="columna gap-10 fecha">
@@ -106,21 +106,39 @@
                     </span>
                 </div>
             </div>
-            <div class="columna gap-10 instagram">
+            <div class="columna gap-10 instagram">               
                 <label class="option-menu" for="instagram">Instagram:</label>
-                <input type="text" name="instagram" id="" formControlName="instagram">
+                <div class="columna gap-10">
+                    <input type="text" name="instagram" id="" formControlName="instagram">
+                    <span *ngIf="submitted && campoNoValido('instagram')" class="caption color-red">
+                        Demasiados caracteres</span>
+                </div>                
             </div>
             <div class="columna gap-10 twitter">
                 <label class="option-menu" for="twitter">Twitter:</label>
-                <input type="text" name="twitter" id="" formControlName="twitter" >
+
+                <div class="columna gap-10">
+                    <input type="text" name="twitter" id="" formControlName="twitter">
+                    <span *ngIf="submitted && campoNoValido('twitter')" class="caption color-red">
+
+                        Demasiados caracteres</span>
+                </div> 
             </div>
             <div class="columna gap-10 facebook">
-                <label class="option-menu" for="facebook">Facebook:</label>
-                <input type="text" name="facebook" id="" formControlName="facebook" >
+                <label class="option-menu" for="facebook">Facebook:</label>               
+                <div class="columna gap-10">
+                    <input type="text" name="facebook" id="" formControlName="facebook">
+                    <span *ngIf="submitted && campoNoValido('facebook')" class="caption color-red">
+                        Demasiados caracteres</span>
+                </div>
             </div>
             <div class="columna gap-10 you_tube">
                 <label class="option-menu" for="you_tube">You tube:</label>
-                <input type="text" name="you_tube" id="" formControlName="you_tube" >
+                <div class="columna gap-10">
+                    <input type="text" name="you_tube" id="" formControlName="you_tube">
+                    <span *ngIf="submitted && campoNoValido('you_tube')" class="caption color-red">
+                        Demasiados caracteres</span>
+                </div>                 
             </div>
             <div class="columna visor-evento">
                 <a *ngIf="pdfUrl" class="option-menu " [href]="pdfUrl" target="_blank">PDF</a>

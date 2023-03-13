@@ -25,18 +25,18 @@ export class FormEventoComponent implements OnInit {
   @Output() formData = new EventEmitter<FormEventoFiles>();
   @Output() reset = new EventEmitter<boolean>();
   formEvento = this.fb.group({
-    evento: ['', Validators.required],
+    evento: ['', [Validators.required,Validators.maxLength(50)]],
     fecha: ['', Validators.required],
     precio: [0, Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    web: [''],
+    email: ['', [Validators.required, Validators.email,Validators.maxLength(50)]],
+    web: ['',[Validators.maxLength(50)]],
     online: [false],
-    direccion: [''],
-    poblacion: [''],
-    provincia: [''],
-    codigo_postal: [''],
-    pais: [''],
-    telefono: ['', Validators.required],
+    direccion: ['',[Validators.maxLength(50)]],
+    poblacion: ['',[Validators.maxLength(50)]],
+    provincia: ['',[Validators.maxLength(50)]],
+    codigo_postal: ['',[Validators.maxLength(6)]],
+    pais: ['',[Validators.maxLength(30)]],
+    telefono: ['',[Validators.required,Validators.maxLength(20)] ],
     descripcion: ['', [Validators.required, Validators.minLength(10)]],
     imagen: [''],
     pdf: [''],
@@ -44,11 +44,11 @@ export class FormEventoComponent implements OnInit {
     EspecialistaId: [''],
     ActividadeId: 0,
     MonedaId: 1,
-    twitter: [''],
-    facebook: [''],
-    instagram: [''],
-    you_tube: [''],
-    twich: ['']
+    twitter: ['',[Validators.maxLength(255)]],
+    facebook: ['',[Validators.maxLength(255)]],
+    instagram: ['',[Validators.maxLength(255)]],
+    you_tube: ['',[Validators.maxLength(255)]],
+    twich: ['',[Validators.maxLength(255)]]
   })
   submitted: boolean = false;
   fechaValue!: Date;
@@ -67,18 +67,18 @@ export class FormEventoComponent implements OnInit {
 
   ngOnInit(): void {
     this.formEvento = this.fb.group({
-      evento: [this.eventoSeleccionado.evento, Validators.required],
+      evento: [this.eventoSeleccionado.evento, [Validators.required,Validators.maxLength(50)]],
       fecha: ['', Validators.required],
       precio: [this.eventoSeleccionado.precio, Validators.required],
-      email: [this.eventoSeleccionado.email, [Validators.required, Validators.email]],
-      web: [this.eventoSeleccionado.web],
+      email: [this.eventoSeleccionado.email, [Validators.required, Validators.email,Validators.maxLength(50)]],
+      web: [this.eventoSeleccionado.web,[Validators.maxLength(50)]],
       online: [this.eventoSeleccionado.online],
-      direccion: [this.eventoSeleccionado.direccion],
-      poblacion: [this.eventoSeleccionado.localidad],
-      provincia: [this.eventoSeleccionado.provincia],
-      codigo_postal: [this.eventoSeleccionado.codigo_postal],
-      pais: [this.eventoSeleccionado.pais],
-      telefono: [this.eventoSeleccionado.telefono, Validators.required],
+      direccion: [this.eventoSeleccionado.direccion,[Validators.maxLength(50)]],
+      poblacion: [this.eventoSeleccionado.localidad,[Validators.maxLength(50)]],
+      provincia: [this.eventoSeleccionado.provincia,[Validators.maxLength(50)]],
+      codigo_postal: [this.eventoSeleccionado.codigo_postal,[Validators.maxLength(6)]],
+      pais: [this.eventoSeleccionado.pais,[Validators.maxLength(30)]],
+      telefono: [this.eventoSeleccionado.telefono,[Validators.required,Validators.maxLength(20)] ],
       descripcion: [this.eventoSeleccionado.descripcion, [Validators.required, Validators.minLength(10)]],
       imagen: [],
       pdf: [null],
@@ -86,11 +86,11 @@ export class FormEventoComponent implements OnInit {
       EspecialistaId: [this.eventoSeleccionado.EspecialistaId],
       ActividadeId: [this.eventoSeleccionado.ActividadeId],
       MonedaId: [this.eventoSeleccionado.MonedaId],
-      twitter: [this.eventoSeleccionado.twitter],
-      facebook: [this.eventoSeleccionado.facebook],
-      instagram: [this.eventoSeleccionado.instagram],
-      you_tube: [this.eventoSeleccionado.you_tube],
-      twich: [this.eventoSeleccionado.twich]
+      twitter: [this.eventoSeleccionado.twitter,[Validators.maxLength(255)]],
+      facebook: [this.eventoSeleccionado.facebook,[Validators.maxLength(255)]],
+      instagram: [this.eventoSeleccionado.instagram,[Validators.maxLength(255)]],
+      you_tube: [this.eventoSeleccionado.you_tube,[Validators.maxLength(255)]],
+      twich: [this.eventoSeleccionado.twich,[Validators.maxLength(255)]]
     })
     this.imgUrl = this.eventoSeleccionado.imagen;
     this.pdfUrl = this.eventoSeleccionado.pdf;

@@ -1,18 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
-
 import { RespuestaEspecialista } from 'src/app/interfaces/respuesta-especialista.interface';
-
 import { UploadsService } from '../../../services/uploads.service';
 import Swal from 'sweetalert2';
 import { Actividad, Actividades, Herramienta } from 'src/app/interfaces/especialidad';
-import { UsaHerramienta } from '../../../interfaces/especialistas';
+
 @Component({
   selector: 'app-modificar-datos',
   templateUrl: './modificar-datos.component.html',
@@ -28,26 +25,26 @@ export class ModificarDatosComponent implements OnInit {
   @ViewChild('option') options!: ElementRef[];
 
   formModificarEspecialista = this.fb.group({
-    nombre: [this.especialistasService.especialista.nombre, Validators.required],
-    apellidos: [this.especialistasService.especialista.apellidos, Validators.required],
+    nombre: [this.especialistasService.especialista.nombre, [Validators.required,Validators.maxLength(30)]],
+    apellidos: [this.especialistasService.especialista.apellidos, [Validators.required,Validators.maxLength(80)]],
     createdAt: [this.especialistasService.especialista.createdAt],
-    descripcion_terapia: [this.especialistasService.especialista.descripcion_terapia, Validators.required],
-    ActividadeId: [this.especialistasService.especialista.ActividadeId, Validators.required],
-    direccion: this.especialistasService.especialista.direccion,
-    provincia: this.especialistasService.especialista.provincia,
-    localidad: this.especialistasService.especialista.localidad,
-    codigo_postal: this.especialistasService.especialista.codigo_postal,
-    pais: this.especialistasService.especialista.pais,
+    descripcion_terapia: [this.especialistasService.especialista.descripcion_terapia,[ Validators.required]],
+    ActividadeId: [this.especialistasService.especialista.ActividadeId,[ Validators.required]],
+    direccion: [this.especialistasService.especialista.direccion,[Validators.maxLength(50)]],
+    provincia: [this.especialistasService.especialista.provincia,[Validators.required,Validators.maxLength(50)]],
+    localidad: [this.especialistasService.especialista.localidad,[Validators.maxLength(50)]],
+    codigo_postal: [this.especialistasService.especialista.codigo_postal,[Validators.maxLength(6)]],
+    pais: [this.especialistasService.especialista.pais,[Validators.required,Validators.maxLength(30)]],
     video: [null],
     imagen_terapeuta: [null],
-    telefono: [this.especialistasService.especialista.telefono, Validators.required],
+    telefono: [this.especialistasService.especialista.telefono, [Validators.required,Validators.maxLength(20)]],
     PlaneId: [this.especialistasService.especialista.PlaneId],
     email: [this.especialistasService.especialista.email, [Validators.required, Validators.email]],
-    twitter: this.especialistasService.especialista.twitter,
-    facebook: this.especialistasService.especialista.facebook,
-    instagram: this.especialistasService.especialista.instagram,
-    you_tube: this.especialistasService.especialista.you_tube,
-    web: this.especialistasService.especialista.web,
+    twitter: [this.especialistasService.especialista.twitter,[Validators.maxLength(255)]],
+    facebook: [this.especialistasService.especialista.facebook,[Validators.maxLength(255)]],
+    instagram: [this.especialistasService.especialista.instagram,[Validators.maxLength(255)]],
+    you_tube: [this.especialistasService.especialista.you_tube,[Validators.maxLength(255)]],
+    web: [this.especialistasService.especialista.web,[Validators.maxLength(255)]],
     id: this.especialistasService.especialista.id,
     UsaHerramientas: []
   });
@@ -60,6 +57,7 @@ export class ModificarDatosComponent implements OnInit {
   file: File;
   video: File;
   herramientas: Herramienta[];
+  errorMessage:string='';
 
   constructor(private fb: FormBuilder,
     private route: Router,
@@ -78,26 +76,26 @@ export class ModificarDatosComponent implements OnInit {
     this.tablaEventos.setIsSelectedOnFalse();
     this.dataServiceModal.showDialog = false;
     this.formModificarEspecialista = this.fb.group({
-      nombre: [this.especialistasService.especialista.nombre, Validators.required],
-      apellidos: [this.especialistasService.especialista.apellidos, Validators.required],
+      nombre: [this.especialistasService.especialista.nombre, [Validators.required,Validators.maxLength(15)]],
+      apellidos: [this.especialistasService.especialista.apellidos, [Validators.required,Validators.maxLength(25)]],
       createdAt: [this.especialistasService.especialista.createdAt],
-      descripcion_terapia: [this.especialistasService.especialista.descripcion_terapia, Validators.required],
-      ActividadeId: [this.especialistasService.especialista.ActividadeId, Validators.required],
-      direccion: this.especialistasService.especialista.direccion,
-      provincia: this.especialistasService.especialista.provincia,
-      localidad: this.especialistasService.especialista.localidad,
-      codigo_postal: this.especialistasService.especialista.codigo_postal,
-      pais: this.especialistasService.especialista.pais,
+      descripcion_terapia: [this.especialistasService.especialista.descripcion_terapia,[ Validators.required]],
+      ActividadeId: [this.especialistasService.especialista.ActividadeId,[ Validators.required]],
+      direccion: [this.especialistasService.especialista.direccion,[Validators.maxLength(50)]],
+      provincia: [this.especialistasService.especialista.provincia,[Validators.required,Validators.maxLength(15)]],
+      localidad: [this.especialistasService.especialista.localidad,[Validators.maxLength(30)]],
+      codigo_postal: [this.especialistasService.especialista.codigo_postal,[Validators.maxLength(6)]],
+      pais: [this.especialistasService.especialista.pais,[Validators.required,Validators.maxLength(20)]],
       video: [null],
       imagen_terapeuta: [null],
-      telefono: [this.especialistasService.especialista.telefono, Validators.required],
+      telefono: [this.especialistasService.especialista.telefono, [Validators.required,Validators.maxLength(20)]],
       PlaneId: [this.especialistasService.especialista.PlaneId],
       email: [this.especialistasService.especialista.email, [Validators.required, Validators.email]],
-      twitter: this.especialistasService.especialista.twitter,
-      facebook: this.especialistasService.especialista.facebook,
-      instagram: this.especialistasService.especialista.instagram,
-      you_tube: this.especialistasService.especialista.you_tube,
-      web: this.especialistasService.especialista.web,
+      twitter: [this.especialistasService.especialista.twitter,[Validators.maxLength(255)]],
+      facebook: [this.especialistasService.especialista.facebook,[Validators.maxLength(255)]],
+      instagram: [this.especialistasService.especialista.instagram,[Validators.maxLength(255)]],
+      you_tube: [this.especialistasService.especialista.you_tube,[Validators.maxLength(255)]],
+      web: [this.especialistasService.especialista.web,[Validators.maxLength(255)]],
       id: this.especialistasService.especialista.id,
       UsaHerramientas: []
     })
@@ -125,7 +123,10 @@ export class ModificarDatosComponent implements OnInit {
   }
 
   campoNoValido(campo: string): boolean {
-    return this.submitted && this.formModificarEspecialista.get(campo).invalid;
+
+    const hayError = this.submitted && this.formModificarEspecialista.get(campo).invalid;  
+
+    return hayError
   }
 
   cerrar() {
@@ -133,6 +134,7 @@ export class ModificarDatosComponent implements OnInit {
     this.route.navigate(['auth/principal/']);
   }
 
+  get f() { return this.formModificarEspecialista.controls; }
 
   onReset() {
     this.submitted = false;
@@ -178,6 +180,8 @@ export class ModificarDatosComponent implements OnInit {
         }
         this.serviceModal.openDialog();
       }, error => {
+        console.log(error);
+
         Swal.fire('Error', error.error, 'error');
       });
 
