@@ -26,6 +26,8 @@
 @import './assets/scss/new-password.scss';
 @import './assets/scss/resultados-especialistas.scss';
 @import './assets/scss/box-eventos-especialistas.scss';
+@import './assets/scss/privacidad.scss';
+@import './assets/scss/btn-whatssap.scss';
 
 /*pagina principal*/
 
@@ -40,7 +42,7 @@ app-principal{
    
 }
 app-root{
-    background-color: rgba(30, 84, 95, 0.1);
+    background-color: $backgroundColor;
     min-height: 100vh;
 }
 #cursos-provisional {

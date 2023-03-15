@@ -17,6 +17,9 @@ import { EventosEspecialidadComponent } from './pages/eventos-especialidad/event
 import { EspecialistasEspecialidadComponent } from './pages/especialistas-especialidad/especialistas-especialidad.component';
 import { RevistasComponent } from './pages/revistas/revistas.component';
 import { PrivacidadComponent } from './pages/privacidad/privacidad.component';
+import { LegalRegistroEspecialistasComponent } from './pages/legal-registro-especialistas/legal-registro-especialistas.component';
+import { PoliticaCookiesComponent } from './pages/politica-cookies/politica-cookies.component';
+import { CondicionesRegistroComponent } from './pages/condiciones-registro/condiciones-registro.component';
 
 
 
@@ -35,6 +38,9 @@ import { PrivacidadComponent } from './pages/privacidad/privacidad.component';
     EspecialistasEspecialidadComponent,
     RevistasComponent,
     PrivacidadComponent,
+    LegalRegistroEspecialistasComponent,
+    PoliticaCookiesComponent,
+    CondicionesRegistroComponent,
 
    
   ],

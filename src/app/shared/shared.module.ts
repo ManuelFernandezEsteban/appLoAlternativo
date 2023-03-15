@@ -12,6 +12,9 @@ import { BotonPlantillaComponent } from './components/boton-plantilla/boton-plan
 import { RedSocialComponent } from './components/red-social/red-social.component';
 
 import { HeaderResponsiveComponent } from './components/header-responsive/header-responsive.component';
+import { ProteccionDatosPersonalesComponent } from './components/proteccion-datos-personales/proteccion-datos-personales.component';
+import { FooterEspecialistasComponent } from './components/footer-especialistas/footer-especialistas.component';
+import { BtnWhatssapComponent } from './components/btn-whatssap/btn-whatssap.component';
 
 
 
@@ -24,6 +27,9 @@ import { HeaderResponsiveComponent } from './components/header-responsive/header
     BotonPlantillaComponent,
     RedSocialComponent,
     HeaderResponsiveComponent,
+    ProteccionDatosPersonalesComponent,
+    FooterEspecialistasComponent,
+    BtnWhatssapComponent,
     
   ],
   imports: [
@@ -39,7 +45,10 @@ import { HeaderResponsiveComponent } from './components/header-responsive/header
     BotonPlantillaComponent,
     HeaderNoMenuComponent,
     RedSocialComponent,
-    HeaderResponsiveComponent
+    HeaderResponsiveComponent,
+    ProteccionDatosPersonalesComponent,
+    FooterEspecialistasComponent,
+    BtnWhatssapComponent
   ]
 })
 export class SharedModule { }

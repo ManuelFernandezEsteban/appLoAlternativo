@@ -27,10 +27,10 @@
                         </div>
                     </div>
                     <div class="columna gap-10">
-                        <label class="form-control encabezado color-accent" for="privacidad">Acepto la <a class="color-accent" [routerLink]="['/privacidad']" target="blank">política de
-                            privacidad</a>
+                        <label class="form-control encabezado color-accent" for="privacidad">He leído y acepto la información sobre el tratamiento de datos personales
                             <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
                         </label>
+                        <app-proteccion-datos-personales></app-proteccion-datos-personales>
                         <span *ngIf="campoValido('privacidad') && submitted" 
                         class="caption color-red">Debe aceptar la política de privacidad</span>
 

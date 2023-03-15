@@ -18,16 +18,17 @@ export class RegistroComponent implements OnInit {
   valido:boolean=false;
   formRegistro = this.fb.group(
     {
-      nombre: ['manuel', Validators.required],
-      apellidos: ['fernandez', Validators.required],
-      telefono: ['123456789', Validators.required],
-      provincia:['Málaga',Validators.required],
-      password: ['123456789', [Validators.required,Validators.minLength(8) ]],
-      password2: ['123456789', Validators.required],
-      email: ['lolo3f@gmail.com', [Validators.required, Validators.email]],
-      ActividadeId: [1, Validators.required],
+      nombre: ['', Validators.required],
+      apellidos: ['', Validators.required],
+      telefono: ['', Validators.required],
+      provincia:['',Validators.required],
+      password: ['', [Validators.required,Validators.minLength(8) ]],
+      password2: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      ActividadeId: [0, Validators.required],
       privacidad: [false, Validators.requiredTrue],
-      pais:['España',Validators.required],
+      condiciones: [false, Validators.requiredTrue],
+      pais:['',Validators.required],
       PlaneId:[1],
       UsaHerramientas:[]
     },
@@ -43,7 +44,7 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
     this.especialidadesService.getEspecialidades<Actividades>().subscribe(res=>{
       this.especialidades=res.actividades; 
-      this.herramientas=this.especialidades[0].Herramientas;   
+      //this.herramientas=this.especialidades[0].Herramientas;   
     })
   }
 

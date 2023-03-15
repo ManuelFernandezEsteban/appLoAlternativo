@@ -134,16 +134,24 @@
                 </div>
                 <div class="fila">
                     <div class="columna gap-10">
-                        <label class="form-control encabezado color-accent" for="privacidad">Acepto <a
-                                class="color-accent" [routerLink]="['/privacidad']">la política de privacidad</a>
+                        <label class="form-control encabezado color-accent" for="privacidad">He leído y acepto la información sobre el tratamiento de datos personales 
                             <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
                         </label>
+                        <app-proteccion-datos-personales></app-proteccion-datos-personales>
                         <span *ngIf="campoNoValido('privacidad') && submitted" class="caption color-red">Debe aceptar la
                             política de
-                            privacidad</span>
-
+                            privacidad
+                        </span>
+                        <div class="columna gap-10">
+                            <label class="form-control encabezado color-accent" for="condiciones">He leído y acepto las <a [routerLink]="['/condiciones']" target="_blank">Condiciones de Registro.</a>    
+                                <input type="checkbox" name="condiciones" id="" formControlName="condiciones">
+                            </label>                            
+                            <span *ngIf="campoNoValido('privacidad') && submitted" class="caption color-red">Debe aceptar las condiciones de uso</span>
+    
+                        </div>
                     </div>
-                    <div class="columna gap-20">
+                    
+                    <div class="columna gap-20">                        
                         <button class="boton btn-login center sub-title-xl" type="submit">Registrarme</button>
                     </div>
                 </div>
@@ -159,7 +167,7 @@
 
     </form>
     <div class="fila terminos">
-        <a class="texto-regular color-accent" [routerLink]="['/privacidad']">Términos y condiciones</a>
+        <a class="texto-regular color-accent" [routerLink]="['/condiciones']">Términos y condiciones</a>
 
         <span class="texto-regular color-accent">¿Ya tienes cuenta?, pulsa <a class="texto-regular color-accent bold"
                 [routerLink]="['/auth/login']">aquí </a>para entrar

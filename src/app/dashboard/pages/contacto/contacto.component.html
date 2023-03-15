@@ -5,12 +5,13 @@
         <form [formGroup]="formContacto" (ngSubmit)="onSubmit()">
 
             <div class="fila gap-20">
-                <div class="columna gap-20">
+                <div class="columna gap-20 email-nombre">
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="nombre">Nombre:</label>
                         <div class="columna gap-10">
                             <input type="text" name="nombre" id="" formControlName="nombre" placeholder="Manuel">
-                            <span *ngIf="campoValido('nombre') && submitted" class="caption color-red">Introduzca su nombre</span>
+                            <span *ngIf="campoValido('nombre') && submitted" class="caption color-red">Introduzca su
+                                nombre</span>
                         </div>
                     </div>
                     <div class="columna gap-10">
@@ -18,38 +19,42 @@
                         <div class="columna gap-10">
                             <input type="email" name="email" id="" formControlName="email"
                                 placeholder="tuemail@email.es">
-                            <span *ngIf="campoValido('email') && submitted" class="caption color-red">No es un email válido</span>
+                            <span *ngIf="campoValido('email') && submitted" class="caption color-red">No es un email
+                                válido</span>
+                        </div>
+                    </div>
+                    <div class="columna gap-20">
+                        <label class="encabezado color-accent" for="mensaje">Mensaje</label>
+                        <div class="columna gap-10">
+                            <textarea name="mensaje" id="" cols="40" rows="7" formControlName="mensaje"
+                                placeholder="Cuentanos que necesitas">
+
+                        </textarea>
+                            <span *ngIf="campoValido('mensaje') && submitted" class="caption color-red">Deje un mensaje
+                                de al menos diez
+                                caracteres</span>
                         </div>
                     </div>
                     <div class="columna gap-10">
-                        <label class="form-control encabezado color-accent" for="privacidad">Acepto la 
-                            <a class="encabezado color-accent" [routerLink]="['/privacidad']" target="_blank">política de privacidad</a>
-                            
+                        <label class="form-control encabezado color-accent" for="privacidad">He leído y acepto la información sobre el tratamiento de datos personales
                             <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
                         </label>
-                        <span *ngIf="campoValido('privacidad') && submitted" class="caption color-red">Debe aceptar la política de
+                        <app-proteccion-datos-personales></app-proteccion-datos-personales>
+                        <span *ngIf="campoValido('privacidad') && submitted" class="caption color-red">Debe aceptar la
+                            política de
                             privacidad</span>
 
                     </div>
-                </div>
-                <div class="columna gap-20">
-                    <label class="encabezado color-accent" for="mensaje">Mensaje</label>
-                    <div class="columna gap-10">
-                        <textarea name="mensaje" id="" cols="40" rows="7" 
-                            formControlName="mensaje"
-                            placeholder="Cuentanos que necesitas">
-
-                        </textarea>
-                        <span *ngIf="campoValido('mensaje') && submitted" class="caption color-red">Deje un mensaje de al menos diez
-                            caracteres</span>
-                    </div>
-
                     <button class="boton btn-login end" type="submit">Enviar</button>
                 </div>
+
             </div>
+
+
+
         </form>
 
 
     </div>
-    
+
 </div>
