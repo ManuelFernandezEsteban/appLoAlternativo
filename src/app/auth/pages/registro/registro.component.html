@@ -12,7 +12,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="nombre">Nombre:</label>
                         <div class="columna gap-10">
-                            <input type="text" name="nombre" id="" formControlName="nombre" placeholder="Tu nombre">
+                            <input type="text" name="nombre"  formControlName="nombre" placeholder="Tu nombre">
                             <span *ngIf="campoNoValido('nombre') && submitted" class="caption color-red">Introduzca un
                                 nombre</span>
                         </div>
@@ -22,7 +22,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="apellidos">Apellidos:</label>
                         <div class="columna gap-10">
-                            <input type="text" name="apellidos" id="" formControlName="apellidos"
+                            <input type="text" name="apellidos" formControlName="apellidos"
                                 placeholder="Tus apellidos">
                             <span *ngIf="campoNoValido('apellidos') && submitted" class="caption color-red">Introduzca
                                 sus
@@ -35,7 +35,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="email">Email(username):</label>
                         <div class="columna gap-10">
-                            <input type="text" name="email" id="" formControlName="email" placeholder="Tu email">
+                            <input type="text" name="email"  formControlName="email" placeholder="Tu email">
                             <span *ngIf="campoNoValido('email') && submitted" class="caption color-red">No es un email
                                 válido</span>
                         </div>
@@ -45,7 +45,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="telefono">Teléfono:</label>
                         <div class="columna gap-10">
-                            <input type="text" name="telefono" id="" formControlName="telefono"
+                            <input type="text" name="telefono"  formControlName="telefono"
                                 placeholder="Tu teléfono">
                             <span *ngIf="campoNoValido('telefono') && submitted" class="caption color-red">No es un
                                 teléfono válido</span>
@@ -85,7 +85,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="password">Password:</label>
                         <div class="columna gap-10">
-                            <input type="password" name="password" id="" formControlName="password"
+                            <input type="password" name="password"  formControlName="password"
                                 placeholder="********">
                             <span *ngIf="campoNoValido('password') && submitted" class="caption color-red">El password
                                 es
@@ -97,7 +97,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="password2">Repite password:</label>
                         <div class="columna gap-10">
-                            <input type="password" name="password2" id="" formControlName="password2"
+                            <input type="password" name="password2"  formControlName="password2"
                                 placeholder="********">
                             <span *ngIf="!camposIguales() && submitted" class="caption color-red">Los password deben ser
                                 iguales</span>
@@ -111,7 +111,7 @@
                         <div class="columna gap-10">
                             <label class="encabezado color-accent" for="provincia">Provincia:</label>
                             <div class="columna gap-10">
-                                <input type="text" name="provincia" id="" formControlName="provincia"
+                                <input type="text" name="provincia"  formControlName="provincia"
                                     placeholder="Provincia">
                                 <span *ngIf="campoNoValido('provincia') && submitted" class="caption color-red">La
                                     provincia es obligatoria</span>
@@ -124,7 +124,7 @@
                         <div class="columna gap-10">
                             <label class="encabezado color-accent" for="pais">País:</label>
                             <div class="columna gap-10">
-                                <input type="text" name="pais" id="" formControlName="pais" placeholder="País">
+                                <input type="text" name="pais" formControlName="pais" placeholder="País">
                                 <span *ngIf="campoNoValido('pais') && submitted" class="caption color-red">El país es
                                     obligatorio</span>
                             </div>
@@ -135,7 +135,7 @@
                 <div class="fila">
                     <div class="columna gap-10">
                         <label class="form-control encabezado color-accent" for="privacidad">He leído y acepto la información sobre el tratamiento de datos personales 
-                            <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
+                            <input type="checkbox" name="privacidad"  formControlName="privacidad">
                         </label>
                         <app-proteccion-datos-personales></app-proteccion-datos-personales>
                         <span *ngIf="campoNoValido('privacidad') && submitted" class="caption color-red">Debe aceptar la
@@ -144,7 +144,7 @@
                         </span>
                         <div class="columna gap-10">
                             <label class="form-control encabezado color-accent" for="condiciones">He leído y acepto las <a [routerLink]="['/condiciones']" target="_blank">Condiciones de Registro.</a>    
-                                <input type="checkbox" name="condiciones" id="" formControlName="condiciones">
+                                <input type="checkbox" name="condiciones" formControlName="condiciones">
                             </label>                            
                             <span *ngIf="campoNoValido('privacidad') && submitted" class="caption color-red">Debe aceptar las condiciones de uso</span>
     

@@ -8,14 +8,14 @@
                 <label class="option-menu" for="evento">Evento:</label>
                 <div class="columna gap-10">
                     <input type="text" 
-                        name="evento" id="" formControlName="evento" placeholder="Evento" [value]=eventoSeleccionado.evento>
+                        name="evento"  formControlName="evento" placeholder="Evento" [value]=eventoSeleccionado.evento>
                     <span *ngIf="submitted && campoNoValido('evento')" class="caption color-red">Requerido y menor de 50 caracteres</span>
                 </div>
             </div>
             <div class="columna gap-10 fecha">
                 <label class="option-menu" for="fecha">Fecha:</label>
                 <div class="columna gap-10">
-                    <input type="date" name="fecha" [valueAsDate]="fechaValue" id="" formControlName="fecha" placeholder="27-12-2022">
+                    <input type="date" name="fecha" [valueAsDate]="fechaValue"  formControlName="fecha" placeholder="27-12-2022">
                     <span *ngIf="submitted && campoNoValido('fecha')" class="caption color-red">Introduzca una fecha para su evento</span>
                 </div>
             </div>
@@ -23,7 +23,7 @@
             <div class="columna gap-10 email">
                 <label class="option-menu" for="email">Email:</label>
                 <div class="columna gap-10">
-                    <input type="email" name="email" id="" formControlName="email" placeholder="email@evento.com">
+                    <input type="email" name="email"  formControlName="email" placeholder="email@evento.com">
                     <span *ngIf="submitted && campoNoValido('email')" class="caption color-red">Introduzca un email para su evento</span>
                 </div>
             </div>
@@ -31,14 +31,14 @@
             <div class="columna gap-10 web">
                 <label class="option-menu" for="web">Web:</label>
                 <div class="columna gap-10">
-                    <input type="url" name="web" id="" formControlName="web" placeholder="www.evento.com">
+                    <input type="url" name="web"  formControlName="web" placeholder="www.evento.com">
                     <span *ngIf="" class="caption color-red">Introduzca una url para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 telefono">
                 <label class="option-menu" for="telefono">Teléfono:</label>
                 <div class="columna gap-10">
-                    <input type="tel" id="" formControlName="telefono" placeholder="612345678">
+                    <input type="tel" formControlName="telefono" placeholder="612345678">
                     <span *ngIf="submitted && campoNoValido('telefono')" class="caption color-red">Introduzca un teléfono para su evento</span>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                 <label class="option-menu" for="precio">Precio:</label>
                 <div class="columna gap-10">
                     <div class="inputCurrency">
-                        <input type="number" name="precio" id="" formControlName="precio" placeholder="">
+                        <input type="number" name="precio"  formControlName="precio" placeholder="">
                         <select class="option-menu" formControlName="MonedaId" name="moneda" #selectMoneda>                            
                         </select>
                     </div>
@@ -64,42 +64,42 @@
             <div class="columna gap-10 direccion">
                 <label class="option-menu" for="direccion">Dirección:</label>
                 <div class="columna gap-10">
-                    <input type="text" name="direccion" id="" formControlName="direccion" placeholder="Calle del evento, 1">
+                    <input type="text" name="direccion"  formControlName="direccion" placeholder="Calle del evento, 1">
                     <span *ngIf="" class="caption color-red">Introduzca una dirección para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 poblacion">
                 <label class="option-menu" for="poblacion">Población:</label>
                 <div class="columna gap-10">
-                    <input type="text" name="poblacion" id="" formControlName="poblacion" placeholder="Alameda">
+                    <input type="text" name="poblacion"  formControlName="poblacion" placeholder="Alameda">
                     <span *ngIf="" class="caption color-red">Introduzca una población para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 provincia">
                 <label class="option-menu" for="provincia">Provincia:</label>
                 <div class="columna gap-10">
-                    <input type="text" name="provincia" id="" formControlName="provincia" placeholder="Málaga">
+                    <input type="text" name="provincia"  formControlName="provincia" placeholder="Málaga">
                     <span *ngIf="" class="caption color-red">Introduzca una provincia para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 c-postal">
                 <label class="option-menu" for="codigo_postal">C.P.:</label>
                 <div class="columna gap-10">
-                    <input type="text" name="codigo_postal" id="" formControlName="codigo_postal" placeholder="29000">
+                    <input type="text" name="codigo_postal"  formControlName="codigo_postal" placeholder="29000">
                     <span *ngIf="" class="caption color-red">Introduzca un código postal para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 pais">
                 <label class="option-menu" for="pais">País:</label>
                 <div class="columna gap-10">
-                    <input type="text" name="pais"  id="" formControlName="pais" placeholder="Pais">
+                    <input type="text" name="pais"  formControlName="pais" placeholder="Pais">
                     <span *ngIf="" class="caption color-red">Introduzca su pais</span>
                 </div>
             </div>
             <div class="columna gap-10 descripcion">
                 <label class="option-menu" for="mensaje">Breve descripción del evento:</label>
                 <div class="columna gap-10">
-                    <textarea name="mensaje" id="" rows="7" formControlName="descripcion" placeholder="">
+                    <textarea name="mensaje"  rows="7" formControlName="descripcion" placeholder="">
                     </textarea>
                     <span *ngIf="submitted && campoNoValido('descripcion')" class="caption color-red">
                         Indique una descripción de al menos diez caracteres
@@ -109,7 +109,7 @@
             <div class="columna gap-10 instagram">               
                 <label class="option-menu" for="instagram">Instagram:</label>
                 <div class="columna gap-10">
-                    <input type="text" name="instagram" id="" formControlName="instagram">
+                    <input type="text" name="instagram"  formControlName="instagram">
                     <span *ngIf="submitted && campoNoValido('instagram')" class="caption color-red">
                         Demasiados caracteres</span>
                 </div>                
@@ -118,7 +118,7 @@
                 <label class="option-menu" for="twitter">Twitter:</label>
 
                 <div class="columna gap-10">
-                    <input type="text" name="twitter" id="" formControlName="twitter">
+                    <input type="text" name="twitter"  formControlName="twitter">
                     <span *ngIf="submitted && campoNoValido('twitter')" class="caption color-red">
 
                         Demasiados caracteres</span>
@@ -127,7 +127,7 @@
             <div class="columna gap-10 facebook">
                 <label class="option-menu" for="facebook">Facebook:</label>               
                 <div class="columna gap-10">
-                    <input type="text" name="facebook" id="" formControlName="facebook">
+                    <input type="text" name="facebook"  formControlName="facebook">
                     <span *ngIf="submitted && campoNoValido('facebook')" class="caption color-red">
                         Demasiados caracteres</span>
                 </div>
@@ -135,7 +135,7 @@
             <div class="columna gap-10 you_tube">
                 <label class="option-menu" for="you_tube">You tube:</label>
                 <div class="columna gap-10">
-                    <input type="text" name="you_tube" id="" formControlName="you_tube">
+                    <input type="text" name="you_tube"  formControlName="you_tube">
                     <span *ngIf="submitted && campoNoValido('you_tube')" class="caption color-red">
                         Demasiados caracteres</span>
                 </div>                 
@@ -146,18 +146,19 @@
             
             <div class="columna gap-10 pdf">
                 <label class="option-menu" for="file-pdf">PDF del evento:</label>                
-                <input type="file" name="file-pdf" id="" formControlName="pdf" class="custom-file-input" accept="application/pdf" (change)="cambiarPDF($event)">
+                <input type="file" name="file-pdf"  formControlName="pdf" class="custom-file-input" accept="application/pdf" (change)="cambiarPDF($event)">
             </div>
             <div class="img-evento" *ngIf="imgUrl && imgUrl !== ''">                
                     <img [src]="imgUrl|noImage" [alt]="eventoSeleccionado.evento">
             </div>            
             <div class="columna gap-10 img-input">
                 <label class="option-menu" for="file-img">Cambia la imagen del evento:</label>                
-                <input type="file" name="file-img" id="" formControlName="imagen" class="custom-file-input" (change)="cambiarImg($event)">
+                <input type="file" name="file-img"  formControlName="imagen" class="custom-file-input" (change)="cambiarImg($event)">
             </div>
 
         </div>
         <div class="fila gap-10 botones" *ngIf="!eliminando">
+            
             <button type="submit" class="boton btn-submit-form">Aceptar</button>
             <button type="reset" class="boton btn-cancelar">Cancelar</button>
         </div>
@@ -165,6 +166,7 @@
             <button type="submit" class="boton btn-borrar">Borrar</button>
             <button type="reset" class="boton btn-cancelar">Cancelar</button>
         </div>
+        <app-proteccion-datos-personales></app-proteccion-datos-personales>
     </form>
 
     
