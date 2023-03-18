@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from './shared/shared.module';
 
+
 const cookieConfig:NgcCookieConsentConfig = {
   cookie: {
     domain: 'https://nativos-tierra.up.railway.app'// it is recommended to set your domain, for cookies to work properly
@@ -26,7 +27,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     }
   },
   theme: 'edgeless',
-  type: 'opt-in',
+  "type": "info",
   layout: 'my-custom-layout',
   layouts: {
     "my-custom-layout": '{{messagelink}}{{compliance}}'
@@ -62,6 +63,7 @@ const cookieConfig:NgcCookieConsentConfig = {
   ],
   imports: [
     NgcCookieConsentModule.forRoot(cookieConfig),
+    
     BrowserModule,
     AppRoutingModule,   
     HttpClientModule, 

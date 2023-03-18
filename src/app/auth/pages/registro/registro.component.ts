@@ -11,7 +11,7 @@ import { Actividades, Actividad,  Herramienta } from '../../../interfaces/especi
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent implements OnInit {
-
+  loading:boolean=false;
   herramientas:Herramienta[];
   submitted: boolean = false;
   especialidades:Actividad[]=[];
@@ -29,6 +29,7 @@ export class RegistroComponent implements OnInit {
       privacidad: [false, Validators.requiredTrue],
       condiciones: [false, Validators.requiredTrue],
       pais:['',Validators.required],
+      no_info_comercial:[false],
       PlaneId:[1],
       UsaHerramientas:[]
     },
@@ -49,7 +50,7 @@ export class RegistroComponent implements OnInit {
   }
 
   onRegister() {
-
+    
     this.submitted = true;
     if (!this.formRegistro.valid) {
       this.valido=false;
@@ -63,14 +64,16 @@ export class RegistroComponent implements OnInit {
     this.valido=true;       
     this.submitted = false; 
     console.log(this.formRegistro.value)
-     
+    this.loading=true;
     this.especialistasService.crearEspecialista(this.formRegistro.value)
       .subscribe(res=>{
         //navegar a la zona privada (selección de plan)
-        
+        this.loading=false;
         this.router.navigateByUrl('auth/principal/planes');
       },(err)=>{
-        Swal.fire('Error',err.error.errors.errors[0].msg,'error');        
+        this.loading=false;
+        Swal.fire('Error',err.error.errors.errors[0].msg,'error');    
+
       });
   }
 

@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ComponentesModule } from './componentes/componentes.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ngxLoadingAnimationTypes, NgxLoadingModule } from "ngx-loading";
 
 import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -50,7 +51,15 @@ import { CondicionesRegistroComponent } from './pages/condiciones-registro/condi
     SharedModule,
     DashboardRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.wanderingCubes,
+      backdropBackgroundColour: "rgba(0,0,0,0.1)",
+      backdropBorderRadius: "4px",
+      primaryColour: "#ffffff",
+      secondaryColour: "#ffffff",
+      tertiaryColour: "#ffffff",
+    }),
   ],exports:[
     HomeComponent,
     DashboardComponent,

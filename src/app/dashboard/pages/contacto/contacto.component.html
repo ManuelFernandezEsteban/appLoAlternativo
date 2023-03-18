@@ -9,7 +9,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="nombre">Nombre:</label>
                         <div class="columna gap-10">
-                            <input type="text" name="nombre" id="" formControlName="nombre" placeholder="Manuel">
+                            <input type="text" name="nombre" formControlName="nombre" placeholder="Manuel">
                             <span *ngIf="campoValido('nombre') && submitted" class="caption color-red">Introduzca su
                                 nombre</span>
                         </div>
@@ -17,7 +17,7 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="email">Email:</label>
                         <div class="columna gap-10">
-                            <input type="email" name="email" id="" formControlName="email"
+                            <input type="email" name="email" formControlName="email"
                                 placeholder="tuemail@email.es">
                             <span *ngIf="campoValido('email') && submitted" class="caption color-red">No es un email
                                 válido</span>
@@ -26,7 +26,7 @@
                     <div class="columna gap-20">
                         <label class="encabezado color-accent" for="mensaje">Mensaje</label>
                         <div class="columna gap-10">
-                            <textarea name="mensaje" id="" cols="40" rows="7" formControlName="mensaje"
+                            <textarea name="mensaje" cols="40" rows="7" formControlName="mensaje"
                                 placeholder="Cuentanos que necesitas">
 
                         </textarea>
@@ -36,13 +36,19 @@
                         </div>
                     </div>
                     <div class="columna gap-10">
-                        <label class="form-control encabezado color-accent" for="privacidad">He leído y acepto la información sobre el tratamiento de datos personales
-                            <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
+                        <label class="form-control texto-regular color-accent" for="privacidad">
+                            <input type="checkbox" name="privacidad" formControlName="privacidad">
+                            He leído y acepto la información sobre el tratamiento de datos personales
                         </label>
                         <app-proteccion-datos-personales></app-proteccion-datos-personales>
                         <span *ngIf="campoValido('privacidad') && submitted" class="caption color-red">Debe aceptar la
                             política de
-                            privacidad</span>
+                            privacidad
+                        </span>
+                        <label class="form-control texto-regular color-accent" for="info_comercial">
+                            <input type="checkbox" name="info_comercial" formControlName="info_comercial">
+                            Marque si desea recibir información comercial de nuestros productos o servicios.  
+                        </label>
 
                     </div>
                     <button class="boton btn-login end" type="submit">Enviar</button>

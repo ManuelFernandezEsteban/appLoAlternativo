@@ -9,7 +9,7 @@
                     <input type="text" name="apellidos" id="" formControlName="apellidos"
                         placeholder="Fernández Esteban">
                     <span *ngIf="submitted && campoNoValido('apellidos')" class="caption color-red">
-                        Requerido y no mayor de 25 caracteres 
+                        Requerido y no mayor de 25 caracteres
                     </span>
                 </div>
             </div>
@@ -26,11 +26,9 @@
             <div class="columna gap-10 actividad">
                 <label class="option-menu" for="ActividadeId">Actividad:</label>
                 <div class="select columna gap-10">
-                    <select class="texto-regular" name="ActividadeId" 
-                    formControlName="ActividadeId" #selectActividad
+                    <select class="texto-regular" name="ActividadeId" formControlName="ActividadeId" #selectActividad
                         (change)="actividadChange(selectActividad.value)">
-                        <option class="texto-regular" 
-                        *ngFor="let item of actividades" value="{{item.id}}">
+                        <option class="texto-regular" *ngFor="let item of actividades" value="{{item.id}}">
                             {{item.nombre}}
                         </option>
                     </select>
@@ -41,11 +39,9 @@
             <div class="columna gap-10 categoria">
                 <label class="option-menu" for="UsaHerramientas">Herramientas:</label>
                 <div class="select columna gap-10">
-                    <select class="texto-regular" name="UsaHerramientas"
-                      formControlName="UsaHerramientas" #categoria multiple>
-                        <option class="texto-regular"
-                            *ngFor="let item of herramientas" 
-                            value="{{item.id}}">
+                    <select class="texto-regular" name="UsaHerramientas" formControlName="UsaHerramientas" #categoria
+                        multiple>
+                        <option class="texto-regular" *ngFor="let item of herramientas" value="{{item.id}}">
                             {{item.categoria}}
                         </option>
                     </select>
@@ -102,7 +98,8 @@
                 <label class="option-menu" for="provincia">Provincia:</label>
                 <div class="columna gap-10">
                     <input type="text" name="provincia" id="" formControlName="provincia" placeholder="Málaga">
-                    <span *ngIf="submitted && campoNoValido('provincia')" class="caption color-red">Introduzca una provincia</span>
+                    <span *ngIf="submitted && campoNoValido('provincia')" class="caption color-red">Introduzca una
+                        provincia</span>
                 </div>
             </div>
             <div class="columna gap-10 c-postal">
@@ -133,13 +130,13 @@
                 </div>
             </div>
 
-            <div class="columna gap-10 instagram">               
+            <div class="columna gap-10 instagram">
                 <label class="option-menu" for="instagram">Instagram:</label>
                 <div class="columna gap-10">
                     <input type="text" name="instagram" id="" formControlName="instagram">
                     <span *ngIf="submitted && campoNoValido('instagram')" class="caption color-red">
                         Demasiados caracteres</span>
-                </div>                
+                </div>
             </div>
             <div class="columna gap-10 twitter">
                 <label class="option-menu" for="twitter">Twitter:</label>
@@ -149,10 +146,10 @@
                     <span *ngIf="submitted && campoNoValido('twitter')" class="caption color-red">
 
                         Demasiados caracteres</span>
-                </div> 
+                </div>
             </div>
             <div class="columna gap-10 facebook">
-                <label class="option-menu" for="facebook">Facebook:</label>               
+                <label class="option-menu" for="facebook">Facebook:</label>
                 <div class="columna gap-10">
                     <input type="text" name="facebook" id="" formControlName="facebook">
                     <span *ngIf="submitted && campoNoValido('facebook')" class="caption color-red">
@@ -165,7 +162,7 @@
                     <input type="text" name="you_tube" id="" formControlName="you_tube">
                     <span *ngIf="submitted && campoNoValido('you_tube')" class="caption color-red">
                         Demasiados caracteres</span>
-                </div>                 
+                </div>
             </div>
 
             <div class="img-evento" *ngIf="imgUrl && imgUrl !== ''">
@@ -188,7 +185,20 @@
                 <input type="file" name="video" id="" formControlName="video" accept="video/mp4,video/x-m4v,video/*"
                     (change)="cambiarVideo($event)" class="custom-file-input">
             </div>
+            <div class="columna gap-10 legal">
+                <h5 class="option-menu color-accent">PROTECCIÓN DE DATOS PERSONALES:</h5>
 
+                <p class="caption color-accent">
+                    La entidad responsable del tratamiento de sus datos es D. David Jesus Molina Retuerto -NATIVOS
+                    TIERRRA. Los datos se tratarán para atender su solicitud de modificación de datos personales.
+
+                    En las condiciones legales, tiene derecho a acceder, rectificar y suprimir los datos, a la
+                    limitación de su tratamiento, a oponerse al mismo y a su portabilidad.
+
+                    Puede ampliar la información sobre el tratamiento de sus datos personales consultando nuestra <a
+                        [routerLink]="['/privacidad']" target="_blank">Política de Privacidad</a>.
+                </p>
+            </div>
 
         </div>
         <div class="fila gap-10 botones">
@@ -199,4 +209,3 @@
 
     <app-modal-info [mensaje]="mensaje" (onAceptar)="cerrar()" *ngIf="dataServiceModal.showDialog"></app-modal-info>
 </div>
-
