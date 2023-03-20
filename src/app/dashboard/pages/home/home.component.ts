@@ -13,14 +13,16 @@ export class HomeComponent implements OnInit {
   eventoAMostrar!: IEvento;
   mostrarModal:boolean=false;
   eventos:IEvento[]=[];
+  loading:boolean=false;
 
 
   constructor(private dataEventos:DataEventosService,public serviceModalEventoService:ServiceModalEventoService,) { }
 
   ngOnInit(): void {
 
+    this.loading=true;
     this.dataEventos.getEventosAlernativo<IEventos>().subscribe(res=>{
-
+      this.loading=false;
       this.eventos=res.eventos;
     })
   }

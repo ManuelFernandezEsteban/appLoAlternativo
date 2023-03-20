@@ -12,6 +12,7 @@ import { RespuestaToken } from '../../../interfaces/respuesta-token.interface';
 export class LoginComponent implements OnInit {
 
   submitted:boolean= false;
+  loading:boolean=false;
 
   formLogin = this.fb.group(
     {
@@ -35,10 +36,12 @@ export class LoginComponent implements OnInit {
     if (!this.formLogin.valid){
       return;
     }
+    this.loading=true;
     this.especialistaService.loginEspecialista(this.formLogin.value)
       .subscribe((res:RespuestaToken)=>{
         //navegar al zona privada
         //console.log(res.especialista);
+        this.loading=false;
         if (res.especialista.PlaneId===1){
           this.router.navigateByUrl('auth/principal/planes');
         }else{
@@ -47,6 +50,7 @@ export class LoginComponent implements OnInit {
 
       },(err)=>{
         //console.log(err);
+        this.loading=false;
         Swal.fire('Error',"Ha ocurrido algo inesperado",'error');
       });   
 
