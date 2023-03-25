@@ -29,6 +29,8 @@ import { FiltroEspecialistasPipe } from './pipes/filtro-especialistas.pipe';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { NoImagePipe } from './pipes/no-image.pipe';
+import { ListadoCategoriasComponent } from './listado-categorias/listado-categorias.component';
+import { HerramientasPipe } from './pipes/herramientas.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { NoImagePipe } from './pipes/no-image.pipe';
     FiltroEspecialistasPipe,
     NewsletterComponent,
     CarouselComponent,
-    NoImagePipe
+    NoImagePipe,
+    ListadoCategoriasComponent,
+    HerramientasPipe
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Especialidad } from 'src/app/interfaces/especialiadad';
+import { Actividad } from 'src/app/interfaces/especialidad';
 
 @Component({
   selector: 'app-especialidad-redonda',
@@ -8,9 +8,9 @@ import { Especialidad } from 'src/app/interfaces/especialiadad';
 })
 export class EspecialidadRedondaComponent implements OnInit {
 
-  @Output() onEspecialidad = new EventEmitter<Especialidad>();
+  @Output() onEspecialidad = new EventEmitter<Actividad>();
 
-  @Input() boxEspecialidad:Especialidad={
+  @Input() boxEspecialidad:Actividad={
     id:0,
     nombre: '',
     imagen: ''

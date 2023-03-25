@@ -1,17 +1,14 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { EspecialistasService } from '../../../services/especialistas.service';
-
 import { RespuestaEspecialista } from 'src/app/interfaces/respuesta-especialista.interface';
-import { Actividad, Actividades } from '../../../interfaces/especialiadad';
-
 import { UploadsService } from '../../../services/uploads.service';
 import Swal from 'sweetalert2';
+import { Actividad, Actividades, Herramienta } from 'src/app/interfaces/especialidad';
 
 @Component({
   selector: 'app-modificar-datos',
@@ -20,43 +17,47 @@ import Swal from 'sweetalert2';
 })
 export class ModificarDatosComponent implements OnInit {
 
-  especialidades: Actividad[] = [];
+  actividades: Actividad[] = [];
 
   @ViewChild('imgInput') imgInput!: ElementRef;
   @ViewChild('selectActividad') select!: ElementRef;
+  @ViewChild('categoria') selectCategoria!: ElementRef;
   @ViewChild('option') options!: ElementRef[];
 
   formModificarEspecialista = this.fb.group({
-    nombre: [this.especialistasService.especialista.nombre, Validators.required],
-    apellidos: [this.especialistasService.especialista.apellidos, Validators.required],
-    fecha_alta: [this.especialistasService.especialista.fecha_alta],
-    descripcion_terapia: [this.especialistasService.especialista.descripcion_terapia, Validators.required],
-    ActividadeId: [this.especialistasService.especialista.ActividadeId, Validators.required],
-    direccion: this.especialistasService.especialista.direccion,
-    provincia: this.especialistasService.especialista.provincia,
-    localidad: this.especialistasService.especialista.localidad,
-    codigo_postal: this.especialistasService.especialista.codigo_postal,
-    pais: this.especialistasService.especialista.pais,
+    nombre: [this.especialistasService.especialista.nombre, [Validators.required,Validators.maxLength(30)]],
+    apellidos: [this.especialistasService.especialista.apellidos, [Validators.required,Validators.maxLength(80)]],
+    createdAt: [this.especialistasService.especialista.createdAt],
+    descripcion_terapia: [this.especialistasService.especialista.descripcion_terapia,[ Validators.required]],
+    ActividadeId: [this.especialistasService.especialista.ActividadeId,[ Validators.required]],
+    direccion: [this.especialistasService.especialista.direccion,[Validators.maxLength(50)]],
+    provincia: [this.especialistasService.especialista.provincia,[Validators.required,Validators.maxLength(50)]],
+    localidad: [this.especialistasService.especialista.localidad,[Validators.maxLength(50)]],
+    codigo_postal: [this.especialistasService.especialista.codigo_postal,[Validators.maxLength(6)]],
+    pais: [this.especialistasService.especialista.pais,[Validators.required,Validators.maxLength(30)]],
     video: [null],
     imagen_terapeuta: [null],
-    telefono: [this.especialistasService.especialista.telefono, Validators.required],
+    telefono: [this.especialistasService.especialista.telefono, [Validators.required,Validators.maxLength(20)]],
     PlaneId: [this.especialistasService.especialista.PlaneId],
     email: [this.especialistasService.especialista.email, [Validators.required, Validators.email]],
-    twitter: this.especialistasService.especialista.twitter,
-    facebook: this.especialistasService.especialista.facebook,
-    instagram: this.especialistasService.especialista.instagram,
-    you_tube: this.especialistasService.especialista.you_tube,
-    web: this.especialistasService.especialista.web,
-    id:this.especialistasService.especialista.id,
+    twitter: [this.especialistasService.especialista.twitter,[Validators.maxLength(255)]],
+    facebook: [this.especialistasService.especialista.facebook,[Validators.maxLength(255)]],
+    instagram: [this.especialistasService.especialista.instagram,[Validators.maxLength(255)]],
+    you_tube: [this.especialistasService.especialista.you_tube,[Validators.maxLength(255)]],
+    web: [this.especialistasService.especialista.web,[Validators.maxLength(255)]],
+    id: this.especialistasService.especialista.id,
+    UsaHerramientas: []
   });
 
   fechaValue!: Date;
   submitted: boolean = false;
   mensaje: string = 'Cambios guardados';
   imgUrl: string = '';
-  videoUrl:string='';
+  videoUrl: string = '';
   file: File;
   video: File;
+  herramientas: Herramienta[];
+  errorMessage:string='';
 
   constructor(private fb: FormBuilder,
     private route: Router,
@@ -66,11 +67,132 @@ export class ModificarDatosComponent implements OnInit {
     private renderer: Renderer2,
     private tablaEventos: TablaEventosService,
     public serviceModal: ServiceModalEventoService,
-    private uploadService:UploadsService) { }
+    private uploadService: UploadsService) { }
 
 
+  ngOnInit(): void {
 
-  cambiarImg(event: Event) {   
+    this.tablaEventos.resetEventoSelected();
+    this.tablaEventos.setIsSelectedOnFalse();
+    this.dataServiceModal.showDialog = false;
+    this.formModificarEspecialista = this.fb.group({
+      nombre: [this.especialistasService.especialista.nombre, [Validators.required,Validators.maxLength(15)]],
+      apellidos: [this.especialistasService.especialista.apellidos, [Validators.required,Validators.maxLength(25)]],
+      createdAt: [this.especialistasService.especialista.createdAt],
+      descripcion_terapia: [this.especialistasService.especialista.descripcion_terapia,[ Validators.required]],
+      ActividadeId: [this.especialistasService.especialista.ActividadeId,[ Validators.required]],
+      direccion: [this.especialistasService.especialista.direccion,[Validators.maxLength(50)]],
+      provincia: [this.especialistasService.especialista.provincia,[Validators.required,Validators.maxLength(15)]],
+      localidad: [this.especialistasService.especialista.localidad,[Validators.maxLength(30)]],
+      codigo_postal: [this.especialistasService.especialista.codigo_postal,[Validators.maxLength(6)]],
+      pais: [this.especialistasService.especialista.pais,[Validators.required,Validators.maxLength(20)]],
+      video: [null],
+      imagen_terapeuta: [null],
+      telefono: [this.especialistasService.especialista.telefono, [Validators.required,Validators.maxLength(20)]],
+      PlaneId: [this.especialistasService.especialista.PlaneId],
+      email: [this.especialistasService.especialista.email, [Validators.required, Validators.email]],
+      twitter: [this.especialistasService.especialista.twitter,[Validators.maxLength(255)]],
+      facebook: [this.especialistasService.especialista.facebook,[Validators.maxLength(255)]],
+      instagram: [this.especialistasService.especialista.instagram,[Validators.maxLength(255)]],
+      you_tube: [this.especialistasService.especialista.you_tube,[Validators.maxLength(255)]],
+      web: [this.especialistasService.especialista.web,[Validators.maxLength(255)]],
+      id: this.especialistasService.especialista.id,
+      UsaHerramientas: []
+    })
+    this.especialidadesService.getEspecialidades<Actividades>()
+      .subscribe(res => {
+        
+        this.actividades = res.actividades;
+        this.herramientas = this.actividades[this.especialistasService.especialista.ActividadeId - 1].Herramientas;
+        const values = []
+        if (this.especialistasService.especialista.UsaHerramientas) {
+          
+          if (this.especialistasService.especialista.UsaHerramientas.length > 0) {
+           
+            this.especialistasService.especialista.UsaHerramientas.forEach(e => {
+             
+              values.push(e.HerramientaId.toString());
+            });
+            this.formModificarEspecialista.get('UsaHerramientas').setValue(values);
+          }
+        }
+      })
+    this.fechaValue = new Date(this.especialistasService.especialista.createdAt);
+    this.imgUrl = this.especialistasService.especialista.imagen;
+
+  }
+
+  campoNoValido(campo: string): boolean {
+
+    const hayError = this.submitted && this.formModificarEspecialista.get(campo).invalid;  
+
+    return hayError
+  }
+
+  cerrar() {
+    this.serviceModal.closeDialog();
+    this.route.navigate(['auth/principal/']);
+  }
+
+  get f() { return this.formModificarEspecialista.controls; }
+
+  onReset() {
+    this.submitted = false;
+    this.ngOnInit();
+  }
+
+  onModify() {
+
+    this.submitted = true;
+
+    if (!this.formModificarEspecialista.valid) {
+
+      return
+    }
+
+    if (this.especialistasService.especialista.ActividadeId === 10) {
+      this.formModificarEspecialista.get('ActividadeId').setValue(10);
+    }
+
+    //console.log(this.formModificarEspecialista.value)
+
+    this.especialistasService.actualizarEspecialista(this.formModificarEspecialista.value)
+      .subscribe((res: RespuestaEspecialista) => {
+
+        if (this.file) {
+          const formData = new FormData();
+          formData.append("file", this.file);
+          this.uploadService.upload(formData, 'avatarEspecialista').subscribe(res => {
+
+          }, err => {
+            Swal.fire('Error', err.error, 'error');
+          }
+          );
+        }
+        if (this.video) {
+          const formData = new FormData();
+          formData.append("file", this.video);
+          this.uploadService.upload(formData, 'videoEspecialista').subscribe(res => {
+
+          }, err => {
+            Swal.fire('Error', err.error, 'error');
+          });
+        }
+        this.serviceModal.openDialog();
+      }, error => {
+        console.log(error);
+
+        Swal.fire('Error', error.error, 'error');
+      });
+
+  }
+
+  actividadChange(actividad) {
+    this.herramientas = this.actividades[actividad - 1].Herramientas;
+    this.formModificarEspecialista.get('UsaHerramientas').reset();
+  }
+
+  cambiarImg(event: Event) {
 
     this.file = (event.target as HTMLInputElement).files[0];
     //console.log(this.file);
@@ -82,7 +204,7 @@ export class ModificarDatosComponent implements OnInit {
     }
     reader.readAsDataURL(this.file);
   }
-  cambiarVideo(event:Event){
+  cambiarVideo(event: Event) {
     this.video = (event.target as HTMLInputElement).files[0];
     //console.log(this.file);
 
@@ -93,122 +215,6 @@ export class ModificarDatosComponent implements OnInit {
     }
     reader.readAsDataURL(this.video);
   }
-
-  rellenarSelect() {
-    this.especialidades.forEach(e => {
-      const option = this.renderer.createElement('option');
-      this.renderer.addClass(option, 'texto-regular');
-      this.renderer.setAttribute(option, 'value', e.id.toString());
-      const valor = this.renderer.createText(e.nombre);
-      if (e.id == this.especialistasService.especialista.ActividadeId) {
-        this.renderer.setAttribute(option, 'selected', '');
-      }
-      this.renderer.appendChild(option, valor);
-      this.renderer.appendChild(this.select.nativeElement, option);
-    })
-  }
-  ngOnInit(): void {
-
-    
-    //console.log(this.especialistasService.especialista)
-
-    this.tablaEventos.resetEventoSelected();
-    this.tablaEventos.setIsSelectedOnFalse();
-    this.dataServiceModal.showDialog = false;
-    this.formModificarEspecialista = this.fb.group({
-      nombre: [this.especialistasService.especialista.nombre, Validators.required],
-      apellidos: [this.especialistasService.especialista.apellidos, Validators.required],
-      fecha_alta: [this.especialistasService.especialista.fecha_alta],
-      descripcion_terapia: [this.especialistasService.especialista.descripcion_terapia, Validators.required],
-      ActividadeId: [this.especialistasService.especialista.ActividadeId, Validators.required],
-      direccion: this.especialistasService.especialista.direccion,
-      provincia: this.especialistasService.especialista.provincia,
-      localidad: this.especialistasService.especialista.localidad,
-      codigo_postal: this.especialistasService.especialista.codigo_postal,
-      pais: this.especialistasService.especialista.pais,
-      video: [null],
-      imagen_terapeuta: [null],
-      telefono: [this.especialistasService.especialista.telefono, Validators.required],
-      PlaneId: [this.especialistasService.especialista.PlaneId],
-      email: [this.especialistasService.especialista.email, [Validators.required, Validators.email]],
-      twitter: this.especialistasService.especialista.twitter,
-      facebook: this.especialistasService.especialista.facebook,
-      instagram: this.especialistasService.especialista.instagram,
-      you_tube: this.especialistasService.especialista.you_tube,
-      web: this.especialistasService.especialista.web,
-      id:this.especialistasService.especialista.id,
-    });
-    this.especialidadesService.getEspecialidades<Actividades>()
-      .subscribe(res => {
-      this.especialidades = res.actividades;
-      this.rellenarSelect();
-    })    
-    this.fechaValue = new Date(this.especialistasService.especialista.fecha_alta);    
-    this.imgUrl = this.especialistasService.especialista.imagen;
-   
-  }
-
-  campoNoValido(campo: string): boolean {
-    return this.submitted && this.formModificarEspecialista.get(campo).invalid;
-  }
-
-  cerrar() {
-    this.serviceModal.closeDialog();
-    this.route.navigate(['auth/principal/']);
-  }
-
-
-  onReset() {
-    this.submitted = false;
-    //this.setEspecialista();
-    this.rellenarSelect();
-
-  }
-
-  onModify() {
-
-    this.submitted = true;
-
-    if (!this.formModificarEspecialista.valid) {
-
-      return
-    }
-    
-    if (this.especialistasService.especialista.ActividadeId===10){
-      this.formModificarEspecialista.get('ActividadeId').setValue(10);
-    }
-    
-    this.especialistasService.actualizarEspecialista(this.formModificarEspecialista.value)
-    .subscribe((res:RespuestaEspecialista)=>{           
-      if (this.file){        
-        const formData = new FormData();
-        formData.append("file", this.file);
-        this.uploadService.upload(formData,'avatarEspecialista').subscribe(res=>{
-
-        },err=>{
-          Swal.fire('Error',err.error,'error');
-        }
-        );
-      }
-      if (this.video){        
-        const formData = new FormData();
-        formData.append("file", this.video);
-        this.uploadService.upload(formData,'videoEspecialista').subscribe(res=>{
-          
-        },err=>{
-          Swal.fire('Error',err.error,'error');
-        });
-      }      
-      this.serviceModal.openDialog();
-    },error=>{
-      Swal.fire('Error',error.error,'error');
-    });
-    
-  }
-
-
-
-
 
 
 }

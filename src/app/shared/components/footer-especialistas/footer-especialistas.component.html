@@ -1,0 +1,56 @@
+
+<footer class="color-accent">
+
+
+    <div class="box">
+        <div class="container-content">
+            <h1 class="title-xl-accent ">Nativos tierra</h1>
+            <h2 class="sub-title-xl ">Comunidad de especialistas, eventos y cursos</h2>
+        </div>
+        
+    </div>
+
+    
+
+
+    <div class="box">       
+        
+        <div class="columna">
+            <ul>
+                <span class="option-menu">Información legal</span>
+                <li>
+                    <a class="caption"  [routerLink]="['/privacidad']" target="_blank">Política de privacidad</a>
+                </li>
+                <li>
+                    <a class="caption" [routerLink]="['/legal']" target="_blank">Aviso legal</a>
+                </li>
+                <li>
+                    <a class="caption" [routerLink]="['/cookies']" target="_blank">Política de cookies</a>
+                </li>
+                <li>
+                    <a class="caption" [routerLink]="['/condiciones']" target="_blank">Condiciones de registro de los especialistas</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="columna">
+            <ul>
+                <span class="option-menu">Síguenos en redes</span>
+                <li>
+                    <app-red-social [fontSize]="caption" [redSocial]="instagram"></app-red-social>
+                </li>
+                <li>
+                    <app-red-social [fontSize]="caption" [redSocial]="facebook"></app-red-social>
+                </li>
+                <li>
+                    <app-red-social [fontSize]="caption" [redSocial]="youtube"></app-red-social>
+                </li>
+                <li>
+                    <button class="boton btn-info" (click)="irANewsletter()">Suscríbete a nuestra newsletter</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</footer>

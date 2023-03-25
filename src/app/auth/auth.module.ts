@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
+import { ngxLoadingAnimationTypes, NgxLoadingModule } from "ngx-loading";
+
 
 import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -34,7 +36,15 @@ import { NewPasswordComponent } from './pages/new-password/new-password.componen
     AuthRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    ComponentsModule   
+    ComponentsModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.wanderingCubes,
+      backdropBackgroundColour: "rgba(0,0,0,0.1)",
+      backdropBorderRadius: "4px",
+      primaryColour: "#ffffff",
+      secondaryColour: "#ffffff",
+      tertiaryColour: "#ffffff",
+    }),   
   ]
   
 })

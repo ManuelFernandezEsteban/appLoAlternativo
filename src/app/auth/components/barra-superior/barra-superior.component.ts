@@ -21,6 +21,7 @@ export class BarraSuperiorComponent implements OnInit {
                 ) { }
 
   ngOnInit(): void {  
+    console.log(this.especialistaService.especialista)
 
     const fecha_fin = new Date(this.especialistaService.especialista.fecha_fin_suscripcion);
 

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IEspecialista } from 'src/app/interfaces/especialistas';
+import { EspecialistaClass } from 'src/app/interfaces/especialistas';
 import Swal from 'sweetalert2';
 import { EspecialistasActividad } from '../../../interfaces/especialistas-actividad.interface';
 import { EspecialistasService } from '../../../services/especialistas.service';
@@ -16,7 +16,7 @@ export class FiltroEspecialistasComponent implements OnInit {
   @Output() onBuscar = new EventEmitter<EspecialistasActividad>();
   @Output() onReset = new EventEmitter<boolean>();
   
-  especialistas:IEspecialista[]=[];
+  especialistas:EspecialistaClass[]=[];
   nombre:string='';
   provincia:string='';  
 
@@ -37,26 +37,27 @@ export class FiltroEspecialistasComponent implements OnInit {
     this.especialistasServices.getEspecialistasActividad(this.especialidad)
       .subscribe((res: EspecialistasActividad) => {
         this.especialistas=res.especialistas;
+        console.log(this.especialistas)
       }, (err) => {
         Swal.fire('Error', err.error.msg, 'error');
       });
 
   }
 
-  filtro(lista:IEspecialista[],cadena:string):IEspecialista[]{
+  filtro(lista:EspecialistaClass[],cadena:string):EspecialistaClass[]{
     return lista.filter((item)=>item.nombre.toLowerCase().includes(cadena))
   } 
 
   onClickBuscar() {    
     
-    let nombre = this.nombre.trim().toLowerCase();
+    //let nombre = this.nombre.trim().toLowerCase();
     let provincia = this.provincia.trim().toLowerCase();      
     //si hay un valor
-    if (nombre.length > 0) {
+   /* if (nombre.length > 0) {
       // busca en el json si el nombre incluye (o empieza por) el valor
       this.especialistas =  this.filtro(this.especialistas,nombre)      
       
-    }    
+    }*/    
     if (provincia.length>0){
       this.especialistas = this.filtro(this.especialistas,provincia);
     }

@@ -20,19 +20,37 @@
                     <div class="columna gap-10">
                         <label class="encabezado color-accent" for="email">Email:</label>
                         <div class="columna gap-10">
-                            <input type="email" name="email" id="" formControlName="email"
-                                placeholder="tuemail@email.es">
+                            <input type="email" name="email" formControlName="email" placeholder="tuemail@email.es">
                             <span *ngIf="campoValido('email') && submitted" class="caption color-red">No es un email
                                 válido</span>
                         </div>
                     </div>
                     <div class="columna gap-10">
-                        <label class="form-control encabezado color-accent" for="privacidad">Acepto la <a class="color-accent" [routerLink]="['/privacidad']" target="blank">política de
-                            privacidad</a>
-                            <input type="checkbox" name="privacidad" id="" formControlName="privacidad">
+                        <div class="columna">
+                            <h5 class="option-menu color-accent">PROTECCIÓN DE DATOS PERSONALES:</h5>
+
+                            <p class="caption color-accent">
+                                La entidad responsable del tratamiento de sus datos es D. David Jesus Molina Retuerto
+                                -NATIVOS TIERRRA. Los datos se tratarán para atender su solicitud de suscripción a
+                                nuestra Newsletter.
+
+                                En las condiciones legales, tiene derecho a acceder, rectificar y suprimir los datos, a
+                                la limitación de su tratamiento, a oponerse al mismo y a su portabilidad.
+
+                                Puede ampliar la información sobre el tratamiento de sus datos personales consultando
+                                nuestra <a [routerLink]="['/privacidad']" target="_blank">Política de Privacidad</a>.
+                            </p>
+                        </div>
+                        <label class="form-control texto-regular color-accent" for="privacidad">
+                            <input type="checkbox" name="privacidad" formControlName="privacidad">
+                            He leído y acepto la información sobre el tratamiento de datos personales.
                         </label>
-                        <span *ngIf="campoValido('privacidad') && submitted" 
-                        class="caption color-red">Debe aceptar la política de privacidad</span>
+                        <span *ngIf="campoValido('privacidad') && submitted" class="caption color-red">Debe aceptar la
+                            política de privacidad</span>
+                        <label class="form-control texto-regular color-accent" for="info_comercial">
+                            <input type="checkbox" name="info_comercial" formControlName="info_comercial">
+                            Marque si también desea recibir otro tipo de información comercial de nuestros productos o servicios. 
+                        </label>
 
                     </div>
                 </div>
@@ -43,7 +61,7 @@
             </div>
         </form>
 
-       
+
     </div>
 
 </div>

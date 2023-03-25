@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { RedSocialIcon } from 'src/app/interfaces/redSocialIcon';
 
 @Component({
@@ -29,7 +30,7 @@ export class HeaderResponsiveComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -52,5 +53,7 @@ export class HeaderResponsiveComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
-
+  irANewsletter(){
+    this.route.navigate(['/newsletter']);
+  }
 }

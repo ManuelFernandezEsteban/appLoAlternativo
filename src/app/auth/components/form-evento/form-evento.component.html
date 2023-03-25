@@ -1,55 +1,50 @@
 <div class="box-formulario-evento eventos-form">
 
     <form [formGroup]="formEvento" (ngSubmit)="onAccept()" (reset)="onReset()" enctype="multipart/form-data">
-        <h3 class="title-l-primary">{{tipo}} Evento</h3>        
+        <h3 class="title-l-primary">{{tipo}} Evento</h3>
         <div class="wrapper-form">
 
             <div class="columna gap-10 evento">
                 <label class="option-menu" for="evento">Evento:</label>
                 <div class="columna gap-10">
-                    <input type="text" 
-                        name="evento" id="" formControlName="evento" placeholder="Evento" [value]=eventoSeleccionado.evento>
-                    <span *ngIf="submitted && campoNoValido('evento')" class="caption color-red">Introduzca un nombre para su evento</span>
+                    <input type="text" name="evento" formControlName="evento" placeholder="Evento"
+                        [value]=eventoSeleccionado.evento>
+                    <span *ngIf="submitted && campoNoValido('evento')" class="caption color-red">Requerido y menor de 50
+                        caracteres</span>
                 </div>
             </div>
             <div class="columna gap-10 fecha">
                 <label class="option-menu" for="fecha">Fecha:</label>
                 <div class="columna gap-10">
-                    <input type="date" name="fecha" [valueAsDate]="fechaValue" id="" formControlName="fecha" placeholder="27-12-2022">
-                    <span *ngIf="submitted && campoNoValido('fecha')" class="caption color-red">Introduzca una fecha para su evento</span>
+                    <input type="date" name="fecha" [valueAsDate]="fechaValue" formControlName="fecha"
+                        placeholder="27-12-2022">
+                    <span *ngIf="submitted && campoNoValido('fecha')" class="caption color-red">Introduzca una fecha
+                        para su evento</span>
                 </div>
             </div>
-            
+
             <div class="columna gap-10 email">
                 <label class="option-menu" for="email">Email:</label>
                 <div class="columna gap-10">
-                    <input type="email" name="email" id="" formControlName="email" placeholder="email@evento.com">
-                    <span *ngIf="submitted && campoNoValido('email')" class="caption color-red">Introduzca un email para su evento</span>
+                    <input type="email" name="email" formControlName="email" placeholder="email@evento.com">
+                    <span *ngIf="submitted && campoNoValido('email')" class="caption color-red">Introduzca un email para
+                        su evento</span>
                 </div>
             </div>
 
             <div class="columna gap-10 web">
                 <label class="option-menu" for="web">Web:</label>
                 <div class="columna gap-10">
-                    <input type="url" name="web" id="" formControlName="web" placeholder="www.evento.com">
+                    <input type="url" name="web" formControlName="web" placeholder="www.evento.com">
                     <span *ngIf="" class="caption color-red">Introduzca una url para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 telefono">
                 <label class="option-menu" for="telefono">Teléfono:</label>
                 <div class="columna gap-10">
-                    <input type="tel" id="" formControlName="telefono" placeholder="612345678">
-                    <span *ngIf="submitted && campoNoValido('telefono')" class="caption color-red">Introduzca un teléfono para su evento</span>
-                </div>
-            </div>
-            <div class="columna gap-10 precio">
-                <label class="option-menu" for="precio">Precio:</label>
-                <div class="columna gap-10">
-                    <div class="inputCurrency">
-                        <input type="number" name="precio" id="" formControlName="precio" placeholder="€">
-                        <span class="option-menu" >€</span>
-                    </div>
-                    <span *ngIf="submitted && campoNoValido('precio')" class="caption color-red">Introduzca un precio para su evento</span>
+                    <input type="tel" formControlName="telefono" placeholder="612345678">
+                    <span *ngIf="submitted && campoNoValido('telefono')" class="caption color-red">Introduzca un
+                        teléfono para su evento</span>
                 </div>
             </div>
             <div class="fila gap-10 w-online">
@@ -57,40 +52,60 @@
                     <input type="checkbox" name="online" formControlName="online" id="">
                 </label>
             </div>
+            <div class="columna gap-10 precio">
+                <label class="option-menu" for="precio">Precio:</label>
+                <div class="columna gap-10">
+                    <div class="inputCurrency">
+                        <input type="number" name="precio" formControlName="precio" placeholder="">
+                        <select class="option-menu" formControlName="MonedaId" name="moneda" #selectMoneda>
+                        </select>
+                    </div>
+                    <span *ngIf="submitted && campoNoValido('precio')" class="caption color-red">Introduzca un precio
+                        para su evento</span>
+                </div>
+            </div>
+
+
 
             <div class="columna gap-10 direccion">
                 <label class="option-menu" for="direccion">Dirección:</label>
                 <div class="columna gap-10">
-                    <input type="text" name="direccion" id="" formControlName="direccion" placeholder="Calle del evento, 1">
+                    <input type="text" name="direccion" formControlName="direccion" placeholder="Calle del evento, 1">
                     <span *ngIf="" class="caption color-red">Introduzca una dirección para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 poblacion">
                 <label class="option-menu" for="poblacion">Población:</label>
                 <div class="columna gap-10">
-                    <input type="text" name="poblacion" id="" formControlName="poblacion" placeholder="Alameda">
+                    <input type="text" name="poblacion" formControlName="poblacion" placeholder="Alameda">
                     <span *ngIf="" class="caption color-red">Introduzca una población para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 provincia">
                 <label class="option-menu" for="provincia">Provincia:</label>
                 <div class="columna gap-10">
-                    <input type="text" name="provincia" id="" formControlName="provincia" placeholder="Málaga">
+                    <input type="text" name="provincia" formControlName="provincia" placeholder="Málaga">
                     <span *ngIf="" class="caption color-red">Introduzca una provincia para su evento</span>
                 </div>
             </div>
             <div class="columna gap-10 c-postal">
                 <label class="option-menu" for="codigo_postal">C.P.:</label>
                 <div class="columna gap-10">
-                    <input type="text" name="codigo_postal" id="" formControlName="codigo_postal" placeholder="29000">
+                    <input type="text" name="codigo_postal" formControlName="codigo_postal" placeholder="29000">
                     <span *ngIf="" class="caption color-red">Introduzca un código postal para su evento</span>
                 </div>
             </div>
-
+            <div class="columna gap-10 pais">
+                <label class="option-menu" for="pais">País:</label>
+                <div class="columna gap-10">
+                    <input type="text" name="pais" formControlName="pais" placeholder="Pais">
+                    <span *ngIf="" class="caption color-red">Introduzca su pais</span>
+                </div>
+            </div>
             <div class="columna gap-10 descripcion">
                 <label class="option-menu" for="mensaje">Breve descripción del evento:</label>
                 <div class="columna gap-10">
-                    <textarea name="mensaje" id="" rows="7" formControlName="descripcion" placeholder="">
+                    <textarea name="mensaje" rows="7" formControlName="descripcion" placeholder="">
                     </textarea>
                     <span *ngIf="submitted && campoNoValido('descripcion')" class="caption color-red">
                         Indique una descripción de al menos diez caracteres
@@ -99,38 +114,59 @@
             </div>
             <div class="columna gap-10 instagram">
                 <label class="option-menu" for="instagram">Instagram:</label>
-                <input type="text" name="instagram" id="" formControlName="instagram">
+                <div class="columna gap-10">
+                    <input type="text" name="instagram" formControlName="instagram">
+                    <span *ngIf="submitted && campoNoValido('instagram')" class="caption color-red">
+                        Demasiados caracteres</span>
+                </div>
             </div>
             <div class="columna gap-10 twitter">
                 <label class="option-menu" for="twitter">Twitter:</label>
-                <input type="text" name="twitter" id="" formControlName="twitter" >
+
+                <div class="columna gap-10">
+                    <input type="text" name="twitter" formControlName="twitter">
+                    <span *ngIf="submitted && campoNoValido('twitter')" class="caption color-red">
+
+                        Demasiados caracteres</span>
+                </div>
             </div>
             <div class="columna gap-10 facebook">
                 <label class="option-menu" for="facebook">Facebook:</label>
-                <input type="text" name="facebook" id="" formControlName="facebook" >
+                <div class="columna gap-10">
+                    <input type="text" name="facebook" formControlName="facebook">
+                    <span *ngIf="submitted && campoNoValido('facebook')" class="caption color-red">
+                        Demasiados caracteres</span>
+                </div>
             </div>
             <div class="columna gap-10 you_tube">
                 <label class="option-menu" for="you_tube">You tube:</label>
-                <input type="text" name="you_tube" id="" formControlName="you_tube" >
+                <div class="columna gap-10">
+                    <input type="text" name="you_tube" formControlName="you_tube">
+                    <span *ngIf="submitted && campoNoValido('you_tube')" class="caption color-red">
+                        Demasiados caracteres</span>
+                </div>
             </div>
             <div class="columna visor-evento">
                 <a *ngIf="pdfUrl" class="option-menu " [href]="pdfUrl" target="_blank">PDF</a>
             </div>
-            
+
             <div class="columna gap-10 pdf">
-                <label class="option-menu" for="file-pdf">PDF del evento:</label>                
-                <input type="file" name="file-pdf" id="" formControlName="pdf" class="custom-file-input" accept="application/pdf" (change)="cambiarPDF($event)">
+                <label class="option-menu" for="file-pdf">PDF del evento:</label>
+                <input type="file" name="file-pdf" formControlName="pdf" class="custom-file-input"
+                    accept="application/pdf" (change)="cambiarPDF($event)">
             </div>
-            <div class="img-evento" *ngIf="imgUrl && imgUrl !== ''">                
-                    <img [src]="imgUrl|noImage" [alt]="eventoSeleccionado.evento">
-            </div>            
+            <div class="img-evento" *ngIf="imgUrl && imgUrl !== ''">
+                <img [src]="imgUrl|noImage" [alt]="eventoSeleccionado.evento">
+            </div>
             <div class="columna gap-10 img-input">
-                <label class="option-menu" for="file-img">Cambia la imagen del evento:</label>                
-                <input type="file" name="file-img" id="" formControlName="imagen" class="custom-file-input" (change)="cambiarImg($event)">
+                <label class="option-menu" for="file-img">Cambia la imagen del evento:</label>
+                <input type="file" name="file-img" formControlName="imagen" class="custom-file-input"
+                    (change)="cambiarImg($event)">
             </div>
 
         </div>
         <div class="fila gap-10 botones" *ngIf="!eliminando">
+
             <button type="submit" class="boton btn-submit-form">Aceptar</button>
             <button type="reset" class="boton btn-cancelar">Cancelar</button>
         </div>
@@ -138,10 +174,23 @@
             <button type="submit" class="boton btn-borrar">Borrar</button>
             <button type="reset" class="boton btn-cancelar">Cancelar</button>
         </div>
+        <div class="columna">
+            <h5 class="option-menu color-accent">PROTECCIÓN DE DATOS PERSONALES:</h5>
+
+            <p class="caption color-accent">
+                La entidad responsable del tratamiento de sus datos es D. David Jesus Molina Retuerto -NATIVOS TIERRRA.
+                Los datos se tratarán para publicar el evento correspondiente en nuestro Portal.
+
+                En las condiciones legales, tiene derecho a acceder, rectificar y suprimir los datos, a la limitación de
+                su tratamiento, a oponerse al mismo y a su portabilidad.
+
+                Puede ampliar la información sobre el tratamiento de sus datos personales consultando nuestra <a
+                    [routerLink]="['/privacidad']" target="_blank">Política de Privacidad</a>.
+            </p>
+        </div>
     </form>
 
-    
+
 </div>
 
 <!--./../../../../assets/images/Imagen_no_disponible.svg.png-->
-

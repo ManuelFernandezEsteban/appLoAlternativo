@@ -1,6 +1,6 @@
-import { IEspecialista } from './especialistas';
+import { EspecialistaClass } from './especialistas';
 export interface RespuestaEspecialista{
 
-    especialista:IEspecialista,       
+    especialista:EspecialistaClass,       
     
 }

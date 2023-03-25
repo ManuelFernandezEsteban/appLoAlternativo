@@ -14,6 +14,7 @@ import { OnlinePipe } from './pipes/online.pipe';
 import { PlanesPipe } from './pipes/planes.pipe';
 import { FormEventoComponent } from './form-evento/form-evento.component';
 import { NoImagePipe } from './pipes/no-image.pipe';
+import { SharedModule } from '../../shared/shared.module';
 
 
 
@@ -36,7 +37,8 @@ import { NoImagePipe } from './pipes/no-image.pipe';
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
     
   ],exports:[
     BarraSuperiorComponent,

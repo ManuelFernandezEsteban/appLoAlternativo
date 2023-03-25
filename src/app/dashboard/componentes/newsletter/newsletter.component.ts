@@ -19,6 +19,7 @@ export class NewsletterComponent implements OnInit {
       nombre: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       privacidad: [false, Validators.requiredTrue],
+      info_comercial: [false,],
     }
   );
 

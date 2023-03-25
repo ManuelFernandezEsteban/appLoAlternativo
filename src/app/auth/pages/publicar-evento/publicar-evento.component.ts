@@ -36,12 +36,14 @@ export class PublicarEventoComponent implements OnInit {
     localidad: '',
     provincia: '',
     codigo_postal: '',
+    pais:'',
     telefono: '',
     descripcion: '',
     imagen: '',
     pdf: '',
     EspecialistaId: '',
     ActividadeId: 0,
+    MonedaId:1,
     twitter: '',
     facebook: '',
     instagram: '',
@@ -71,12 +73,14 @@ export class PublicarEventoComponent implements OnInit {
       localidad: this.especialistasService.especialista.localidad,
       provincia: this.especialistasService.especialista.provincia,
       codigo_postal: this.especialistasService.especialista.codigo_postal,
+      pais:this.especialistasService.especialista.pais,
       telefono: this.especialistasService.especialista.telefono,
       descripcion: '', 
       imagen: '',
       pdf: '',
       EspecialistaId: this.especialistasService.especialista.id,
       ActividadeId: this.especialistasService.especialista.ActividadeId,
+      MonedaId:1,
       twitter: '',
       facebook: '',
       instagram: '',
@@ -93,6 +97,7 @@ export class PublicarEventoComponent implements OnInit {
 
   onPublic(evento:FormEventoFiles) {
     const {id, ...nuevoEvento}= evento.evento;
+    
     this.eventosService.crearEvento(nuevoEvento).subscribe((res:RespuestaEvento) => {      
       const id = res.evento.id;
       if (evento.files.get('image')){

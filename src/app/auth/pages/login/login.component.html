@@ -12,14 +12,14 @@
                 <div class="columna gap-10">
                     <label class="encabezado color-accent" for="email">Email:</label>
                     <div class="columna gap-10">
-                        <input type="text" name="email" id="" formControlName="email" placeholder="tuemail@email.es">
+                        <input type="text" name="email" formControlName="email" placeholder="tuemail@email.es">
                         <span *ngIf="campoNoValido('email') && submitted" class="caption color-red">No es un email válido</span>
                     </div>
                 </div>
                 <div class="columna gap-10">
                     <label class="encabezado color-accent" for="password">Password:</label>
                     <div class="columna gap-10">
-                        <input type="password" name="password" id="" formControlName="password" placeholder="*******">
+                        <input type="password" name="password" formControlName="password" placeholder="*******">
                         <a class="caption color-accent" (click)="forgotPassword()">¿Olvidaste la contraseña? Introduce tu email de registro y pulsa este enlace</a>
                         <span *ngIf="campoNoValido('password') && submitted" class="caption color-red">Introduzca su password</span>
                     </div>
@@ -32,7 +32,7 @@
         </div>
     </form>
     <div class="fila">
-        <a class="texto-regular color-accent" target="_blank" [routerLink]="['/privacidad']">Términos y condiciones</a>
+        <a class="texto-regular color-accent" target="_blank" [routerLink]="['/condiciones']">Condiciones de uso y resgistro de especialistas</a>
         
         <a class="texto-regular color-accent" [routerLink]="['/auth/registro']">¿Aun no estás registrado?</a>
         <a class="sub-title-xl color-accent" [routerLink]="['/']">Volver</a>
@@ -40,3 +40,9 @@
 
 
 </div>
+
+<ngx-loading
+    [show]="loading"
+    [config]="{fullScreenBackdrop:true}">
+
+</ngx-loading>

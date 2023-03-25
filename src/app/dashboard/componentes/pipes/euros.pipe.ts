@@ -5,11 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class EurosPipe implements PipeTransform {
 
-  transform(value: number, ...args: unknown[]): string {
+  transform(value: number, moneda:number,...args: unknown[]): string {
     if (value===0){
       return 'Gratis';
     }else{
-      return value+' €';
+      if (moneda === 2){
+        return value+' $';
+      }else{
+        return value+' €';
+      }
+
+      
     }
   }
 

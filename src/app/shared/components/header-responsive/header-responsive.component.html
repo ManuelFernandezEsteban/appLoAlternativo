@@ -1,7 +1,7 @@
 <header class="fila">
     <div class="columna">
         <div class="logo-header">
-            <img src="./../../../../assets/images/logo/logo.svg" alt="Lo Alternativo">
+            <img src="./../../../../assets/images/logo/logo.svg" alt="Nativos tierra">
         </div>
         <div class="menu-icon" #menuIcon (click)="menuIconClick()">
             <span></span>
@@ -14,11 +14,15 @@
 
         <div class="fila aCenter">
             <h1 class="title-xxl-accent color-accent">Nativos tierra</h1>
-            <div class="fila jEnd gap-10" id="social">
-                <app-red-social [redSocial]="instagram"></app-red-social>
-                <app-red-social [redSocial]="facebook"></app-red-social>
-                <app-red-social [redSocial]="youtube"></app-red-social>
+            <div class="columna jEnd">
+                <div class="fila  gap-10" id="social">
+                    <app-red-social [redSocial]="instagram"></app-red-social>
+                    <app-red-social [redSocial]="facebook"></app-red-social>
+                    <app-red-social [redSocial]="youtube"></app-red-social>
+                </div>
+                <button class="boton btn-info news" (click)="irANewsletter()">Suscríbete a nuestra newsletter</button>
             </div>
+
 
         </div>
         <div class="fila">

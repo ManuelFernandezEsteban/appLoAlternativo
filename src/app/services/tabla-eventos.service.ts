@@ -16,6 +16,7 @@ export class TablaEventosService {
     localidad: '',
     provincia: '',
     codigo_postal: '',
+    pais:'',
     online: false,
     EspecialistaId: '',
     descripcion: '',
@@ -29,7 +30,8 @@ export class TablaEventosService {
     instagram: '',
     you_tube: '',
     twich: '',
-    ActividadeId: 0
+    ActividadeId: 0,
+    MonedaId:1
   };
 
   constructor() { }
@@ -64,7 +66,8 @@ export class TablaEventosService {
       localidad: '',
       provincia: '',
       codigo_postal: '',
-      online: false,
+      pais:'',
+      online: false,    
       EspecialistaId: '',
       descripcion: '',
       imagen: '',
@@ -77,7 +80,8 @@ export class TablaEventosService {
       instagram: '',
       you_tube: '',
       twich: '',
-      ActividadeId: 0
+      ActividadeId: 0,
+      MonedaId:1
     };
   }
 

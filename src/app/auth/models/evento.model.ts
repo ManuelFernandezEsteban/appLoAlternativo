@@ -10,6 +10,7 @@ export class Evento{
     localidad:string;
     provincia:string;
     codigo_postal:string;
+    pais:string;
     online:boolean;
     EspecialistaId:string;
     descripcion:string;
@@ -24,6 +25,7 @@ export class Evento{
     you_tube:string;
     twich:string;
     ActividadeId:number;
+    MonedaId:number;
     
     constructor(evento:IEvento){
         this.id=evento.id;
@@ -34,6 +36,7 @@ export class Evento{
         this.localidad=evento.localidad;
         this.provincia=evento.provincia;
         this.codigo_postal=evento.codigo_postal;
+        this.pais=evento.pais;
         this.online=evento.online;
         this.EspecialistaId=evento.EspecialistaId;
         this.descripcion=evento.descripcion;
@@ -48,6 +51,7 @@ export class Evento{
         this.you_tube=evento.you_tube;
         this.twich=evento.twich;
         this.ActividadeId=evento.ActividadeId;
+        this.MonedaId=evento.MonedaId;
     }
 
 }

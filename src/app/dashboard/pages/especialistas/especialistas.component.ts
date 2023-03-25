@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Especialidad, Especialidades } from 'src/app/interfaces/especialiadad';
 import { DataEspecialidadesService } from 'src/app/services/data-especialidades.service';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
-import { Actividad, Actividades } from '../../../interfaces/especialiadad';
+import { Actividad, Actividades } from '../../../interfaces/especialidad';
 
 @Component({
   selector: 'app-especialistas',
@@ -22,13 +21,13 @@ export class EspecialistasComponent implements OnInit {
   ngOnInit(): void {
 
     this.dataEspecialidadesService.getEspecialidades<Actividades>().subscribe(res => {
-
+      
       this.especialidades = res.actividades;     
 
     })
   }
 
-  selecionEspecialidad(event: Especialidad) {
+  selecionEspecialidad(event: Actividad) {
     window.scrollTo(0,0);
     this.dataEspecialidadesService.actividadSeleccionada=event;
     //this.router.navigateByUrl('/home/eventos/eventos-especialidad')

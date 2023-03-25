@@ -18,6 +18,9 @@ export class RedSocialComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    
+    
   }
 
 }

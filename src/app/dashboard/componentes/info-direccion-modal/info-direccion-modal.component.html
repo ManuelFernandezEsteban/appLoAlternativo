@@ -10,6 +10,7 @@
     <div class="fila gap-10">        
         <span class="texto-regular color-accent">{{infoDireccion.codigo_postal}}</span>
         <span class="texto-regular color-accent">{{infoDireccion.provincia}}</span>
+        <span *ngIf="infoDireccion.pais" class="texto-regular color-accent">{{infoDireccion.pais}}</span>
     </div>
     
 </div>

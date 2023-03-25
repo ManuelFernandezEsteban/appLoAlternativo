@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IEspecialista } from 'src/app/interfaces/especialistas';
+import { EspecialistaClass } from 'src/app/interfaces/especialistas';
 import { DataEspecialidadesService } from '../../../services/data-especialidades.service';
-import { Actividad } from '../../../interfaces/especialiadad';
+import { Actividad } from '../../../interfaces/especialidad';
 
 @Component({
   selector: 'app-especialistas-especialidad',

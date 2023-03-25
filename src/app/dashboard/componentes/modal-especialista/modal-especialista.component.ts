@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { IEspecialista } from 'src/app/interfaces/especialistas';
+import { EspecialistaClass } from 'src/app/interfaces/especialistas';
 import { InfoDireccionModal } from 'src/app/interfaces/infoDireccionModal';
 import { InfoModal } from 'src/app/interfaces/infoModal';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
-import { DataEspecialidadesService } from '../../../services/data-especialidades.service';
+import { EspecialistasService } from '../../../services/especialistas.service';
+//import { Especialistas_Categoria, Especialistas_Categorias } from '../../../interfaces/especialistas_categorias.interface';
+import { HerramientasService } from '../../../services/herramientas.service';
+import { Herramienta, Herramientas } from '../../../interfaces/especialidad';
 
 @Component({
   selector: 'app-modal-especialista',
@@ -14,15 +16,16 @@ import { DataEspecialidadesService } from '../../../services/data-especialidades
 export class ModalEspecialistaComponent implements OnInit { 
 
   @Input()
-  especialista!: IEspecialista;
+  especialista!: EspecialistaClass;
   direccion!: InfoDireccionModal;
   infoTelefono!:InfoModal;
   infoMail!:InfoModal;
-  infoWeb!:InfoModal;  
+  infoWeb!:InfoModal; 
+  herramientas:Herramienta[];
+  hayCategorias:boolean=false;
 
   constructor(private serviceModalEventoService:ServiceModalEventoService,
-              
-              ) { }
+              private herramientasService:HerramientasService) { }
 
   ngOnInit(): void {  
 
@@ -32,6 +35,7 @@ export class ModalEspecialistaComponent implements OnInit {
       localidad:this.especialista.localidad,
       provincia:this.especialista.provincia,
       codigo_postal:this.especialista.codigo_postal,
+      pais:this.especialista.pais,
       icono:'../../assets/images/icons-svg/location-pin-solid.svg'
     }
     this.infoTelefono={
@@ -50,6 +54,12 @@ export class ModalEspecialistaComponent implements OnInit {
       icono:'../../assets/images/icons-svg/globe-solid.svg'
     }
 
+    if (this.especialista.UsaHerramientas){
+      if(this.especialista.UsaHerramientas.length>0){
+        this.hayCategorias=true;
+        
+      }
+    }
 
 
   }

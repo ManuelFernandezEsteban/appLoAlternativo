@@ -1,39 +1,45 @@
-import { IEspecialista } from '../../interfaces/especialistas';
+import { Actividade, EspecialistaClass, Plane, UsaHerramienta } from '../../interfaces/especialistas';
+
 
 
 
 export class Especialista{
 
-    nombre:              string;
-    apellidos:           string;
-    fecha_alta:          string;
-    descripcion_terapia: string;
-    ActividadeId:        number;
-    direccion:           string;
-    provincia:           string;
-    localidad:           string;
-    codigo_postal:       string;
-    pais:                string;
-    video:               string;
-    imagen:    string;
-    telefono:            string;
-    PlaneId:             number;
-    token_pago:          string;
-    email:               string;
-    password:            string;   
-    twitter:             string;
-    facebook:            string;
-    instagram:           string;
-    you_tube:            string;
-    web:                 string;
-    fecha_fin_suscripcion:string; 
-    fecha_pago_actual   :string;
-    id?:                 string;   
+    id?:                   string;
+    nombre:                string;
+    apellidos:             string;
+    telefono:              string;
+    email:                 string;
+    descripcion_terapia:   string;
+    direccion:             string;
+    provincia:             string;
+    localidad:             string;
+    codigo_postal:         string;
+    pais:                  string;
+    video:                 string;
+    imagen:                string;
+    token_pago:            string;
+    twitter:               string;
+    facebook:              string;
+    instagram:             string;
+    you_tube:              string;
+    web:                   string;
+    fecha_pago_actual:     Date;
+    fecha_fin_suscripcion: Date;
+    createdAt:             Date;
+    updatedAt:             Date;
+    deletedAt:             Date;
+    resetToken:            string;
+    ActividadeId:          number;
+    PlaneId:               number;
+    Actividade:            Actividade;
+    Plane:                 Plane;
+    UsaHerramientas?:       UsaHerramienta[];  
     
-    constructor(especialista:IEspecialista){
+    
+    constructor(especialista:EspecialistaClass){
         this.nombre=              especialista.nombre;
-        this.apellidos=           especialista.apellidos;
-        this.fecha_alta=          especialista.createdAt;
+        this.apellidos=           especialista.apellidos;        
         this.descripcion_terapia= especialista.descripcion_terapia;
         this.ActividadeId=        especialista.ActividadeId;
         this.direccion=           especialista.direccion;
@@ -54,8 +60,10 @@ export class Especialista{
         this.web=                 especialista.web;
         this.fecha_fin_suscripcion=especialista.fecha_fin_suscripcion;
         this.fecha_pago_actual=especialista.fecha_pago_actual;
+        this.UsaHerramientas = especialista.UsaHerramientas;       
         this.id=                  especialista.id;
-
+        this.createdAt = especialista.createdAt;
+        
 
     }
 }
