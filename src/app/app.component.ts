@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 export class AppComponent implements OnDestroy,OnInit{
 
   
-  title = 'Lo Alternativo';  
+  title = 'Nativos Tierra';  
   private popupOpenSubscription!: Subscription;
   private popupCloseSubscription!: Subscription;
   private initializingSubscription!: Subscription;
