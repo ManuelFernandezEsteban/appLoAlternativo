@@ -29,5 +29,7 @@ export interface IEvento{
     ActividadeId?:number;
     Especialista?:EspecialistaClass;
     MonedaId?:number;
+    idProductEvent?:string;
+    idPriceEvent?:string
 }
 

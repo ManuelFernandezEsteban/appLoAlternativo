@@ -80,7 +80,7 @@ export class FormEventoComponent implements OnInit {
       pais: [this.eventoSeleccionado.pais,[Validators.maxLength(30)]],
       telefono: [this.eventoSeleccionado.telefono,[Validators.required,Validators.maxLength(20)] ],
       descripcion: [this.eventoSeleccionado.descripcion, [Validators.required, Validators.minLength(10)]],
-      imagen: [],
+      imagen: [''],
       pdf: [null],
       id: [this.eventoSeleccionado.id],
       EspecialistaId: [this.eventoSeleccionado.EspecialistaId],
@@ -94,18 +94,19 @@ export class FormEventoComponent implements OnInit {
     })
     this.imgUrl = this.eventoSeleccionado.imagen;
     this.pdfUrl = this.eventoSeleccionado.pdf;
-    if (this.imgUrl) {
+   /* if (this.imgUrl) {
       this.formEvento.get('imagen').setValue(this.imgUrl);
     }
     if (this.pdfUrl) {
       this.formEvento.get('pdf').setValue(this.pdfUrl);
-    }
+    }*/
     let arrayFecha = this.eventoSeleccionado.fecha.split('-');
     let fecha = arrayFecha[0] + '-' + arrayFecha[1] + '-' + arrayFecha[2];
     this.formEvento.get('fecha')?.setValue(fecha);
     this.monedasService.getMonedas<Monedas>()
       .subscribe(res => {
         this.monedas = res.monedas;
+        //console.log(this.monedas)
         this.rellenarSelect();
       })
   }
@@ -182,6 +183,8 @@ export class FormEventoComponent implements OnInit {
       formData.append("pdf", this.filePDF);
 
     }    
+
+    
 
     this.formData.emit({
       evento: this.formEvento.value,

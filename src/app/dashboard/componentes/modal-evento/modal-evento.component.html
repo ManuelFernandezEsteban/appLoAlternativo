@@ -1,6 +1,10 @@
 <div class="overlay">
 
-    <button class="cerrar-modal" (click)="cerrarModal()"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"/></svg></span></button>
+    <button class="cerrar-modal" (click)="cerrarModal()"><span><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                <path
+                    d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z" />
+            </svg></span></button>
 
     <div id="modal-evento" class="modal-evento">
         <div class="fila">
@@ -13,22 +17,23 @@
             </div>
             <div class="columna">
                 <div class="fila gap-10">
-                    <span class="title-l-primary color-accent">{{evento.Especialista.nombre}} {{evento.Especialista.apellidos}}</span>
-                    
+                    <span class="title-l-primary color-accent">{{evento.Especialista.nombre}}
+                        {{evento.Especialista.apellidos}}</span>
+
                 </div>
                 <div class="fila gap-20 primerafila">
-                    <app-info-modal [info]="infoTelefono"></app-info-modal>                   
+                    <app-info-modal [info]="infoTelefono"></app-info-modal>
                     <span *ngIf="evento.online" class="encabezado color-accent">Online</span>
                 </div>
                 <div class="fila">
                     <app-info-direccion-modal [infoDireccion]="direccion"></app-info-direccion-modal>
-                </div> 
+                </div>
                 <div class="fila">
-                     <app-info-modal-enlace [info]="infoWeb"></app-info-modal-enlace>
+                    <app-info-modal-enlace [info]="infoWeb"></app-info-modal-enlace>
                 </div>
                 <div class="fila">
                     <app-info-modal-enlace [info]="infoMail"></app-info-modal-enlace>
-               </div>
+                </div>
                 <div class="fila">
                     <p class="texto-regular color-accent">{{evento.descripcion}}</p>
                 </div>
@@ -39,20 +44,118 @@
                     <app-red-social [redSocial]="facebook"></app-red-social>
                     <app-red-social [redSocial]="youtube"></app-red-social>
                     <app-red-social [redSocial]="twitch"></app-red-social>
+                    <a *ngIf="evento.pdf!=null" class="boton btn-info color-accent bold" [href]="enlacePDF"
+                        target="_blank">Info descargable</a>
+                </div>
+                <div class="fila">
 
                 </div>
-                
+
                 <div class="fila">
-                    <a *ngIf="evento.pdf!=null" class="boton btn-info color-accent bold" [href]="enlacePDF" target="_blank">Info descargable</a>
+
                     <span class="title-l-primary color-accent bold">{{evento.precio|euros:evento.MonedaId}}</span>
+                    <button (click)="comprar()" class="boton btn-info">Comprar ahora</button>
+
                 </div>
             </div>
         </div>
+        <div class="formulario_compra" *ngIf="enCompra">
+            <form [formGroup]="formCompra" >
+                <h3 class="title-l-primary">Información requerida</h3>
+                <div class="wrapper-form-compra">
+                    <div class="columna gap-10 apellidos">
+                        <label class="option-menu" for="apellidos">Apellidos:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="apellidos" id="" formControlName="apellidos"
+                                placeholder="Fernández Esteban">
+                            <span *ngIf="submitted && campoNoValido('apellidos')" class="caption color-red">
+                                Requerido y no mayor de 25 caracteres
+                            </span>
+                        </div>
+                    </div>
+                    <div class="columna gap-10 nombre">
+                        <label class="option-menu" for="nombre">Nombre:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="nombre" id="" formControlName="nombre" placeholder="Manuel">
+                            <span *ngIf="submitted && campoNoValido('nombre')" class="caption color-red">
+                                Requerido y no mayor de 15 caracteres
+                            </span>
+                        </div>
+                    </div>                   
+
+                    <div class="columna gap-10 telefono">
+                        <label class="option-menu" for="telefono">Teléfono:</label>
+                        <div class="columna gap-10">
+                            <input type="tel" id="" formControlName="telefono" placeholder="612345678">
+                            <span *ngIf="submitted && campoNoValido('telefono')" class="caption color-red">Introduzca su
+                                teléfono</span>
+                        </div>
+                    </div>
+                    <div class="columna gap-10 email">
+                        <label class="option-menu" for="email">Email:</label>
+                        <div class="columna gap-10">
+                            <input type="email" name="email" id="" formControlName="email"
+                                placeholder="email@especialista.com">
+                            <span *ngIf="submitted && campoNoValido('email')" class="caption color-red">Introduzca su
+                                email</span>
+                        </div>
+                    </div>
+
+                    <div class="columna gap-10 direccion">
+                        <label class="option-menu" for="direccion">Dirección:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="direccion" id="" formControlName="direccion"
+                                placeholder="Calle del evento, 1">
+                            <span *ngIf="submitted && campoNoValido('direccion')" class="caption color-red">
+                                Dirección demasiado larga</span>
+                        </div>
+                    </div>
+                    <div class="columna gap-10 poblacion">
+                        <label class="option-menu" for="poblacion">Población:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="localidad" id="" formControlName="localidad" placeholder="Alameda">
+                            <span *ngIf="submitted && campoNoValido('localidad')" class="caption color-red">
+                                Población demasiado larga</span>
+                        </div>
+                    </div>
+                    <div class="columna gap-10 provincia">
+                        <label class="option-menu" for="provincia">Provincia:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="provincia" id="" formControlName="provincia" placeholder="Málaga">
+                            <span *ngIf="submitted && campoNoValido('provincia')" class="caption color-red">Introduzca
+                                una
+                                provincia</span>
+                        </div>
+                    </div>
+                    <div class="columna gap-10 c-postal">
+                        <label class="option-menu" for="codigo_postal">C.P.:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="codigo_postal" id="" formControlName="codigo_postal"
+                                placeholder="29000">
+                            <span *ngIf="submitted && campoNoValido('codigo_postal')" class="caption color-red">
+                                Código postal demasiado largo</span>
+                        </div>
+                    </div>
+                    <div class="columna gap-10 pais">
+                        <label class="option-menu" for="pais">País:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="pais" id="" formControlName="pais" placeholder="Pais">
+                            <span *ngIf="submitted && campoNoValido('pais')" class="caption color-red">Introduzca su
+                                pais</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="fila gap-10 botones" >
+                    <button [disabled]="compraIniciada" (click)="enviarDatosCompra()" class="boton btn-submit-form">Comprar</button>
+                    <button (click)="onReset()" class="boton btn-cancelar">Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+
+
 
     </div>
-    
-
-</div>
 
 
-<app-modal-email *ngIf="mostrarModalEmail" (close)="cerrarModalEmail($event)"></app-modal-email>
+    <app-modal-email *ngIf="mostrarModalEmail" (close)="cerrarModalEmail($event)"></app-modal-email>

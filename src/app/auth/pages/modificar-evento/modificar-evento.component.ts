@@ -47,7 +47,8 @@ export class ModificarEventoComponent implements OnInit {
           this.uploadService.uploadEvento(formData,'eventoImagen',evento.id).subscribe(res=>{
 
           },err=>{
-            Swal.fire('Error',err,'error');
+            console.log(err)
+            Swal.fire('Error',err.error.msg,'error');
           })
         }
         if (event.files.get('pdf')){
@@ -56,13 +57,15 @@ export class ModificarEventoComponent implements OnInit {
           this.uploadService.uploadEvento(formData,'eventoInfo',evento.id).subscribe(res=>{
 
           },err=>{
-            Swal.fire('Error',err,'error');
+            console.log(err)
+            Swal.fire('Error',err.error.msg,'error');
           })
         }
         this.desactivarSelected();
         this.dataServiceModal.openDialog();
       }, err => {
-        Swal.fire('Error',err,'error');
+        console.log(err)
+        Swal.fire('Error',err.error.msg,'error');
       });
   }
 
