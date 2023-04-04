@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ServiceModalEventoService } from 'src/app/services/service-modal-evento.service';
 import { EventosService } from '../../../services/eventos.service';
 import Swal from 'sweetalert2';
-import { IEvento } from '../../../interfaces/eventos';
+
 import { FormEventoFiles } from '../../../interfaces/formularioEvento.interface';
 import { UploadsService } from '../../../services/uploads.service';
 

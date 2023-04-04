@@ -10,29 +10,30 @@ const base_url = environment.base_url;
 })
 export class CheckoutService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 
-  startEventoCheckoutSession(eventoId:string):Observable<CheckoutSesion>{ 
+  startEventoCheckoutSession(eventoId: string, clienteId:string): Observable<CheckoutSesion> {
 
-  let callBack:string = this.buildCallbackUrl();
-
-    return this.http.post<CheckoutSesion>(`${base_url}/checkout/`,{
+    let callbackUrl: string = this.buildCallbackUrl();
+    console.log(callbackUrl);
+    return this.http.post<CheckoutSesion>(`${base_url}/checkout/`, {
       eventoId,
-      callbackUrl:callBack      
+      clienteId,
+      callbackUrl
     });
   }
 
-  buildCallbackUrl():string{
+  buildCallbackUrl(): string {
 
     const protocol = window.location.protocol,
-          hostname = window.location.hostname,
-          port = window.location.port;
+      hostname = window.location.hostname,
+      port = window.location.port;
     let callbackUrl = `${protocol}//${hostname}`;
-    if (port){
-      callbackUrl+= ':' + port;
+    if (port) {
+      callbackUrl += ':' + port;
     }
-    return callbackUrl+='/stripe-checkout';    
+    return callbackUrl += '/stripe-checkout';
   }
 
 

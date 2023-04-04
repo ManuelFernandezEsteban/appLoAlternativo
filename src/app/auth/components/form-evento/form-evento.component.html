@@ -57,7 +57,10 @@
                 <div class="columna gap-10">
                     <div class="inputCurrency">
                         <input type="number" name="precio" formControlName="precio" placeholder="">
-                        <select class="option-menu" formControlName="MonedaId" name="moneda" #selectMoneda>
+                        <select class="option-menu" formControlName="monedaId" name="monedaId">
+                            <option class="option-menu" *ngFor="let item of monedas" value="{{item.id}}">
+                                {{item.moneda}}
+                            </option>
                         </select>
                     </div>
                     <span *ngIf="submitted && campoNoValido('precio')" class="caption color-red">Introduzca un precio

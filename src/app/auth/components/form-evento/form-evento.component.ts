@@ -43,7 +43,7 @@ export class FormEventoComponent implements OnInit {
     id: [''],
     EspecialistaId: [''],
     ActividadeId: 0,
-    MonedaId: 1,
+    monedaId: 1,
     twitter: ['',[Validators.maxLength(255)]],
     facebook: ['',[Validators.maxLength(255)]],
     instagram: ['',[Validators.maxLength(255)]],
@@ -66,6 +66,7 @@ export class FormEventoComponent implements OnInit {
     private monedasService: MonedasService) { }
 
   ngOnInit(): void {
+    console.log(this.eventoSeleccionado)
     this.formEvento = this.fb.group({
       evento: [this.eventoSeleccionado.evento, [Validators.required,Validators.maxLength(50)]],
       fecha: ['', Validators.required],
@@ -85,7 +86,7 @@ export class FormEventoComponent implements OnInit {
       id: [this.eventoSeleccionado.id],
       EspecialistaId: [this.eventoSeleccionado.EspecialistaId],
       ActividadeId: [this.eventoSeleccionado.ActividadeId],
-      MonedaId: [this.eventoSeleccionado.MonedaId],
+      monedaId: [this.eventoSeleccionado.monedaId],
       twitter: [this.eventoSeleccionado.twitter,[Validators.maxLength(255)]],
       facebook: [this.eventoSeleccionado.facebook,[Validators.maxLength(255)]],
       instagram: [this.eventoSeleccionado.instagram,[Validators.maxLength(255)]],
@@ -94,12 +95,12 @@ export class FormEventoComponent implements OnInit {
     })
     this.imgUrl = this.eventoSeleccionado.imagen;
     this.pdfUrl = this.eventoSeleccionado.pdf;
-   /* if (this.imgUrl) {
+    if (this.imgUrl) {
       this.formEvento.get('imagen').setValue(this.imgUrl);
     }
     if (this.pdfUrl) {
       this.formEvento.get('pdf').setValue(this.pdfUrl);
-    }*/
+    }
     let arrayFecha = this.eventoSeleccionado.fecha.split('-');
     let fecha = arrayFecha[0] + '-' + arrayFecha[1] + '-' + arrayFecha[2];
     this.formEvento.get('fecha')?.setValue(fecha);
@@ -107,23 +108,10 @@ export class FormEventoComponent implements OnInit {
       .subscribe(res => {
         this.monedas = res.monedas;
         //console.log(this.monedas)
-        this.rellenarSelect();
+       // this.rellenarSelect();
       })
   }
 
-  rellenarSelect() {
-    this.monedas.forEach(e => {
-      const option = this.renderer.createElement('option');
-      this.renderer.addClass(option, 'option-menu');
-      this.renderer.setAttribute(option, 'value', e.id.toString());
-      const valor = this.renderer.createText(e.moneda);
-      if (e.id == this.eventoSeleccionado.MonedaId) {
-        this.renderer.setAttribute(option, 'selected', '');
-      }
-      this.renderer.appendChild(option, valor);
-      this.renderer.appendChild(this.select.nativeElement, option);
-    })
-  }
 
   campoNoValido(campo: string): boolean {
     return this.submitted && this.formEvento.get(campo).invalid;
@@ -182,10 +170,7 @@ export class FormEventoComponent implements OnInit {
     if (this.filePDF) {
       formData.append("pdf", this.filePDF);
 
-    }    
-
-    
-
+    }  
     this.formData.emit({
       evento: this.formEvento.value,
       files: formData

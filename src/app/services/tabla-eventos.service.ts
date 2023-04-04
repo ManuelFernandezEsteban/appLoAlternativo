@@ -31,7 +31,7 @@ export class TablaEventosService {
     you_tube: '',
     twich: '',
     ActividadeId: 0,
-    MonedaId:1
+    monedaId:1
   };
 
   constructor() { }
@@ -81,7 +81,7 @@ export class TablaEventosService {
       you_tube: '',
       twich: '',
       ActividadeId: 0,
-      MonedaId:1
+      monedaId:1
     };
   }
 

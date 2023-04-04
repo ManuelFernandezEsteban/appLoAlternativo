@@ -2,7 +2,7 @@
 <div class="tabla" (click)="onFila()">
     <span class="texto-regular">{{evento.evento}}</span>
     <span class="texto-regular">{{evento.fecha}}</span>
-    <span class="texto-regular">{{evento.precio | moneda:evento.MonedaId }}</span>
+    <span class="texto-regular">{{evento.precio | moneda:evento.monedaId }}</span>
     <span class="texto-regular">{{evento.online | online}}</span>
 
 </div>

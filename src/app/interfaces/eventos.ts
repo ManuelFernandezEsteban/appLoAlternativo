@@ -28,7 +28,7 @@ export interface IEvento{
     twich?:string;
     ActividadeId?:number;
     Especialista?:EspecialistaClass;
-    MonedaId?:number;
+    monedaId?:number;
     idProductEvent?:string;
     idPriceEvent?:string
 }

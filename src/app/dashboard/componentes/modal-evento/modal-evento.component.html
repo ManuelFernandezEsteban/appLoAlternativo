@@ -53,7 +53,7 @@
 
                 <div class="fila">
 
-                    <span class="title-l-primary color-accent bold">{{evento.precio|euros:evento.MonedaId}}</span>
+                    <span class="title-l-primary color-accent bold">{{evento.precio|euros:evento.monedaId}}</span>
                     <button (click)="comprar()" class="boton btn-info">Comprar ahora</button>
 
                 </div>
@@ -113,8 +113,8 @@
                     <div class="columna gap-10 poblacion">
                         <label class="option-menu" for="poblacion">Población:</label>
                         <div class="columna gap-10">
-                            <input type="text" name="localidad" id="" formControlName="localidad" placeholder="Alameda">
-                            <span *ngIf="submitted && campoNoValido('localidad')" class="caption color-red">
+                            <input type="text" name="poblacion" id="" formControlName="poblacion" placeholder="Alameda">
+                            <span *ngIf="submitted && campoNoValido('poblacion')" class="caption color-red">
                                 Población demasiado larga</span>
                         </div>
                     </div>
@@ -144,6 +144,25 @@
                                 pais</span>
                         </div>
                     </div>
+                </div>
+                <div class="fila gap-10">
+                    <div class="columna">
+                        <app-proteccion-datos-personales></app-proteccion-datos-personales>
+                    <label class="form-control texto-regular color-accent" for="privacidad">
+                        <input type="checkbox" name="privacidad" formControlName="privacidad">
+                        He leído y acepto la información sobre el tratamiento de datos personales
+                    </label>
+                    <span *ngIf="campoNoValido('privacidad') && submitted" class="caption color-red">Debe aceptar la
+                        política de
+                        privacidad
+                    </span>
+                    <label class="form-control texto-regular color-accent" for="aceptaComercial">
+                        <input type="checkbox" name="aceptaComercial" formControlName="aceptaComercial">
+                        Marque si desea recibir información comercial de nuestros productos o servicios.  
+                    </label>
+                    </div>
+                    
+
                 </div>
                 <div class="fila gap-10 botones" >
                     <button [disabled]="compraIniciada" (click)="enviarDatosCompra()" class="boton btn-submit-form">Comprar</button>

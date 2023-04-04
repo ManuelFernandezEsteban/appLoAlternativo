@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CheckoutService } from '../../../services/checkout.service';
 import { CheckoutSesion } from '../../../interfaces/checkoutsesion.interface';
+import { ClientesService } from 'src/app/services/clientes.service';
+import Swal from 'sweetalert2';
+import { Cliente } from 'src/app/interfaces/clienteForm.interface';
 
 @Component({
   selector: 'app-modal-evento',
@@ -57,12 +60,13 @@ export class ModalEventoComponent implements OnInit {
     apellidos: ['Fernandez', [Validators.required,Validators.maxLength(80)]],
     direccion: ['Avda. Arquitecto Luis Bono, 7',[Validators.maxLength(50)]],
     provincia: ['Málaga',[Validators.required,Validators.maxLength(50)]],
-    localidad: ['Málaga',[Validators.maxLength(50)]],
+    poblacion: ['Málaga',[Validators.maxLength(50)]],
     codigo_postal: ['29190',[Validators.maxLength(6)]],
     pais: ['España',[Validators.required,Validators.maxLength(30)]],    
     telefono: ['677230977', [Validators.required,Validators.maxLength(20)]],    
-    email: ['manuel_fe1977@hotmail.com', [Validators.required, Validators.email]],
-    id: 1,    
+    email: ['manuel_fe1977@hotmail.com', [Validators.required, Validators.email]],    
+    privacidad:[false,Validators.requiredTrue],
+    aceptaComercial:[false]   
   });
   submitted:boolean=false;
   compraIniciada:boolean=false;
@@ -70,7 +74,8 @@ export class ModalEventoComponent implements OnInit {
   constructor(public serviceModalEventoService: ServiceModalEventoService,
               private router:Router,
               private fb:FormBuilder,
-              private checkoutService:CheckoutService) { }
+              private checkoutService:CheckoutService,
+              private clientesService:ClientesService) { }
 
   ngOnInit(): void {
 
@@ -131,12 +136,13 @@ export class ModalEventoComponent implements OnInit {
       apellidos: ['Fernandez', [Validators.required,Validators.maxLength(80)]],
       direccion: ['Avda. Arquitecto Luis Bono, 7',[Validators.maxLength(50)]],
       provincia: ['Málaga',[Validators.required,Validators.maxLength(50)]],
-      localidad: ['Málaga',[Validators.maxLength(50)]],
+      poblacion: ['Málaga',[Validators.maxLength(50)]],
       codigo_postal: ['29190',[Validators.maxLength(6)]],
       pais: ['España',[Validators.required,Validators.maxLength(30)]],    
       telefono: ['677230977', [Validators.required,Validators.maxLength(20)]],    
-      email: ['manuel_fe1977@hotmail.com', [Validators.required, Validators.email]],
-      id: 1,    
+      email: ['manuel_fe1977@hotmail.com', [Validators.required, Validators.email]],          
+      privacidad:[false,Validators.requiredTrue],
+      aceptaComercial:[false]
     });
   }
 
@@ -182,10 +188,14 @@ export class ModalEventoComponent implements OnInit {
       return
     }
     else{
-      console.log(this.formCompra.value);
+      
       this.compraIniciada=true;
-      this.checkoutService.startEventoCheckoutSession(this.evento.id)
-        .subscribe(
+      console.log(this.formCompra.value)
+      this.clientesService.darAltaCliente(this.formCompra.value).subscribe(
+        (res:Cliente)=>{
+          const clienteId = res.id;
+          this.checkoutService.startEventoCheckoutSession(this.evento.id,clienteId)
+          .subscribe(
           (sesion:CheckoutSesion)=>{
             console.log("stripe sesion iniciada");
             window.open(sesion.url,'blank');
@@ -197,6 +207,14 @@ export class ModalEventoComponent implements OnInit {
             this.compraIniciada=false;
           }
         )
+        }
+        ,err=>{
+        console.log(err);
+        Swal.fire('Error',err.msg,'error');
+      });
+
+/*
+      */
     }
   }
 }
