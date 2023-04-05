@@ -31,6 +31,7 @@
     "ngx-cookieconsent": "^4.0.2",
     "ngx-loading": "^2.0.1",
     "rxjs": "~7.5.0",
+    "socket.io-client": "^4.6.1",
     "sweetalert2": "^11.4.8",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

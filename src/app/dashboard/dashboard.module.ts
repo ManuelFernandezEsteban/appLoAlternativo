@@ -22,6 +22,8 @@ import { LegalRegistroEspecialistasComponent } from './pages/legal-registro-espe
 import { PoliticaCookiesComponent } from './pages/politica-cookies/politica-cookies.component';
 import { CondicionesRegistroComponent } from './pages/condiciones-registro/condiciones-registro.component';
 import { StripeCheckoutComponent } from './pages/stripe-checkout/stripe-checkout.component';
+import { VerificarComprasComponent } from './pages/verificar-compras/verificar-compras.component';
+import { VerificarComprasEspecialistaComponent } from './pages/verificar-compras-especialista/verificar-compras-especialista.component';
 
 
 
@@ -44,6 +46,8 @@ import { StripeCheckoutComponent } from './pages/stripe-checkout/stripe-checkout
     PoliticaCookiesComponent,
     CondicionesRegistroComponent,
     StripeCheckoutComponent,
+    VerificarComprasComponent,
+    VerificarComprasEspecialistaComponent,
 
    
   ],
