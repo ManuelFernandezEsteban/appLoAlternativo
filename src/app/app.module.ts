@@ -12,7 +12,7 @@ import { SharedModule } from './shared/shared.module';
 
 const cookieConfig:NgcCookieConsentConfig = {
   cookie: {
-    domain: 'https://nativos-tierra.up.railway.app'// it is recommended to set your domain, for cookies to work properly
+    domain: 'https://nativos-tierra-app-6d5iw.ondigitalocean.app/'// it is recommended to set your domain, for cookies to work properly
   },
   position:"bottom",
   palette: {
@@ -45,13 +45,13 @@ const cookieConfig:NgcCookieConsentConfig = {
     message: 'Este portal web únicamente utiliza cookies propias con finalidad técnica. No recaba ni cede datos personales de los usuarios sin su consentimiento.',
     
     cookiePolicyLink: 'Política de cookies',
-    cookiePolicyHref: 'https://nativos-tierra.up.railway.app/cookies',
+    cookiePolicyHref: 'https://nativos-tierra-app-6d5iw.ondigitalocean.app/cookies',
 
     privacyPolicyLink: 'Política de privacidad',
-    privacyPolicyHref: 'https://nativos-tierra.up.railway.app/privacidad',
+    privacyPolicyHref: 'https://nativos-tierra-app-6d5iw.ondigitalocean.app/privacidad',
 
     tosLink: 'Aviso legal',
-    tosHref: 'https://nativos-tierra.up.railway.app/legal',
+    tosHref: 'https://nativos-tierra-app-6d5iw.ondigitalocean.app/legal',
   }
 };
 
