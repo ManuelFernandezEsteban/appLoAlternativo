@@ -36,10 +36,11 @@ export class CheckoutService {
     return callbackUrl += '/stripe-checkout';
   }
 
-  esperarCompraCompletada(sesion_compra:string){
+  /*esperarCompraCompletada(sesion_compra:string):Observable<any>{
 
+     
     
-  }
+  }*/
 
 
 }

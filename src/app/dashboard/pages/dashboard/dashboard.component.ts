@@ -21,8 +21,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnInit(): void {
-    this.sck.socket;
+  ngOnInit(): void {    
     this.popupOpenSubscription = this.ccService.popupOpen$.subscribe(
       () => {
       

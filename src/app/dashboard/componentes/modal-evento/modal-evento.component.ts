@@ -193,6 +193,7 @@ export class ModalEventoComponent implements OnInit {
       console.log(this.formCompra.value)
       this.clientesService.darAltaCliente(this.formCompra.value).subscribe(
         (res:Cliente)=>{
+          console.log(res)
           const clienteId = res.id;
           this.checkoutService.startEventoCheckoutSession(this.evento.id,clienteId)
           .subscribe(
