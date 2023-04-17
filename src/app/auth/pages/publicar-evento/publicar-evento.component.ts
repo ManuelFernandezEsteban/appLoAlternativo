@@ -49,7 +49,8 @@ export class PublicarEventoComponent implements OnInit {
     instagram: '',
     you_tube: '',
     twich: '',
-    id: ''
+    id: '',
+    esVendible:false,
   }
 
   constructor(private tablaEventosService: TablaEventosService,
@@ -86,7 +87,8 @@ export class PublicarEventoComponent implements OnInit {
       instagram: '',
       you_tube: '',
       twich: '',
-      id:''
+      id:'',
+      esVendible:false,
     }
 
   }

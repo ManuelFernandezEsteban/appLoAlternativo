@@ -182,6 +182,13 @@ export class ModalEventoComponent implements OnInit {
 
   }
 
+  esNoALaVenta():boolean{
+    if ((this.evento.esVendible) && (this.evento.precio>0)){
+      return true;
+    }
+    return false;
+  }
+
   enviarDatosCompra(){
     this.submitted=true;
     if (!this.formCompra.valid){

@@ -48,7 +48,7 @@
                             newsletter</strong></span>
                 </li>
             </ul>
-            <button class="boton btn-registro" (click)="onClickOro()">Registrarse</button>
+            <button class="boton btn-registro" [disabled]="compraIniciada" (click)="onClickOro()">Registrarse</button>
     <div class="columna">
         <h5 class="title-l-primary">Promociones</h5>
         <span class="texto-regular"><strong>Gratis</strong> hasta el <strong>31/05/2023</strong></span>

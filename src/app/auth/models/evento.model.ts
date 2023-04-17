@@ -26,6 +26,7 @@ export class Evento{
     twich:string;
     ActividadeId:number;
     monedaId:number;
+    esVendible:boolean;
     
     constructor(evento:IEvento){
         this.id=evento.id;
@@ -52,6 +53,7 @@ export class Evento{
         this.twich=evento.twich;
         this.ActividadeId=evento.ActividadeId;
         this.monedaId=evento.monedaId;
+        this.esVendible=evento.esVendible;
     }
 
 }

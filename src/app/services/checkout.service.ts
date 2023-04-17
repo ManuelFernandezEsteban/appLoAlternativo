@@ -16,10 +16,20 @@ export class CheckoutService {
   startEventoCheckoutSession(eventoId: string, clienteId:string): Observable<CheckoutSesion> {
 
     let callbackUrl: string = this.buildCallbackUrl();
-    console.log(callbackUrl);
+    //console.log(callbackUrl);
     return this.http.post<CheckoutSesion>(`${base_url}/checkout/`, {
       eventoId,
       clienteId,
+      callbackUrl
+    });
+  }
+
+  startSubscriptionCheckoutSesion(plan:number,especialista:string){
+    let callbackUrl: string = this.buildCallbackUrl();
+    //console.log(callbackUrl);
+    return this.http.post<CheckoutSesion>(`${base_url}/checkout/`, {
+      plan,
+      especialista,
       callbackUrl
     });
   }

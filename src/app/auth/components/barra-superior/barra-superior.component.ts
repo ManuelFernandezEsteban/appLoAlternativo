@@ -3,7 +3,8 @@ import { EspecialistasService } from '../../../services/especialistas.service';
 import { Router } from '@angular/router';
 import { PlanesService } from '../../../services/planes.service';
 import { ResPlan } from '../../interfaces/plan.interface';
-import { Observable } from 'rxjs';
+import { Observable, timestamp } from 'rxjs';
+import { Suscripcion } from '../../../interfaces/suscripcion';
 
 @Component({
   selector: 'app-barra-superior',
@@ -12,7 +13,9 @@ import { Observable } from 'rxjs';
 })
 export class BarraSuperiorComponent implements OnInit {
 
-  private _plan:string='';
+  plan:string='';
+  fecha_fin_perido:Date;
+  suscripcion:Suscripcion;
 
 
   constructor ( private router:Router,
@@ -23,6 +26,19 @@ export class BarraSuperiorComponent implements OnInit {
   ngOnInit(): void {  
     console.log(this.especialistaService.especialista)
 
+    this.especialistaService.getSubscription().subscribe(
+      (suscripcion:Suscripcion)=>{
+        console.log(suscripcion);
+        this.suscripcion=suscripcion;
+        this.fecha_fin_perido= suscripcion.current_period_end_Date;
+        
+
+        this.plan=suscripcion.tipoSuscripcion.toString();
+      
+    },err=>{
+      console.log(err)
+    })
+/*
     const fecha_fin = new Date(this.especialistaService.especialista.fecha_fin_suscripcion);
 
     this.planesService.getPlan(this.especialistaService.especialista.PlaneId)
@@ -32,7 +48,7 @@ export class BarraSuperiorComponent implements OnInit {
         }else{
           this._plan=res.plan.nombre;
         }                
-      })     
+      })     */
   }
 
   cerrarSesion(){

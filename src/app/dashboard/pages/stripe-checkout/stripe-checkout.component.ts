@@ -37,6 +37,7 @@ export class StripeCheckoutComponent implements OnInit,OnDestroy {
           console.log('resultado', res);
           this.loading=false;
           this.mensaje='Compra finalizada con exito';
+          //this.comprobarSiSuscripcion(res);
           setTimeout(() => {
             this.router.navigateByUrl('/home');
           }, 3000);
@@ -51,6 +52,10 @@ export class StripeCheckoutComponent implements OnInit,OnDestroy {
       }, 3000);
       
     }
+
+  }
+
+  comprobarSiSuscripcion(idSesionCompra:string){
 
   }
 

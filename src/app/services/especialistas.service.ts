@@ -12,9 +12,12 @@ import { ActualizarEspecialistaForm } from '../interfaces/actualizar-especialist
 import { RespuestaEspecialista } from '../interfaces/respuesta-especialista.interface';
 import { EspecialistasActividad } from '../interfaces/especialistas-actividad.interface';
 import { NewPassForm } from '../interfaces/newPassForm.interface';
+import { Suscripcion } from '../interfaces/suscripcion';
 
 
 const base_url = environment.base_url;
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +26,9 @@ export class EspecialistasService {
 
   private limiteResultados:number=5;
   public especialista: Especialista;
+
+  public isOroActive:boolean=false;
+
 
   constructor(private http: HttpClient) { }
 
@@ -57,8 +63,9 @@ export class EspecialistasService {
           
         })
       );
-
   }
+
+
 
   loginEspecialista(formData: LoginForm) {
 
@@ -67,7 +74,7 @@ export class EspecialistasService {
         tap((res: RespuestaToken) => {
           localStorage.setItem('token', res.token);          
           this.especialista = new Especialista(res.especialista);
-          //console.log(this.especialista)
+          
         })
       );
   }
@@ -98,6 +105,7 @@ export class EspecialistasService {
   }
 
   cambiarPlan(plan: number) {
+    
     const token = localStorage.getItem('token');
     let datos = { "PlaneId": plan };    
     return this.http.patch(`${base_url}/especialistas/modificarPlan/${this.especialista.id}`,
@@ -136,4 +144,10 @@ export class EspecialistasService {
 
   }
 
+
+  getSubscription(){
+  
+    return this.http.get<Suscripcion>(`${base_url}/subscriptions/${this.especialista.token_pago}`);
+
+  }
 }

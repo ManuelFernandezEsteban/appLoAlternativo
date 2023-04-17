@@ -54,7 +54,7 @@
                 <div class="fila">
 
                     <span class="title-l-primary color-accent bold">{{evento.precio|euros:evento.monedaId}}</span>
-                    <button (click)="comprar()" class="boton btn-info">Comprar ahora</button>
+                    <button *ngIf="esNoALaVenta()" (click)="comprar()" class="boton btn-info">Comprar ahora</button>
 
                 </div>
             </div>

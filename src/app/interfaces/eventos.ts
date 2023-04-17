@@ -30,6 +30,7 @@ export interface IEvento{
     Especialista?:EspecialistaClass;
     monedaId?:number;
     idProductEvent?:string;
-    idPriceEvent?:string
+    idPriceEvent?:string;
+    esVendible?:boolean;
 }
 
