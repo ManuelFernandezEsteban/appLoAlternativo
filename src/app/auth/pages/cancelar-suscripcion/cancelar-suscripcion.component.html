@@ -1,0 +1,21 @@
+
+
+
+<div class="columna cancelar_suscripcion gap-20 center">
+
+    <h3 class="title-l-primary color-accent">Cancelar la suscripción</h3>
+
+    <p class="texto-regular color-accent">
+        Estas a punto de cancelar tu suscripción al plan {{plan}},
+        volverás al plan PLATA al finalizar el preiodo actual. 
+    </p>
+
+    <button [disabled]="yaCancelada" class="boton btn-cancelar" (click)="cancelarSuscripcion()">Cancelar suscripción</button>
+
+    <p *ngIf="yaCancelada" class="texto-regular color-accent">
+
+        La suscripción ya está cancelada
+        
+    </p>
+</div> 
+

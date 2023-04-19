@@ -71,6 +71,16 @@
                             </div>
                         </a>
                     </li>
+                    <li *ngIf="esOro">
+                        <a [routerLink]="['cancelar-suscripcion']" [routerLinkActive]="['active']" class="texto-regular">
+                            <div class="fila gap-10">
+                                <span>Cancelar suscripción</span>
+                                <span>
+                                    <img src="./../../../../assets/images/icons-svg/unsubscribe.svg" alt="">
+                                </span>
+                            </div>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>

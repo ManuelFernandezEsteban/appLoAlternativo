@@ -15,16 +15,22 @@ export class SidebarComponent implements OnInit {
     public especialistaService: EspecialistasService) { }
 
   ngOnInit(): void {
-    this.especialistaService.getSubscription().subscribe((res:Suscripcion)=>{
-      if (res.status===Status.active || Status.trialing){
-        this.esOro=true;
-      }else{
-        this.esOro=false;
-      }
-    },
-    err=>{
-      console.log(err)
-    })
+
+    if (!this.especialistaService.especialista.token_pago){
+      this.esOro=false;
+      return;
+    }
+    this.especialistaService.getSubscription().subscribe(
+      (res:Suscripcion)=>{
+        if (res.status===Status.active || Status.trialing){
+          this.esOro=true;
+        }else{
+          this.esOro=false;
+        }
+      },
+      err=>{
+        console.log(err)
+      })
   }
 
  /* esOro():boolean{
@@ -35,6 +41,7 @@ export class SidebarComponent implements OnInit {
     
   }*/
 
+ 
 
   desactivarSelected() {
     this.tablaEventosService.setIsSelectedOnFalse();

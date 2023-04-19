@@ -13,6 +13,7 @@ import { EliminarEventoComponent } from './pages/eliminar-evento/eliminar-evento
 import { ModificarDatosComponent } from './pages/modificar-datos/modificar-datos.component';
 import { PlanesComponent } from './pages/planes/planes.component';
 import { NewPasswordComponent } from './pages/new-password/new-password.component';
+import { CancelarSuscripcionComponent } from './pages/cancelar-suscripcion/cancelar-suscripcion.component';
 
 
 
@@ -60,6 +61,9 @@ const routes: Routes = [
           },
           {
             path: 'planes', component: PlanesComponent
+          },
+          {
+            path: 'cancelar-suscripcion', component: CancelarSuscripcionComponent
           },
         ]
       },

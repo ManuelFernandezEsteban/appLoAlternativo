@@ -17,6 +17,7 @@ import { EliminarEventoComponent } from './pages/eliminar-evento/eliminar-evento
 import { ModificarDatosComponent } from './pages/modificar-datos/modificar-datos.component';
 import { PlanesComponent } from './pages/planes/planes.component';
 import { NewPasswordComponent } from './pages/new-password/new-password.component';
+import { CancelarSuscripcionComponent } from './pages/cancelar-suscripcion/cancelar-suscripcion.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NewPasswordComponent } from './pages/new-password/new-password.componen
     EliminarEventoComponent,
     ModificarDatosComponent,
     PlanesComponent,
-    NewPasswordComponent,  
+    NewPasswordComponent,
+    CancelarSuscripcionComponent,  
   ],
   imports: [
     CommonModule,

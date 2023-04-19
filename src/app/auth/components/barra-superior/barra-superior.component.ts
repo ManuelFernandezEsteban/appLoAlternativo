@@ -24,16 +24,24 @@ export class BarraSuperiorComponent implements OnInit {
                 ) { }
 
   ngOnInit(): void {  
-    console.log(this.especialistaService.especialista)
-
+    
+    if (!this.especialistaService.especialista.token_pago){
+      this.plan='PLATA';
+      return;
+    }
     this.especialistaService.getSubscription().subscribe(
       (suscripcion:Suscripcion)=>{
         console.log(suscripcion);
         this.suscripcion=suscripcion;
-        this.fecha_fin_perido= suscripcion.current_period_end_Date;
-        
+        this.fecha_fin_perido= suscripcion.current_period_end_Date;   
+        const hoy =new Date(Date.now());
+        if (this.suscripcion.current_period_end_Date<hoy){
+          this.plan='PLATA';
+        }else{
+          this.plan=suscripcion.tipoSuscripcion.toString();
+        }  
 
-        this.plan=suscripcion.tipoSuscripcion.toString();
+        
       
     },err=>{
       console.log(err)

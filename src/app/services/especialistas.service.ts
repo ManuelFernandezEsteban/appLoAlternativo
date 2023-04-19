@@ -150,4 +150,8 @@ export class EspecialistasService {
     return this.http.get<Suscripcion>(`${base_url}/subscriptions/${this.especialista.token_pago}`);
 
   }
+
+  cancelarSuscripcion(){
+    return this.http.delete<Suscripcion>(`${base_url}/subscriptions/cancelar/${this.especialista.token_pago}`);
+  }
 }
