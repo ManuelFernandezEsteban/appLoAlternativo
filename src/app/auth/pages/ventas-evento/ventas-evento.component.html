@@ -1,0 +1,11 @@
+<div class="tabla">
+    <span class="option-menu">Cliente</span>
+    <span class="option-menu">Email</span>
+    <span class="option-menu">Teléfono</span>
+    <span class="option-menu">Fecha compra</span>    
+    <span class="option-menu">Realizado</span>
+</div>
+
+<ng-container *ngFor="let evento of eventosVendidos">
+    <app-fila-evento-vendido [evento]="evento" ></app-fila-evento-vendido>
+</ng-container>

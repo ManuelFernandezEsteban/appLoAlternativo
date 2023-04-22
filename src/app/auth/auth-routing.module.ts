@@ -14,6 +14,7 @@ import { ModificarDatosComponent } from './pages/modificar-datos/modificar-datos
 import { PlanesComponent } from './pages/planes/planes.component';
 import { NewPasswordComponent } from './pages/new-password/new-password.component';
 import { CancelarSuscripcionComponent } from './pages/cancelar-suscripcion/cancelar-suscripcion.component';
+import { VentasEventoComponent } from './pages/ventas-evento/ventas-evento.component';
 
 
 
@@ -64,6 +65,9 @@ const routes: Routes = [
           },
           {
             path: 'cancelar-suscripcion', component: CancelarSuscripcionComponent
+          },
+          {
+            path: 'ventas', component: VentasEventoComponent
           },
         ]
       },

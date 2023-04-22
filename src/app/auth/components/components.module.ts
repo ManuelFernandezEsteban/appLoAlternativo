@@ -15,6 +15,7 @@ import { PlanesPipe } from './pipes/planes.pipe';
 import { FormEventoComponent } from './form-evento/form-evento.component';
 import { NoImagePipe } from './pipes/no-image.pipe';
 import { SharedModule } from '../../shared/shared.module';
+import { FilaEventoVendidoComponent } from './fila-evento-vendido/fila-evento-vendido.component';
 
 
 
@@ -31,6 +32,7 @@ import { SharedModule } from '../../shared/shared.module';
     ModalInfoComponent,
     FormEventoComponent,
     NoImagePipe,
+    FilaEventoVendidoComponent,
    
   ],
   imports: [
@@ -48,7 +50,8 @@ import { SharedModule } from '../../shared/shared.module';
     MonedaPipe,
     OnlinePipe,
     ModalInfoComponent,
-    FormEventoComponent
+    FormEventoComponent,
+    FilaEventoVendidoComponent
   ]
 })
 export class ComponentsModule { }

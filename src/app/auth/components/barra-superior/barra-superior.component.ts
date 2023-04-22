@@ -39,9 +39,7 @@ export class BarraSuperiorComponent implements OnInit {
           this.plan='PLATA';
         }else{
           this.plan=suscripcion.tipoSuscripcion.toString();
-        }  
-
-        
+        }       
       
     },err=>{
       console.log(err)

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { RespuestaEventos } from '../interfaces/eventos-respuesta.interface';
 import { IEvento, IEventos } from '../interfaces/eventos';
 import { EventosActividad } from '../interfaces/eventos-actividad.interface';
+import { ComprasEventosNoFinalizadas } from '../interfaces/compras_eventos.interface';
 
 
 const base_url = environment.base_url;
@@ -70,5 +71,9 @@ export class EventosService {
 
     return this.http.get<EventosActividad>(`${base_url}/eventos/eventoxactividad/${especialidad}?desde=${desde}`);
 
+  }
+
+  getEventosVendidos(id:string){
+    return this.http.get<ComprasEventosNoFinalizadas>(`${base_url}/eventos/ventas/${id}`);
   }
 }
