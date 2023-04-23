@@ -74,6 +74,9 @@ export class EventosService {
   }
 
   getEventosVendidos(id:string){
-    return this.http.get<ComprasEventosNoFinalizadas>(`${base_url}/eventos/ventas/${id}`);
+    const token = localStorage.getItem('token');
+    return this.http.get<ComprasEventosNoFinalizadas>(`${base_url}/eventos/ventas/${id}`,{
+      headers:{'x-token':token}
+    });
   }
 }
