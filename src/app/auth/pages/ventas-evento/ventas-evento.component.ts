@@ -3,6 +3,7 @@ import { EventosService } from 'src/app/services/eventos.service';
 import { TablaEventosService } from '../../../services/tabla-eventos.service';
 import { Evento } from '../../models/evento.model';
 import { ComprasEventosNoFinalizada, ComprasEventosNoFinalizadas } from '../../../interfaces/compras_eventos.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ventas-evento',
@@ -23,6 +24,8 @@ export class VentasEventoComponent implements OnInit {
       
       this.eventosVendidos=res.compras_eventos_no_finalizadas;
 
+    },err=>{
+      Swal.fire('No vendido',err.error.msg,'info');
     })
     
   }

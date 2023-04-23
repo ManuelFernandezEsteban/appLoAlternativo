@@ -16,6 +16,7 @@ import { FormEventoComponent } from './form-evento/form-evento.component';
 import { NoImagePipe } from './pipes/no-image.pipe';
 import { SharedModule } from '../../shared/shared.module';
 import { FilaEventoVendidoComponent } from './fila-evento-vendido/fila-evento-vendido.component';
+import { RealizadaPipe } from './pipes/realizada.pipe';
 
 
 
@@ -33,6 +34,7 @@ import { FilaEventoVendidoComponent } from './fila-evento-vendido/fila-evento-ve
     FormEventoComponent,
     NoImagePipe,
     FilaEventoVendidoComponent,
+    RealizadaPipe,
    
   ],
   imports: [
