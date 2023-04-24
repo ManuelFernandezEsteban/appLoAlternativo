@@ -15,6 +15,7 @@ import { PlanesComponent } from './pages/planes/planes.component';
 import { NewPasswordComponent } from './pages/new-password/new-password.component';
 import { CancelarSuscripcionComponent } from './pages/cancelar-suscripcion/cancelar-suscripcion.component';
 import { VentasEventoComponent } from './pages/ventas-evento/ventas-evento.component';
+import { CrearCuentaConectadaComponent } from './pages/crear-cuenta-conectada/crear-cuenta-conectada.component';
 
 
 
@@ -68,6 +69,9 @@ const routes: Routes = [
           },
           {
             path: 'ventas', component: VentasEventoComponent
+          },
+          {
+            path: 'crear-cuenta', component: CrearCuentaConectadaComponent
           },
         ]
       },

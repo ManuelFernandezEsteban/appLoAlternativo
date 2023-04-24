@@ -1,0 +1,11 @@
+.cancelar_suscripcion{
+
+    width: 60%;
+    align-items: center;
+    padding-bottom: 200px;
+    @media (max-width:800px) {
+        
+        width: 80%;
+
+    }
+}

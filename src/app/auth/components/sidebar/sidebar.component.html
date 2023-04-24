@@ -93,6 +93,16 @@
                             </div>
                         </a>
                     </li>
+                    <li *ngIf="esOro">
+                        <a [routerLink]="['crear-cuenta']" [routerLinkActive]="['active']" class="texto-regular">
+                            <div class="fila gap-10">
+                                <span>Cuenta conectada</span>
+                                <span>
+                                    <img src="./../../../../assets/images/icons-svg/connected.svg" alt="">
+                                </span>
+                            </div>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
