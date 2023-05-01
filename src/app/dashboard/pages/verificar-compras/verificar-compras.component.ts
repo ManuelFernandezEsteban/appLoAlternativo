@@ -58,6 +58,7 @@ export class VerificarComprasComponent implements OnInit {
       enviarVerificacion(this.formVerificacionCliente.value, this.token,'cliente').
         subscribe(res=>{
           Swal.fire("Evento validado", "has validado el evento correctamente", "success");   
+          //console.log(res)
           this.formVerificacionCliente.reset();
     },(err)=>{
       Swal.fire("Evento no validado", err.error.msg, "error");

@@ -15,33 +15,27 @@ export class SidebarComponent implements OnInit {
     public especialistaService: EspecialistasService) { }
 
   ngOnInit(): void {
+    //plan plata =>1
 
-    if (!this.especialistaService.especialista.token_pago){
-      this.esOro=false;
-      return;
-    }
-    this.especialistaService.getSubscription().subscribe(
+    if (this.especialistaService.especialista.PlaneId!=1){
+      this.especialistaService.getSubscription().subscribe(
       (res:Suscripcion)=>{
-        if (res.status===Status.active || Status.trialing){
-          this.esOro=true;
-        }else{
+        if (res.status===Status.canceled){
           this.esOro=false;
+        }else{
+          this.esOro=true;
         }
       },
       err=>{
-        console.log(err)
+        //console.log(err)
       })
+    }else{
+      this.esOro=false;
+      
+    }
+    
   }
 
- /* esOro():boolean{
-    let fechaFin= new Date(this.especialistaService.especialista.fecha_fin_suscripcion);
-    let hoy = new Date(Date.now());
-    return (fechaFin>=hoy)
-
-    
-  }*/
-
- 
 
   desactivarSelected() {
     this.tablaEventosService.setIsSelectedOnFalse();
@@ -57,6 +51,15 @@ export class SidebarComponent implements OnInit {
       clase = 'disabled'
     }
     return clase;
+  }
+
+  tieneVentas():boolean{
+
+    if (this.especialistaService.especialista.cuentaConectada) {
+      return true;
+    }else{
+      return false;
+    }
   }
 
 }

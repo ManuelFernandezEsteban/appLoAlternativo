@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { FormEventoFiles } from '../../../interfaces/formularioEvento.interface';
 import { Moneda, Monedas } from 'src/app/interfaces/monedas.interface';
 import { MonedasService } from '../../../services/monedas.service';
+import { EspecialistasService } from 'src/app/services/especialistas.service';
 
 @Component({
   selector: 'app-form-evento',
@@ -59,12 +60,14 @@ export class FormEventoComponent implements OnInit {
   fileImage: File;
   filePDF: File;
   monedas: Moneda[] = [];
+  conCuenta:boolean=false;
 
   constructor(private tablaEventosService: TablaEventosService,
     private route: Router,
     private fb: FormBuilder,
     private renderer: Renderer2,
-    private monedasService: MonedasService) { }
+    private monedasService: MonedasService,
+    private especialistaService:EspecialistasService) { }
 
   ngOnInit(): void {
     console.log(this.eventoSeleccionado)
@@ -111,7 +114,17 @@ export class FormEventoComponent implements OnInit {
         this.monedas = res.monedas;
         //console.log(this.monedas)
        // this.rellenarSelect();
+    })
+
+    if (this.especialistaService.especialista.cuentaConectada){
+      this.especialistaService.getAccount().subscribe(res=>{
+        this.conCuenta = res.cuenta.charges_enabled
       })
+    }
+
+    
+
+
   }
 
 

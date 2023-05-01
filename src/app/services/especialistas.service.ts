@@ -13,6 +13,7 @@ import { RespuestaEspecialista } from '../interfaces/respuesta-especialista.inte
 import { EspecialistasActividad } from '../interfaces/especialistas-actividad.interface';
 import { NewPassForm } from '../interfaces/newPassForm.interface';
 import { Suscripcion } from '../interfaces/suscripcion';
+import { Cuenta, RespuestaCuenta } from '../interfaces/cuenta_conectada.interface';
 
 
 const base_url = environment.base_url;
@@ -147,7 +148,7 @@ export class EspecialistasService {
 
   getSubscription(){
   
-    return this.http.get<Suscripcion>(`${base_url}/subscriptions/${this.especialista.token_pago}`);
+    return this.http.get<Suscripcion>(`${base_url}/subscriptions/${this.especialista.id}`);
 
   }
 
@@ -155,8 +156,41 @@ export class EspecialistasService {
     return this.http.delete<Suscripcion>(`${base_url}/subscriptions/cancelar/${this.especialista.token_pago}`);
   }
 
-  getAccount(){
-    //return this.http.get<Account>(`${base_url}/`)
+  getAccount():Observable<RespuestaCuenta>{
+    const token = localStorage.getItem('token');
+    return this.http.get<RespuestaCuenta>(`${base_url}/especialistas/cuenta_conectada/${this.especialista.cuentaConectada}`,
+    {
+      headers: {
+        'x-token': token
+      }
+    })
   }
 
+  crearCuentaConectada(){
+
+    const token = localStorage.getItem('token');
+
+    let callbackUrl: string = this.buildCallbackUrl();
+    return this.http.post(`${base_url}/especialistas/cuenta_conectada/${this.especialista.id}`,
+      {
+        callbackUrl
+      },
+      {
+        headers:{'x-token':token}
+      }
+    )
+
+  }
+
+  buildCallbackUrl(): string {
+
+    const protocol = window.location.protocol,
+      hostname = window.location.hostname,
+      port = window.location.port;
+    let callbackUrl = `${protocol}//${hostname}`;
+    if (port) {
+      callbackUrl += ':' + port;
+    }
+    return callbackUrl += '/home';
+  }
 }

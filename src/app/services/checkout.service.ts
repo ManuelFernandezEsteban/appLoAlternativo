@@ -15,7 +15,7 @@ export class CheckoutService {
 
   startEventoCheckoutSession(eventoId: string, clienteId:string): Observable<CheckoutSesion> {
 
-    let callbackUrl: string = this.buildCallbackUrl();
+    let callbackUrl: string = this.buildCallbackUrl('/stripe-checkout');
     //console.log(callbackUrl);
     return this.http.post<CheckoutSesion>(`${base_url}/checkout/`, {
       eventoId,
@@ -25,7 +25,7 @@ export class CheckoutService {
   }
 
   startSubscriptionCheckoutSesion(plan:number,especialista:string){
-    let callbackUrl: string = this.buildCallbackUrl();
+    let callbackUrl: string = this.buildCallbackUrl('/auth/principal/');
     //console.log(callbackUrl);
     return this.http.post<CheckoutSesion>(`${base_url}/checkout/`, {
       plan,
@@ -34,7 +34,7 @@ export class CheckoutService {
     });
   }
 
-  buildCallbackUrl(): string {
+  buildCallbackUrl(end:string): string {
 
     const protocol = window.location.protocol,
       hostname = window.location.hostname,
@@ -43,14 +43,9 @@ export class CheckoutService {
     if (port) {
       callbackUrl += ':' + port;
     }
-    return callbackUrl += '/stripe-checkout';
+    return callbackUrl += end;
   }
 
-  /*esperarCompraCompletada(sesion_compra:string):Observable<any>{
-
-     
-    
-  }*/
 
 
 }

@@ -1,10 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { DataEspecialistasService } from '../../../services/data-especialistas.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EspecialistasService } from '../../../services/especialistas.service';
 import { CheckoutService } from '../../../services/checkout.service';
-import { environment } from 'src/environments/environment';
 import { CheckoutSesion } from 'src/app/interfaces/checkoutsesion.interface';
+import { Subscription, filter } from 'rxjs';
+import { SocketServiceCheckoutService } from 'src/app/services/socket-service-checkout.service';
 
 @Component({
   selector: 'app-planes',
@@ -13,12 +13,13 @@ import { CheckoutSesion } from 'src/app/interfaces/checkoutsesion.interface';
 })
 export class PlanesComponent implements OnInit {
   compraIniciada:boolean=false;
-
+  mensajesSuscription:Subscription;
  // especialista!:Especialista;
 
   constructor(private especialistaService:EspecialistasService,
               private http:Router,
-              private checkoutservice:CheckoutService) { }
+              private checkoutservice:CheckoutService,
+              private socketService:SocketServiceCheckoutService  ) { }
 
   ngOnInit(): void {
 
@@ -44,10 +45,12 @@ export class PlanesComponent implements OnInit {
           (sesion:CheckoutSesion)=>{
             console.log("stripe sesion iniciada");
             window.open(sesion.url,'blank');
-          //TODO pasar a cambiarPlan el token generado para checkearlo
-         /* this.especialistaService.cambiarPlan(2).subscribe(res=>{
-            this.http.navigate(['auth/principal/datos']);
-          });*/
+            this.mensajesSuscription= this.socketService.listen('compra_suscripcion_finalizada')
+            .pipe(
+             filter((payload)=>payload===this.especialistaService.especialista.id) )
+            .subscribe(res=>{
+                console.log(res)
+            });
         },
         err=>{
           console.log(err)

@@ -30,6 +30,7 @@ export interface EspecialistaClass {
     resetToken:            string;
     ActividadeId:          number;
     PlaneId:               number;
+    cuentaConectada:       string;
     Actividade:            Actividade;
     Plane:                 Plane;
     UsaHerramientas?:       UsaHerramienta[];

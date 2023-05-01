@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EspecialistasService } from '../../../services/especialistas.service';
 import { Router } from '@angular/router';
 import { PlanesService } from '../../../services/planes.service';
-import { ResPlan } from '../../interfaces/plan.interface';
-import { Observable, timestamp } from 'rxjs';
-import { Suscripcion } from '../../../interfaces/suscripcion';
+import { Status, Suscripcion } from '../../../interfaces/suscripcion';
 
 @Component({
   selector: 'app-barra-superior',
@@ -14,9 +12,8 @@ import { Suscripcion } from '../../../interfaces/suscripcion';
 export class BarraSuperiorComponent implements OnInit {
 
   plan:string='';
-  fecha_fin_perido:Date;
+  fecha_fin_periodo:Date;
   suscripcion:Suscripcion;
-
 
   constructor ( private router:Router,
                 public especialistaService:EspecialistasService,
@@ -24,25 +21,24 @@ export class BarraSuperiorComponent implements OnInit {
                 ) { }
 
   ngOnInit(): void {  
-    
-    if (!this.especialistaService.especialista.token_pago){
+    //plan plata =>1
+    if (this.especialistaService.especialista.PlaneId===1){
       this.plan='PLATA';
       return;
     }
     this.especialistaService.getSubscription().subscribe(
       (suscripcion:Suscripcion)=>{
-        console.log(suscripcion);
+        //console.log(suscripcion);
         this.suscripcion=suscripcion;
-        this.fecha_fin_perido= suscripcion.current_period_end_Date;   
-        const hoy =new Date(Date.now());
-        if (this.suscripcion.current_period_end_Date<hoy){
+        if (this.suscripcion.status===Status.canceled){
           this.plan='PLATA';
-        }else{
-          this.plan=suscripcion.tipoSuscripcion.toString();
-        }       
+          return;
+        }
+        this.plan=this.suscripcion.tipoSuscripcion.toString();
+        this.fecha_fin_periodo= suscripcion.current_period_end_Date;
       
     },err=>{
-      console.log(err)
+      //console.log(err)
     })
 /*
     const fecha_fin = new Date(this.especialistaService.especialista.fecha_fin_suscripcion);

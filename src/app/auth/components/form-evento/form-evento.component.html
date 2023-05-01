@@ -67,7 +67,7 @@
                     <input type="checkbox" name="online" formControlName="online" >
                 </label>
             </div>
-            <div class="fila gap-10 vendible">
+            <div *ngIf="conCuenta" class="fila gap-10 vendible">
                 <label class="option-menu online" for="online">Para venta
                     <input type="checkbox" name="esVendible" formControlName="esVendible">
                 </label>

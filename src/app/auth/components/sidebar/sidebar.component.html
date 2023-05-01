@@ -48,7 +48,7 @@
                         </a>
                     </li>
                     <li>
-                        <a [ngClass]="habilitar()" [routerLink]="['ventas']" 
+                        <a *ngIf="tieneVentas()" [ngClass]="habilitar()" [routerLink]="['ventas']" 
                             [routerLinkActive]="['active']" class="texto-regular">
                             <div class="fila gap-10">
                                 <span>Ventas del evento</span>

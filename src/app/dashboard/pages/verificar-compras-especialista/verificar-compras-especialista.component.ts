@@ -44,6 +44,7 @@ export class VerificarComprasEspecialistaComponent implements OnInit {
       enviarVerificacion(this.formVerificacionEspecialista.value, this.token,'especialista').
         subscribe(res=>{
           Swal.fire("Evento validado", "Has validado el evento correctamente", "success");
+          //console.log(res)
           this.formVerificacionEspecialista.reset();
 
     },(err)=>{

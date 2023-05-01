@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CheckoutService } from '../../../services/checkout.service';
-import { Socket } from 'socket.io-client';
 import { SocketServiceCheckoutService } from '../../../services/socket-service-checkout.service';
-import { Subscription, filter, map } from 'rxjs';
+import { Subscription, filter } from 'rxjs';
 
 @Component({
   selector: 'app-stripe-checkout',
@@ -17,7 +15,7 @@ export class StripeCheckoutComponent implements OnInit,OnDestroy {
   mensaje:string='Esperando la confirmación del pago'
   constructor(private route:ActivatedRoute,
               private router:Router,
-              private checkoutService:CheckoutService,
+              //private checkoutService:CheckoutService,
               private socketService:SocketServiceCheckoutService) {
 
                }
