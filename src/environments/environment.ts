@@ -7,7 +7,7 @@ export const environment = {
   url:'',  
   mapBoxToken:'pk.eyJ1IjoibWFudWVsbzE5NzciLCJhIjoiY2xjMHkwa2JqM2IzdzN2cW5mMnl4aWVzYSJ9.7t0I5taB1LvdoXHYbL5fqw',
   base_url:'http://localhost:8000/api',
-  especialistaAdmin:'c619e5a4-1a06-471d-b313-601edbc690d8',
+  especialistaAdmin:'06e4d7bf-3e89-4936-bcbe-194f2568d853',
   url_socket:'http://localhost:8000',
  
   
