@@ -44,7 +44,7 @@ export interface Actividade {
     updatedAt: Date;
 }
 
-export interface Plane {
+export interface Plane{
     id:        number;
     nombre:    string;
     precio:    number;
