@@ -1,3 +1,6 @@
+<app-header-no-menu>
+
+</app-header-no-menu>
 
 <div class="columna wrp-planes">
     <h3 class="title-l-primary">Planes de precios</h3>
@@ -34,7 +37,7 @@
                             <strong>nuestra plataforma</strong></span> </del>
                 </li>
             </ul>
-            <button [disabled]="compraIniciada||especialistaService.especialista.PlaneId===1" class="boton btn-registro" (click)="seleccionPlan(1)" >Registrarse</button>
+            <button [disabled]="compraIniciada" class="boton btn-registro" (click)="seleccionPlan(1)" >Registrarse</button>
         </div>
         <div class="columna plan-oro">
             <h4 class="title-l-primary">Oro-Acceso completo mejorado</h4>
@@ -59,7 +62,7 @@
                         <strong>nuestra plataforma</strong> con una comisión del <strong>5%</strong></span>
                 </li>
             </ul>
-            <button [disabled]="compraIniciada||especialistaService.especialista.PlaneId===2" class="boton btn-registro" (click)="seleccionPlan(2)">Registrarse</button>
+            <button [disabled]="compraIniciada" class="boton btn-registro" (click)="seleccionPlan(2)">Registrarse</button>
         </div>
         <div class="columna plan-platino">
             <h4 class="title-l-primary">Platino-Acceso completo</h4>
@@ -84,7 +87,7 @@
                         <strong>nuestra plataforma</strong> con una comisión del <strong>10%</strong></span>
                 </li>
             </ul>
-            <button [disabled]="compraIniciada||especialistaService.especialista.PlaneId===3" class="boton btn-registro" (click)="seleccionPlan(3)">Registrarse</button>
+            <button [disabled]="compraIniciada" class="boton btn-registro" (click)="seleccionPlan(3)">Registrarse</button>
         </div>
 
     </div>

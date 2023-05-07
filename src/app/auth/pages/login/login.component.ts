@@ -48,10 +48,10 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('auth/principal');
         }
 
-      },(err)=>{
-        //console.log(err);
+      },(error)=>{
+       // console.log(error);
         this.loading=false;
-        Swal.fire('Error',"Ha ocurrido algo inesperado",'error');
+        Swal.fire('Error',error.error.error,'error');
       });   
 
   }

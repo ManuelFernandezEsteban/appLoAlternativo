@@ -13,7 +13,7 @@ import { RespuestaEspecialista } from '../interfaces/respuesta-especialista.inte
 import { EspecialistasActividad } from '../interfaces/especialistas-actividad.interface';
 import { NewPassForm } from '../interfaces/newPassForm.interface';
 import { Suscripcion } from '../interfaces/suscripcion';
-import { Cuenta, RespuestaCuenta } from '../interfaces/cuenta_conectada.interface';
+import { RespuestaCuenta } from '../interfaces/cuenta_conectada.interface';
 
 
 const base_url = environment.base_url;
@@ -27,6 +27,7 @@ export class EspecialistasService {
 
   private limiteResultados:number=5;
   public especialista: Especialista;
+  public especialistaInicial:RegisterForm;
 
   public isOroActive:boolean=false;
 
@@ -55,7 +56,16 @@ export class EspecialistasService {
     )
   }
 
+  iniciarRegistro(formData:RegisterForm){
+
+    this.especialistaInicial=formData;
+
+  }
+
   crearEspecialista(formData: RegisterForm) {
+
+    
+
     return this.http.post(`${base_url}/especialistas`, formData)
       .pipe(
         tap((res: RespuestaToken) => {
@@ -75,6 +85,7 @@ export class EspecialistasService {
         tap((res: RespuestaToken) => {
           localStorage.setItem('token', res.token);          
           this.especialista = new Especialista(res.especialista);
+          
           
         })
       );
@@ -104,7 +115,7 @@ export class EspecialistasService {
       })
     );;
   }
-
+/*
   cambiarPlan(plan: number) {
     
     const token = localStorage.getItem('token');
@@ -125,7 +136,7 @@ export class EspecialistasService {
         })
       );
   }
-
+*/
   getEspecialistasActividadPagination(actividad:number,pagina:number):Observable<EspecialistasActividad>{
     
     const desde:number = (pagina*this.limiteResultados)-this.limiteResultados;

@@ -65,7 +65,14 @@ export class RegistroComponent implements OnInit {
     this.submitted = false; 
     console.log(this.formRegistro.value)
     this.loading=true;
-    this.especialistasService.crearEspecialista(this.formRegistro.value)
+
+    //enviar a seleccion de plan
+
+    this.especialistasService.iniciarRegistro(this.formRegistro.value);
+
+    this.router.navigateByUrl('auth/seleccionPlan');
+
+   /* this.especialistasService.crearEspecialista(this.formRegistro.value)
       .subscribe(res=>{
         //navegar a la zona privada (selección de plan)
         this.loading=false;
@@ -74,7 +81,7 @@ export class RegistroComponent implements OnInit {
         this.loading=false;
         Swal.fire('Error',err.error.errors.errors[0].msg,'error');    
 
-      });
+      });*/
   }
 
   campoNoValido(campo:string):boolean{

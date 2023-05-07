@@ -22,19 +22,16 @@ export class BarraSuperiorComponent implements OnInit {
 
   ngOnInit(): void {  
     //plan plata =>1
+
+    /*
     if (this.especialistaService.especialista.PlaneId===1){
       this.plan='PLATA';
       return;
-    }
+    }*/
     this.especialistaService.getSubscription().subscribe(
       (suscripcion:Suscripcion)=>{
         //console.log(suscripcion);
-        this.suscripcion=suscripcion;
-        if (this.suscripcion.status===Status.canceled){
-          this.plan='PLATA';
-          return;
-        }
-        this.plan=this.suscripcion.tipoSuscripcion.toString();
+        this.suscripcion=suscripcion;       
         this.fecha_fin_periodo= suscripcion.current_period_end_Date;
       
     },err=>{
