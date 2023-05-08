@@ -15,7 +15,12 @@ export class SidebarComponent implements OnInit {
     public especialistaService: EspecialistasService) { }
 
   ngOnInit(): void {
-    //plan plata =>1
+    //sin plan ==0 
+
+    if (this.especialistaService.especialista.PlaneId===0){
+      this.esOro=false;
+      return;
+    }
 
     if (this.especialistaService.especialista.PlaneId!=1){
       this.especialistaService.getSubscription().subscribe(

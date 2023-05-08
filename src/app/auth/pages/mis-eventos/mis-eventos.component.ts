@@ -12,10 +12,18 @@ import { Evento } from '../../models/evento.model';
 })
 export class MisEventosComponent implements OnInit {
 
+  mostrarEventos:boolean=false;
+
   constructor(private tablaEventosService:TablaEventosService,
-              public especialistasService:EspecialistasService) { }
+              private especialistasService:EspecialistasService) { }
 
   ngOnInit(): void {
+    if (this.especialistasService.especialista.PlaneId<=1){
+      this.mostrarEventos=false;
+    }
+    else{
+      this.mostrarEventos=true;
+    }
   }
 
   eventoSeleccionado(event:Evento){

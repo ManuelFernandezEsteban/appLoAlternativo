@@ -25,7 +25,7 @@ export class CheckoutService {
   }
 
   startSubscriptionCheckoutSesion(plan:number,especialista:string){
-    let callbackUrl: string = this.buildCallbackUrl('/stripe-checkout');
+    let callbackUrl: string = this.buildCallbackUrl('/auth/principal/planes');
     //console.log(callbackUrl);
     return this.http.post<CheckoutSesion>(`${base_url}/checkout/`, {
       plan,

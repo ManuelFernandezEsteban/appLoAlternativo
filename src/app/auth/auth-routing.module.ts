@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../guards/auth.guard';
 
-
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
@@ -16,10 +15,6 @@ import { NewPasswordComponent } from './pages/new-password/new-password.componen
 import { CancelarSuscripcionComponent } from './pages/cancelar-suscripcion/cancelar-suscripcion.component';
 import { VentasEventoComponent } from './pages/ventas-evento/ventas-evento.component';
 import { CrearCuentaConectadaComponent } from './pages/crear-cuenta-conectada/crear-cuenta-conectada.component';
-import { SeleccionPlanComponent } from './pages/seleccion-plan/seleccion-plan.component';
-
-
-
 
 
 const routes: Routes = [
@@ -31,10 +26,7 @@ const routes: Routes = [
       },
       {
         path: 'registro', component: RegistroComponent
-      },
-      {
-        path:'seleccionPlan',component:SeleccionPlanComponent
-      },
+      },      
       {
         path:'new-password/:token', component:NewPasswordComponent
       },

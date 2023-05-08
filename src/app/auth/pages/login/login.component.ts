@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         //navegar al zona privada
         //console.log(res.especialista);
         this.loading=false;
-        if (res.especialista.PlaneId===1){
+        if (res.especialista.PlaneId===0 || res.especialista.PlaneId===1){
           this.router.navigateByUrl('auth/principal/planes');
         }else{
           this.router.navigateByUrl('auth/principal');
