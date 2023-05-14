@@ -181,6 +181,6 @@ export class EspecialistasService {
     if (port) {
       callbackUrl += ':' + port;
     }
-    return callbackUrl += '/home';
+    return callbackUrl += '/auth/principal/crear-cuenta';
   }
 }
