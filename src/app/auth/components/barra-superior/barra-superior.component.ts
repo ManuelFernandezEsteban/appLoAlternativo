@@ -28,6 +28,12 @@ export class BarraSuperiorComponent implements OnInit {
       this.plan='PLATA';
       return;
     }*/
+
+    if (this.especialistaService.especialista.PlaneId===0){
+      this.plan='SIN PLAN';
+      return;
+    }
+
     this.especialistaService.getSubscription().subscribe(
       (suscripcion:Suscripcion)=>{
         //console.log(suscripcion);

@@ -44,8 +44,25 @@ export class PlanesComponent implements OnInit {
     this.checkoutservice.startSubscriptionCheckoutSesion(plan, this.especialistaService.especialista.id)
       .subscribe(
         (sesion: CheckoutSesion) => {
+          
+          window.open(sesion.url,'_self');
 
-          window.open(sesion.url, 'blank');
+          this.mensajesSuscription = this.socketService.listen('compra_suscripcion_finalizada')
+          .pipe(
+            filter((payload) => payload === this.especialistaService.especialista.id))
+          .subscribe(res => {
+            this.especialistaService.validarToken().subscribe();
+            //TODO refrescar especialista
+            // Indicar cambio de plan ok
+            /*
+            this.loading = false;
+            this.mensaje = 'Registro finalizado con exito';
+            
+            
+            setTimeout(() => {
+              this.router.navigateByUrl('/auth/login');
+            }, 3000);*/
+          });
         },
         err => {
           Swal.fire('Error', err.error.errors.errors[0].msg, 'error');

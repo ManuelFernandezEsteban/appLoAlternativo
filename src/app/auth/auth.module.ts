@@ -20,7 +20,7 @@ import { NewPasswordComponent } from './pages/new-password/new-password.componen
 import { CancelarSuscripcionComponent } from './pages/cancelar-suscripcion/cancelar-suscripcion.component';
 import { VentasEventoComponent } from './pages/ventas-evento/ventas-evento.component';
 import { CrearCuentaConectadaComponent } from './pages/crear-cuenta-conectada/crear-cuenta-conectada.component';
-import { SeleccionPlanComponent } from './pages/seleccion-plan/seleccion-plan.component';
+
 
 @NgModule({
   declarations: [
@@ -36,8 +36,7 @@ import { SeleccionPlanComponent } from './pages/seleccion-plan/seleccion-plan.co
     NewPasswordComponent,
     CancelarSuscripcionComponent,
     VentasEventoComponent,
-    CrearCuentaConectadaComponent,
-    SeleccionPlanComponent,  
+    CrearCuentaConectadaComponent, 
   ],
   imports: [
     CommonModule,

@@ -27,24 +27,11 @@ export class StripeCheckoutComponent implements OnInit, OnDestroy {
 
     if (resultado === 'success') {
 
-      const sesion_compra_evento = this.route.snapshot.queryParamMap.get('sesion_compra_eventoId');
-
-      this.mensajesSuscription = this.socketService.listen('compra_suscripcion_finalizada')
-        .pipe(
-          filter((payload) => payload === this.especialistaService.especialista.id))
-        .subscribe(res => {
-          
-          this.loading = false;
-          this.mensaje = 'Registro finalizado con exito';
-          
-          setTimeout(() => {
-            this.router.navigateByUrl('/auth/login');
-          }, 3000);
-        });
+      const sesion_compra = this.route.snapshot.queryParamMap.get('sesion_compra_eventoId');
 
       this.mensajesSuscription = this.socketService.listen('sesion_compra_finalizada')
         .pipe(
-          filter((payload) => payload === sesion_compra_evento))
+          filter((payload) => payload === sesion_compra))
         .subscribe(res => {
           
           this.loading = false;
