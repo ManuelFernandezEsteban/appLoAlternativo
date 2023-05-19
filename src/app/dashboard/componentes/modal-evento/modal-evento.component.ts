@@ -6,6 +6,12 @@ import { ServiceModalEventoService } from 'src/app/services/service-modal-evento
 import { RedSocialIcon } from '../../../interfaces/redSocialIcon';
 import { RespuestaEmail } from '../../../interfaces/respuestaEmail';
 import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import { CheckoutService } from '../../../services/checkout.service';
+import { CheckoutSesion } from '../../../interfaces/checkoutsesion.interface';
+import { ClientesService } from 'src/app/services/clientes.service';
+import Swal from 'sweetalert2';
+import { Cliente } from 'src/app/interfaces/clienteForm.interface';
 
 @Component({
   selector: 'app-modal-evento',
@@ -47,10 +53,29 @@ export class ModalEventoComponent implements OnInit {
   mostrarModalEmail:boolean=false;
   revista:boolean=false;
   enlacePDF:string="";
+  enCompra:boolean=false;
 
+  formCompra = this.fb.group({
+    nombre: ['Manuel', [Validators.required,Validators.maxLength(30)]],
+    apellidos: ['Fernandez', [Validators.required,Validators.maxLength(80)]],
+    direccion: ['Avda. Arquitecto Luis Bono, 7',[Validators.maxLength(50)]],
+    provincia: ['Málaga',[Validators.required,Validators.maxLength(50)]],
+    poblacion: ['Málaga',[Validators.maxLength(50)]],
+    codigo_postal: ['29190',[Validators.maxLength(6)]],
+    pais: ['España',[Validators.required,Validators.maxLength(30)]],    
+    telefono: ['677230977', [Validators.required,Validators.maxLength(20)]],    
+    email: ['manuel_fe1977@hotmail.com', [Validators.required, Validators.email]],    
+    privacidad:[false,Validators.requiredTrue],
+    aceptaComercial:[false]   
+  });
+  submitted:boolean=false;
+  compraIniciada:boolean=false;
 
-
-  constructor(public serviceModalEventoService: ServiceModalEventoService,private router:Router) { }
+  constructor(public serviceModalEventoService: ServiceModalEventoService,
+              private router:Router,
+              private fb:FormBuilder,
+              private checkoutService:CheckoutService,
+              private clientesService:ClientesService) { }
 
   ngOnInit(): void {
 
@@ -105,6 +130,20 @@ export class ModalEventoComponent implements OnInit {
       enlace: this.evento.twich,
       icono: '../../assets/images/icons-svg/twitch.svg'
     }
+
+    this.formCompra = this.fb.group({
+      nombre: ['Manuel', [Validators.required,Validators.maxLength(30)]],
+      apellidos: ['Fernandez', [Validators.required,Validators.maxLength(80)]],
+      direccion: ['Avda. Arquitecto Luis Bono, 7',[Validators.maxLength(50)]],
+      provincia: ['Málaga',[Validators.required,Validators.maxLength(50)]],
+      poblacion: ['Málaga',[Validators.maxLength(50)]],
+      codigo_postal: ['29190',[Validators.maxLength(6)]],
+      pais: ['España',[Validators.required,Validators.maxLength(30)]],    
+      telefono: ['677230977', [Validators.required,Validators.maxLength(20)]],    
+      email: ['manuel_fe1977@hotmail.com', [Validators.required, Validators.email]],          
+      privacidad:[false,Validators.requiredTrue],
+      aceptaComercial:[false]
+    });
   }
 
   cerrarModal() {
@@ -123,6 +162,67 @@ export class ModalEventoComponent implements OnInit {
     if (event.mail!=''){
       this.cerrarModal()
       this.router.navigate(['revistas']);
+    }
+  }
+
+  campoNoValido(campo: string): boolean {
+
+    const hayError = this.submitted && this.formCompra.get(campo).invalid;  
+
+    return hayError
+  }
+
+  comprar(){
+    this.enCompra=true;
+  }
+  onReset(){
+    this.compraIniciada=false;
+    this.formCompra.reset();
+    this.enCompra=false;
+
+  }
+
+  esNoALaVenta():boolean{
+    if ((this.evento.esVendible) && (this.evento.precio>0)){
+      return true;
+    }
+    return false;
+  }
+
+  enviarDatosCompra(){
+    this.submitted=true;
+    if (!this.formCompra.valid){
+      return
+    }
+    else{
+      
+      this.compraIniciada=true;
+      console.log(this.formCompra.value)
+      this.clientesService.darAltaCliente(this.formCompra.value).subscribe(
+        (res:Cliente)=>{
+          console.log(res)
+          const clienteId = res.id;
+          this.checkoutService.startEventoCheckoutSession(this.evento.id,clienteId)
+          .subscribe(
+          (sesion:CheckoutSesion)=>{
+            console.log("stripe sesion iniciada");
+            window.open(sesion.url,'blank');
+            this.formCompra.reset();
+            //todo crear componente compra realizada.
+          },
+          err=>{
+            console.log("Error en la sesion de stripe");
+            this.compraIniciada=false;
+          }
+        )
+        }
+        ,err=>{
+        console.log(err);
+        Swal.fire('Error',err.msg,'error');
+      });
+
+/*
+      */
     }
   }
 }

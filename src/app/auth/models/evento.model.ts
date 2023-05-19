@@ -25,7 +25,8 @@ export class Evento{
     you_tube:string;
     twich:string;
     ActividadeId:number;
-    MonedaId:number;
+    monedaId:number;
+    esVendible:boolean;
     
     constructor(evento:IEvento){
         this.id=evento.id;
@@ -51,7 +52,8 @@ export class Evento{
         this.you_tube=evento.you_tube;
         this.twich=evento.twich;
         this.ActividadeId=evento.ActividadeId;
-        this.MonedaId=evento.MonedaId;
+        this.monedaId=evento.monedaId;
+        this.esVendible=evento.esVendible;
     }
 
 }

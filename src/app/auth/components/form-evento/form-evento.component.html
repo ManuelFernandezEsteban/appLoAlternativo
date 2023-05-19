@@ -47,23 +47,32 @@
                         teléfono para su evento</span>
                 </div>
             </div>
-            <div class="fila gap-10 w-online">
-                <label class="option-menu online" for="online">Online
-                    <input type="checkbox" name="online" formControlName="online" id="">
-                </label>
-            </div>
             <div class="columna gap-10 precio">
                 <label class="option-menu" for="precio">Precio:</label>
                 <div class="columna gap-10">
                     <div class="inputCurrency">
                         <input type="number" name="precio" formControlName="precio" placeholder="">
-                        <select class="option-menu" formControlName="MonedaId" name="moneda" #selectMoneda>
+                        <select class="option-menu" formControlName="monedaId" name="monedaId">
+                            <option class="option-menu" *ngFor="let item of monedas" value="{{item.id}}">
+                                {{item.moneda}}
+                            </option>
                         </select>
                     </div>
                     <span *ngIf="submitted && campoNoValido('precio')" class="caption color-red">Introduzca un precio
                         para su evento</span>
                 </div>
             </div>
+            <div class="fila gap-10 w-online">
+                <label class="option-menu online" for="online">Online
+                    <input type="checkbox" name="online" formControlName="online" >
+                </label>
+            </div>
+            <div *ngIf="conCuenta" class="fila gap-10 vendible">
+                <label class="option-menu online" for="online">Para venta
+                    <input type="checkbox" name="esVendible" formControlName="esVendible">
+                </label>
+            </div>
+            
 
 
 

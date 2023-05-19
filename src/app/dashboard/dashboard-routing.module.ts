@@ -13,6 +13,9 @@ import { EventosEspecialidadComponent } from './pages/eventos-especialidad/event
 import { EspecialistasEspecialidadComponent } from './pages/especialistas-especialidad/especialistas-especialidad.component';
 import { RevistasComponent } from './pages/revistas/revistas.component';
 import { NewsletterComponent } from './componentes/newsletter/newsletter.component';
+import { StripeCheckoutComponent } from './pages/stripe-checkout/stripe-checkout.component';
+import { VerificarComprasComponent } from './pages/verificar-compras/verificar-compras.component';
+import { VerificarComprasEspecialistaComponent } from './pages/verificar-compras-especialista/verificar-compras-especialista.component';
 
 const routes:Routes=[
   {
@@ -51,7 +54,15 @@ const routes:Routes=[
       {
         path:'newsletter',component:NewsletterComponent
       },
-
+      {
+        path:'stripe-checkout',component:StripeCheckoutComponent
+      },
+      {
+        path:'verificar_compras_clientes/:token',component:VerificarComprasComponent
+      },
+      {
+        path:'verificar_compras_especialistas/:token',component:VerificarComprasEspecialistaComponent
+      },
       {
         path:'',redirectTo:'home',pathMatch:'full'
       },

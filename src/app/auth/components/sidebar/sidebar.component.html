@@ -1,6 +1,6 @@
 <div class="columna gap-20 principal">
 
-    <div class="columna gap-10" *ngIf="esOro()">
+    <div class="columna gap-10" *ngIf="esOro">
         <div>
             <span class="option-menu">Eventos</span>
         </div>
@@ -47,6 +47,18 @@
                             
                         </a>
                     </li>
+                    <li>
+                        <a *ngIf="tieneVentas()" [ngClass]="habilitar()" [routerLink]="['ventas']" 
+                            [routerLinkActive]="['active']" class="texto-regular">
+                            <div class="fila gap-10">
+                                <span>Ventas del evento</span>
+                                <span>
+                                    <img src="./../../../../assets/images/icons-svg/carrito.svg" alt="">
+                                </span>
+                            </div>
+                            
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -67,6 +79,26 @@
                                 <span>Modificar datos</span>
                                 <span>
                                     <img src="./../../../../assets/images/icons-svg/user-gear-solid.svg" alt="">
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                    <li *ngIf="esOro">
+                        <a [routerLink]="['cancelar-suscripcion']" [routerLinkActive]="['active']" class="texto-regular">
+                            <div class="fila gap-10">
+                                <span>Cancelar suscripción</span>
+                                <span>
+                                    <img src="./../../../../assets/images/icons-svg/unsubscribe.svg" alt="">
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                    <li *ngIf="esOro">
+                        <a [routerLink]="['crear-cuenta']" [routerLinkActive]="['active']" class="texto-regular">
+                            <div class="fila gap-10">
+                                <span>Cuenta conectada</span>
+                                <span>
+                                    <img src="./../../../../assets/images/icons-svg/connected.svg" alt="">
                                 </span>
                             </div>
                         </a>

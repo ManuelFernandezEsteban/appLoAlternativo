@@ -1,9 +1,17 @@
+
 <div class="columna wrp-planes">
     <h3 class="title-l-primary">Planes de precios</h3>
+
+    <div class="columna">
+        <h5 class="title-l-primary">Promociones</h5>
+        <span class="texto-regular"><strong>Prueba gratis nuestros planes por 30 dias</strong></span>
+    </div>
+
     <div class="fila wrapper-planes">
+
         <div class="columna plan-plata">
-            <h4 class="title-l-primary">Plata</h4>
-            <span class="encabezado">Gratis</span>
+            <h4 class="title-l-primary">Plata-Solo directorio</h4>
+            <span class="encabezado">6,99 €/mes</span>
             <ul>
                 <li>
                     <span class="texto-regular ">Pertenencia al directorio</span>
@@ -14,19 +22,22 @@
                 </li>
 
                 <li>
-                    <del><span class="texto-regular "><strong>Participar en canal You tube LöAlternativo</strong> para
+                    <del><span class="texto-regular "><strong>Participar en canal You tube NativosTierra</strong> para
                             dar a conocer tu especialidad</span></del>
                 </li>
                 <li>
                     <del><span class="texto-regular "><strong>Difusión</strong> de tus eventos a traves de
                             <strong>nuestra newsletter</strong></span> </del>
                 </li>
+                <li>
+                    <del><span class="texto-regular "><strong>Posibildad de vender</strong> tus eventos a traves de
+                            <strong>nuestra plataforma</strong></span> </del>
+                </li>
             </ul>
-            <button class="boton btn-registro" (click)="onClickPlata()">Registrarse</button>
+            <button [disabled]="compraIniciada||especialistaService.especialista.PlaneId===1" class="boton btn-registro" (click)="seleccionPlan(1)" >Registrarse</button>
         </div>
-
         <div class="columna plan-oro">
-            <h4 class="title-l-primary">Oro</h4>
+            <h4 class="title-l-primary">Oro-Acceso completo mejorado</h4>
 
             <span class="encabezado">39,90 €/mes</span>
 
@@ -40,25 +51,45 @@
                 </li>
 
                 <li>
-                    <span class="texto-regular "><strong>Participar en canal You tube LöAlternativo</strong> para dar a
+                    <span class="texto-regular "><strong>Participar en canal You tube NativosTierra</strong> para dar a
                         conocer tu especialidad</span>
                 </li>
                 <li>
-                    <span class="texto-regular "><strong>Difusión</strong> de tus eventos a traves de <strong>nuestra
-                            newsletter</strong></span>
+                    <span class="texto-regular "><strong>Posibildad de vender</strong> tus eventos a traves de
+                        <strong>nuestra plataforma</strong> con una comisión del <strong>5%</strong></span>
                 </li>
             </ul>
-            <button class="boton btn-registro" (click)="onClickOro()">Registrarse</button>
-    <div class="columna">
-        <h5 class="title-l-primary">Promociones</h5>
-        <span class="texto-regular"><strong>Gratis</strong> hasta el <strong>31/05/2023</strong></span>
-        <span class="texto-regular"><strong>50% de descuento</strong> a partir del <strong>01/06/2023</strong> hasta
-            el <strong>31/12/2023</strong>
-        </span>
-    </div>
+            <button [disabled]="compraIniciada||especialistaService.especialista.PlaneId===2" class="boton btn-registro" (click)="seleccionPlan(2)">Registrarse</button>
+        </div>
+        <div class="columna plan-platino">
+            <h4 class="title-l-primary">Platino-Acceso completo</h4>
+
+            <span class="encabezado">19,90 €/mes</span>
+
+            <ul>
+                <li>
+                    <span class="texto-regular ">Pertenencia al directorio</span>
+                </li>
+                <li>
+                    <span class="texto-regular "><strong>Difusión</strong> de tu evento servicio en la web y
+                        revista</span>
+                </li>
+
+                <li>
+                    <span class="texto-regular "><strong>Participar en canal You tube NativosTierra</strong> para dar a
+                        conocer tu especialidad</span>
+                </li>
+                <li>
+                    <span class="texto-regular "><strong>Posibildad de vender</strong> tus eventos a traves de
+                        <strong>nuestra plataforma</strong> con una comisión del <strong>10%</strong></span>
+                </li>
+            </ul>
+            <button [disabled]="compraIniciada||especialistaService.especialista.PlaneId===3" class="boton btn-registro" (click)="seleccionPlan(3)">Registrarse</button>
         </div>
 
     </div>
+
+    
 
 
 

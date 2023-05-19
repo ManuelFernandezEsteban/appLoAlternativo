@@ -1,6 +1,7 @@
 import { Component, OnInit ,OnDestroy} from '@angular/core';
 import { NgcCookieConsentService, NgcInitializationErrorEvent, NgcInitializingEvent, NgcNoCookieLawEvent, NgcStatusChangeEvent } from 'ngx-cookieconsent';
 import { Subscription } from 'rxjs';
+import { SocketServiceCheckoutService } from 'src/app/services/socket-service-checkout.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -16,11 +17,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private revokeChoiceSubscription!: Subscription;
   private noCookieLawSubscription!: Subscription;
 
-  constructor(private ccService:NgcCookieConsentService){
+  constructor(private ccService:NgcCookieConsentService,private sck:SocketServiceCheckoutService){
 
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.popupOpenSubscription = this.ccService.popupOpen$.subscribe(
       () => {
       

@@ -43,13 +43,14 @@ export class PublicarEventoComponent implements OnInit {
     pdf: '',
     EspecialistaId: '',
     ActividadeId: 0,
-    MonedaId:1,
+    monedaId:1,
     twitter: '',
     facebook: '',
     instagram: '',
     you_tube: '',
     twich: '',
-    id: ''
+    id: '',
+    esVendible:false,
   }
 
   constructor(private tablaEventosService: TablaEventosService,
@@ -80,13 +81,14 @@ export class PublicarEventoComponent implements OnInit {
       pdf: '',
       EspecialistaId: this.especialistasService.especialista.id,
       ActividadeId: this.especialistasService.especialista.ActividadeId,
-      MonedaId:1,
+      monedaId:1,
       twitter: '',
       facebook: '',
       instagram: '',
       you_tube: '',
       twich: '',
-      id:''
+      id:'',
+      esVendible:false,
     }
 
   }

@@ -1,0 +1,42 @@
+<div class="container">
+    <h3 class="title-xl-primary color-accent pad-20 center">Verificación realización evento/servicio</h3>
+    <div class="box-donde color-accent" id="contacto">
+
+        <form [formGroup]="formVerificacionEspecialista" (ngSubmit)="onSubmit()">
+
+            <div class="fila gap-20">
+                <div class="columna gap-20 email-nombre">
+                                      
+                    <div class="columna gap-10">
+                        <label class="encabezado color-accent" for="email">Email:</label>
+                        <div class="columna gap-10">
+                            <input type="email" name="email" formControlName="email"
+                                placeholder="tuemail@email.es">
+                            <span *ngIf="campoValido('email') && submitted" class="caption color-red">No es un email
+                                válido</span>
+                        </div>
+                    </div>       
+                    <div class="columna gap-10">
+                        <label class="encabezado color-accent" for="password">Password:</label>
+                        <div class="columna gap-10">
+                            <input type="password" name="password" formControlName="password" placeholder="*******">                            
+                            <span *ngIf="campoValido('password') && submitted" class="caption color-red">Introduzca su password</span>
+                        </div>
+                    </div>             
+                    <div class="columna gap-10">                        
+                        <app-proteccion-datos-personales></app-proteccion-datos-personales>
+                        <label class="form-control texto-regular color-accent" for="privacidad">
+                            <input type="checkbox" name="privacidad" formControlName="privacidad">
+                            He leído y acepto la información sobre el tratamiento de datos personales
+                        </label>
+                        <span *ngIf="campoValido('privacidad') && submitted" class="caption color-red">Debe aceptar la
+                            política de
+                            privacidad
+                        </span>
+                    </div>
+                    <button [disabled]="submitted" class="boton btn-login end" type="submit">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

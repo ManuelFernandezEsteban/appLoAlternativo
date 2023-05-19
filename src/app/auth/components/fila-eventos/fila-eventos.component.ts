@@ -7,17 +7,17 @@ import { Evento } from '../../models/evento.model';
 })
 export class FilaEventosComponent implements OnInit {
 
-  @Input()evento!:Evento;
 
-  @Output()onFilaSelection=new EventEmitter<Evento>();
+  @Input() evento!: Evento;
+  @Output() onFilaSelection = new EventEmitter<Evento>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onFila(){
-    
+  onFila() {
+
     this.onFilaSelection.emit(this.evento);
   }
 }

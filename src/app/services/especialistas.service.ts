@@ -12,9 +12,13 @@ import { ActualizarEspecialistaForm } from '../interfaces/actualizar-especialist
 import { RespuestaEspecialista } from '../interfaces/respuesta-especialista.interface';
 import { EspecialistasActividad } from '../interfaces/especialistas-actividad.interface';
 import { NewPassForm } from '../interfaces/newPassForm.interface';
+import { Suscripcion } from '../interfaces/suscripcion';
+import { RespuestaCuenta } from '../interfaces/cuenta_conectada.interface';
 
 
 const base_url = environment.base_url;
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +27,10 @@ export class EspecialistasService {
 
   private limiteResultados:number=5;
   public especialista: Especialista;
+  public especialistaInicial:RegisterForm;
+
+  public isOroActive:boolean=false;
+
 
   constructor(private http: HttpClient) { }
 
@@ -48,17 +56,27 @@ export class EspecialistasService {
     )
   }
 
-  crearEspecialista(formData: RegisterForm) {
+  iniciarRegistro(formData:RegisterForm){
+
+    this.especialistaInicial=formData;
+
+  }
+
+  crearEspecialista(formData: RegisterForm) {    
+
     return this.http.post(`${base_url}/especialistas`, formData)
       .pipe(
         tap((res: RespuestaToken) => {
           localStorage.setItem('token', res.token)
-          this.especialista = res.especialista;
+          this.especialista = new Especialista(res.especialista);
+
+          //console.log(this.especialista)
           
         })
       );
-
   }
+
+
 
   loginEspecialista(formData: LoginForm) {
 
@@ -67,7 +85,8 @@ export class EspecialistasService {
         tap((res: RespuestaToken) => {
           localStorage.setItem('token', res.token);          
           this.especialista = new Especialista(res.especialista);
-          //console.log(this.especialista)
+          
+          
         })
       );
   }
@@ -97,26 +116,6 @@ export class EspecialistasService {
     );;
   }
 
-  cambiarPlan(plan: number) {
-    const token = localStorage.getItem('token');
-    let datos = { "PlaneId": plan };    
-    return this.http.patch(`${base_url}/especialistas/modificarPlan/${this.especialista.id}`,
-      datos,
-      {
-        headers: {
-          'x-token': token
-        }
-      }).pipe(
-        tap((res: RespuestaEspecialista) => {
-
-          this.especialista = new Especialista(res.especialista);
-
-          //console.log(this.especialista)
-
-        })
-      );
-  }
-
   getEspecialistasActividadPagination(actividad:number,pagina:number):Observable<EspecialistasActividad>{
     
     const desde:number = (pagina*this.limiteResultados)-this.limiteResultados;
@@ -136,4 +135,52 @@ export class EspecialistasService {
 
   }
 
+
+  getSubscription(){
+  
+    return this.http.get<Suscripcion>(`${base_url}/subscriptions/${this.especialista.id}`);
+
+  }
+
+  cancelarSuscripcion(){
+    return this.http.delete<Suscripcion>(`${base_url}/subscriptions/cancelar/${this.especialista.token_pago}`);
+  }
+
+  getAccount():Observable<RespuestaCuenta>{
+    const token = localStorage.getItem('token');
+    return this.http.get<RespuestaCuenta>(`${base_url}/especialistas/cuenta_conectada/${this.especialista.cuentaConectada}`,
+    {
+      headers: {
+        'x-token': token
+      }
+    })
+  }
+
+  crearCuentaConectada(){
+
+    const token = localStorage.getItem('token');
+
+    let callbackUrl: string = this.buildCallbackUrl();
+    return this.http.post(`${base_url}/especialistas/cuenta_conectada/${this.especialista.id}`,
+      {
+        callbackUrl
+      },
+      {
+        headers:{'x-token':token}
+      }
+    )
+
+  }
+
+  buildCallbackUrl(): string {
+
+    const protocol = window.location.protocol,
+      hostname = window.location.hostname,
+      port = window.location.port;
+    let callbackUrl = `${protocol}//${hostname}`;
+    if (port) {
+      callbackUrl += ':' + port;
+    }
+    return callbackUrl += '/auth/principal/crear-cuenta';
+  }
 }

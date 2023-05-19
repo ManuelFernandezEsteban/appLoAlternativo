@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EspecialistasService } from '../../../services/especialistas.service';
 import { Router } from '@angular/router';
 import { PlanesService } from '../../../services/planes.service';
-import { ResPlan } from '../../interfaces/plan.interface';
-import { Observable } from 'rxjs';
+import { Status, Suscripcion } from '../../../interfaces/suscripcion';
 
 @Component({
   selector: 'app-barra-superior',
@@ -12,8 +11,9 @@ import { Observable } from 'rxjs';
 })
 export class BarraSuperiorComponent implements OnInit {
 
-  private _plan:string='';
-
+  plan:string='';
+  fecha_fin_periodo:Date;
+  suscripcion:Suscripcion;
 
   constructor ( private router:Router,
                 public especialistaService:EspecialistasService,
@@ -21,8 +21,29 @@ export class BarraSuperiorComponent implements OnInit {
                 ) { }
 
   ngOnInit(): void {  
-    console.log(this.especialistaService.especialista)
+    //plan plata =>1
 
+    /*
+    if (this.especialistaService.especialista.PlaneId===1){
+      this.plan='PLATA';
+      return;
+    }*/
+
+    if (this.especialistaService.especialista.PlaneId===0){
+      this.plan='SIN PLAN';
+      return;
+    }
+
+    this.especialistaService.getSubscription().subscribe(
+      (suscripcion:Suscripcion)=>{
+        //console.log(suscripcion);
+        this.suscripcion=suscripcion;       
+        this.fecha_fin_periodo= suscripcion.current_period_end_Date;
+      
+    },err=>{
+      //console.log(err)
+    })
+/*
     const fecha_fin = new Date(this.especialistaService.especialista.fecha_fin_suscripcion);
 
     this.planesService.getPlan(this.especialistaService.especialista.PlaneId)
@@ -32,7 +53,7 @@ export class BarraSuperiorComponent implements OnInit {
         }else{
           this._plan=res.plan.nombre;
         }                
-      })     
+      })     */
   }
 
   cerrarSesion(){

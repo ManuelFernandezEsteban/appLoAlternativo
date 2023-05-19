@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { FormEventoFiles } from '../../../interfaces/formularioEvento.interface';
 import { Moneda, Monedas } from 'src/app/interfaces/monedas.interface';
 import { MonedasService } from '../../../services/monedas.service';
+import { EspecialistasService } from 'src/app/services/especialistas.service';
 
 @Component({
   selector: 'app-form-evento',
@@ -31,6 +32,7 @@ export class FormEventoComponent implements OnInit {
     email: ['', [Validators.required, Validators.email,Validators.maxLength(50)]],
     web: ['',[Validators.maxLength(50)]],
     online: [false],
+    esVendible: [false],
     direccion: ['',[Validators.maxLength(50)]],
     poblacion: ['',[Validators.maxLength(50)]],
     provincia: ['',[Validators.maxLength(50)]],
@@ -43,7 +45,7 @@ export class FormEventoComponent implements OnInit {
     id: [''],
     EspecialistaId: [''],
     ActividadeId: 0,
-    MonedaId: 1,
+    monedaId: 1,
     twitter: ['',[Validators.maxLength(255)]],
     facebook: ['',[Validators.maxLength(255)]],
     instagram: ['',[Validators.maxLength(255)]],
@@ -58,14 +60,17 @@ export class FormEventoComponent implements OnInit {
   fileImage: File;
   filePDF: File;
   monedas: Moneda[] = [];
+  conCuenta:boolean=false;
 
   constructor(private tablaEventosService: TablaEventosService,
     private route: Router,
     private fb: FormBuilder,
     private renderer: Renderer2,
-    private monedasService: MonedasService) { }
+    private monedasService: MonedasService,
+    private especialistaService:EspecialistasService) { }
 
   ngOnInit(): void {
+    console.log(this.eventoSeleccionado)
     this.formEvento = this.fb.group({
       evento: [this.eventoSeleccionado.evento, [Validators.required,Validators.maxLength(50)]],
       fecha: ['', Validators.required],
@@ -73,6 +78,7 @@ export class FormEventoComponent implements OnInit {
       email: [this.eventoSeleccionado.email, [Validators.required, Validators.email,Validators.maxLength(50)]],
       web: [this.eventoSeleccionado.web,[Validators.maxLength(50)]],
       online: [this.eventoSeleccionado.online],
+      esVendible: [this.eventoSeleccionado.esVendible],
       direccion: [this.eventoSeleccionado.direccion,[Validators.maxLength(50)]],
       poblacion: [this.eventoSeleccionado.localidad,[Validators.maxLength(50)]],
       provincia: [this.eventoSeleccionado.provincia,[Validators.maxLength(50)]],
@@ -80,12 +86,12 @@ export class FormEventoComponent implements OnInit {
       pais: [this.eventoSeleccionado.pais,[Validators.maxLength(30)]],
       telefono: [this.eventoSeleccionado.telefono,[Validators.required,Validators.maxLength(20)] ],
       descripcion: [this.eventoSeleccionado.descripcion, [Validators.required, Validators.minLength(10)]],
-      imagen: [],
+      imagen: [''],
       pdf: [null],
       id: [this.eventoSeleccionado.id],
       EspecialistaId: [this.eventoSeleccionado.EspecialistaId],
       ActividadeId: [this.eventoSeleccionado.ActividadeId],
-      MonedaId: [this.eventoSeleccionado.MonedaId],
+      monedaId: [this.eventoSeleccionado.monedaId],
       twitter: [this.eventoSeleccionado.twitter,[Validators.maxLength(255)]],
       facebook: [this.eventoSeleccionado.facebook,[Validators.maxLength(255)]],
       instagram: [this.eventoSeleccionado.instagram,[Validators.maxLength(255)]],
@@ -106,23 +112,21 @@ export class FormEventoComponent implements OnInit {
     this.monedasService.getMonedas<Monedas>()
       .subscribe(res => {
         this.monedas = res.monedas;
-        this.rellenarSelect();
+        //console.log(this.monedas)
+       // this.rellenarSelect();
+    })
+
+    if (this.especialistaService.especialista.cuentaConectada){
+      this.especialistaService.getAccount().subscribe(res=>{
+        this.conCuenta = res.cuenta.charges_enabled
       })
+    }
+
+    
+
+
   }
 
-  rellenarSelect() {
-    this.monedas.forEach(e => {
-      const option = this.renderer.createElement('option');
-      this.renderer.addClass(option, 'option-menu');
-      this.renderer.setAttribute(option, 'value', e.id.toString());
-      const valor = this.renderer.createText(e.moneda);
-      if (e.id == this.eventoSeleccionado.MonedaId) {
-        this.renderer.setAttribute(option, 'selected', '');
-      }
-      this.renderer.appendChild(option, valor);
-      this.renderer.appendChild(this.select.nativeElement, option);
-    })
-  }
 
   campoNoValido(campo: string): boolean {
     return this.submitted && this.formEvento.get(campo).invalid;
@@ -181,8 +185,7 @@ export class FormEventoComponent implements OnInit {
     if (this.filePDF) {
       formData.append("pdf", this.filePDF);
 
-    }    
-
+    }  
     this.formData.emit({
       evento: this.formEvento.value,
       files: formData

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../guards/auth.guard';
 
-
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
@@ -13,9 +12,9 @@ import { EliminarEventoComponent } from './pages/eliminar-evento/eliminar-evento
 import { ModificarDatosComponent } from './pages/modificar-datos/modificar-datos.component';
 import { PlanesComponent } from './pages/planes/planes.component';
 import { NewPasswordComponent } from './pages/new-password/new-password.component';
-
-
-
+import { CancelarSuscripcionComponent } from './pages/cancelar-suscripcion/cancelar-suscripcion.component';
+import { VentasEventoComponent } from './pages/ventas-evento/ventas-evento.component';
+import { CrearCuentaConectadaComponent } from './pages/crear-cuenta-conectada/crear-cuenta-conectada.component';
 
 
 const routes: Routes = [
@@ -27,7 +26,7 @@ const routes: Routes = [
       },
       {
         path: 'registro', component: RegistroComponent
-      },
+      },      
       {
         path:'new-password/:token', component:NewPasswordComponent
       },
@@ -37,29 +36,44 @@ const routes: Routes = [
         children: [
           {
             
-            path:'',redirectTo:'mis-eventos',pathMatch:'full'
+            path:'',redirectTo:'planes',pathMatch:'full'
           },
           {
           
-            path: 'mis-eventos', component: MisEventosComponent
+            path: 'mis-eventos', component: MisEventosComponent,
+            //canActivate:[PlanGuard]
           },
           {
           
-            path: 'publicar', component: PublicarEventoComponent
+            path: 'publicar', component: PublicarEventoComponent,
+            //canActivate:[PlanGuard]
           },
           {
             
-            path: 'modificar', component: ModificarEventoComponent
+            path: 'modificar', component: ModificarEventoComponent,
+            //canActivate:[PlanGuard]
           },
           {
             
-            path: 'eliminar', component: EliminarEventoComponent
+            path: 'eliminar', component: EliminarEventoComponent,
+            //canActivate:[PlanGuard]
           },
           {
             path: 'datos', component: ModificarDatosComponent
           },
           {
             path: 'planes', component: PlanesComponent
+          },
+          {
+            path: 'cancelar-suscripcion', component: CancelarSuscripcionComponent
+          },
+          {
+            path: 'ventas', component: VentasEventoComponent,
+            //canActivate:[PlanGuard]
+          },
+          {
+            path: 'crear-cuenta', component: CrearCuentaConectadaComponent,
+            //canActivate:[PlanGuard]
           },
         ]
       },

@@ -1,0 +1,19 @@
+<div class="columna cancelar_suscripcion gap-20 center">
+
+    <h3 class="title-l-primary color-accent">Crear cuenta conectada</h3>
+
+    <p class="texto-regular color-accent">
+        Estas a punto de crear tu cuenta conectada a traves Stripe. Con ella podrás vender tus eventos o cursos a traves de la plataforma.
+        Tan solo debes proporcionar a la plataforma tus datos bancarios donde quieres recibir el importe de tus ventas. 
+        En función de tu suscripción cobraremos una pequeña comisión.
+
+    </p>
+
+    <button [disabled]="yaCreada" class="boton btn-cancelar" (click)="crearCuentaConectada()">Crear Cuenta Conectada</button>
+
+    <p *ngIf="yaCreada" class="texto-regular color-accent">
+
+        Ya tienes una cuenta conectada activa.
+        
+    </p>
+</div> 

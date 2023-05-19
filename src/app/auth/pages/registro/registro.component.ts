@@ -30,7 +30,7 @@ export class RegistroComponent implements OnInit {
       condiciones: [false, Validators.requiredTrue],
       pais:['',Validators.required],
       no_info_comercial:[false],
-      PlaneId:[1],
+      PlaneId:[0],
       UsaHerramientas:[]
     },
   );
@@ -63,11 +63,19 @@ export class RegistroComponent implements OnInit {
     }
     this.valido=true;       
     this.submitted = false; 
-    console.log(this.formRegistro.value)
+    //console.log(this.formRegistro.value)
     this.loading=true;
+
+    //enviar a seleccion de plan
+
+    //this.especialistasService.iniciarRegistro(this.formRegistro.value);
+
+   // this.router.navigateByUrl('auth/seleccionPlan');
+
     this.especialistasService.crearEspecialista(this.formRegistro.value)
       .subscribe(res=>{
         //navegar a la zona privada (selección de plan)
+        
         this.loading=false;
         this.router.navigateByUrl('auth/principal/planes');
       },(err)=>{

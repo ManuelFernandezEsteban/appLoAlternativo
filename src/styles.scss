@@ -28,7 +28,8 @@
 @import './assets/scss/box-eventos-especialistas.scss';
 @import './assets/scss/privacidad.scss';
 @import './assets/scss/btn-whatssap.scss';
-
+@import './assets/scss/tabla_eventos.scss';
+@import './assets/scss/planes.scss';
 /*pagina principal*/
 
 app-header-responsive,
@@ -53,4 +54,8 @@ app-carousel{
     justify-content: center;
     align-items: center;
 }
-
+app-cancelar-suscripcion,app-crear-cuenta-conectada{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

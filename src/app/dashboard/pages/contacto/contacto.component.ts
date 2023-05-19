@@ -23,7 +23,9 @@ export class ContactoComponent implements OnInit {
     }
   );
 
-  constructor(private fb:FormBuilder,private contactoService:ContactoService,private newsletterService: NewsletterService) { }
+  constructor(private fb:FormBuilder,
+      private contactoService:ContactoService,
+      private newsletterService: NewsletterService) { }
 
   ngOnInit(): void {
   }

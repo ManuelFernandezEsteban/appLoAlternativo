@@ -32,9 +32,11 @@ export class Especialista{
     resetToken:            string;
     ActividadeId:          number;
     PlaneId:               number;
+    cuentaConectada:       string;
     Actividade:            Actividade;
     Plane:                 Plane;
-    UsaHerramientas?:       UsaHerramienta[];  
+    UsaHerramientas?:      UsaHerramienta[]; 
+      
     
     
     constructor(especialista:EspecialistaClass){
@@ -63,6 +65,9 @@ export class Especialista{
         this.UsaHerramientas = especialista.UsaHerramientas;       
         this.id=                  especialista.id;
         this.createdAt = especialista.createdAt;
+        this.cuentaConectada=especialista.cuentaConectada;
+        this.Actividade=especialista.Actividade;
+        this.Plane=especialista.Plane;
         
 
     }

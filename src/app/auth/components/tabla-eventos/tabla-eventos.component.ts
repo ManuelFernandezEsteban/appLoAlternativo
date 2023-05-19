@@ -23,7 +23,7 @@ export class TablaEventosComponent implements OnInit {
 
     this.eventosService.getEventos(this.especialistasService.especialista.id)
       .subscribe((res:RespuestaEventos)=>{  
-        //console.log(res)      
+        console.log(res)      
         this.eventos=res.eventos;
         //console.log(this.eventos)
       })
