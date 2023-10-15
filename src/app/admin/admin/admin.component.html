@@ -1,0 +1,48 @@
+<div class="fila">
+    <aside class="admin_aside_content">
+        <div class="columna">
+            <button class="boton" (click)="cargarEspecialistas()">ESPECIALISTAS</button>
+            <button [disabled]="!hayEspecialistaSeleccionado" class="boton"
+                (click)="subirFotoEspecialista()"><span>Añadir imagen</span> <span><img src="" alt=""></span></button>
+
+        </div>
+        <hr>
+        <div class="columna">
+            <button class="boton" (click)="cargarEventos()">EVENTOS</button>
+            <button [disabled]="!hayEventoSeleccionado" class="boton" (click)="subirFotoEvento()"><span>Añadir
+                    imagen</span> <span><img src="" alt=""></span></button>
+
+        </div>
+    </aside>
+    <section class="admin_section_content">
+
+        <div class="columna" *ngIf="seMuestranEspecialistas">
+            <div class="tabla">
+                <span class="option-menu">Nombre y apellidos</span>
+                <span class="option-menu">Especialidad</span>
+            </div>
+
+            <ng-container *ngFor="let especialista of especialistas">
+
+            </ng-container>
+        </div>
+
+        <div class="columna" *ngIf="seMuestranEventos">
+            <div class="tabla">
+                <span class="option-menu">Evento</span>
+                <span class="option-menu">Fecha</span>
+                <span class="option-menu">Especialidad</span>
+                <span class="option-menu">Precio</span>
+            </div>
+
+            <ng-container *ngFor="let evento of eventos">
+
+            </ng-container>
+        </div>
+
+
+
+
+
+    </section>
+</div>

@@ -1,0 +1,51 @@
+<div class="columna">
+
+    <app-header-no-menu></app-header-no-menu>
+
+
+    <div class="box-login color-accent">
+    
+        <h3 class="title-l-primary center">Login admin</h3>
+    
+        <form [formGroup]="formAdminLogin" (ngSubmit)="onLogin()" autocomplete="off" >
+    
+            <div class="columna gap-20">
+                <div class="columna gap-20">
+                    <div class="columna gap-10">
+                        <label class="encabezado color-accent" for="email">Email:</label>
+                        <div class="columna gap-10">
+                            <input type="text" name="email" formControlName="email" placeholder="tuemail@email.es">
+                            <span *ngIf="campoNoValido('email') && submitted" class="caption color-red">No es un email válido</span>
+                        </div>
+                    </div>
+                    <div class="columna gap-10">
+                        <label class="encabezado color-accent" for="password">Password:</label>
+                        <div class="columna gap-10">
+                            <input type="password" name="password" formControlName="password" placeholder="*******">
+                            <a class="caption color-accent" (click)="forgotPassword()">¿Olvidaste la contraseña? Introduce tu email de registro y pulsa este enlace</a>
+                            <span *ngIf="campoNoValido('password') && submitted" class="caption color-red">Introduzca su password</span>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="columna gap-20">
+                    <button class="boton btn-login center sub-title-xl" type="submit">Login</button>
+                </div>
+            </div>
+        </form>
+        <div class="fila">
+            <a class="sub-title-xl color-accent" [routerLink]="['/']">Volver</a>
+        </div>
+    
+    
+    </div>
+    
+    <ngx-loading
+        [show]="loading"
+        [config]="{fullScreenBackdrop:true}">
+    
+    </ngx-loading>
+    
+
+</div>
+
